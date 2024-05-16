@@ -30,4 +30,4 @@ public class Program
 public class Hero {
     public int health;
     public int powerLevel;
-}//Based on the HelloWorld File, turn this into a class.
+}
