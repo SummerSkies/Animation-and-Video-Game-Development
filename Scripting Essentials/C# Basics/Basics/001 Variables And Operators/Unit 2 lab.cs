@@ -45,3 +45,22 @@ public class Operators
 		Console.WriteLine(answer);
 	}
 }
+
+//Code used in the Accountability Video
+public class AccountabilityVideo
+{
+	
+	public static void Main()
+	{
+		//Common variable types include ints, strings, bools, and floats.
+		int age = 10;
+		string name = "June";
+		bool isOn = false;
+		float length = 12.5f;
+		
+		//Common operators include incrementing, dividing, and subtracting.
+		age ++;
+		length = length / 2;
+		length = length - age;
+	}
+}
