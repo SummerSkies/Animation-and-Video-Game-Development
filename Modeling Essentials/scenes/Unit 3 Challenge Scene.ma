@@ -1,6 +1,6 @@
 //Maya ASCII 2025 scene
 //Name: Unit 3 Challenge Scene.ma
-//Last modified: Sat, May 18, 2024 09:51:13 AM
+//Last modified: Sat, May 18, 2024 09:51:41 AM
 //Codeset: 1252
 requires maya "2025";
 requires "mtoa" "5.4.0";
@@ -11,7 +11,7 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202402161156-0caf8d1269";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19045)";
-fileInfo "UUID" "8D58F856-4A12-FDCF-BB65-D5B0F68B1580";
+fileInfo "UUID" "98CEDB02-44E8-0FB3-42F4-7BB57FCF8AEC";
 createNode transform -s -n "persp";
 	rename -uid "F2041BEB-41F6-487D-4DAC-8A95D1F1A7DF";
 	setAttr ".v" no;
@@ -371,10 +371,6 @@ createNode mesh -n "Lamp_ShadeShape" -p "Lamp_Shade";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-createNode place3dTexture -n "place3dTexture1";
-	rename -uid "DED15CEE-4A04-B0FE-9D5F-7C8133297E9A";
-createNode place3dTexture -n "place3dTexture2";
-	rename -uid "767C2C8E-4A84-E03C-5310-F28B1B04EE18";
 createNode lightLinker -s -n "lightLinker1";
 	rename -uid "071A025F-4E2A-1D51-0E8A-6F80D854599A";
 	setAttr -s 4 ".lnk";
@@ -831,7 +827,7 @@ createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
 	setAttr ".tgi[0].ni[16].y" -275.71429443359375;
 	setAttr ".tgi[0].ni[16].nvs" 1923;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "12BD84EE-4A79-C8BC-B7DC-5E9C95FFF317";
+	rename -uid "72710036-40B4-4F5E-1A3C-D18B35522309";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 1;
@@ -851,7 +847,7 @@ select -ne :defaultShaderList1;
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderUtilityList1;
-	setAttr -s 7 ".u";
+	setAttr -s 5 ".u";
 select -ne :defaultRenderingList1;
 select -ne :defaultTextureList1;
 	setAttr -s 6 ".tx";
@@ -930,8 +926,6 @@ connectAttr "place2dTexture1.o" "ramp1.uv";
 connectAttr "place2dTexture1.ofs" "ramp1.fs";
 connectAttr "place2dTexture2.o" "water1.uv";
 connectAttr "place2dTexture2.ofs" "water1.fs";
-connectAttr "place3dTexture1.wim" "brownian1.pm";
-connectAttr "place3dTexture2.wim" "solidFractal1.pm";
 connectAttr "place2dTexture3.o" "cloth1.uv";
 connectAttr "place2dTexture3.ofs" "cloth1.fs";
 connectAttr "place2dTexture4.o" "cloth2.uv";
@@ -950,8 +944,6 @@ connectAttr "phong1SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5
 		;
 connectAttr "solidFractal1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
 		;
-connectAttr "place3dTexture2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
-		;
 connectAttr "place2dTexture3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[8].dn"
 		;
 connectAttr "cloth1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[9].dn"
@@ -959,8 +951,6 @@ connectAttr "cloth1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[9].
 connectAttr "absolute1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[10].dn"
 		;
 connectAttr "brownian1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[11].dn"
-		;
-connectAttr "place3dTexture1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[12].dn"
 		;
 connectAttr "water1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[13].dn"
 		;
@@ -976,8 +966,6 @@ connectAttr "Brown_Blinn.msg" ":defaultShaderList1.s" -na;
 connectAttr "Blue_Phong.msg" ":defaultShaderList1.s" -na;
 connectAttr "place2dTexture1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "place2dTexture2.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place3dTexture1.msg" ":defaultRenderUtilityList1.u" -na;
-connectAttr "place3dTexture2.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "absolute1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "place2dTexture3.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "place2dTexture4.msg" ":defaultRenderUtilityList1.u" -na;
