@@ -1,6 +1,6 @@
 //Maya ASCII 2025 scene
 //Name: Rocking Chair.ma
-//Last modified: Tue, May 21, 2024 04:24:47 PM
+//Last modified: Tue, May 21, 2024 04:33:53 PM
 //Codeset: 1252
 requires maya "2025";
 requires "mtoa" "5.4.0";
@@ -11,17 +11,17 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202402161156-0caf8d1269";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19045)";
-fileInfo "UUID" "A00998CF-43B6-996C-EEBC-20B29189EA41";
+fileInfo "UUID" "79FB4A37-41AD-A82D-30A3-A78646AA646E";
 createNode transform -s -n "persp";
 	rename -uid "E2AC06CA-4CE0-C29B-DC78-D088EDF8894E";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 11.264925191201126 4.1096915674424839 20.652835475796408 ;
-	setAttr ".r" -type "double3" 3.2616472691463421 1464.1999999995242 0 ;
+	setAttr ".t" -type "double3" 5.0401995304995584 8.1883341459538457 15.352549284264901 ;
+	setAttr ".r" -type "double3" -7.5383527310020941 1813.7999999987176 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "47C798E4-4E18-9C13-BB3B-0CA3462D8344";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 26.526303641210266;
+	setAttr ".coi" 19.58542879475042;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -229,17 +229,41 @@ createNode transform -n "pCube4";
 	setAttr ".sp" -type "double3" 0 -0.5 0 ;
 createNode transform -n "pCube5";
 	rename -uid "9256BE6E-4825-1B9D-0EAF-37BC07DC8430";
-	setAttr ".s" -type "double3" 0.385 1 0.385 ;
+	setAttr ".t" -type "double3" 0 3.3271706151747793 0 ;
+	setAttr ".s" -type "double3" 4.4352291514850632 0.33729597162987013 4.4352291514850632 ;
 createNode mesh -n "pCubeShape4" -p "pCube5";
 	rename -uid "4DDA6190-4223-D915-052E-619A10C144D0";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
+	setAttr ".pv" -type "double2" 0.50000002980232239 0.375 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 60 ".pt[0:59]" -type "float3"  -9.778887e-09 0.10038643 
+		0 -9.778887e-09 0.10038643 0 -9.778887e-09 0.10038643 0 -9.778887e-09 0.10038643 
+		0 -9.778887e-09 0.10038643 0 -9.778887e-09 0.10038643 0 -9.778887e-09 -0.59951097 
+		0 -9.778887e-09 -0.59951097 0 -9.778887e-09 -0.59951097 0 -9.778887e-09 -0.59951097 
+		0 -9.778887e-09 -0.59951097 0 -9.778887e-09 -0.59951097 0 -9.778887e-09 -0.59951079 
+		0 -0.04590492 0.042937063 0.13116007 -0.015301649 0.30916592 0.13116007 0.015301643 
+		0.30916592 0.13116007 0.04590492 0.042937063 0.13116007 -9.778887e-09 -0.59951097 
+		0 -9.778887e-09 -0.59951079 0 -0.04590492 0.34599674 0 -0.015301649 0.61222565 0 
+		0.015301643 0.61222565 0 0.04590492 0.34599674 0 -9.778887e-09 -0.59951097 0 -9.778887e-09 
+		-0.59951079 0 -0.04590492 0.042937063 -0.13116007 -0.015301649 0.30916592 -0.13116007 
+		0.015301643 0.30916592 -0.13116007 0.04590492 0.042937063 -0.13116007 -9.778887e-09 
+		-0.59951097 0 -9.778887e-09 -0.59951097 0 -9.778887e-09 -0.59951097 0 -9.778887e-09 
+		-0.59951097 0 -9.778887e-09 -0.59951097 0 -9.778887e-09 -0.59951097 0 -9.778887e-09 
+		-0.59951097 0 -9.778887e-09 0.10038601 0 -9.778887e-09 0.10038601 0 -9.778887e-09 
+		0.10038601 0 -9.778887e-09 0.10038601 0 -9.778887e-09 0.10038601 0 -9.778887e-09 
+		0.10038601 0 0 0.10038601 0 -0.04590492 0.034958906 -0.13116007 -0.015301649 -0.30916357 
+		-0.13116007 0.015301643 -0.30916357 -0.13116007 0.04590492 0.034958906 -0.13116007 
+		-9.778887e-09 0.10038586 0 0 0.10038568 0 -0.04590492 0.034957506 0 -0.015301649 
+		-0.30916497 0 0.015301643 -0.30916497 0 0.04590492 0.034957506 0 -9.778887e-09 0.10038586 
+		0 0 0.10038601 0 -0.04590492 0.034958906 0.13116007 -0.015301649 -0.30916357 0.13116007 
+		0.015301643 -0.30916357 0.13116007 0.04590492 0.034958906 0.13116007 -9.778887e-09 
+		0.10038586 0;
 createNode transform -n "pCube6";
 	rename -uid "252FEA91-4CE6-9469-3D86-5E98AF11F64C";
 	setAttr ".t" -type "double3" 2.4259058877711377 3 0 ;
@@ -1204,6 +1228,8 @@ createNode polyCloseBorder -n "polyCloseBorder1";
 	setAttr ".ics" -type "componentList" 3 "e[6]" "e[8]" "e[10:11]";
 createNode polyCube -n "polyCube2";
 	rename -uid "7383C8F4-4088-69B4-C336-1EA8E21A5EB2";
+	setAttr ".sw" 5;
+	setAttr ".sd" 4;
 	setAttr ".cuv" 4;
 createNode animCurveTL -n "pCube10_translateX";
 	rename -uid "258D7045-4C0E-2FBE-D343-B4900787DBDA";
@@ -1463,7 +1489,7 @@ createNode polySplitRing -n "polySplitRing11";
 	setAttr ".p[0]"  0 0 1;
 	setAttr ".fq" yes;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "4F871A22-4BE0-A632-6D65-9183E3BDE331";
+	rename -uid "8D17D4E1-4032-7C96-2BBB-28A8723DB598";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 1;
