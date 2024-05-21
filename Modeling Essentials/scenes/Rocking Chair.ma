@@ -1,6 +1,6 @@
 //Maya ASCII 2025 scene
 //Name: Rocking Chair.ma
-//Last modified: Tue, May 21, 2024 04:45:57 PM
+//Last modified: Tue, May 21, 2024 04:47:48 PM
 //Codeset: 1252
 requires maya "2025";
 requires "stereoCamera" "10.0";
@@ -12,12 +12,12 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202402161156-0caf8d1269";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19045)";
-fileInfo "UUID" "A3D55AF5-405B-991E-4BE9-E1BE28AE2447";
+fileInfo "UUID" "4430BD89-4457-14CF-A8EA-7D9B983A9362";
 createNode transform -s -n "persp";
 	rename -uid "E2AC06CA-4CE0-C29B-DC78-D088EDF8894E";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 33.087532265597048 19.257067403764985 8.7799827446294714 ;
-	setAttr ".r" -type "double3" -21.3383527309973 1869.3999999986211 0 ;
+	setAttr ".t" -type "double3" -32.91058712335856 3.0947219383611682 13.473927350060421 ;
+	setAttr ".r" -type "double3" 3.8616472690440031 1736.9999999983308 4.3786085329291686e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "47C798E4-4E18-9C13-BB3B-0CA3462D8344";
 	setAttr -k off ".v" no;
@@ -81,6 +81,8 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode transform -n "Rocking_Chair";
 	rename -uid "06D73C88-4A91-D594-D6C9-7699D60F4728";
+	setAttr ".t" -type "double3" 0 0.93568460745146576 0 ;
+	setAttr ".r" -type "double3" -4.0773826860360822 0 0 ;
 createNode transform -n "Back_Support_2" -p "Rocking_Chair";
 	rename -uid "BEE38EBD-4652-F45F-9F00-FD8AA4B9539C";
 	setAttr ".rp" -type "double3" 0 8.3011972349303704 -2.5408262314165553 ;
@@ -1540,7 +1542,7 @@ createNode transformGeometry -n "transformGeometry3";
 	setAttr ".txf" -type "matrix" 0 0 -0.38500000000000001 0 4.5367608551551717 0 0 0
 		 0 -0.35738526298025047 0 0 0 5.4547443162706921 -2.0216614013252396 1;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "49C834E3-407B-F790-5354-B696B1803D3C";
+	rename -uid "CB68AEDE-4D00-0DFA-B1BB-CBB937FB9428";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 1;
