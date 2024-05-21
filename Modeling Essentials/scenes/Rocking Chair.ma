@@ -1,6 +1,6 @@
 //Maya ASCII 2025 scene
 //Name: Rocking Chair.ma
-//Last modified: Tue, May 21, 2024 03:03:07 PM
+//Last modified: Tue, May 21, 2024 03:28:03 PM
 //Codeset: 1252
 requires maya "2025";
 requires "mtoa" "5.4.0";
@@ -11,17 +11,17 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202402161156-0caf8d1269";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19045)";
-fileInfo "UUID" "93B8A885-40C9-2FE8-6296-4FB12C66A036";
+fileInfo "UUID" "2D7F2CE2-4EDA-310F-0BAD-809FE0A700BB";
 createNode transform -s -n "persp";
 	rename -uid "E2AC06CA-4CE0-C29B-DC78-D088EDF8894E";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -2.5903374100389338 16.103103948297473 17.9481116745131 ;
-	setAttr ".r" -type "double3" -33.938352729625436 -17.400000000000052 8.3326877580432963e-16 ;
+	setAttr ".t" -type "double3" 4.6556764235980346 12.115604094805661 11.150353926732208 ;
+	setAttr ".r" -type "double3" -33.338352728951556 732.59999999997899 4.0738037370430997e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "47C798E4-4E18-9C13-BB3B-0CA3462D8344";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 20.145975790199358;
+	setAttr ".coi" 16.188638522791297;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -90,21 +90,21 @@ createNode mesh -n "pCubeShape1" -p "pCube1";
 	setAttr -s 2 ".iog";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.1666666716337204 ;
+	setAttr ".pv" -type "double2" 0.5 0.375 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr -s 24 ".pt";
-	setAttr ".pt[2]" -type "float3" -0.69018883 0 0 ;
-	setAttr ".pt[3]" -type "float3" -0.69018883 -3.7252903e-09 0 ;
-	setAttr ".pt[4]" -type "float3" -0.69018924 -3.7252903e-09 0 ;
-	setAttr ".pt[5]" -type "float3" -0.69018924 -3.7252903e-09 0 ;
-	setAttr ".pt[8]" -type "float3" -1.1680127 0 1.7155108 ;
-	setAttr ".pt[9]" -type "float3" -1.1680127 0 1.7155108 ;
-	setAttr ".pt[10]" -type "float3" -1.1680127 0 1.7155108 ;
-	setAttr ".pt[11]" -type "float3" -1.1680127 0 1.7155108 ;
+	setAttr ".pt[2]" -type "float3" -1.2365875 0 0.54639834 ;
+	setAttr ".pt[3]" -type "float3" -0.14378962 -3.7252903e-09 0.54639834 ;
+	setAttr ".pt[4]" -type "float3" -1.2365882 -3.7252903e-09 -0.54639834 ;
+	setAttr ".pt[5]" -type "float3" -0.14379013 -3.7252903e-09 -0.54639834 ;
+	setAttr ".pt[8]" -type "float3" -1.0033926 0 1.8801311 ;
+	setAttr ".pt[9]" -type "float3" -1.3326327 0 1.8801311 ;
+	setAttr ".pt[10]" -type "float3" -1.3326327 0 1.5508909 ;
+	setAttr ".pt[11]" -type "float3" -1.0033926 0 1.5508909 ;
 	setAttr ".pt[12]" -type "float3" -1.4334702 0 2.5998662 ;
 	setAttr ".pt[13]" -type "float3" -1.4334702 0 2.5998662 ;
 	setAttr ".pt[14]" -type "float3" -1.4334705 0 2.5998662 ;
@@ -222,8 +222,164 @@ createNode transform -n "pCube4";
 	setAttr ".s" -type "double3" -0.38463517288873084 9.7111881539387035 -0.385 ;
 	setAttr ".rp" -type "double3" 0 -0.5 0 ;
 	setAttr ".sp" -type "double3" 0 -0.5 0 ;
+createNode transform -n "pCube5";
+	rename -uid "9256BE6E-4825-1B9D-0EAF-37BC07DC8430";
+	setAttr ".s" -type "double3" 0.385 1 0.385 ;
+createNode mesh -n "pCubeShape4" -p "pCube5";
+	rename -uid "4DDA6190-4223-D915-052E-619A10C144D0";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+createNode transform -n "pCube6";
+	rename -uid "252FEA91-4CE6-9469-3D86-5E98AF11F64C";
+	setAttr ".t" -type "double3" 2.4259058877711377 3 0 ;
+	setAttr ".r" -type "double3" -90 0 0 ;
+	setAttr ".s" -type "double3" 0.58022161254257909 4.6305820787930942 0.385 ;
+	setAttr ".rp" -type "double3" 0.13254828722056183 0 0 ;
+	setAttr ".sp" -type "double3" 0.34428126550795324 0 0 ;
+	setAttr ".spt" -type "double3" -0.21173297828739712 0 0 ;
+createNode mesh -n "pCubeShape6" -p "pCube6";
+	rename -uid "E0915490-4DBE-FF14-7D11-F19B043742B2";
+	setAttr -k off ".v";
+	setAttr -s 2 ".iog";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr -s 6 ".gtag";
+	setAttr ".gtag[0].gtagnm" -type "string" "back";
+	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[2]";
+	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
+	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[3]";
+	setAttr ".gtag[2].gtagnm" -type "string" "front";
+	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[0]";
+	setAttr ".gtag[3].gtagnm" -type "string" "left";
+	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "f[5]";
+	setAttr ".gtag[4].gtagnm" -type "string" "right";
+	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[4]";
+	setAttr ".gtag[5].gtagnm" -type "string" "top";
+	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
+	setAttr ".pv" -type "double2" 0.25 0.125 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 4 ".pt";
+	setAttr ".pt[0]" -type "float3" 0 0.11371844 0 ;
+	setAttr ".pt[2]" -type "float3" 0 -0.11371844 0 ;
+	setAttr ".pt[4]" -type "float3" 0 -0.11371844 0 ;
+	setAttr ".pt[6]" -type "float3" 0 0.11371844 0 ;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "pCube7";
+	rename -uid "1CFF4190-419E-E9BC-0358-6E95B9032723";
+	setAttr ".t" -type "double3" -2.6888033317658682 3 0 ;
+	setAttr ".r" -type "double3" -90 -180 0 ;
+	setAttr ".s" -type "double3" 0.58022161254257909 4.6305820787930942 0.385 ;
+	setAttr ".rp" -type "double3" 0.13254828722056183 0 0 ;
+	setAttr ".rpt" -type "double3" -1.0547118733938987e-15 -3.051958599052627e-17 2.6020852139652106e-16 ;
+	setAttr ".sp" -type "double3" 0.34428126550795324 0 0 ;
+	setAttr ".spt" -type "double3" -0.21173297828739712 0 0 ;
+createNode transform -n "pCube8";
+	rename -uid "0D56E533-4752-4902-1382-CB89DF369BE2";
+	setAttr ".t" -type "double3" -0.13254828722056192 3 2.2381426545504639 ;
+	setAttr ".r" -type "double3" -90 -90 0 ;
+	setAttr ".s" -type "double3" 0.58022161254257909 5.1463365811514832 0.385 ;
+	setAttr ".rp" -type "double3" 0.13254828722056183 0 0 ;
+	setAttr ".rpt" -type "double3" 8.3266726846886741e-17 -3.2111719580231851e-17 1.1102230246251565e-16 ;
+	setAttr ".sp" -type "double3" 0.34428126550795324 0 0 ;
+	setAttr ".spt" -type "double3" -0.21173297828739712 0 0 ;
+createNode mesh -n "pCubeShape8" -p "pCube8";
+	rename -uid "3D971AD8-4011-E5E7-92FE-CABFE2D3F69A";
+	setAttr -k off ".v";
+	setAttr -s 2 ".iog";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr -s 6 ".gtag";
+	setAttr ".gtag[0].gtagnm" -type "string" "back";
+	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[2]";
+	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
+	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[3]";
+	setAttr ".gtag[2].gtagnm" -type "string" "front";
+	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[0]";
+	setAttr ".gtag[3].gtagnm" -type "string" "left";
+	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "f[5]";
+	setAttr ".gtag[4].gtagnm" -type "string" "right";
+	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[4]";
+	setAttr ".gtag[5].gtagnm" -type "string" "top";
+	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
+	setAttr ".pv" -type "double2" 0.25 0.125 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".pt[0:7]" -type "float3"  0.074620545 0.099200577 0 
+		0 -0.017028041 0 0.074620545 -0.099200577 0 0 0.017028041 0 0.074620545 -0.099200577 
+		0 0 0.017028041 0 0.074620545 0.099200577 0 0 -0.017028041 0;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "pCube9";
+	rename -uid "AE69A459-4122-C396-24B8-6C9AC20CC4EF";
+	setAttr ".t" -type "double3" -0.13254828722056192 3 -2.2314961115599981 ;
+	setAttr ".r" -type "double3" -90 90 0 ;
+	setAttr ".s" -type "double3" 0.58022161254257909 5.1463365811514832 0.385 ;
+	setAttr ".rp" -type "double3" 0.13254828722056183 0 0 ;
+	setAttr ".rpt" -type "double3" 8.3266726846886741e-17 -3.2111719580231851e-17 1.1102230246251565e-16 ;
+	setAttr ".sp" -type "double3" 0.34428126550795324 0 0 ;
+	setAttr ".spt" -type "double3" -0.21173297828739712 0 0 ;
 parent -s -nc -r -add "|pCube1|pCubeShape1" "pCube2" ;
 parent -s -nc -r -add "|pCube3|pCubeShape3" "pCube4" ;
+parent -s -nc -r -add "|pCube6|pCubeShape6" "pCube7" ;
+parent -s -nc -r -add "|pCube8|pCubeShape8" "pCube9" ;
 createNode lightLinker -s -n "lightLinker1";
 	rename -uid "ED9D1F63-46ED-400F-D7F2-2FBF0AB0086D";
 	setAttr -s 2 ".lnk";
@@ -309,8 +465,11 @@ createNode script -n "sceneConfigurationScriptNode";
 createNode polyCloseBorder -n "polyCloseBorder1";
 	rename -uid "E7DFC979-4A00-6EB6-FA2F-75A207FC5CD0";
 	setAttr ".ics" -type "componentList" 3 "e[6]" "e[8]" "e[10:11]";
+createNode polyCube -n "polyCube2";
+	rename -uid "7383C8F4-4088-69B4-C336-1EA8E21A5EB2";
+	setAttr ".cuv" 4;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "4CAD9D54-41F7-B901-8547-A09486390D10";
+	rename -uid "2DE691B7-4435-ECF8-15BC-42B3BB1B3FE5";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 1;
@@ -334,7 +493,7 @@ select -ne :standardSurface1;
 	setAttr ".bc" -type "float3" 0.40000001 0.40000001 0.40000001 ;
 	setAttr ".sr" 0.5;
 select -ne :initialShadingGroup;
-	setAttr -s 4 ".dsm";
+	setAttr -s 9 ".dsm";
 	setAttr ".ro" yes;
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
@@ -358,6 +517,7 @@ select -ne :hardwareRenderGlobals;
 	setAttr ".btrs" 512;
 connectAttr "polySplitRing1.out" "|pCube1|pCubeShape1.i";
 connectAttr "polyCloseBorder1.out" "|pCube3|pCubeShape3.i";
+connectAttr "polyCube2.out" "pCubeShape4.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
@@ -372,4 +532,9 @@ connectAttr "|pCube1|pCubeShape1.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "|pCube2|pCubeShape1.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "|pCube3|pCubeShape3.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "|pCube4|pCubeShape3.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "pCubeShape4.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "|pCube6|pCubeShape6.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "|pCube7|pCubeShape6.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "|pCube8|pCubeShape8.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "|pCube9|pCubeShape8.iog" ":initialShadingGroup.dsm" -na;
 // End of Rocking Chair.ma
