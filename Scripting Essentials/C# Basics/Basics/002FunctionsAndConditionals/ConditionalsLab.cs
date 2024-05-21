@@ -2,42 +2,56 @@ using System;
 					
 public class Program
 {
-	public Operations myOperator;
 	
 	public void Main()
 	{
-		myOperator = new Operations();
+		//Call Challenge 1 code
+		checkTemperature();
 		
-		Console.WriteLine("Welcome");
-		myOperator.DoMath(10, 4);
-		myOperator.DoMath(20, 7);
-		myOperator.DoMath(30, 15);
-		myOperator.Compare(4,3);
-		myOperator.Compare(3,4);
-		myOperator.CheckPassword("SevenOF9");
-		myOperator.CheckPassword("OU812");
-	}
-}
-
-public class Operations {
-	public void DoMath (int value, int value2) {
-		var number = value + value2;
-		Console.WriteLine(number);
+		//Call Challenge 2 code
+		float[] scores = {95, 84.3f, 72};
+		checkScores(scores);
 	}
 	
-	public void Compare (int value, int value2) {
-		if(value > value2) {
-			Console.WriteLine("True, the first greater.");
-		} else {
-			Console.WriteLine("False, the second is greater.");
+	public void checkTemperature()
+	{
+		//Gets user input through the console, then converts it for use
+		Console.WriteLine("What is the current temperature in Celsius?");
+		string readTemperature = Console.ReadLine();
+		float temperature = float.Parse(readTemperature);
+		
+		//Checks temperature and prints appropriate message
+		if (temperature > 30)
+		{
+			Console.WriteLine("Be sure to stay hydrated and avoid prolonged sun exposure!");
+		}
+		else
+		{
+			Console.WriteLine("It's nice outside! Go enjoy this pleasant weather!");
 		}
 	}
 	
-	public void CheckPassword (string password) {
-		if(password == "OU812") {
-			Console.WriteLine("Correct Password");
-		} else {
-			Console.WriteLine("Incorrect Password");	
+	public void checkScores(float[] scores)
+	{	
+		//Gets user input through a passed value instead of through console
+		Console.WriteLine("Your scores as percentages are: " + scores);
+		
+		//Iterates over input array
+		for (int i = 0; i < scores.Length; i += 3)
+		{
+			//Checks scores and prints appropriate messages
+			if (scores[i] > 90)
+			{
+				Console.WriteLine("You got an A! Congradulations!");
+			}
+			else if (scores[i] > 80)
+			{
+				Console.WriteLine("You got a B! Good job!");
+			}
+			else
+			{
+				Console.WriteLine("You didn't meet your goal this time. Keep trying!");
+			}
 		}
 	}
 }
