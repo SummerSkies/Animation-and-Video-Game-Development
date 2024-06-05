@@ -1,6 +1,10 @@
 //Maya ASCII 2025 scene
 //Name: Rocking Chair.ma
+<<<<<<< HEAD
 //Last modified: Tue, Jun 04, 2024 08:29:46 PM
+=======
+//Last modified: Tue, Jun 04, 2024 08:28:52 PM
+>>>>>>> a387a8ae2073888a90e092d40504cbbc2b64b9be
 //Codeset: UTF-8
 requires maya "2025";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.4.1.2";
@@ -12,7 +16,11 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202404240506-c155a58772";
 fileInfo "osv" "Mac OS X 14.4.1";
+<<<<<<< HEAD
 fileInfo "UUID" "2077EA95-0440-A24B-6B97-57B7E964EE88";
+=======
+fileInfo "UUID" "1ABCD599-1C41-6837-89CF-2C90D411C696";
+>>>>>>> a387a8ae2073888a90e092d40504cbbc2b64b9be
 createNode transform -s -n "persp";
 	rename -uid "E2AC06CA-4CE0-C29B-DC78-D088EDF8894E";
 	setAttr ".v" no;
@@ -105,7 +113,11 @@ createNode mesh -n "Back_Support_Shape2" -p "Back_Support_2";
 	setAttr ".gtag[4].gtagcmp" -type "componentList" 6 "f[4]" "f[8]" "f[12]" "f[16]" "f[20]" "f[24]";
 	setAttr ".gtag[5].gtagnm" -type "string" "top";
 	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
+<<<<<<< HEAD
 	setAttr ".pv" -type "double2" 0.81347286701202393 0.67576050758361816 ;
+=======
+	setAttr ".pv" -type "double2" 0.81664101760387409 0.73935425281524658 ;
+>>>>>>> a387a8ae2073888a90e092d40504cbbc2b64b9be
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 46 ".uvst[0].uvsp[0:45]" -type "float2" 0.89762616 0.7371459
 		 0.73400801 0.62307703 0.93626279 0.7257607 0.93644696 0.73282278 0.69420093 0.68799138
@@ -741,11 +753,19 @@ createNode mesh -n "Right_Arm_Cross_Support_Shape1" -p "Right_Arm_Cross_Support_
 	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
 	setAttr ".pv" -type "double2" 0.6822924093604078 0.59856982550621107 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
+<<<<<<< HEAD
 	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.61714292 0.40379438
 		 0.63099647 0.40370587 0.61848265 0.61340177 0.63233614 0.6133132 0.61857116 0.62725532
 		 0.63242471 0.62716675 0.61991107 0.83686256 0.63376456 0.83677411 0.61999959 0.85071611
 		 0.63385314 0.85062766 0.64484996 0.40361729 0.64618963 0.61322463 0.60328937 0.40388289
 		 0.6046291 0.61349034;
+=======
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.59274614 0.40379438
+		 0.60659969 0.40370587 0.59408587 0.61340177 0.60793936 0.6133132 0.59417439 0.62725532
+		 0.60802794 0.62716675 0.5955143 0.83686256 0.60936779 0.83677411 0.59560281 0.85071611
+		 0.60945636 0.85062766 0.62045318 0.40361729 0.62179285 0.61322463 0.57889259 0.40388289
+		 0.58023232 0.61349034;
+>>>>>>> a387a8ae2073888a90e092d40504cbbc2b64b9be
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
@@ -799,11 +819,19 @@ createNode mesh -n "Right_Arm_Cross_Support_Shape2" -p "Right_Arm_Cross_Support_
 	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
 	setAttr ".pv" -type "double2" 0.64617802186012152 0.58677582504749437 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
+<<<<<<< HEAD
 	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.58779716 0.82318652
 		 0.57410997 0.82328415 0.58640724 0.62809706 0.57272011 0.62819457 0.58630973 0.6144098
 		 0.57262254 0.61450732 0.58491981 0.41932017 0.57123256 0.41941774 0.5848223 0.40563297
 		 0.5711351 0.40573049 0.56042272 0.82338178 0.55903286 0.62829208 0.60148436 0.82308924
 		 0.6000945 0.62799954;
+=======
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.56340039 0.82318652
+		 0.54971319 0.82328415 0.56201047 0.62809706 0.54832333 0.62819457 0.56191295 0.6144098
+		 0.54822576 0.61450732 0.56052303 0.41932017 0.54683578 0.41941774 0.56042552 0.40563297
+		 0.54673833 0.40573049 0.53602594 0.82338178 0.53463608 0.62829208 0.57708758 0.82308924
+		 0.57569772 0.62799954;
+>>>>>>> a387a8ae2073888a90e092d40504cbbc2b64b9be
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
@@ -857,11 +885,19 @@ createNode mesh -n "Left_Arm_Cross_Support_Shape1" -p "Left_Arm_Cross_Support_1"
 	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
 	setAttr ".pv" -type "double2" 0.59419649839401245 0.5982138787388801 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
+<<<<<<< HEAD
 	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.52560079 0.40289909
 		 0.53945452 0.40293372 0.52507812 0.6125102 0.53893185 0.61254489 0.52504361 0.62636399
 		 0.5388974 0.62639844 0.52452153 0.83597493 0.53837532 0.8360095 0.52448696 0.84982872
 		 0.53834075 0.84986341 0.55330831 0.40296817 0.55278569 0.61257923 0.511747 0.40286458
 		 0.51122433 0.61247563;
+=======
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.50120401 0.40289909
+		 0.51505774 0.40293372 0.50068134 0.6125102 0.51453507 0.61254489 0.50064683 0.62636399
+		 0.51450062 0.62639844 0.50012475 0.83597493 0.51397854 0.8360095 0.50009018 0.84982872
+		 0.51394397 0.84986341 0.52891153 0.40296817 0.52838892 0.61257923 0.48735026 0.40286458
+		 0.48682758 0.61247563;
+>>>>>>> a387a8ae2073888a90e092d40504cbbc2b64b9be
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
@@ -913,6 +949,7 @@ createNode mesh -n "Left_Arm_Cross_Support_Shape2" -p "Left_Arm_Cross_Support_2"
 	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[4]";
 	setAttr ".gtag[5].gtagnm" -type "string" "top";
 	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
+<<<<<<< HEAD
 	setAttr ".pv" -type "double2" 0.55412046707868567 0.62679034471511841 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.48982412 0.83882141
@@ -920,6 +957,15 @@ createNode mesh -n "Left_Arm_Cross_Support_Shape2" -p "Left_Arm_Cross_Support_2"
 		 0.47571099 0.63006771 0.48900115 0.4349457 0.47531366 0.4349736 0.48897326 0.42125815
 		 0.47528571 0.42128605 0.46244907 0.83887732 0.46205133 0.64378309 0.50351167 0.83879364
 		 0.50311393 0.64369941;
+=======
+	setAttr ".pv" -type "double2" 0.52972372322082495 0.62679034084081642 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.46542737 0.83882141
+		 0.45173988 0.83884931 0.46502969 0.6437273 0.45134214 0.6437552 0.46500179 0.63003981
+		 0.45131424 0.63006771 0.46460441 0.4349457 0.45091692 0.4349736 0.46457651 0.42125815
+		 0.45088896 0.42128605 0.43805233 0.83887732 0.43765458 0.64378309 0.47911492 0.83879364
+		 0.47871718 0.64369941;
+>>>>>>> a387a8ae2073888a90e092d40504cbbc2b64b9be
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
@@ -2604,7 +2650,11 @@ createNode polyTweakUV -n "polyTweakUV7";
 		 -0.35677215 -0.0082632788 -0.35779366 0.22875339 -0.14564364 0.28158656 -0.17683719
 		 0.27070007 -0.21512251;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
+<<<<<<< HEAD
 	rename -uid "A34EE63E-BC41-6720-626A-00B2863749DF";
+=======
+	rename -uid "F6E5B53D-3345-9400-2409-7FAA5EF982E5";
+>>>>>>> a387a8ae2073888a90e092d40504cbbc2b64b9be
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
