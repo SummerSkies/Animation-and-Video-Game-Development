@@ -63,3 +63,13 @@ crashlytics-build.properties
 
 
 *.swatches
+
+The-Ghost-Game-Reborn/Assets/SyntyStudios/
+
+The-Ghost-Game-Reborn/Assets/Plugins/Sirenix/
+
+The-Ghost-Game-Reborn/ProjectSettings/ProjectSettings.asset
+
+The-Ghost-Game-Reborn/ProjectSettings/
+
+The-Ghost-Game-Reborn/UserSettings/
