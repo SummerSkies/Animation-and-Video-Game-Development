@@ -376,9 +376,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56274c95f26d4d646a2899c615301684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 50
-  gravity: 500
+  playerControls: {fileID: -944628639613478452, guid: e353e892a1a22c742a708b99fc7040fb, type: 3}
+  actionMapName: Player
+  move: Move
+  look: Look
+  jump: Jump
+  crouch: Crouch
+  sprint: Sprint
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
