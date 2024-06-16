@@ -10,7 +10,8 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField] private float crouchMultiplier = 0.5f;
 
     [Header("Look Sensitivity")]
-    [SerializeField] private float mouseSensitivity = 2.0f;
+    [SerializeField] private float horizontalMouseSensitivity = 2.0f;
+    [SerializeField] private float verticalMouseSensitivity = 2.0f;
     [SerializeField] private float upDownRange = 80.0f;
 
     [Header("Jump Parameters")]
@@ -90,11 +91,11 @@ public class ThirdPersonController : MonoBehaviour
     void HandleRotation()
     {
         //Set horizontal look rotation
-        float mouseXRotation = playerInputManager.LookInput.x * mouseSensitivity;
+        float mouseXRotation = playerInputManager.LookInput.x * horizontalMouseSensitivity;
         transform.Rotate(0, mouseXRotation, 0);
 
         //Set vertical look rotation within upDownRange
-        verticalRotation -= playerInputManager.LookInput.y * mouseSensitivity;
+        verticalRotation -= playerInputManager.LookInput.y * verticalMouseSensitivity;
         verticalRotation = Mathf.Clamp(verticalRotation, -upDownRange, upDownRange);
         mainCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
     }
