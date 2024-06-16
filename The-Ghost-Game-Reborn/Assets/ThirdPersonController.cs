@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ThirdPersonController : MonoBehaviour
@@ -36,6 +37,7 @@ public class ThirdPersonController : MonoBehaviour
     {
         HandleMovement();
         HandleRotation();
+        HandleCrouching();
     }
 
     void HandleMovement()
@@ -77,7 +79,7 @@ public class ThirdPersonController : MonoBehaviour
         {
             currentMovement.y = -0.5f;
 
-            if (playerInputManager.JumpTriggered)
+            if (playerInputManager.JumpTriggered && !playerInputManager.CrouchTriggered)
             {
                 currentMovement.y = jumpForce;
             }
@@ -98,5 +100,20 @@ public class ThirdPersonController : MonoBehaviour
         verticalRotation -= playerInputManager.LookInput.y * verticalMouseSensitivity;
         verticalRotation = Mathf.Clamp(verticalRotation, -upDownRange, upDownRange);
         mainCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+    }
+
+    void HandleCrouching()
+    {
+        if (playerInputManager.CrouchTriggered)
+        {
+            gameObject.transform.localScale = new Vector3(1, 0.5f, 1);
+            gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, 0.633f, gameObject.transform.localPosition.z);
+            characterController.height = 1;
+        }
+        else
+        {
+            gameObject.transform.localScale = new Vector3(1, 1, 1);
+            characterController.height = 2;
+        }
     }
 }
