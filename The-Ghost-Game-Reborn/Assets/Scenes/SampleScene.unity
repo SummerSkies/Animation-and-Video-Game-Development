@@ -380,8 +380,9 @@ MonoBehaviour:
   moveSpeed: 3
   sprintMultiplier: 2
   crouchMultiplier: 0.5
-  mouseSensitivity: 2
-  upDownRange: 80
+  horizontalMouseSensitivity: 0.2
+  verticalMouseSensitivity: 0.1
+  upDownRange: 30
   jumpForce: 5
   gravity: 9.81
 --- !u!1 &705507993
@@ -736,7 +737,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ee5c93232dc46614f93e3529fc92b76c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
