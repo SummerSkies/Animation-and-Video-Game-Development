@@ -30,6 +30,10 @@ public class ThirdPersonController : MonoBehaviour
         //Access the character controller, camera, and input manager instance
         characterController = GetComponent<CharacterController>();
         mainCamera = Camera.main;
+    }
+
+    private void Start()
+    {
         playerInputManager = PlayerInputManager.Instance;
     }
 
