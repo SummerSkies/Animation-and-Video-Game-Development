@@ -57,6 +57,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+*.zip
+*.bin
 
 # Crashlytics generated file
 crashlytics-build.properties
@@ -75,3 +77,7 @@ The-Ghost-Game-Reborn/ProjectSettings/
 The-Ghost-Game-Reborn/UserSettings/
 
 The-Ghost-Game-Reborn/Assets/TextMesh Pro/
+
+Scripting Essentials/Driving Simulator/DrivingSimulator/UserSettings/
+
+Scripting Essentials/Driving Simulator/DrivingSimulator/ProjectSettings/
