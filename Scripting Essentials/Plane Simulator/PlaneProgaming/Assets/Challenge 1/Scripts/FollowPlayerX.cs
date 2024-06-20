@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class FollowPlayerX : MonoBehaviour
 {
-    public GameObject plane;
+    [Header("Player Object Reference")]
+    [SerializeField] private GameObject plane;
+
+    [Header("Camera Offset Values")]
+    [SerializeField] private float posX = 13.3f;
+    [SerializeField] private float posY = 1.01f;
+    [SerializeField] private float posZ = 0.0f;
+
     private Vector3 offset;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        offset = new Vector3(posX, posY, posZ);
     }
 
     // Update is called once per frame
