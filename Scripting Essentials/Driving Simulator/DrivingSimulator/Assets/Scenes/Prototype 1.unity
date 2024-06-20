@@ -2889,7 +2889,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdec1e5af61a9c4409a0eb1d4239f717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  truckMovementSpeed: 10
+  truckMovementSpeed: 20
+  truckTurnSpeed: 60
+  horizontalInput: 0
+  verticalInput: 0
 --- !u!54 &1030026911
 Rigidbody:
   m_ObjectHideFlags: 0
