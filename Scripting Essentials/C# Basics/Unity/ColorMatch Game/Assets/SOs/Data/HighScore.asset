@@ -1,15 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4ed06d36d66e4014994b7ac2ff6f0d0, type: 3}
-  m_Name: HighScore
-  m_EditorClassIdentifier: 
-  value: 0
+version https://git-lfs.github.com/spec/v1
+oid sha256:05c6560e638552296dbf7f35dcc7f673e3e5f3e9a3ff1970e65ebfccf01a29d8
+size 409
