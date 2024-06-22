@@ -29,6 +29,7 @@ public class ThirdPersonController : MonoBehaviour
     //private float verticalRotation;
 
     public GameObject directionCube;
+    float lockPos = 0;
 
     private void Awake()
     {
@@ -68,7 +69,7 @@ public class ThirdPersonController : MonoBehaviour
         }
 
         Quaternion cameraDirection = mainCamera.transform.localRotation;
-        directionCube.transform.rotation = cameraDirection;
+        directionCube.transform.rotation = Quaternion.Euler(lockPos, cameraDirection.eulerAngles.y, lockPos);
 
         //Transform player direction to world space, normalize to prevent speed from getting too high
         //Vector3 inputDirection = new Vector3(playerInputManager.MoveInput.x, 0.0f, playerInputManager.MoveInput.y);
