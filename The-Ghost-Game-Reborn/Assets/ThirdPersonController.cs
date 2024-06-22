@@ -6,30 +6,32 @@ using UnityEngine;
 public class ThirdPersonController : MonoBehaviour
 {
     [Header("Movement Speeds")]
-    [SerializeField] private float moveSpeed = 3.0f;
-    [SerializeField] private float sprintMultiplier = 2.0f;
-    [SerializeField] private float crouchMultiplier = 0.5f;
+    [SerializeField] private float moveSpeed = 5.0f; //was 3.0f
+    [SerializeField] private float sprintMultiplier = 1.75f; //was 2.0f
+    [SerializeField] private float crouchMultiplier = 0.5f; //was 0.5f
 
+    /*
     [Header("Look Sensitivity")]
-    [SerializeField] private float horizontalMouseSensitivity = 2.0f;
-    [SerializeField] private float verticalMouseSensitivity = 2.0f;
-    [SerializeField] private float upDownRange = 80.0f;
+    [SerializeField] private float horizontalMouseSensitivity = 0.2f; //was 2.0f
+    [SerializeField] private float verticalMouseSensitivity = 0.1f; //was 2.0f
+    [SerializeField] private float upDownRange = 15.0f; //was 80.0f
+    */
 
     [Header("Jump Parameters")]
-    [SerializeField] private float jumpForce = 5.0f;
-    [SerializeField] private float gravity = 9.81f;
+    [SerializeField] private float jumpForce = 5.0f; //was 5.0f
+    [SerializeField] private float gravity = 12.81f; //was 9.81f
 
     private CharacterController characterController;
-    private Camera mainCamera;
+    //private Camera mainCamera;
     private PlayerInputManager playerInputManager;
     private Vector3 currentMovement;
-    private float verticalRotation;
+    //private float verticalRotation;
 
     private void Awake()
     {
         //Access the character controller, camera, and input manager instance
         characterController = GetComponent<CharacterController>();
-        mainCamera = Camera.main;
+        //mainCamera = Camera.main;
     }
 
     private void Start()
@@ -40,7 +42,7 @@ public class ThirdPersonController : MonoBehaviour
     private void Update()
     {
         HandleMovement();
-        HandleRotation();
+        //HandleRotation();
         HandleCrouching();
     }
 
@@ -96,6 +98,7 @@ public class ThirdPersonController : MonoBehaviour
 
     void HandleRotation()
     {
+        /*
         //Set horizontal look rotation
         float mouseXRotation = playerInputManager.LookInput.x * horizontalMouseSensitivity;
         transform.Rotate(0, mouseXRotation, 0);
@@ -104,6 +107,7 @@ public class ThirdPersonController : MonoBehaviour
         verticalRotation -= playerInputManager.LookInput.y * verticalMouseSensitivity;
         verticalRotation = Mathf.Clamp(verticalRotation, -upDownRange, upDownRange);
         mainCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+        */
     }
 
     void HandleCrouching()
