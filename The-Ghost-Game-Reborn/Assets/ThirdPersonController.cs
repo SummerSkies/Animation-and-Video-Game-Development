@@ -11,13 +11,6 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField] private float sprintMultiplier = 1.75f; //was 2.0f
     [SerializeField] private float crouchMultiplier = 0.5f; //was 0.5f
 
-    /*
-    [Header("Look Sensitivity")]
-    [SerializeField] private float horizontalMouseSensitivity = 0.2f; //was 2.0f
-    [SerializeField] private float verticalMouseSensitivity = 0.1f; //was 2.0f
-    [SerializeField] private float upDownRange = 15.0f; //was 80.0f
-    */
-
     [Header("Jump Parameters")]
     [SerializeField] private float jumpForce = 5.0f; //was 5.0f
     [SerializeField] private float gravity = 12.81f; //was 9.81f
@@ -26,10 +19,7 @@ public class ThirdPersonController : MonoBehaviour
     private Camera mainCamera;
     private PlayerInputManager playerInputManager;
     private Vector3 currentMovement;
-    //private float verticalRotation;
-
-    public GameObject directionCube;
-    float lockPos = 0;
+    private float rotationLock = 0;
 
     private void Awake()
     {
@@ -46,7 +36,7 @@ public class ThirdPersonController : MonoBehaviour
     private void Update()
     {
         HandleMovement();
-        //HandleRotation();
+        HandleRotation();
         HandleCrouching();
     }
 
@@ -68,22 +58,19 @@ public class ThirdPersonController : MonoBehaviour
             speed = moveSpeed;
         }
 
-        Quaternion cameraDirection = mainCamera.transform.localRotation;
-        directionCube.transform.rotation = Quaternion.Euler(lockPos, cameraDirection.eulerAngles.y, lockPos);
-
         //Transform player direction to world space, normalize to prevent speed from getting too high
-        //Vector3 inputDirection = new Vector3(playerInputManager.MoveInput.x, 0.0f, playerInputManager.MoveInput.y);
-        //Vector3 worldDirection = transform.TransformDirection(inputDirection);
-        //worldDirection.Normalize();
+        Vector3 inputDirection = new Vector3(playerInputManager.MoveInput.x, 0.0f, playerInputManager.MoveInput.y);
+        Vector3 worldDirection = transform.TransformDirection(inputDirection);
+        worldDirection.Normalize();
 
         //Apply speed to direction
-        //currentMovement.x = worldDirection.x * speed;
-        //currentMovement.z = worldDirection.z * speed;
+        currentMovement.x = worldDirection.x * speed;
+        currentMovement.z = worldDirection.z * speed;
 
         HandleJumping();
 
         //Move character
-        //characterController.Move(currentMovement * Time.deltaTime);
+        characterController.Move(currentMovement * Time.deltaTime);
     }
 
     void HandleJumping()
@@ -105,16 +92,9 @@ public class ThirdPersonController : MonoBehaviour
 
     void HandleRotation()
     {
-        /*
-        //Set horizontal look rotation
-        float mouseXRotation = playerInputManager.LookInput.x * horizontalMouseSensitivity;
-        transform.Rotate(0, mouseXRotation, 0);
-
-        //Set vertical look rotation within upDownRange
-        verticalRotation -= playerInputManager.LookInput.y * verticalMouseSensitivity;
-        verticalRotation = Mathf.Clamp(verticalRotation, -upDownRange, upDownRange);
-        mainCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
-        */
+        //Rotate player with camera
+        Quaternion cameraDirection = mainCamera.transform.localRotation;
+        transform.rotation = Quaternion.Euler(rotationLock, cameraDirection.eulerAngles.y, rotationLock);
     }
 
     void HandleCrouching()
