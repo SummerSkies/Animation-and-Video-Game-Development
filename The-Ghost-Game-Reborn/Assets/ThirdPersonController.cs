@@ -1,3 +1,4 @@
+using Cinemachine.Utility;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -22,16 +23,18 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField] private float gravity = 12.81f; //was 9.81f
 
     private CharacterController characterController;
-    //private Camera mainCamera;
+    private Camera mainCamera;
     private PlayerInputManager playerInputManager;
     private Vector3 currentMovement;
     //private float verticalRotation;
+
+    public GameObject directionCube;
 
     private void Awake()
     {
         //Access the character controller, camera, and input manager instance
         characterController = GetComponent<CharacterController>();
-        //mainCamera = Camera.main;
+        mainCamera = Camera.main;
     }
 
     private void Start()
@@ -64,19 +67,22 @@ public class ThirdPersonController : MonoBehaviour
             speed = moveSpeed;
         }
 
+        Quaternion cameraDirection = mainCamera.transform.localRotation;
+        directionCube.transform.rotation = cameraDirection;
+
         //Transform player direction to world space, normalize to prevent speed from getting too high
-        Vector3 inputDirection = new Vector3(playerInputManager.MoveInput.x, 0.0f, playerInputManager.MoveInput.y);
-        Vector3 worldDirection = transform.TransformDirection(inputDirection);
-        worldDirection.Normalize();
+        //Vector3 inputDirection = new Vector3(playerInputManager.MoveInput.x, 0.0f, playerInputManager.MoveInput.y);
+        //Vector3 worldDirection = transform.TransformDirection(inputDirection);
+        //worldDirection.Normalize();
 
         //Apply speed to direction
-        currentMovement.x = worldDirection.x * speed;
-        currentMovement.z = worldDirection.z * speed;
+        //currentMovement.x = worldDirection.x * speed;
+        //currentMovement.z = worldDirection.z * speed;
 
         HandleJumping();
 
         //Move character
-        characterController.Move(currentMovement * Time.deltaTime);
+        //characterController.Move(currentMovement * Time.deltaTime);
     }
 
     void HandleJumping()
