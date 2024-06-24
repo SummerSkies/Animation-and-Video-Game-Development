@@ -60,12 +60,12 @@ public class ThirdPersonController : MonoBehaviour
 
         //Transform player direction to world space, normalize to prevent speed from getting too high
         Vector3 inputDirection = new Vector3(playerInputManager.MoveInput.x, 0.0f, playerInputManager.MoveInput.y);
-        //Vector3 worldDirection = transform.TransformDirection(inputDirection);
-        //worldDirection.Normalize();
+        Vector3 worldDirection = transform.TransformDirection(inputDirection);
+        worldDirection.Normalize();
 
         //Apply speed to direction
-        currentMovement.x = inputDirection.x * speed;
-        currentMovement.z = inputDirection.z * speed;
+        currentMovement.x = worldDirection.x * speed;
+        currentMovement.z = worldDirection.z * speed;
 
         HandleJumping();
 
