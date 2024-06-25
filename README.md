@@ -9,6 +9,7 @@ All scripts for this class file are organized like the initial forked files. All
 
 ### Unity
 All Unity assgnemnts with their own projects will be in their own folder under the class the assignment was for.  
+If the project was made for Unity's Create with Code lessons, the commits will be named for each part as I complete them.
 
 ### The Ghost Game Reborn
 Next to all the class files, there is a folder named "The Ghost Game Reborn." This is my own personal Unity project that I used to complete various assignments and worked with on my own time to make a demo video game. If an assignment was completed using this project, I should have let you know in a comment under my submission.
