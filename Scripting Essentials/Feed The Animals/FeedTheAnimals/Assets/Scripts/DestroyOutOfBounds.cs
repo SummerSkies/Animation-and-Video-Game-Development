@@ -8,6 +8,7 @@ public class DestroyOutOfBounds : MonoBehaviour
     [SerializeField] private float lowerBound = -10.0f;
     void Update()
     {
+        //If this object moves off the screen, destroy it
         if (transform.position.z > topBound || transform.position.z < lowerBound)
         {
             Destroy(gameObject);
