@@ -1,6 +1,6 @@
 //Maya ASCII 2025 scene
 //Name: Castle.ma
-//Last modified: Fri, Jun 28, 2024 07:58:07 PM
+//Last modified: Fri, Jun 28, 2024 08:02:26 PM
 //Codeset: 1252
 requires maya "2025";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.4.0";
@@ -10,20 +10,20 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202402161156-0caf8d1269";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19045)";
-fileInfo "UUID" "197FF912-4A95-6472-C73A-4FB196EEACC4";
+fileInfo "UUID" "2F3C3D8B-4770-8050-197C-9EA093467936";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "08FEDC28-4667-BB5B-2D45-C486ECA4E990";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -4.424223884571111 30.073223091797828 56.871879725916166 ;
-	setAttr ".r" -type "double3" -15.000000000001128 2875.1999999998138 -9.9742143531884425e-17 ;
+	setAttr ".t" -type "double3" 12.567555522645982 36.539113503798717 53.018722983344247 ;
+	setAttr ".r" -type "double3" -16.799999999356913 2887.9999999997872 4.014764766554189e-16 ;
 	setAttr ".rpt" -type "double3" 1.9434093654474741e-15 4.0801395874847787e-15 6.7191894959410057e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "F4AA71F4-4CEC-EC38-8A25-579CC028C1EB";
 	setAttr -k off ".v" no;
 	setAttr ".pze" yes;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 60.029906743836655;
+	setAttr ".coi" 57.830588291360513;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -235,13 +235,26 @@ createNode mesh -n "Balcony_Shape1" -p "Balcony_1";
 	setAttr -s 2 ".iog";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.54166668653488159 0.5 ;
+	setAttr ".pv" -type "double2" 0.5 0.15625 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 15 ".pt";
+	setAttr -s 27 ".pt";
+	setAttr ".pt[0]" -type "float3" 0 -0.069110453 0 ;
+	setAttr ".pt[1]" -type "float3" 0 -0.069110453 0 ;
+	setAttr ".pt[2]" -type "float3" 0 -0.069110453 0 ;
+	setAttr ".pt[3]" -type "float3" 0 -0.069110453 0 ;
+	setAttr ".pt[4]" -type "float3" 0 -0.069110453 0 ;
+	setAttr ".pt[5]" -type "float3" 0 -0.069110453 0 ;
+	setAttr ".pt[6]" -type "float3" 0 -0.069110453 0 ;
+	setAttr ".pt[7]" -type "float3" 0 -0.069110453 0 ;
+	setAttr ".pt[8]" -type "float3" 0 -0.069110453 0 ;
+	setAttr ".pt[9]" -type "float3" 0 -0.069110453 0 ;
+	setAttr ".pt[10]" -type "float3" 0 -0.069110453 0 ;
+	setAttr ".pt[11]" -type "float3" 0 -0.069110453 0 ;
+	setAttr ".pt[24]" -type "float3" 0 -0.069110453 0 ;
 	setAttr ".pt[26]" -type "float3" -8.8817842e-16 0.13179752 0 ;
 	setAttr ".pt[27]" -type "float3" -8.8817842e-16 0.13179752 0 ;
 	setAttr ".pt[28]" -type "float3" -8.8817842e-16 0.13179752 0 ;
