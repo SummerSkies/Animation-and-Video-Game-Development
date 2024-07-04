@@ -227,7 +227,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85331703}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 60
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -258,8 +258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9532e556301e148b17eee9a2c7bcd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 7
-  gravityModifier: 1
+  jumpForce: 700
+  gravityModifier: 2.5
   gameIsOver: 0
 --- !u!1 &170076733
 GameObject:
@@ -546,7 +546,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db70942c00da9054e87915552667d494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 20
+  leftBound: -10
 --- !u!65 &835818923
 BoxCollider:
   m_ObjectHideFlags: 0
