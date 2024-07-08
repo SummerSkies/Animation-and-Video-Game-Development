@@ -1,9 +1,10 @@
 //Maya ASCII 2025 scene
 //Name: Castle.ma
-//Last modified: Sat, Jun 29, 2024 02:27:53 PM
+//Last modified: Mon, Jul 08, 2024 02:52:44 PM
 //Codeset: 1252
 requires maya "2025";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.4.0";
+requires "stereoCamera" "10.0";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
@@ -11,24 +12,24 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202402161156-0caf8d1269";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19045)";
-fileInfo "UUID" "03B33E88-4857-F406-7518-3388AECE973E";
+fileInfo "UUID" "0FA10E7F-47F6-A178-2299-2B9D734A70BA";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "08FEDC28-4667-BB5B-2D45-C486ECA4E990";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 19.605300696976194 40.076088993707906 28.264203665798817 ;
-	setAttr ".r" -type "double3" 325.79999995300017 4353.5999999999822 0 ;
+	setAttr ".t" -type "double3" 2.2550474748289684 26.277537830522977 29.275518880099202 ;
+	setAttr ".r" -type "double3" 733.80000000013251 6482.399999999996 0 ;
 	setAttr ".rpt" -type "double3" 1.9434093654474741e-15 4.0801395874847787e-15 6.7191894959410057e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "F4AA71F4-4CEC-EC38-8A25-579CC028C1EB";
 	setAttr -k off ".v" no;
 	setAttr ".pze" yes;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 41.027593464345145;
+	setAttr ".coi" 26.586213461974332;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 4.2695317268371582 18.524257659912109 10.307561874389648 ;
+	setAttr ".tp" -type "double3" 5.4474883079528809 28.474455833435059 4.0658130645751953 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	rename -uid "D1C32B70-4B31-E8CE-BE6B-BA9EF6DD7B1D";
@@ -5700,6 +5701,7 @@ createNode mesh -n "CastleShape" -p "Castle";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "Castle_unUnified";
 	rename -uid "E6EEA8BB-4803-A167-B4DA-7291C30BDEBD";
+	setAttr ".v" no;
 createNode transform -n "Tower_16" -p "Castle_unUnified";
 	rename -uid "00464A15-45EB-CE0A-D289-E5A2645C0E94";
 	setAttr ".rp" -type "double3" 4.9435707208821711 0 11.934835480904276 ;
@@ -5732,7 +5734,7 @@ createNode mesh -n "Tower_Shape16" -p "Tower_16";
 	setAttr ".gtag[9].gtagcmp" -type "componentList" 1 "e[8:15]";
 	setAttr ".pv" -type "double2" 0.50000032782554626 0.84365740418434143 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 98 ".uvst[0].uvsp[0:97]" -type "float2" 0.61048543 0.04576458
+	setAttr -s 99 ".uvst[0].uvsp[0:98]" -type "float2" 0.61048543 0.04576458
 		 0.5 1.4901161e-08 0.38951457 0.04576458 0.34375 0.15625 0.38951457 0.26673543 0.5
 		 0.3125 0.61048543 0.26673543 0.65625 0.15625 0.375 0.3125 0.40625 0.3125 0.4375 0.3125
 		 0.46875 0.3125 0.5 0.3125 0.53125 0.3125 0.5625 0.3125 0.59375 0.3125 0.625 0.3125
@@ -5754,7 +5756,7 @@ createNode mesh -n "Tower_Shape16" -p "Tower_16";
 		 0.71820426 0.37445405 0.76555794 0.46651602 0.69968545 0.37445444 0.92194265 0.37445405
 		 0.76555794 0.46651644 0.98781466 0.37445444 0.92194271 0.57819271 0.9692955 0.46651644
 		 0.98781466 0.64406478 0.87723351 0.57819271 0.9692955 0.64406466 0.81026578 0.64406472
-		 0.87723345 0.57819241 0.71820426 0.64406466 0.81026578;
+		 0.87723345 0.57819241 0.71820426 0.64406466 0.81026578 0.65793413 0.84374952;
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
@@ -5884,7 +5886,7 @@ createNode mesh -n "Tower_Shape16" -p "Tower_16";
 		f 4 46 71 94 -71
 		mu 0 4 49 64 94 97
 		f 4 47 64 92 -72
-		mu 0 4 49 65 92 95
+		mu 0 4 98 65 92 95
 		f 8 -79 -78 -77 -76 -75 -74 -73 -80
 		mu 0 8 81 79 77 75 73 71 69 67
 		f 4 -83 80 72 -82
@@ -6454,6 +6456,7 @@ createNode mesh -n "polySurfaceShape3" -p "|Castle_unUnified|Archway";
 	setAttr ".dr" 1;
 createNode transform -n "Archway1" -p "Castle_unUnified";
 	rename -uid "3EAD9D6E-4166-64B1-7FE6-2F9C6628E16A";
+	setAttr ".v" no;
 	setAttr ".rp" -type "double3" 1.475241392850879 19.23457145690918 6.5848855972290039 ;
 	setAttr ".sp" -type "double3" 1.4752413928508692 19.23457145690918 6.5848855972292375 ;
 createNode mesh -n "Archway1Shape" -p "|Castle_unUnified|Archway1";
@@ -6749,6 +6752,7 @@ createNode mesh -n "polySurfaceShape3" -p "|Castle_unUnified|Archway1";
 	setAttr ".dr" 1;
 createNode transform -n "Archway2" -p "Castle_unUnified";
 	rename -uid "8B0B6FD2-46AA-547C-6A36-798C9775638A";
+	setAttr ".v" no;
 	setAttr ".rp" -type "double3" 1.4752410650253329 19.234943826981041 -4.8443574905395508 ;
 	setAttr ".sp" -type "double3" 1.4752410650253232 19.234943826981041 -4.8443574905392559 ;
 createNode mesh -n "Archway2Shape" -p "|Castle_unUnified|Archway2";
@@ -7307,8 +7311,6 @@ createNode transform -n "Tower_9" -p "Castle_unUnified";
 createNode mesh -n "Tower_Shape9" -p "Tower_9";
 	rename -uid "45E5DBFE-431A-0019-5F21-22B04AAEAF4A";
 	setAttr -k off ".v";
-	setAttr -s 8 ".iog";
-	setAttr ".iog[0].og[2].gcl" -type "componentList" 0;
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr -s 10 ".gtag";
@@ -7334,7 +7336,7 @@ createNode mesh -n "Tower_Shape9" -p "Tower_9";
 	setAttr ".gtag[9].gtagcmp" -type "componentList" 1 "e[8:15]";
 	setAttr ".pv" -type "double2" 0.50000032782554626 0.84365740418434143 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 98 ".uvst[0].uvsp[0:97]" -type "float2" 0.61048543 0.04576458
+	setAttr -s 99 ".uvst[0].uvsp[0:98]" -type "float2" 0.61048543 0.04576458
 		 0.5 1.4901161e-08 0.38951457 0.04576458 0.34375 0.15625 0.38951457 0.26673543 0.5
 		 0.3125 0.61048543 0.26673543 0.65625 0.15625 0.375 0.3125 0.40625 0.3125 0.4375 0.3125
 		 0.46875 0.3125 0.5 0.3125 0.53125 0.3125 0.5625 0.3125 0.59375 0.3125 0.625 0.3125
@@ -7356,7 +7358,7 @@ createNode mesh -n "Tower_Shape9" -p "Tower_9";
 		 0.71820426 0.37445405 0.76555794 0.46651602 0.69968545 0.37445444 0.92194265 0.37445405
 		 0.76555794 0.46651644 0.98781466 0.37445444 0.92194271 0.57819271 0.9692955 0.46651644
 		 0.98781466 0.64406478 0.87723351 0.57819271 0.9692955 0.64406466 0.81026578 0.64406472
-		 0.87723345 0.57819241 0.71820426 0.64406466 0.81026578;
+		 0.87723345 0.57819241 0.71820426 0.64406466 0.81026578 0.65793413 0.84374952;
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
@@ -7487,7 +7489,7 @@ createNode mesh -n "Tower_Shape9" -p "Tower_9";
 		f 4 46 71 94 -71
 		mu 0 4 49 64 94 97
 		f 4 47 64 92 -72
-		mu 0 4 49 65 92 95
+		mu 0 4 98 65 92 95
 		f 8 -79 -78 -77 -76 -75 -74 -73 -80
 		mu 0 8 81 79 77 75 73 71 69 67
 		f 4 -83 80 72 -82
@@ -7518,7 +7520,6 @@ createNode transform -n "Tower_10" -p "Castle_unUnified";
 createNode mesh -n "Tower_Shape10" -p "Tower_10";
 	rename -uid "28553A95-4D20-403E-16AD-CB8A240027D1";
 	setAttr -k off ".v";
-	setAttr -s 7 ".iog";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr -s 10 ".gtag";
@@ -7544,7 +7545,7 @@ createNode mesh -n "Tower_Shape10" -p "Tower_10";
 	setAttr ".gtag[9].gtagcmp" -type "componentList" 1 "e[8:15]";
 	setAttr ".pv" -type "double2" 0.50000032782554626 0.84365740418434143 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 98 ".uvst[0].uvsp[0:97]" -type "float2" 0.61048543 0.04576458
+	setAttr -s 99 ".uvst[0].uvsp[0:98]" -type "float2" 0.61048543 0.04576458
 		 0.5 1.4901161e-08 0.38951457 0.04576458 0.34375 0.15625 0.38951457 0.26673543 0.5
 		 0.3125 0.61048543 0.26673543 0.65625 0.15625 0.375 0.3125 0.40625 0.3125 0.4375 0.3125
 		 0.46875 0.3125 0.5 0.3125 0.53125 0.3125 0.5625 0.3125 0.59375 0.3125 0.625 0.3125
@@ -7566,7 +7567,7 @@ createNode mesh -n "Tower_Shape10" -p "Tower_10";
 		 0.71820426 0.37445405 0.76555794 0.46651602 0.69968545 0.37445444 0.92194265 0.37445405
 		 0.76555794 0.46651644 0.98781466 0.37445444 0.92194271 0.57819271 0.9692955 0.46651644
 		 0.98781466 0.64406478 0.87723351 0.57819271 0.9692955 0.64406466 0.81026578 0.64406472
-		 0.87723345 0.57819241 0.71820426 0.64406466 0.81026578;
+		 0.87723345 0.57819241 0.71820426 0.64406466 0.81026578 0.65793413 0.84374952;
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
@@ -7697,7 +7698,7 @@ createNode mesh -n "Tower_Shape10" -p "Tower_10";
 		f 4 46 71 94 -71
 		mu 0 4 49 64 94 97
 		f 4 47 64 92 -72
-		mu 0 4 49 65 92 95
+		mu 0 4 98 65 92 95
 		f 8 -79 -78 -77 -76 -75 -74 -73 -80
 		mu 0 8 81 79 77 75 73 71 69 67
 		f 4 -83 80 72 -82
@@ -7728,7 +7729,6 @@ createNode transform -n "Tower_11" -p "Castle_unUnified";
 createNode mesh -n "Tower_Shape11" -p "Tower_11";
 	rename -uid "F96CDC9D-4663-37FE-1165-30A540130002";
 	setAttr -k off ".v";
-	setAttr -s 6 ".iog";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr -s 10 ".gtag";
@@ -7754,7 +7754,7 @@ createNode mesh -n "Tower_Shape11" -p "Tower_11";
 	setAttr ".gtag[9].gtagcmp" -type "componentList" 1 "e[8:15]";
 	setAttr ".pv" -type "double2" 0.50000032782554626 0.84365740418434143 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 98 ".uvst[0].uvsp[0:97]" -type "float2" 0.61048543 0.04576458
+	setAttr -s 99 ".uvst[0].uvsp[0:98]" -type "float2" 0.61048543 0.04576458
 		 0.5 1.4901161e-08 0.38951457 0.04576458 0.34375 0.15625 0.38951457 0.26673543 0.5
 		 0.3125 0.61048543 0.26673543 0.65625 0.15625 0.375 0.3125 0.40625 0.3125 0.4375 0.3125
 		 0.46875 0.3125 0.5 0.3125 0.53125 0.3125 0.5625 0.3125 0.59375 0.3125 0.625 0.3125
@@ -7776,7 +7776,7 @@ createNode mesh -n "Tower_Shape11" -p "Tower_11";
 		 0.71820426 0.37445405 0.76555794 0.46651602 0.69968545 0.37445444 0.92194265 0.37445405
 		 0.76555794 0.46651644 0.98781466 0.37445444 0.92194271 0.57819271 0.9692955 0.46651644
 		 0.98781466 0.64406478 0.87723351 0.57819271 0.9692955 0.64406466 0.81026578 0.64406472
-		 0.87723345 0.57819241 0.71820426 0.64406466 0.81026578;
+		 0.87723345 0.57819241 0.71820426 0.64406466 0.81026578 0.65793413 0.84374952;
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
@@ -7907,7 +7907,7 @@ createNode mesh -n "Tower_Shape11" -p "Tower_11";
 		f 4 46 71 94 -71
 		mu 0 4 49 64 94 97
 		f 4 47 64 92 -72
-		mu 0 4 49 65 92 95
+		mu 0 4 98 65 92 95
 		f 8 -79 -78 -77 -76 -75 -74 -73 -80
 		mu 0 8 81 79 77 75 73 71 69 67
 		f 4 -83 80 72 -82
@@ -7938,7 +7938,6 @@ createNode transform -n "Tower_12" -p "Castle_unUnified";
 createNode mesh -n "Tower_Shape12" -p "Tower_12";
 	rename -uid "033098A2-4874-B80F-CEB4-7191A631657E";
 	setAttr -k off ".v";
-	setAttr -s 5 ".iog";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr -s 10 ".gtag";
@@ -7964,7 +7963,7 @@ createNode mesh -n "Tower_Shape12" -p "Tower_12";
 	setAttr ".gtag[9].gtagcmp" -type "componentList" 1 "e[8:15]";
 	setAttr ".pv" -type "double2" 0.50000032782554626 0.84365740418434143 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 98 ".uvst[0].uvsp[0:97]" -type "float2" 0.61048543 0.04576458
+	setAttr -s 99 ".uvst[0].uvsp[0:98]" -type "float2" 0.61048543 0.04576458
 		 0.5 1.4901161e-08 0.38951457 0.04576458 0.34375 0.15625 0.38951457 0.26673543 0.5
 		 0.3125 0.61048543 0.26673543 0.65625 0.15625 0.375 0.3125 0.40625 0.3125 0.4375 0.3125
 		 0.46875 0.3125 0.5 0.3125 0.53125 0.3125 0.5625 0.3125 0.59375 0.3125 0.625 0.3125
@@ -7986,7 +7985,7 @@ createNode mesh -n "Tower_Shape12" -p "Tower_12";
 		 0.71820426 0.37445405 0.76555794 0.46651602 0.69968545 0.37445444 0.92194265 0.37445405
 		 0.76555794 0.46651644 0.98781466 0.37445444 0.92194271 0.57819271 0.9692955 0.46651644
 		 0.98781466 0.64406478 0.87723351 0.57819271 0.9692955 0.64406466 0.81026578 0.64406472
-		 0.87723345 0.57819241 0.71820426 0.64406466 0.81026578;
+		 0.87723345 0.57819241 0.71820426 0.64406466 0.81026578 0.65793413 0.84374952;
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
@@ -8117,7 +8116,7 @@ createNode mesh -n "Tower_Shape12" -p "Tower_12";
 		f 4 46 71 94 -71
 		mu 0 4 49 64 94 97
 		f 4 47 64 92 -72
-		mu 0 4 49 65 92 95
+		mu 0 4 98 65 92 95
 		f 8 -79 -78 -77 -76 -75 -74 -73 -80
 		mu 0 8 81 79 77 75 73 71 69 67
 		f 4 -83 80 72 -82
@@ -8148,7 +8147,6 @@ createNode transform -n "Tower_13" -p "Castle_unUnified";
 createNode mesh -n "Tower_Shape13" -p "Tower_13";
 	rename -uid "AB1D62D0-4478-371D-EC54-8D945C182ABC";
 	setAttr -k off ".v";
-	setAttr -s 4 ".iog";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr -s 10 ".gtag";
@@ -8174,7 +8172,7 @@ createNode mesh -n "Tower_Shape13" -p "Tower_13";
 	setAttr ".gtag[9].gtagcmp" -type "componentList" 1 "e[8:15]";
 	setAttr ".pv" -type "double2" 0.50000032782554626 0.84365740418434143 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 98 ".uvst[0].uvsp[0:97]" -type "float2" 0.61048543 0.04576458
+	setAttr -s 99 ".uvst[0].uvsp[0:98]" -type "float2" 0.61048543 0.04576458
 		 0.5 1.4901161e-08 0.38951457 0.04576458 0.34375 0.15625 0.38951457 0.26673543 0.5
 		 0.3125 0.61048543 0.26673543 0.65625 0.15625 0.375 0.3125 0.40625 0.3125 0.4375 0.3125
 		 0.46875 0.3125 0.5 0.3125 0.53125 0.3125 0.5625 0.3125 0.59375 0.3125 0.625 0.3125
@@ -8196,7 +8194,7 @@ createNode mesh -n "Tower_Shape13" -p "Tower_13";
 		 0.71820426 0.37445405 0.76555794 0.46651602 0.69968545 0.37445444 0.92194265 0.37445405
 		 0.76555794 0.46651644 0.98781466 0.37445444 0.92194271 0.57819271 0.9692955 0.46651644
 		 0.98781466 0.64406478 0.87723351 0.57819271 0.9692955 0.64406466 0.81026578 0.64406472
-		 0.87723345 0.57819241 0.71820426 0.64406466 0.81026578;
+		 0.87723345 0.57819241 0.71820426 0.64406466 0.81026578 0.65793413 0.84374952;
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
@@ -8327,7 +8325,7 @@ createNode mesh -n "Tower_Shape13" -p "Tower_13";
 		f 4 46 71 94 -71
 		mu 0 4 49 64 94 97
 		f 4 47 64 92 -72
-		mu 0 4 49 65 92 95
+		mu 0 4 98 65 92 95
 		f 8 -79 -78 -77 -76 -75 -74 -73 -80
 		mu 0 8 81 79 77 75 73 71 69 67
 		f 4 -83 80 72 -82
@@ -8358,7 +8356,6 @@ createNode transform -n "Tower_14" -p "Castle_unUnified";
 createNode mesh -n "Tower_Shape14" -p "Tower_14";
 	rename -uid "1212B6ED-407C-F710-2686-FF8FBDBFE668";
 	setAttr -k off ".v";
-	setAttr -s 3 ".iog";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr -s 10 ".gtag";
@@ -8384,7 +8381,7 @@ createNode mesh -n "Tower_Shape14" -p "Tower_14";
 	setAttr ".gtag[9].gtagcmp" -type "componentList" 1 "e[8:15]";
 	setAttr ".pv" -type "double2" 0.50000032782554626 0.84365740418434143 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 98 ".uvst[0].uvsp[0:97]" -type "float2" 0.61048543 0.04576458
+	setAttr -s 99 ".uvst[0].uvsp[0:98]" -type "float2" 0.61048543 0.04576458
 		 0.5 1.4901161e-08 0.38951457 0.04576458 0.34375 0.15625 0.38951457 0.26673543 0.5
 		 0.3125 0.61048543 0.26673543 0.65625 0.15625 0.375 0.3125 0.40625 0.3125 0.4375 0.3125
 		 0.46875 0.3125 0.5 0.3125 0.53125 0.3125 0.5625 0.3125 0.59375 0.3125 0.625 0.3125
@@ -8406,7 +8403,7 @@ createNode mesh -n "Tower_Shape14" -p "Tower_14";
 		 0.71820426 0.37445405 0.76555794 0.46651602 0.69968545 0.37445444 0.92194265 0.37445405
 		 0.76555794 0.46651644 0.98781466 0.37445444 0.92194271 0.57819271 0.9692955 0.46651644
 		 0.98781466 0.64406478 0.87723351 0.57819271 0.9692955 0.64406466 0.81026578 0.64406472
-		 0.87723345 0.57819241 0.71820426 0.64406466 0.81026578;
+		 0.87723345 0.57819241 0.71820426 0.64406466 0.81026578 0.65793413 0.84374952;
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
@@ -8537,7 +8534,7 @@ createNode mesh -n "Tower_Shape14" -p "Tower_14";
 		f 4 46 71 94 -71
 		mu 0 4 49 64 94 97
 		f 4 47 64 92 -72
-		mu 0 4 49 65 92 95
+		mu 0 4 98 65 92 95
 		f 8 -79 -78 -77 -76 -75 -74 -73 -80
 		mu 0 8 81 79 77 75 73 71 69 67
 		f 4 -83 80 72 -82
@@ -8568,7 +8565,6 @@ createNode transform -n "Tower_15" -p "Castle_unUnified";
 createNode mesh -n "Tower_Shape15" -p "Tower_15";
 	rename -uid "12A0BD34-4D02-7AC5-6E3C-31A1923DC578";
 	setAttr -k off ".v";
-	setAttr -s 2 ".iog";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr -s 10 ".gtag";
@@ -8594,7 +8590,7 @@ createNode mesh -n "Tower_Shape15" -p "Tower_15";
 	setAttr ".gtag[9].gtagcmp" -type "componentList" 1 "e[8:15]";
 	setAttr ".pv" -type "double2" 0.50000032782554626 0.84365740418434143 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 98 ".uvst[0].uvsp[0:97]" -type "float2" 0.61048543 0.04576458
+	setAttr -s 99 ".uvst[0].uvsp[0:98]" -type "float2" 0.61048543 0.04576458
 		 0.5 1.4901161e-08 0.38951457 0.04576458 0.34375 0.15625 0.38951457 0.26673543 0.5
 		 0.3125 0.61048543 0.26673543 0.65625 0.15625 0.375 0.3125 0.40625 0.3125 0.4375 0.3125
 		 0.46875 0.3125 0.5 0.3125 0.53125 0.3125 0.5625 0.3125 0.59375 0.3125 0.625 0.3125
@@ -8616,7 +8612,7 @@ createNode mesh -n "Tower_Shape15" -p "Tower_15";
 		 0.71820426 0.37445405 0.76555794 0.46651602 0.69968545 0.37445444 0.92194265 0.37445405
 		 0.76555794 0.46651644 0.98781466 0.37445444 0.92194271 0.57819271 0.9692955 0.46651644
 		 0.98781466 0.64406478 0.87723351 0.57819271 0.9692955 0.64406466 0.81026578 0.64406472
-		 0.87723345 0.57819241 0.71820426 0.64406466 0.81026578;
+		 0.87723345 0.57819241 0.71820426 0.64406466 0.81026578 0.65793413 0.84374952;
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
@@ -8746,7 +8742,7 @@ createNode mesh -n "Tower_Shape15" -p "Tower_15";
 		f 4 46 71 94 -71
 		mu 0 4 49 64 94 97
 		f 4 47 64 92 -72
-		mu 0 4 49 65 92 95
+		mu 0 4 98 65 92 95
 		f 8 -79 -78 -77 -76 -75 -74 -73 -80
 		mu 0 8 81 79 77 75 73 71 69 67
 		f 4 -83 80 72 -82
@@ -9240,7 +9236,7 @@ createNode transform -n "polySurface33" -p "Castle_unUnified";
 createNode mesh -n "polySurfaceShape46" -p "polySurface33";
 	rename -uid "5928DBD4-41FD-8737-93A9-AD9B0BB1DF06";
 	setAttr -k off ".v";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 24 "f[0]" "f[1]" "f[2]" "f[3]" "f[4]" "f[5]" "f[6]" "f[7]" "f[8]" "f[9]" "f[10]" "f[11]" "f[12]" "f[13]" "f[14]" "f[15]" "f[16]" "f[17]" "f[18]" "f[19]" "f[20]" "f[21]" "f[22]" "f[23]";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:23]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr -s 10 ".gtag";
@@ -9347,8 +9343,8 @@ createNode mesh -n "polySurfaceShape47" -p "polySurface34";
 	rename -uid "44313E62-4B69-8AF2-E218-4EB907A64463";
 	setAttr -k off ".v";
 	setAttr -s 2 ".iog[0].og";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 8 "f[0]" "f[1]" "f[2]" "f[3]" "f[4]" "f[5]" "f[6]" "f[7]";
-	setAttr ".iog[0].og[1].gcl" -type "componentList" 8 "f[0]" "f[1]" "f[2]" "f[3]" "f[4]" "f[5]" "f[6]" "f[7]";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 8 "f[0:7]" "f[1]" "f[2]" "f[3]" "f[4]" "f[5]" "f[6]" "f[7]";
+	setAttr ".iog[0].og[1].gcl" -type "componentList" 1 "f[0:7]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr -s 10 ".gtag";
@@ -9373,13 +9369,14 @@ createNode mesh -n "polySurfaceShape47" -p "polySurface34";
 	setAttr ".gtag[9].gtagnm" -type "string" "topRing";
 	setAttr ".gtag[9].gtagcmp" -type "componentList" 8 "e[16]" "e[17]" "e[18]" "e[19]" "e[20]" "e[21]" "e[22]" "e[23]";
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 30 ".uvst[0].uvsp[0:29]" -type "float2" 0.61048543 0.95423543
+	setAttr -s 32 ".uvst[0].uvsp[0:31]" -type "float2" 0.61048543 0.95423543
 		 0.61048543 0.95423543 0.5 1 0.5 1 0.5 1 0.5 1 0.38951457 0.95423543 0.38951457 0.95423543
 		 0.38951457 0.95423543 0.38951457 0.95423543 0.34375 0.84375 0.34375 0.84375 0.38951457
 		 0.73326457 0.38951457 0.73326457 0.34375 0.84375 0.5 0.6875 0.5 0.6875 0.38951457
 		 0.73326457 0.38951457 0.73326457 0.61048543 0.73326457 0.61048543 0.73326457 0.5
 		 0.6875 0.5 0.6875 0.65625 0.84375 0.65625 0.84375 0.61048543 0.73326457 0.61048543
-		 0.73326457 0.65625 0.84375 0.61048543 0.95423543 0.61048543 0.95423543;
+		 0.73326457 0.65625 0.84375 0.61048543 0.95423543 0.61048543 0.95423543 0.34375 0.84375
+		 0.65625 0.84375;
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
@@ -9401,7 +9398,7 @@ createNode mesh -n "polySurfaceShape47" -p "polySurface34";
 		f 4 18 5 -7 -4
 		mu 0 4 8 9 10 11
 		f 4 19 7 -9 -6
-		mu 0 4 12 13 10 14
+		mu 0 4 12 13 30 14
 		f 4 20 9 -11 -8
 		mu 0 4 15 16 17 18
 		f 4 21 11 -13 -10
@@ -9409,7 +9406,7 @@ createNode mesh -n "polySurfaceShape47" -p "polySurface34";
 		f 4 22 13 -15 -12
 		mu 0 4 23 24 25 26
 		f 4 23 0 -16 -14
-		mu 0 4 23 27 28 29;
+		mu 0 4 31 27 28 29;
 	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
@@ -9420,7 +9417,7 @@ createNode transform -n "polySurface45" -p "Castle_unUnified";
 createNode mesh -n "polySurfaceShape59" -p "polySurface45";
 	rename -uid "1C1E9A14-44B6-438F-A5F7-54825E032606";
 	setAttr -k off ".v";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 21 "f[0]" "f[1]" "f[2]" "f[3]" "f[4]" "f[5]" "f[6]" "f[7]" "f[8]" "f[9]" "f[10]" "f[11]" "f[12]" "f[13]" "f[14]" "f[15]" "f[16]" "f[17]" "f[18]" "f[19]" "f[20]";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:20]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr -s 6 ".gtag";
@@ -9696,11 +9693,11 @@ createNode transform -n "polySurface47" -p "Castle_unUnified";
 createNode mesh -n "polySurfaceShape62" -p "polySurface47";
 	rename -uid "BF03B2E3-4700-6090-BBD9-D18C86C9CDB4";
 	setAttr -k off ".v";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 12 "f[0]" "f[1]" "f[2]" "f[3]" "f[4]" "f[5]" "f[6]" "f[7]" "f[8]" "f[9]" "f[10]" "f[11]";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:11]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 46 ".uvst[0].uvsp[0:45]" -type "float2" 0.63531649 0.921875
+	setAttr -s 48 ".uvst[0].uvsp[0:47]" -type "float2" 0.63531649 0.921875
 		 0.63531649 0.921875 0.578125 0.97906649 0.578125 0.97906649 0.578125 0.97906649 0.578125
 		 0.97906649 0.5 1 0.5 1 0.5 1 0.5 1 0.421875 0.97906649 0.421875 0.97906649 0.421875
 		 0.97906649 0.421875 0.97906649 0.36468354 0.921875 0.36468354 0.921875 0.36468354
@@ -9710,7 +9707,7 @@ createNode mesh -n "polySurfaceShape62" -p "polySurface47";
 		 0.578125 0.70843351 0.578125 0.70843351 0.5 0.6875 0.5 0.6875 0.63531649 0.765625
 		 0.63531649 0.765625 0.578125 0.70843351 0.578125 0.70843351 0.65625 0.84375 0.65625
 		 0.84375 0.63531649 0.765625 0.63531649 0.765625 0.65625 0.84375 0.63531649 0.921875
-		 0.63531649 0.921875;
+		 0.63531649 0.921875 0.34375 0.84375 0.65625 0.84375;
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
@@ -9740,7 +9737,7 @@ createNode mesh -n "polySurfaceShape62" -p "polySurface47";
 		f 4 28 9 -11 -8
 		mu 0 4 16 17 18 19
 		f 4 29 11 -13 -10
-		mu 0 4 20 21 18 22
+		mu 0 4 20 21 46 22
 		f 4 30 13 -15 -12
 		mu 0 4 23 24 25 26
 		f 4 31 15 -17 -14
@@ -9752,7 +9749,7 @@ createNode mesh -n "polySurfaceShape62" -p "polySurface47";
 		f 4 34 21 -23 -20
 		mu 0 4 39 40 41 42
 		f 4 35 0 -24 -22
-		mu 0 4 39 43 44 45;
+		mu 0 4 47 43 44 45;
 	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
@@ -9927,11 +9924,11 @@ createNode transform -n "polySurface49" -p "Castle_unUnified";
 createNode mesh -n "polySurfaceShape65" -p "polySurface49";
 	rename -uid "CB7D9D31-4560-95C5-26BC-0EB89DEA51E3";
 	setAttr -k off ".v";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 12 "f[0]" "f[1]" "f[2]" "f[3]" "f[4]" "f[5]" "f[6]" "f[7]" "f[8]" "f[9]" "f[10]" "f[11]";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:11]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 46 ".uvst[0].uvsp[0:45]" -type "float2" 0.63531649 0.921875
+	setAttr -s 48 ".uvst[0].uvsp[0:47]" -type "float2" 0.63531649 0.921875
 		 0.63531649 0.921875 0.578125 0.97906649 0.578125 0.97906649 0.578125 0.97906649 0.578125
 		 0.97906649 0.5 1 0.5 1 0.5 1 0.5 1 0.421875 0.97906649 0.421875 0.97906649 0.421875
 		 0.97906649 0.421875 0.97906649 0.36468354 0.921875 0.36468354 0.921875 0.36468354
@@ -9941,7 +9938,7 @@ createNode mesh -n "polySurfaceShape65" -p "polySurface49";
 		 0.578125 0.70843351 0.578125 0.70843351 0.5 0.6875 0.5 0.6875 0.63531649 0.765625
 		 0.63531649 0.765625 0.578125 0.70843351 0.578125 0.70843351 0.65625 0.84375 0.65625
 		 0.84375 0.63531649 0.765625 0.63531649 0.765625 0.65625 0.84375 0.63531649 0.921875
-		 0.63531649 0.921875;
+		 0.63531649 0.921875 0.34375 0.84375 0.65625 0.84375;
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
@@ -9971,7 +9968,7 @@ createNode mesh -n "polySurfaceShape65" -p "polySurface49";
 		f 4 28 9 -11 -8
 		mu 0 4 16 17 18 19
 		f 4 29 11 -13 -10
-		mu 0 4 20 21 18 22
+		mu 0 4 20 21 46 22
 		f 4 30 13 -15 -12
 		mu 0 4 23 24 25 26
 		f 4 31 15 -17 -14
@@ -9983,7 +9980,7 @@ createNode mesh -n "polySurfaceShape65" -p "polySurface49";
 		f 4 34 21 -23 -20
 		mu 0 4 39 40 41 42
 		f 4 35 0 -24 -22
-		mu 0 4 39 43 44 45;
+		mu 0 4 47 43 44 45;
 	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
@@ -9993,7 +9990,7 @@ createNode transform -n "polySurface51" -p "Castle_unUnified";
 createNode mesh -n "polySurfaceShape68" -p "polySurface51";
 	rename -uid "86ABD166-40C8-CF5A-37CE-A5AEF4305E16";
 	setAttr -k off ".v";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 30 "f[0]" "f[1]" "f[2]" "f[3]" "f[4]" "f[5]" "f[6]" "f[7]" "f[8]" "f[9]" "f[10]" "f[11]" "f[12]" "f[13]" "f[14]" "f[15]" "f[16]" "f[17]" "f[18]" "f[19]" "f[20]" "f[21]" "f[22]" "f[23]" "f[24]" "f[25]" "f[26]" "f[27]" "f[28]" "f[29]";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:29]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
@@ -10714,7 +10711,7 @@ createNode mesh -n "polySurfaceShape78" -p "polySurface58";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 37 ".pt";
+	setAttr -s 26 ".pt";
 	setAttr ".pt[8]" -type "float3" 0 0.2 0 ;
 	setAttr ".pt[9]" -type "float3" 0 0.2 0 ;
 	setAttr ".pt[10]" -type "float3" 0 0.2 0 ;
@@ -10762,7 +10759,7 @@ createNode transform -n "polySurface53" -p "Castle_unUnified";
 createNode mesh -n "polySurfaceShape72" -p "polySurface53";
 	rename -uid "85A83948-41F2-392D-2060-59ADD336A07B";
 	setAttr -k off ".v";
-	setAttr ".iog[0].og[0].gcl" -type "componentList" 49 "f[0]" "f[1]" "f[2]" "f[3]" "f[4]" "f[5]" "f[6]" "f[7]" "f[8]" "f[9]" "f[10]" "f[11]" "f[12]" "f[13]" "f[14]" "f[15]" "f[16]" "f[17]" "f[18]" "f[19]" "f[20]" "f[21]" "f[22]" "f[23]" "f[24]" "f[25]" "f[26]" "f[27]" "f[28]" "f[29]" "f[30]" "f[31]" "f[32]" "f[33]" "f[34]" "f[35]" "f[36]" "f[37]" "f[38]" "f[39]" "f[40]" "f[41]" "f[42]" "f[43]" "f[44]" "f[45]" "f[46]" "f[47]" "f[48]";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:48]";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
@@ -10931,9 +10928,13 @@ createNode mesh -n "polySurface73Shape" -p "polySurface73";
 	setAttr -s 2 ".iog[0].og";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
+	setAttr ".pv" -type "double2" 0.49998977780342102 0.68749988079071045 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcol" yes;
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".ccls" -type "string" "colorSet1";
+	setAttr ".clst[0].clsn" -type "string" "colorSet1";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".dr" 1;
@@ -10974,7 +10975,7 @@ createNode mesh -n "polySurfaceShape89" -p "polySurface73";
 	setAttr ".gtag[13].gtagnm" -type "string" "topRing";
 	setAttr ".gtag[13].gtagcmp" -type "componentList" 3 "f[553]" "f[558]" "f[614]";
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 1328 ".uvst[0].uvsp";
+	setAttr -s 1372 ".uvst[0].uvsp";
 	setAttr ".uvst[0].uvsp[0:249]" -type "float2" 0.39583334 0.3125 0.41666669
 		 0.3125 0.41666669 0.6875 0.39583334 0.6875 0.43750003 0.3125 0.43750003 0.6875 0.52083337
 		 0.3125 0.54166669 0.3125 0.54166669 0.6875 0.52083337 0.6875 0.39583334 0.3125 0.41666669
@@ -11218,7 +11219,7 @@ createNode mesh -n "polySurfaceShape89" -p "polySurface73";
 		 0.25 0.49768782 0.25 0.49768782 0.25 0.49768782 0.25 0.52750278 0.25 0.52750278 -0.0099796085
 		 0.47499752 0.25 0.47499752 -3.5591e-07 0.52750278 0.25 0.47942114 0.25 0.48340335
 		 0.25 0.52307916 0.25;
-	setAttr ".uvst[0].uvsp[1250:1327]" 0.52750278 0 0.52750278 -0.0099796783 0.47525129
+	setAttr ".uvst[0].uvsp[1250:1371]" 0.52750278 0 0.52750278 -0.0099796783 0.47525129
 		 -0.010019707 0.47499752 -4.2331499e-07 0.375 0.3125 0.40625 0.3125 0.453125 0.84375
 		 0.53682846 0.77641183 0.44169009 0.71545696 0.41803271 0.73541015 0.47532213 0.32205203
 		 0.5 0.3125 0.44475728 0.71038228 0.53125 0.3125 0.515625 0.6875 0.5625 0.3125 0.58649272
@@ -11233,12 +11234,20 @@ createNode mesh -n "polySurfaceShape89" -p "polySurface73";
 		 0.58333331 0.3125 0.58333331 0.6875 0.5625 0.6875 0.60416663 0.3125 0.60416663 0.6875
 		 0.62499994 0.3125 0.62499994 0.6875 0.43750003 0.3125 0.45833337 0.3125 0.45833337
 		 0.6875 0.43750003 0.6875 0.47916672 0.3125 0.47916672 0.6875 0.50000006 0.3125 0.50000006
-		 0.6875 0.52374977 0.31250304 0.52083337 0.6875;
+		 0.6875 0.52374977 0.31250304 0.52083337 0.6875 0.65793413 0.84374952 0.65793413 0.84374952
+		 0.65793413 0.84374952 0.65793413 0.84374952 0.65793413 0.84374952 0.65793413 0.84374952
+		 0.65793413 0.84374952 0.65793413 0.84374952 1 0 1 0 1 0 0.74406195 0 0.7571882 0
+		 0.7571882 0.1157489 0.74406195 0.1157489 1 0 1 0 1 0 1 0 1 0 1 0 0.52083337 0.3125
+		 0.5625 0.6875 0.56250817 0.34388182 0.43750003 0.6875 0.43750003 0.3125 0.39583334
+		 0.3125 0.50481248 0.25 0.49768782 0.25 0.52750278 0 0.47420999 0.25 0.47525129 -0.010019707
+		 0.52750278 0.25 0.52224976 0.25 0.47906899 0.25 0.47420999 0.25 0.48340335 0.25 0.47906899
+		 0.25 0.52224976 0.25 0.51874506 0.25 0.52750278 0 0.52750278 -0.0099796085 0.47525129
+		 -0.010019707 0.47499752 -3.5591e-07;
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 6 ".pt";
+	setAttr -s 2 ".pt";
 	setAttr ".pt[18]" -type "float3" -0.26566362 0 0.075353861 ;
 	setAttr ".pt[821]" -type "float3" 0.26734161 0 0.068979025 ;
 	setAttr -s 823 ".vt";
@@ -11758,7 +11767,7 @@ createNode mesh -n "polySurfaceShape89" -p "polySurface73";
 		f 4 44 69 92 -69
 		mu 0 4 68 69 70 71
 		f 4 45 62 90 -70
-		mu 0 4 68 72 73 74
+		mu 0 4 1328 72 73 74
 		f 8 -77 -76 -75 -74 -73 -72 -71 -78
 		mu 0 8 75 76 77 78 79 80 81 82
 		f 4 -81 78 70 -80
@@ -11824,7 +11833,7 @@ createNode mesh -n "polySurfaceShape89" -p "polySurface73";
 		f 4 116 141 164 -141
 		mu 0 4 139 140 141 142
 		f 4 117 134 162 -142
-		mu 0 4 139 143 144 145
+		mu 0 4 1329 143 144 145
 		f 8 -149 -148 -147 -146 -145 -144 -143 -150
 		mu 0 8 146 147 148 149 150 151 152 153
 		f 4 -153 150 142 -152
@@ -11890,7 +11899,7 @@ createNode mesh -n "polySurfaceShape89" -p "polySurface73";
 		f 4 188 213 236 -213
 		mu 0 4 210 211 212 213
 		f 4 189 206 234 -214
-		mu 0 4 210 214 215 216
+		mu 0 4 1330 214 215 216
 		f 8 -221 -220 -219 -218 -217 -216 -215 -222
 		mu 0 8 217 218 219 220 221 222 223 224
 		f 4 -225 222 214 -224
@@ -11956,7 +11965,7 @@ createNode mesh -n "polySurfaceShape89" -p "polySurface73";
 		f 4 260 285 308 -285
 		mu 0 4 281 282 283 284
 		f 4 261 278 306 -286
-		mu 0 4 281 285 286 287
+		mu 0 4 1331 285 286 287
 		f 8 -293 -292 -291 -290 -289 -288 -287 -294
 		mu 0 8 288 289 290 291 292 293 294 295
 		f 4 -297 294 286 -296
@@ -12022,7 +12031,7 @@ createNode mesh -n "polySurfaceShape89" -p "polySurface73";
 		f 4 332 357 372 -357
 		mu 0 4 352 353 354 355
 		f 4 333 350 370 -358
-		mu 0 4 352 356 357 358
+		mu 0 4 1332 356 357 358
 		f 3 -361 358 -360
 		mu 0 3 347 346 359
 		f 3 -363 359 -362
@@ -12086,7 +12095,7 @@ createNode mesh -n "polySurfaceShape89" -p "polySurface73";
 		f 4 396 421 436 -421
 		mu 0 4 408 409 410 411
 		f 4 397 414 434 -422
-		mu 0 4 408 412 413 414
+		mu 0 4 1333 412 413 414
 		f 3 -425 422 -424
 		mu 0 3 403 402 415
 		f 3 -427 423 -426
@@ -12150,7 +12159,7 @@ createNode mesh -n "polySurfaceShape89" -p "polySurface73";
 		f 4 458 483 498 -483
 		mu 0 4 464 465 466 467
 		f 4 459 476 496 -484
-		mu 0 4 464 468 469 470
+		mu 0 4 1334 468 469 470
 		f 3 -487 484 -486
 		mu 0 3 459 458 471
 		f 3 -489 485 -488
@@ -12214,7 +12223,7 @@ createNode mesh -n "polySurfaceShape89" -p "polySurface73";
 		f 4 522 547 562 -547
 		mu 0 4 520 521 522 523
 		f 4 523 540 560 -548
-		mu 0 4 520 524 525 526
+		mu 0 4 1335 524 525 526
 		f 3 -551 548 -550
 		mu 0 3 515 514 527
 		f 3 -553 549 -552
@@ -13025,39 +13034,39 @@ createNode mesh -n "polySurfaceShape89" -p "polySurface73";
 		f 4 1381 -843 -1380 1382
 		mu 0 4 1156 1157 1158 1159
 		f 4 -1349 1383 1385 -1385
-		mu 0 4 1063 1160 1062 1161
+		mu 0 4 1063 1160 1336 1161
 		f 3 -1381 -846 -1384
 		mu 0 3 1162 1163 1164
 		f 3 -1382 1386 1387
 		mu 0 3 1165 1166 1167
-		f 4 -1386 -841 1389 1388
-		mu 0 4 1062 1161 679 686
+		f 4 -1386 -841 1389 -1389
+		mu 0 4 1337 1338 1339 1340
 		f 4 -1390 -894 1390 -844
 		mu 0 4 679 686 689 680
 		f 4 -1391 1391 1392 890
-		mu 0 4 689 680 1168 1169
+		mu 0 4 1341 1342 1168 1169
 		f 4 -1393 1393 1394 -890
-		mu 0 4 1168 1169 1170 1171
+		mu 0 4 1343 1344 1170 1171
 		f 4 -1395 1395 1396 882
-		mu 0 4 1170 1171 1172 1173
+		mu 0 4 1345 1346 1172 1173
 		f 3 -1397 1397 -882
-		mu 0 3 1172 1173 1174
+		mu 0 3 1347 1348 1174
 		f 4 -987 1398 1400 -1400
-		mu 0 4 766 1175 765 1176
+		mu 0 4 766 1175 1349 1176
 		f 4 995 1402 -1404 -1402
-		mu 0 4 774 1177 771 1178
+		mu 0 4 1350 1177 1351 1178
 		f 4 978 1405 -1407 -1405
-		mu 0 4 760 1179 757 1180
+		mu 0 4 1352 1179 1353 1180
 		f 4 -990 1407 1409 -1409
-		mu 0 4 769 1181 768 1182
+		mu 0 4 769 1181 1354 1182
 		f 4 1037 1410 -1410 -1412
-		mu 0 4 815 814 1182 768
+		mu 0 4 815 814 1182 1354
 		f 4 1008 1412 1403 -1414
-		mu 0 4 787 786 1178 771
+		mu 0 4 787 786 1178 1351
 		f 4 1006 1414 -1401 -1416
-		mu 0 4 783 784 1176 765
+		mu 0 4 783 784 1176 1349
 		f 4 1020 1416 1406 -1418
-		mu 0 4 795 798 1180 757
+		mu 0 4 795 798 1180 1353
 		f 4 1012 1418 1419 -856
 		mu 0 4 1183 1184 1185 1186
 		f 4 1420 1421 1422 1423
@@ -13083,7 +13092,7 @@ createNode mesh -n "polySurfaceShape89" -p "polySurface73";
 		f 3 1442 1443 -1440
 		mu 0 3 1210 1211 1212
 		f 4 902 901 -1446 -1445
-		mu 0 4 704 1213 715 1214
+		mu 0 4 1355 1213 1356 1214
 		f 4 -709 1446 -1438 1447
 		mu 0 4 1215 1216 1217 1218
 		f 4 -708 1448 -1441 1449
@@ -13093,7 +13102,7 @@ createNode mesh -n "polySurfaceShape89" -p "polySurface73";
 		f 4 -1444 1451 702 -1450
 		mu 0 4 1227 1228 1229 1230
 		f 4 1445 -1451 -1454 -1453
-		mu 0 4 1214 715 1231 1232
+		mu 0 4 1214 1356 1231 1232
 		f 4 1453 -757 -1456 -1455
 		mu 0 4 1232 1231 1233 1234
 		f 4 1455 757 -1458 -1457
@@ -13105,21 +13114,21 @@ createNode mesh -n "polySurfaceShape89" -p "polySurface73";
 		f 3 1461 -711 -1463
 		mu 0 3 1240 1239 1241
 		f 4 -721 1463 1465 -1465
-		mu 0 4 617 1242 616 1243
+		mu 0 4 617 1242 1357 1243
 		f 4 -724 1466 1468 -1468
-		mu 0 4 622 1244 619 1245
+		mu 0 4 1358 1244 1359 1245
 		f 3 -719 1464 -1470
-		mu 0 3 617 1246 636
+		mu 0 3 1360 1246 1361
 		f 3 -726 1470 -1467
-		mu 0 3 609 1247 622
+		mu 0 3 1362 1247 1363
 		f 3 713 1471 -1471
-		mu 0 3 608 1248 609
+		mu 0 3 1364 1248 1365
 		f 3 728 1469 -1473
-		mu 0 3 636 1249 637
+		mu 0 3 1366 1249 1367
 		f 4 -1466 1473 1475 -1475
-		mu 0 4 616 1250 1243 1251
+		mu 0 4 1368 1250 1369 1251
 		f 4 -1469 1476 1478 -1478
-		mu 0 4 619 1252 1245 1253
+		mu 0 4 1370 1252 1371 1253
 		f 4 1479 1480 -1482 -1483
 		mu 0 4 1254 1255 1256 1257
 		f 5 -1485 -1476 1536 1483 -1538
@@ -13181,6 +13190,1259 @@ createNode mesh -n "polySurfaceShape89" -p "polySurface73";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".dr" 1;
+createNode transform -n "polySurface77";
+	rename -uid "F06299B0-4A80-7AD5-5FB2-2BBD831FF27E";
+	setAttr ".rp" -type "double3" 0 0 -0.13 ;
+	setAttr ".sp" -type "double3" 0 0 -0.13 ;
+createNode mesh -n "polySurfaceShape90" -p "polySurface77";
+	rename -uid "BF32183E-449B-25B9-375E-EB8B546C853B";
+	setAttr -k off ".v";
+	setAttr -s 6 ".iog[0].og";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr -s 3 ".ciog[0].cog";
+	setAttr -s 11 ".gtag";
+	setAttr ".gtag[0].gtagnm" -type "string" "booleanIntersection";
+	setAttr ".gtag[0].gtagcmp" -type "componentList" 67 "e[43]" "e[45]" "e[49]" "e[54]" "e[91]" "e[96]" "e[115]" "e[169]" "e[175]" "e[177]" "e[233]" "e[260]" "e[265]" "e[272]" "e[274]" "e[276]" "e[282]" "e[284]" "e[292]" "e[295]" "e[305]" "e[335]" "e[338]" "e[373:374]" "e[376:377]" "e[405:406]" "e[447]" "e[450]" "e[454]" "e[566]" "e[606:607]" "e[617]" "e[623]" "e[628]" "e[630]" "e[643]" "e[648]" "e[650]" "e[655]" "e[664:666]" "e[679]" "e[685:686]" "e[688]" "e[697]" "e[699]" "e[702]" "e[711]" "e[714]" "e[716]" "e[727]" "e[736]" "e[744]" "e[757]" "e[761]" "e[763]" "e[767]" "e[771]" "e[774]" "e[776]" "e[822]" "e[839:840]" "e[842:843]" "e[845:846]" "e[848:849]" "e[851:860]" "e[862:864]" "e[866:867]";
+	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
+	setAttr ".gtag[1].gtagcmp" -type "componentList" 19 "f[2:4]" "f[7:13]" "f[18:19]" "f[38]" "f[40]" "f[43:44]" "f[53]" "f[61]" "f[63]" "f[66]" "f[70:71]" "f[85:86]" "f[91]" "f[109]" "f[118]" "f[268:269]" "f[279]" "f[288]" "f[291]";
+	setAttr ".gtag[2].gtagnm" -type "string" "bottomRing";
+	setAttr ".gtag[2].gtagcmp" -type "componentList" 0;
+	setAttr ".gtag[3].gtagnm" -type "string" "cylBottomCap";
+	setAttr ".gtag[3].gtagcmp" -type "componentList" 0;
+	setAttr ".gtag[4].gtagnm" -type "string" "cylBottomRing";
+	setAttr ".gtag[4].gtagcmp" -type "componentList" 0;
+	setAttr ".gtag[5].gtagnm" -type "string" "cylSides";
+	setAttr ".gtag[5].gtagcmp" -type "componentList" 18 "vtx[0]" "vtx[9]" "vtx[24]" "vtx[32:33]" "vtx[36:37]" "vtx[47:48]" "vtx[56]" "vtx[63]" "vtx[77]" "vtx[79]" "vtx[155]" "vtx[161]" "vtx[169]" "vtx[177]" "vtx[181]" "vtx[204]" "vtx[209]" "vtx[214]";
+	setAttr ".gtag[6].gtagnm" -type "string" "cylTopCap";
+	setAttr ".gtag[6].gtagcmp" -type "componentList" 18 "vtx[0]" "vtx[9]" "vtx[24]" "vtx[32:33]" "vtx[36:37]" "vtx[47:48]" "vtx[56]" "vtx[63]" "vtx[77]" "vtx[79]" "vtx[155]" "vtx[161]" "vtx[169]" "vtx[177]" "vtx[181]" "vtx[204]" "vtx[209]" "vtx[214]";
+	setAttr ".gtag[7].gtagnm" -type "string" "cylTopRing";
+	setAttr ".gtag[7].gtagcmp" -type "componentList" 18 "vtx[0]" "vtx[9]" "vtx[24]" "vtx[32:33]" "vtx[36:37]" "vtx[47:48]" "vtx[56]" "vtx[63]" "vtx[77]" "vtx[79]" "vtx[155]" "vtx[161]" "vtx[169]" "vtx[177]" "vtx[181]" "vtx[204]" "vtx[209]" "vtx[214]";
+	setAttr ".gtag[8].gtagnm" -type "string" "sides";
+	setAttr ".gtag[8].gtagcmp" -type "componentList" 36 "f[0:1]" "f[5:6]" "f[14:17]" "f[20:25]" "f[32]" "f[37]" "f[39]" "f[45:47]" "f[52]" "f[54]" "f[69]" "f[76]" "f[83]" "f[101:102]" "f[108]" "f[110]" "f[113:114]" "f[119:120]" "f[122:123]" "f[126]" "f[128]" "f[131]" "f[143:144]" "f[153]" "f[158:159]" "f[264]" "f[267]" "f[270]" "f[274]" "f[296:297]" "f[308]" "f[317]" "f[319]" "f[334]" "f[384]" "f[393]";
+	setAttr ".gtag[9].gtagnm" -type "string" "top";
+	setAttr ".gtag[9].gtagcmp" -type "componentList" 45 "f[30:31]" "f[35:36]" "f[50:51]" "f[68]" "f[72]" "f[77:79]" "f[89:90]" "f[94]" "f[99:100]" "f[103:105]" "f[115]" "f[121]" "f[124:125]" "f[127]" "f[132:133]" "f[135:140]" "f[149]" "f[152]" "f[160:161]" "f[166:167]" "f[170:171]" "f[176:177]" "f[184:185]" "f[192:193]" "f[218:219]" "f[251:254]" "f[271]" "f[273]" "f[278]" "f[280]" "f[284:285]" "f[287]" "f[289:290]" "f[292:295]" "f[298:300]" "f[303:307]" "f[309:310]" "f[312]" "f[315:316]" "f[320:323]" "f[330:333]" "f[336:337]" "f[341:344]" "f[383]" "f[387]";
+	setAttr ".gtag[10].gtagnm" -type "string" "topRing";
+	setAttr ".gtag[10].gtagcmp" -type "componentList" 17 "e[62]" "e[65:68]" "e[77]" "e[80]" "e[92]" "e[112]" "e[124]" "e[167]" "e[181]" "e[278]" "e[297]" "e[336]" "e[345]" "e[352]" "e[355]" "e[357]" "e[378]";
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 728 ".uvst[0].uvsp";
+	setAttr ".uvst[0].uvsp[0:249]" -type "float2" 0.41350725 0.82086766 0.61462885
+		 0.31250003 0.59554762 0.36013582 0.59375 0.3125 0.40894607 0.36462384 0.38310438
+		 0.3125 0.40625 0.3125 0.61240441 0.35771352 0.3903392 0.35771406 0.40625 0.765625
+		 0.49995309 4.6940571e-05 0.49988493 0.00011516052 0.40496954 0.030051472 0.61040568
+		 0.045847297 0.5 0.15625 0.65624166 0.15481773 0.56376916 0.35338375 0.57136458 0.3125
+		 0.42626217 0.3125 0.43623066 0.35923538 0.40568206 0.029326972 0.61042207 0.26679564
+		 0.5625 0.3125 0.4375 0.3125 0.40366161 0.034213204 0.61042547 0.26679245 0.60481489
+		 0.26910633 0.49996868 0.2022195 0.44475728 0.71038228 0.40018654 0.25606528 0.45909208
+		 0.15154694 0.46589383 0.31252804 0.45955339 0.31252176 0.46589383 0.31252804 0.51149827
+		 0.31022689 0.5311963 0.30633274 0.50457108 0.3115963 0.46288946 0.35633707 0.45841429
+		 0.31252065 0.53509533 0.30710089 0.53657776 0.30739295 0.53037566 0.34664783 0.40004566
+		 0.25620613 0.40015435 0.25626683 0.40000173 0.25607988 0.515625 0.6875 0.51227617
+		 0.71713728 0.53001809 0.34620571 0.5297063 0.35071358 0.57449633 0.69894117 0.42550367
+		 0.75418383 0.44982433 0.49537197 0.45364857 0.49108618 0.4375 0.6875 0.4375 0.6875
+		 0.4374907 0.68749988 0.375 0.6875 0.375 0.6875 0.375 0.6875 0.609375 0.7265625 0.4296875
+		 0.765625 0.46874875 0.68749988 0.46125737 0.68749988 0.375 0.68749994 0.4375 0.6875
+		 0.375 0.6875 0.66107935 0.84356481 0.61404169 0.95750886 0.50020057 1.0048286915
+		 0.5234375 0.6875 0.4375 0.6875 0.4375 0.6875 0.375 0.6875 0.375 0.6875 0.61376929
+		 0.72998071 0.46287417 0.55116457 0.4375 0.7265625 0.45050085 0.53698587 0.40496954
+		 0.030051472 0.49988493 0.00011516052 0.40568206 0.029326972 0.4638128 0.55224013
+		 0.40366161 0.034213204 0.45278686 0.68749988 0.386242 0.95779163 0.49995309 4.6940571e-05
+		 0.37500009 0.68749982 0.5 0.15625 0.4375 0.6875 0.61040568 0.045847297 0.58649272
+		 0.71038228 0.48356 0.55473113 0.47237867 0.69894117 0.48260498 0.55586785 0.375 0.6875
+		 0.45955339 0.31252176 0.46288946 0.35633707 0.45841429 0.31252065 0.43623066 0.35923538
+		 0.42626217 0.3125 0.4375 0.3125 0.4375 0.6875 0.375 0.6875 0.49998465 0.68248612
+		 0.46589383 0.31252804 0.46589383 0.31252804 0.65624166 0.15481773 0.40894607 0.36462384
+		 0.38310438 0.3125 0.40625 0.3125 0.43749759 0.6875 0.4375 0.6875 0.4375 0.6875 0.375
+		 0.6875 0.39849725 0.68749988 0.375 0.6875 0.4375 0.6875 0.4375 0.6875 0.375 0.6875
+		 0.37500003 0.68749988 0.33892131 0.84395057 0.40625 0.68749988 0.4375 0.6875 0.375
+		 0.6875 0.40018654 0.25606528 0.45909208 0.15154694 0.43749484 0.68749994 0.4375 0.6875
+		 0.49996868 0.2022195 0.38882089 0.68749988 0.375 0.6875 0.43748996 0.68749994 0.61042207
+		 0.26679564 0.44475728 0.71038228 0.37500006 0.68749982 0.46297047 0.35623416 0.45996141
+		 0.39903322 0.3903392 0.35771406 0.40012527 0.25607011 0.40013984 0.25611198 0.4001759
+		 0.2561321 0.38595837 0.72999197 0.45278689 0.68749988 0.4375 0.6875 0.375 0.6875
+		 0.51149827 0.31022689 0.5311963 0.30633274 0.50457108 0.3115963 0.4375 0.6875 0.375
+		 0.6875 0.625 0.765625 0.33892131 0.84395057 0.386242 0.95779163 0.64406472 0.87723345
+		 0.64406478 0.87723351 0.61294687 0.95235914 0.57819271 0.9692955 0.57819271 0.9692955
+		 0.50306714 1.00041377544 0.38882089 0.68749988 0.45278689 0.68749988 0.61462885 0.31250003
+		 0.59554762 0.36013582 0.59375 0.3125 0.61045933 0.04579163 0.6562466 0.15566862 0.4375
+		 0.6875 0.4375 0.6875 0.375 0.6875 0.375 0.6875 0.64406466 0.81026578 0.64406466 0.81026578
+		 0.61294663 0.73514056 0.46651644 0.98781466 0.46651644 0.98781466 0.39139074 0.95669675
+		 0.61240441 0.35771352 0.515625 0.6875 0.61042547 0.26679245 0.60481572 0.26909947
+		 0.375 0.6875 0.4375 0.6875 0.42861003 0.82959074 0.43219078 0.86051357 0.58649272
+		 0.71038228 0.57819247 0.71820426 0.57819241 0.71820426 0.50306678 0.68708622 0.37445444
+		 0.92194271 0.37445444 0.92194265 0.34333622 0.8468172 0.53509533 0.30710089 0.53657776
+		 0.30739295 0.53037566 0.34664783 0.5625 0.3125 0.57136458 0.3125 0.56376916 0.35338375
+		 0.3859584 0.72999197 0.46651602 0.69968545 0.46651602 0.69968545 0.39139026 0.73080367
+		 0.37445405 0.76555794 0.37445405 0.76555794 0.34333619 0.84068364 0.42550367 0.75418383
+		 0.53028589 0.34653684 0.53020769 0.34766835 0.52867228 0.43032914 0.51227617 0.71713728
+		 0.375 0.6875 0.4375 0.6875 0.49998465 0.68248612 0.50453973 0.3116025 0.53087091
+		 0.30639708 0.46075153 0.31252116 0.46634406 0.31252769 0.58672661 0.69756055 0.60087383
+		 0.73101342 0.4296875 0.765625 0.61376929 0.72998071 0.46330088 0.35581449 0.46651644
+		 0.98781466 0.46651644 0.98781466 0.39139074 0.95669675 0.37445444 0.92194271 0.37445444
+		 0.92194265 0.34333622 0.8468172 0.46283132 0.55146056 0.4375 0.7265625 0.45047891
+		 0.53730583 0.61777383 0.73959494 0.61570388 0.73612076 0.57449633 0.69894117 0.375
+		 0.6875 0.4375 0.6875 0.375 0.6875 0.4375 0.6875 0.46376839 0.55253434 0.57819271
+		 0.9692955 0.57819271 0.9692955 0.50306714 1.00041377544 0.37445405 0.76555794 0.37445405
+		 0.76555794 0.34333619 0.84068364 0.4375 0.3125 0.453125 0.3125 0.45311934 0.68749988
+		 0.64406472 0.87723345 0.64406478 0.87723351 0.61294687 0.95235914;
+	setAttr ".uvst[0].uvsp[250:499]" 0.46651602 0.69968545 0.46651602 0.69968545
+		 0.39139026 0.73080367 0.64406466 0.81026578 0.64406466 0.81026578 0.61294663 0.73514056
+		 0.57819247 0.71820426 0.57819241 0.71820426 0.50306678 0.68708622 0.50020057 1.0048286915
+		 0.386242 0.95779163 0.33892131 0.84395057 0.53682846 0.77641183 0.5 0.6875 0.5 0.6875
+		 0.49999055 0.68749994 0.5625 0.6875 0.5625 0.6875 0.5625 0.6875 0.48353666 0.55503219
+		 0.47237867 0.69894117 0.48258364 0.55616653 0.49894524 0.5375669 0.46875 0.6875 0.46874872
+		 0.68749982 0.46875 0.6875 0.40625 0.6875 0.40625 0.6875 0.40625 0.6875 0.609375 0.7265625
+		 0.56249595 0.6875 0.53124875 0.68749988 0.52268064 0.68749988 0.61404169 0.95750886
+		 0.4375 0.6875 0.375 0.6875 0.40625 0.3125 0.40625 0.68749982 0.5234375 0.6875 0.38595837
+		 0.72999197 0.5625 0.6875 0.5 0.6875 0.5 0.6875 0.5 0.6875 0.5625 0.6875 0.5625 0.6875
+		 0.40625 0.6875 0.4375 0.6875 0.375 0.6875 0.45378858 0.49111244 0.52785057 0.4706971
+		 0.52747542 0.47082412 0.66107935 0.84356481 0.4375 0.6875 0.375 0.6875 0.5624913
+		 0.6875 0.49998465 0.68248612 0.46875 0.3125 0.46874872 0.68749982 0.5 0.6875 0.5625
+		 0.6875 0.61376929 0.72998071 0.5625 0.6875 0.59375 0.6875 0.59375 0.6875 0.59375
+		 0.6875 0.40625 0.68749988 0.40625 0.68749982 0.40625 0.68749988 0.40625 0.68749988
+		 0.59375 0.6875 0.46651644 0.98781466 0.46651644 0.98781466 0.39139074 0.95669675
+		 0.37445444 0.92194271 0.37445444 0.92194265 0.34333622 0.8468172 0.5 0.6875 0.5 0.6875
+		 0.5625 0.6875 0.5625 0.6875 0.57819271 0.9692955 0.57819271 0.9692955 0.50306714
+		 1.00041377544 0.37445405 0.76555794 0.37445405 0.76555794 0.34333619 0.84068364 0.59375
+		 0.68749988 0.58625662 0.68749988 0.5625 0.6875 0.5 0.6875 0.49999723 0.6875 0.5 0.6875
+		 0.5 0.6875 0.5625 0.6875 0.5624882 0.6875 0.5625 0.6875 0.5 0.6875 0.40625 0.6875
+		 0.57778394 0.68749988 0.64406472 0.87723345 0.64406478 0.87723351 0.61294687 0.95235914
+		 0.46651602 0.69968545 0.46651602 0.69968545 0.39139026 0.73080367 0.4375 0.6875 0.375
+		 0.6875 0.56248301 0.68749994 0.57778394 0.68749988 0.57778394 0.68749988 0.60441744
+		 0.96150935 0.61404169 0.95750886 0.58635366 0.93793505 0.39005351 0.73718321 0.3859584
+		 0.72999197 0.38119215 0.7415393 0.64406466 0.81026578 0.64406466 0.81026578 0.61294663
+		 0.73514056 0.57819247 0.71820426 0.57819241 0.71820426 0.50306678 0.68708622 0.50557697
+		 0.80155325 0.5625 0.6875 0.5 0.6875 0.5625 0.6875 0.5 0.6875 0.5 0.6875 0.5625 0.6875
+		 0.5625 0.6875 0.5625 0.6875 0.5 0.6875 0.4375 0.6875 0.375 0.6875 0.5625 0.6875 0.5
+		 0.6875 0.5625 0.6875 0.66107935 0.84356481 0.40625 0.6875 0.5 0.6875 0.5625 0.6875
+		 0.5 0.6875 0.5625 0.6875 0.4375 0.6875 0.375 0.6875 0.49998465 0.68248612 0.5625
+		 0.6875 0.5 0.6875 0.5 0.6875 0.5625 0.6875 0.61048543 0.95423543 0.65625 0.84375
+		 0.5 1 0.59375 0.6875 0.40625 0.6875 0.40625 0.6875 0.4375 0.6875 0.4375 0.6875 0.375
+		 0.6875 0.375 0.6875 0.61376929 0.72998071 0.59375 0.6875 0.4375 0.6875 0.375 0.6875
+		 0.5625 0.6875 0.5 0.6875 0.46651644 0.98781466 0.46651644 0.98781466 0.39139074 0.95669675
+		 0.37445444 0.92194271 0.37445444 0.92194265 0.34333622 0.8468172 0.40625 0.6875 0.4375
+		 0.6875 0.375 0.6875 0.46874875 0.68749988 0.46125734 0.68749988 0.57819271 0.9692955
+		 0.57819271 0.9692955 0.50306714 1.00041377544 0.37445405 0.76555794 0.37445405 0.76555794
+		 0.34333619 0.84068364 0.5 0.6875 0.5625 0.6875 0.64406472 0.87723345 0.64406478 0.87723351
+		 0.61294687 0.95235914 0.46651602 0.69968545 0.46651602 0.69968545 0.39139026 0.73080367
+		 0.59375 0.6875 0.59375 0.6875 0.59375 0.6875 0.46875 0.6875 0.46875 0.6875 0.46875
+		 0.6875 0.64406466 0.81026578 0.64406466 0.81026578 0.61294663 0.73514056 0.57819247
+		 0.71820426 0.57819241 0.71820426 0.50306678 0.68708622 0.5625 0.6875 0.5 0.6875 0.61048543
+		 0.73326457 0.38951457 0.95423543 0.65793443 0.84374923 0.65793413 0.84374952 0.61167657
+		 0.95542598 0.61167657 0.95542598 0.5625 0.6875 0.5 0.6875 0.5625 0.6875 0.5 0.6875
+		 0.53125 0.6875 0.53125 0.6875 0.53125 0.6875 0.49900079 0.5372293 0.48364758 0.55463183
+		 0.5 0.6875 0.5625 0.6875 0.5 0.6875 0.5625 0.6875 0.5269928 0.51283634 0.61045933
+		 0.04579163 0.65793413 0.84374952 0.50000036 1.0016840696 0.50000036 1.0016840696
+		 0.46039644 0.31252131 0.46125734 0.68749988 0.46604308 0.31252792 0.5 0.6875 0.6562466
+		 0.15566862 0.34375 0.84375 0.61167634 0.73207378 0.61167634 0.73207378 0.38832396
+		 0.95542645 0.38832396 0.95542645 0.49998978 0.68749988 0.49998838 0.68749988 0.46874976
+		 0.6875 0.46875 0.6875 0.39780074 0.96256256 0.38951457 0.95423543 0.42932403 0.97072506
+		 0.34375 0.84375 0.50456071 0.31159836 0.53114694 0.30634248;
+	setAttr ".uvst[0].uvsp[500:727]" 0.49999997 0.68581593 0.49999997 0.68581593
+		 0.38832346 0.73207402 0.38832346 0.73207402 0.38951457 0.73326457 0.44981891 0.49542964
+		 0.45362371 0.4911657 0.38951457 0.73326457 0.38832396 0.95542645 0.38832396 0.95542645
+		 0.38832346 0.73207402 0.38832346 0.73207402 0.40625 0.6875 0.40625 0.6875 0.57811654
+		 0.68749988 0.578125 0.3125 0.59375 0.3125 0.59375 0.68749982 0.58970171 0.96452832
+		 0.5846253 0.96663105 0.5 0.6875 0.49999997 0.68581593 0.49999997 0.68581593 0.64672923
+		 0.87080097 0.64875954 0.86589903 0.44812179 0.51348925 0.61167634 0.73207378 0.61167634
+		 0.73207378 0.61048543 0.73326457 0.5625 0.3125 0.6262669 0.77136433 0.62498295 0.68749988
+		 0.62498367 0.68749994 0.59375 0.6875 0.59375 0.6875 0.43748993 0.68749988 0.43748695
+		 0.68749988 0.43733677 0.68749994 0.40625 0.68749994 0.40625 0.6875 0.38951457 0.95423543
+		 0.5 1 0.34375 0.84375 0.55623811 0.3125 0.55627483 0.68749994 0.52698684 0.51313066
+		 0.61048543 0.95423543 0.38951457 0.73326457 0.50000036 1.0016840696 0.50000036 1.0016840696
+		 0.38832396 0.95542645 0.38832396 0.95542645 0.47500449 0.3125 0.47498637 0.41929322
+		 0.47494808 0.68749988 0.59375 0.6875 0.59375 0.6875 0.46875 0.6875 0.46875 0.6875
+		 0.58625662 0.68749988 0.58625662 0.68749988 0.59375 0.68749988 0.61167657 0.95542598
+		 0.61167657 0.95542598 0.38832346 0.73207402 0.38832346 0.73207402 0.65625 0.84375
+		 0.5 0.6875 0.44814789 0.51321149 0.45008361 0.53276998 0.65793443 0.84374923 0.65793413
+		 0.84374952 0.49999997 0.68581593 0.49999997 0.68581593 0.46875 0.6875 0.46875 0.6875
+		 0.65793413 0.84374952 0.61167634 0.73207378 0.61167634 0.73207378 0.61048543 0.73326457
+		 0.56248301 0.68749994 0.56248432 0.68749994 0.53124958 0.68749994 0.53125 0.6875
+		 0.43008178 0.73143584 0.57239693 0.97001219 0.61048543 0.95423543 0.38951457 0.73326457
+		 0.37302953 0.77306294 0.47294694 0.99047828 0.47784835 0.99250841 0.3792206 0.93344909
+		 0.37711805 0.92837322 0.53125 0.6875 0.53125 0.6875 0.53125 0.6875 0.53125 0.6875
+		 0.65625 0.84375 0.5 0.6875 0.65793413 0.84374952 0.65793413 0.84374952 0.49999997
+		 0.68581593 0.49999997 0.68581593 0.53125 0.6875 0.53125 0.6875 0.40625 0.6875 0.40625
+		 0.6875 0.4375 0.6875 0.4375 0.6875 0.375 0.6875 0.375 0.6875 0.65793413 0.84374952
+		 0.61167634 0.73207378 0.61167634 0.73207378 0.61048543 0.73326457 0.4375 0.6875 0.375
+		 0.6875 0.46875 0.6875 0.46875 0.6875 0.46875 0.6875 0.46875 0.6875 0.59375 0.6875
+		 0.59375 0.6875 0.62498498 0.68749994 0.62498474 0.68749994 0.59375 0.68749988 0.59375
+		 0.68749988 0.60786402 0.6875 0.53125 0.6875 0.53125 0.6875 0.5 0.6875 0.5 0.6875
+		 0.5625 0.6875 0.5625 0.6875 0.5 0.6875 0.5625 0.6875 0.53125 0.6875 0.53125 0.6875
+		 0.50000036 1.0016840696 0.50000036 1.0016840696 0.47802544 0.99258184 0.44237244
+		 0.49155697 0.43748432 0.68749994 0.42019153 0.68749988 0.43739989 0.68749988 0.54919237
+		 0.46603346 0.49998531 0.6875 0.46874917 0.68749988 0.47043175 0.68749988 0.64875948
+		 0.82160008 0.65793413 0.84374952 0.65793419 0.84374952 0.40625 0.68749994 0.40625
+		 0.68749994 0.40625 0.68749994 0.56248587 0.6875 0.53124875 0.68749988 0.53124899
+		 0.68749988 0.53293657 0.68749988 0.53124911 0.68749982 0.53124893 0.68749982 0.5312494
+		 0.68749994 0.58952463 0.96460164 0.61167657 0.95542598 0.61167657 0.95542598 0.38832346
+		 0.73207402 0.38832346 0.73207402 0.37922019 0.75405145 0.44227505 0.49156755 0.46874976
+		 0.6875 0.46874982 0.6875 0.46874997 0.6875 0.46874994 0.6875 0.54931432 0.46605802
+		 0.52786946 0.47074422 0.46874976 0.6875 0.46874958 0.6875 0.46874934 0.68749988 0.46874902
+		 0.68749988 0.46874911 0.68749988 0.46874908 0.68749994 0.46874923 0.68749988 0.4687492
+		 0.68749994 0.40625 0.68749994 0.40624997 0.68749988 0.40625 0.68749994 0.40625 0.68749994
+		 0.40625003 0.68749994 0.53124976 0.6875 0.53124976 0.6875 0.5312497 0.6875 0.53124976
+		 0.6875 0.43140486 0.68749988 0.43136522 0.57204527 0.43351337 0.50132889 0.42559987
+		 0.53510714 0.42559353 0.53510714 0.42558715 0.53510714 0.41756606 0.50056851 0.41982049
+		 0.57199931 0.41981864 0.57612276 0.41977665 0.68749988 0.59375 0.6875 0.59375 0.6875
+		 0.59375 0.6875 0.59375 0.6875 0.59375 0.6875 0.59375 0.68749994 0.59375 0.68749994
+		 0.59375006 0.68749988 0.625 0.3125 0.61148429 0.68749988 0.61148012 0.60892516 0.61146772
+		 0.57240319 0.61363673 0.50100166 0.60564744 0.53510714 0.60564542 0.53510714 0.60564327
+		 0.53510714 0.59754539 0.50023389 0.59982169 0.5723567 0.59982121 0.57339174 0.5997926
+		 0.65004218 0.59978527 0.68749988 0.53124976 0.68749994 0.53124964 0.6875 0.53124893
+		 0.68749982 0.53124917 0.68749988 0.53124899 0.68749994;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 410 ".vt";
+	setAttr ".vt[0:165]"  -5.62046862 28.78357315 4.13941622 -5.71462107 19.28573227 -1.49680996
+		 -2.36707354 19.28573227 -4.84435749 -5.4610281 23.94421005 -3.79037404 -5.068195343 25.61941147 -4.65186787
+		 -4.56216812 23.92355919 -4.14201832 -6.31926823 25.61927795 -3.40034676 -5.812253 23.92284393 -2.89091873
+		 -5.95292091 25.59127808 -4.28520298 -5.98760366 28.78357315 5.033539772 -5.075721741 22.87812233 -2.14999771
+		 -5.36091423 23.80220604 -1.9210614 -4.44934654 22.50920677 -2.77266359 -4.44486046 23.75716591 -2.77342081
+		 -3.8214283 22.87286758 -3.39686394 -4.18338203 25.5407753 -4.28547573 -5.95261192 25.54090118 -2.5156641
+		 -5.33363152 23.76350784 -1.89361584 -3.55979156 23.75607681 -3.65694809 -3.59239674 23.8023243 -3.68974781
+		 2.36707354 19.28573227 -4.84435749 -5.32193184 23.8022213 -1.90491998 -3.57287979 23.80100632 -3.64393806
+		 -4.26046848 24.017160416 -2.95780969 -5.61496735 28.78357315 5.92538404 -4.44299698 24.64146423 -2.77527189
+		 -4.62684822 24.015302658 -2.59143019 -5.067791939 25.54088593 -2.14933014 -3.8167572 25.54053879 -3.40077591
+		 -4.43957806 24.64146423 -2.77185297 -4.43889713 24.64146423 -2.77253389 -4.44025898 24.64146423 -2.77117205
+		 -4.72084332 28.78357315 6.292521 -5.955513 33.14181519 -4.28785229 -3.8210907 25.52905655 -3.39034033
+		 -3.8208971 25.62826347 -3.39053392 -4.17822647 33.14181519 -4.29060364 -5.95276165 33.14181519 -2.51056719
+		 -5.37706089 28.19717026 -2.27557111 -5.06624794 28.30735779 -2.1473372 5.71462202 19.28573227 -1.49681044
+		 -6.27811813 28.10789871 -1.39509797 -6.27811813 28.10789871 -1.73021674 -5.71462107 28.30789948 -1.49680996
+		 -2.60048056 28.10789871 -5.40785265 -2.26536179 28.10789871 -5.40785265 -2.36707354 28.30789948 -4.84435749
+		 -5.067440033 33.14181519 -4.65731621 -6.32222557 33.14181519 -3.39864063 -5.71462107 29.32261658 -0.50952339
+		 -1.35983086 29.365345 -4.84435749 -6.31152439 29.49962044 -0.30358809 -1.17385173 29.49962044 -5.44126034
+		 -5.080176353 32.72621918 -5.34837341 -6.45400238 32.72621918 -4.76947117 -7.016098022 32.72621918 -3.38868427
+		 -3.8087635 33.14181519 -3.40253067 -4.32531691 32.069553375 -0.92134088 -6.31152439 29.49962044 -0.59047508
+		 -1.791605 32.069553375 -3.45505333 -1.46073866 29.49962044 -5.44126034 -3.69939137 32.72621918 -4.78627682
+		 -4.71951389 29.54102707 -2.28978515 -5.063549519 33.14181519 -2.14385462 -5.065721989 29.24970436 -2.14665842
+		 3.58688402 23.80220604 -3.69052243 3.81582046 22.87812233 -3.40532994 3.55943847 23.76350784 -3.66323948
+		 -4.69325161 29.56312561 -2.30064225 3.57074261 23.8022213 -3.65153956 -5.71462107 30.69607925 0.13190076
+		 -6.43719578 32.72621918 -2.014859676 4.55674124 23.92284393 -4.14186144 -0.62687844 30.93479919 -4.84435749
+		 4.43924332 23.75716591 -2.77446795 -6.39152431 30.89134216 0.29997626 4.4384861 22.50920677 -2.77895451
+		 -3.82899761 28.78357315 5.9198842 -4.16824579 29.97355461 -2.53953671 -4.17547703 33.14181519 -2.51331758
+		 -4.17862988 29.99470329 -2.51440978 -0.57028729 30.89134216 -5.52126026 3.81515265 25.54088593 -3.39739966
+		 4.18148661 25.54090118 -4.28221989 -6.39152431 30.89134216 0.06310454 -0.80715907 30.89134216 -5.52126026
+		 -3.12048817 32.72621918 -3.41245198 4.4410944 24.64146423 -2.7726047 4.25725269 24.015302658 -2.95645571
+		 5.06268692 22.87286758 -2.15103579 5.066169739 25.61927795 -4.64887619 5.45619678 23.94421005 -3.79063606
+		 -5.71462107 29.32261658 2.25005078 -6.27811813 28.10789871 3.13562584 -6.31152439 29.49962044 2.04411602
+		 2.26536274 28.10789871 -5.40785265 1.35983086 29.365345 -4.84435749 1.17385244 29.49962044 -5.44126034
+		 -6.27811813 28.10789871 3.47074509 -5.71462107 28.30789948 3.23733735 2.60048175 28.10789871 -5.40785265
+		 2.36707354 28.30789948 -4.84435749 -5.056409836 32.72621918 -1.45276439 -6.72152424 33.17478561 0.87026387
+		 2.7493653e-07 33.17478561 -5.85126019 -5.71462107 30.69607925 1.6086266 -6.39152431 30.89134216 1.44055152
+		 4.62363243 24.017160416 -2.59007597 0.62687844 30.93479919 -4.84435749 0.57028812 30.89134216 -5.52126026
+		 -5.71462107 33.17645264 0.8702637 5.32277107 23.75607681 -1.88939989 3.83393574 28.78357315 5.92581892
+		 0 33.17645264 -4.84435749 3.81594849 25.53877449 -3.39548326 3.81452131 26.4174614 -3.39691043
+		 5.95102596 25.59127808 -4.2825284 4.43973494 24.64146423 -2.77169681 4.43996096 24.64146423 -2.77147102
+		 4.4401865 24.64146423 -2.77124524 -3.68258357 32.72621918 -2.031665802 -5.71462107 30.69607925 0.8702637
+		 -6.39152431 30.89134216 1.67742348 0.80715978 30.89134216 -5.52126026 5.30976105 23.80100632 -1.90248775
+		 -6.81152439 33.67478561 0.87026387 2.6804682e-07 33.67478561 -5.94126034 5.987041 28.78357315 5.026194572
+		 -6.67257118 28.36797714 5.035935879 -6.11047602 28.36797714 3.65514994 -5.072750092 34.82603836 -4.13109684
+		 -5.58800697 34.82603836 -3.91397882 -5.068292618 37.85723877 -3.40056825 -5.79882145 34.82603836 -3.39611053
+		 6.31769085 25.61941147 -3.39780283 5.8078413 23.92355919 -2.89177561 -4.32531691 32.069553375 2.66186953
+		 -6.31152439 29.49962044 2.33100319 1.79160535 32.069553375 -3.45505333 1.46073961 29.49962044 -5.44126034
+		 -4.554883 34.82603836 -3.92028141 -5.58170319 34.82603836 -2.88085508 4.72805977 28.78357315 6.29295588
+		 5.35557079 23.8023243 -1.9220047 2.7651171e-07 33.72091675 -3.4536581 -4.32392168 33.72091675 0.87026387
+		 -5.28048658 28.78357315 3.99736261 -5.42999506 28.69400787 3.91029048 5.61990547 28.78357315 5.92031908
+		 -4.33776474 34.82603836 -3.40502548 -5.063836098 34.82603836 -2.67004013 5.066598892 25.54053879 -2.14636493
+		 5.95129871 25.5407753 -2.51298976 -6.093669891 28.36797714 6.40976191 -4.54858017 34.82603836 -2.88715839
+		 4.17638969 33.14181519 -4.28236961 -5.71462107 19.28573227 3.23733735 -5.71462107 19.28573227 0.8702637
+		 5.063979626 25.53765678 -2.14745259 5.064028263 25.56255722 -2.14740396 5.067029476 27.40670013 -2.1444025
+		 5.95367527 33.14181519 -4.28512049 -1.1632185 34.51725388 -1.93799376 -2.80825734 34.51725388 -0.2929545
+		 -4.71288395 28.36797714 6.97185755 -3.57946491 23.81049538 -3.63196611;
+	setAttr ".vt[166:331]" -5.28804111 23.82878876 -1.92339003 -3.81756139 28.16516876 5.89137697
+		 -3.69188619 28.78357315 5.58596182 5.064463615 33.14181519 -4.65183306 -3.33905888 28.36797714 6.39295435
+		 -5.058059216 25.53016281 -2.15337181 -4.72922468 30.46779633 4.29352427 -5.24448061 30.46779633 4.51064301
+		 -4.72476721 33.49899673 5.024053097 -5.45529556 30.46779633 5.028509617 3.95536137 29.54710388 -3.049702406
+		 3.80967736 33.14181519 -3.39315748 3.8124764 29.25627136 -3.39532614 -3.29148078 28.36797714 6.27607918
+		 -3.36021304 28.43956757 6.15744162 5.95642662 33.14181519 -2.50783443 1.1632185 34.51725388 -1.93799376
+		 -2.80825734 34.51725388 2.033482313 2.5015297e-07 34.87800598 -2.13596344 -3.0062270164 34.87800598 0.87026387
+		 3.96620035 29.56916428 -3.02348423 -4.21135712 30.46779633 4.50433874 -5.2381773 30.46779633 5.54376554
+		 -5.71462107 28.30789948 0.8702637 -3.99423885 30.46779633 5.019595623 -4.72031021 30.46779633 5.75458097
+		 -4.20505381 30.46779633 5.53746271 5.054507256 32.72621918 -5.34570599 3.68068218 32.72621918 -4.76680374
+		 3.11858702 32.72621918 -3.3860178 5.61440325 28.78357315 4.13434982 -2.26536179 28.10789871 7.14838028
+		 -2.60048056 28.10789871 7.14838028 -2.36707354 28.30789948 6.58488464 6.27811909 28.10789871 -1.73021746
+		 6.27811909 28.10789871 -1.39509845 5.71462202 28.30789948 -1.49681044 4.20530462 29.9801693 -2.49786878
+		 4.17914009 33.14181519 -2.50508475 4.18022966 30.0012741089 -2.50823069 4.58565664 29.65991402 -2.34076667
+		 -1.791605 32.069553375 5.19558144 -0.63992852 37.52652359 -0.67466038 6.32313919 33.14181519 -3.39704752
+		 5.7146225 29.32261658 -0.50952381 -1.29825497 29.4971981 6.58488512 6.43529415 32.72621918 -4.78361034
+		 -1.54492378 37.52651596 0.23033524 5.068353653 33.14181519 -2.13837147 3.69748831 32.72621918 -2.012191772
+		 6.31152534 29.49962044 -0.30358869 -1.17385173 29.49962044 7.18178797 -1.46073866 29.49962044 7.18178797
+		 4.32531786 32.069553375 -0.9213416 6.31152534 29.49962044 -0.59047568 -1.54492378 37.52651978 1.51019239
+		 0.63992894 37.52652359 -0.67466038 -5.062571526 28.30789948 -2.1488595 -3.81384802 28.30693817 -3.40141463
+		 -3.81653547 28.30789948 -3.39489555 7.014196396 32.72621918 -3.40978432 -1.75323808 37.73371887 0.87026387
+		 2.8265526e-07 37.73371887 -0.88297457 5.71462202 30.69607925 0.1319004 5.078274727 32.72621918 -1.45009625
+		 -0.80715895 30.89134216 7.26178789 6.39152527 30.89134216 0.063104093 6.4520998 32.72621918 -2.028999329
+		 6.39152527 30.89134216 0.29997587 2.80825782 34.51725388 -0.29295498 1.5449245 37.52651596 0.230335
+		 -5.62857199 28.10789871 -2.37976265 -5.12796831 29.12349701 -2.17239094 -5.41674328 28.5379982 -2.29176903
+		 5.061933517 34.82603836 -4.12842941 4.54667759 34.82603836 -3.91131067 5.066390991 37.85723877 -3.39790058
+		 4.33586264 34.82603836 -3.39344406 3.6868229e-07 33.72091675 5.19418669 -1.1632185 34.51725388 3.67852139
+		 4.32392168 33.72092056 0.87026185 5.57980156 34.82603836 -3.91761494 4.5529809 34.82603836 -2.87818813
+		 5.71462202 28.30789948 3.23733735 5.7146225 29.32261658 2.25005054 6.27811909 28.10789871 3.13562584
+		 2.26536322 28.10790062 7.14838028 1.29825521 29.4971981 6.5848856 2.36707377 28.30789948 6.5848856
+		 2.60048175 28.10789871 7.14838028 6.27811909 28.10789871 3.47074509 6.31152534 29.49962044 2.04411602
+		 1.17385435 29.49961853 7.18178797 -0.37656328 40.79839706 -0.038839281 5.71462202 30.69607925 1.60862637
+		 5.79691982 34.82603836 -3.40235806 5.070848465 34.82603836 -2.6673727 -0.90910286 40.79838562 0.49370068
+		 5.71462202 33.17645264 0.87026346 5.71462202 30.69607925 0.8702634 5.97630501 28.36797714 3.59125781
+		 6.093038559 28.36797714 3.63877821 5.85683584 28.43948555 3.66087747 3.37663889 28.45185089 6.13245487
+		 3.35523319 28.36797714 6.41019678 3.2965734 28.36797714 6.27098799 5.58610439 34.82603836 -2.88449097
+		 5.58572435 28.16533852 4.1230979 5.28057337 28.78357315 3.99727631 6.39152527 30.89134216 1.44055152
+		 3.489132e-07 34.87800598 3.87649155 3.0062286854 34.87800598 0.8702637 1.79160535 32.069553375 5.19558144
+		 1.46073937 29.49962044 7.18178797 4.32531786 32.069553375 2.66186953 6.31152534 29.49962044 2.33100319
+		 -0.6399284 37.52651978 2.41518807 -0.90910316 40.79839325 1.24682665 0.37656343 40.79839706 -0.038839281
+		 6.72152519 33.17478561 0.87026381 0.80715966 30.89134216 7.26178789 6.39152527 30.89134216 1.67742324
+		 6.6719408 28.36797714 5.012604237 1.1632185 34.51725388 3.67852139 2.80825782 34.51725388 2.033482313
+		 3.6411214e-07 33.67478561 7.68178797 6.81152534 33.67478561 0.8702637 -1.27547193 40.79840851 0.87026387
+		 7.5728174e-08 40.79840851 -0.40520841 4.73601913 28.36797714 6.97229242 1.75323915 37.73371887 0.87026387
+		 3.3977469e-07 37.73371887 2.62350225 0.63992894 37.52651978 2.41518807 1.5449245 37.52651978 1.51019239
+		 -6.45400238 33.45140839 -4.76947117 -5.080176353 33.45140839 -5.34837341 -7.016098022 33.45140839 -3.38868427
+		 0.90910333 40.79838562 0.49370059 -0.48034453 40.79839706 -0.28938884 -1.15965259 40.79839325 0.38991952
+		 -1.6269933 40.79840088 0.87026387 -5.5814802e-08 40.79840088 -0.75672954 6.10984421 28.36797714 6.39338923
+		 -1.15965307 40.79839325 1.35060763 0.48034444 40.79839706 -0.28938884 -0.37656277 40.79839325 1.77936697
+		 4.7196784 30.46779633 4.29395914 4.20442247 30.46779633 4.51107788 4.72413588 33.49899673 5.024487972
+		 3.99360752 30.46779633 5.028944492 4.8350921e-07 40.79839706 0.87026399 -5.71462107 29.32261658 0.8702637
+		 5.23754597 30.46779633 4.50477362 4.21072578 30.46779633 5.54420042 -5.046478271 21.85508347 3.90548038
+		 -5.044631958 19.28573227 3.9073267 0.37656307 40.79839325 1.77936697 0.90910345 40.79839325 1.24682665
+		 5.45466423 30.46779633 5.020030499 4.72859287 30.46779633 5.75501585 1.15965283 40.79839325 0.38991928
+		 5.24384928 30.46779633 5.53789759 1.27547312 40.79840851 0.8702637 1.1617699e-07 40.79840851 2.14573622
+		 -3.69939137 33.45140839 -4.78627682 -6.43719578 33.45140839 -2.014859676;
+	setAttr ".vt[332:409]" -0.48034394 40.79839325 2.029916525 -4.010815144 29.65262985 -2.9206841
+		 -4.16735315 29.971735 -2.54169893 -4.2182453e-09 40.79840088 2.49725747 1.62699437 40.79840088 0.8702637
+		 0.48034403 40.79839325 2.029916525 1.15965307 40.79839325 1.35060763 -3.81285977 29.24667549 -3.40163136
+		 5.71462202 19.28573227 0.87026346 5.71462202 19.28573227 3.23733735 3.5837388 23.82091522 -3.6276927
+		 -3.12048817 33.45140839 -3.41245198 -5.056409836 33.45140839 -1.45276439 -5.050348759 28.30789948 3.90160942
+		 -5.61228943 28.10789871 4.13657331 -5.97112989 28.36797714 3.59643221 -6.11047602 29.093166351 3.65514994
+		 -5.61546803 29.093166351 3.44656348 -6.67257118 29.093166351 5.035935879 5.30794621 23.80244446 -1.90348589
+		 -3.59717083 28.30789948 5.35478735 -3.68258357 33.45140839 -2.031665802 3.94144583 28.19827271 -3.70679688
+		 3.81386518 28.30789948 -3.39756656 -6.093669891 29.093166351 6.40976191 5.71462202 28.30789948 0.87026346
+		 -4.73177719 29.74605179 3.87512541 -4.047008514 30.064399719 4.33797264 -4.71288395 29.093166351 6.97185755
+		 -3.58218741 29.75700188 5.017081738 3.95784378 28.54330444 -3.74696875 -3.33905888 29.093166351 6.39295435
+		 -3.14522529 29.093166351 5.91680431 5.067760468 28.30789948 -2.14367151 5.63101768 28.10789871 -2.37731814
+		 -4.046370983 28.10789871 -3.96196294 3.68068218 33.45140839 -4.76680374 5.054507256 33.45140839 -5.34570599
+		 3.11858702 33.45140839 -3.3860178 5.043838501 19.28573227 3.90812087 5.049259663 28.30789948 3.90269971
+		 5.067455769 29.25323868 -2.14246058 6.43529415 33.45140839 -4.78361034 3.69748831 33.45140839 -2.012191772
+		 5.7146225 29.32261658 0.87026334 -3.81670141 28.11867332 5.88923311 7.014196396 33.45140839 -3.40978432
+		 5.078274727 33.45140839 -1.45009625 6.4520998 33.45140839 -2.028999329 3.59602928 28.30789948 5.35592985
+		 3.83093476 28.10789871 5.91792822 3.69192052 28.78357315 5.58592844 5.61702919 29.093166351 3.44500256
+		 6.093038559 29.093166351 3.63877821 3.35523319 29.093166351 6.41019678 3.14670491 29.093166351 5.91532564
+		 4.038109779 30.064529419 4.34678221 4.71716499 29.75715637 3.88199759 3.57529879 29.74620628 5.031496525
+		 6.6719408 29.093166351 5.012604237 4.73601913 29.093166351 6.97229242 -1.15965259 42.021453857 0.38991952
+		 -0.48034453 42.021461487 -0.28938884 -1.6269933 42.021461487 0.87026387 -5.5814802e-08 42.021461487 -0.75672954
+		 6.10984421 29.093166351 6.39338923 -1.15965307 42.021453857 1.35060763 0.48034444 42.021461487 -0.28938884
+		 -0.48034394 42.021453857 2.029916525 1.15965283 42.021453857 0.38991928 4.046923161 28.10789871 -3.96141195
+		 -4.2182453e-09 42.021461487 2.49725747 1.62699437 42.021461487 0.8702637 0.48034403 42.021453857 2.029916525
+		 1.15965307 42.021453857 1.35060763 5.58356094 28.11870384 4.12224913 -3.82927895 28.10789871 5.91958284
+		 5.61399651 28.10789871 4.13486719;
+	setAttr -s 869 ".ed";
+	setAttr ".ed[0:165]"  1 2 0 4 5 0 5 3 1 3 7 1 7 6 0 8 4 1 3 8 0 6 8 1 7 10 0
+		 11 7 1 10 12 0 12 13 1 13 10 1 12 14 0 14 13 1 4 15 1 16 6 1 10 17 0 17 11 0 13 17 1
+		 14 18 0 18 13 1 19 5 1 15 19 0 11 16 0 21 11 1 17 21 0 19 22 1 22 18 0 18 19 0 22 23 1
+		 23 13 1 25 26 1 26 13 1 13 25 1 23 25 1 21 26 1 21 27 0 28 22 0 15 28 1 27 16 1 29 25 1
+		 25 30 0 30 29 0 31 25 0 29 31 0 8 33 0 34 28 1 28 35 1 35 34 0 36 15 0 16 37 0 38 27 1
+		 27 39 0 39 38 0 20 40 0 41 42 0 42 43 0 43 41 0 44 45 0 45 46 0 46 44 0 33 47 0 47 4 0
+		 6 48 0 48 33 0 9 0 0 47 36 0 37 48 0 43 49 0 50 46 0 49 51 1 51 41 0 52 50 1 45 52 0
+		 33 54 0 54 53 0 24 9 0 48 55 0 55 54 0 36 56 0 53 47 0 57 42 0 42 58 0 58 57 1 44 59 0
+		 59 60 1 60 44 0 53 61 0 62 63 1 63 64 0 64 62 0 32 24 0 66 67 0 67 65 0 68 63 1 62 68 0
+		 69 65 1 67 69 0 49 70 0 37 71 0 71 55 0 72 66 0 65 72 1 73 50 0 61 36 0 66 74 1 74 67 1
+		 70 75 1 75 51 0 66 76 0 76 74 1 77 32 0 78 79 1 79 80 0 80 78 0 52 81 0 81 73 1 69 82 0
+		 65 83 0 58 84 0 84 57 1 59 85 1 85 60 0 37 63 0 82 83 1 61 86 0 69 88 1 88 87 1 76 89 0
+		 89 74 1 90 72 0 83 90 1 91 72 1 93 94 0 94 92 1 96 97 1 97 95 0 98 93 0 93 99 0 99 98 0
+		 95 100 0 100 101 0 101 95 0 63 102 0 102 71 0 92 99 0 101 96 0 75 103 0 84 75 1 81 85 1
+		 104 81 0 86 56 0 88 74 1 74 87 1 105 92 0 94 106 0 106 105 1 107 87 1 74 107 1 96 108 0
+		 108 109 1 109 97 0 70 110 0 89 111 0 111 74 1;
+	setAttr ".ed[166:331]" 113 73 0 63 79 0 82 114 1 114 115 0 115 82 0 116 91 0
+		 90 116 1 117 87 0 87 118 1 118 117 0 87 119 0 119 118 0 86 120 0 70 121 1 121 110 1
+		 79 56 0 120 79 0 106 122 1 103 106 0 109 104 0 123 109 1 107 124 1 103 125 0 125 84 0
+		 85 126 0 126 104 0 120 102 0 128 129 0 129 0 0 130 131 1 131 132 0 132 130 0 131 133 1
+		 133 132 0 110 103 1 104 113 1 113 108 0 108 73 0 121 105 1 105 110 0 134 135 0 135 91 1
+		 3 12 0 5 14 0 98 136 0 136 137 1 137 98 0 138 100 0 100 139 0 139 138 1 122 125 0
+		 126 123 0 140 130 1 132 140 0 133 141 1 141 132 0 116 134 1 143 124 1 124 111 0 111 143 0
+		 59 144 1 144 85 1 84 145 1 145 57 1 9 128 0 146 0 0 0 147 1 147 146 0 136 122 1 122 137 0
+		 139 123 0 123 138 1 125 145 0 144 126 0 149 140 1 132 149 0 141 150 1 150 132 0 151 124 0
+		 143 135 1 152 143 0 153 128 0 154 149 1 132 154 0 150 154 1 122 145 1 144 123 1 134 152 1
+		 83 155 0 156 157 0 157 1 0 152 151 1 158 151 1 151 159 1 159 158 0 24 153 0 144 138 1
+		 136 145 1 151 160 0 160 159 0 161 116 0 59 162 0 163 57 0 32 164 0 164 153 0 22 165 0
+		 165 30 0 166 21 0 31 166 0 77 167 0 167 168 0 168 77 0 155 169 0 169 90 0 77 170 0
+		 170 164 0 34 165 0 171 27 1 166 171 0 172 173 1 173 174 0 174 172 0 173 175 1 175 174 0
+		 176 177 1 177 178 0 178 176 0 179 170 0 170 180 1 180 179 0 181 152 0 169 161 0 182 138 0
+		 136 183 0 162 184 1 184 144 0 145 185 0 185 163 1 186 177 1 176 186 0 187 172 1 174 187 0
+		 175 188 1 188 174 0 157 189 1 189 43 0 43 1 0 190 187 1 174 190 0 188 191 1 191 174 0
+		 184 182 1 183 185 1 192 190 1 174 192 0 191 192 1 155 194 0 194 193 0 177 195 0 195 194 0
+		 196 127 0 197 198 0 198 199 0 199 197 0 200 201 0 201 202 0;
+	setAttr ".ed[332:497]" 202 200 0 203 204 1 204 205 0 205 203 0 155 177 0 206 204 1
+		 203 206 0 198 207 0 207 136 1 142 112 0 193 169 0 162 163 1 208 162 0 161 209 0 209 134 0
+		 210 202 0 199 211 0 193 212 0 213 163 0 127 148 0 177 204 0 2 46 0 101 20 0 209 181 0
+		 148 142 0 181 214 0 204 215 0 215 195 0 212 161 0 216 210 1 201 216 0 211 217 0 217 197 0
+		 198 218 0 218 207 1 200 219 0 219 220 1 220 200 0 213 208 1 183 221 0 222 182 0 171 223 0
+		 223 39 0 28 224 0 224 225 0 225 35 0 204 214 0 212 226 0 185 227 0 227 213 1 208 228 1
+		 228 184 0 229 210 0 214 230 0 230 215 0 221 227 1 228 222 1 226 209 0 156 99 0 99 189 0
+		 218 231 0 231 207 1 219 232 1 232 220 0 226 233 0 216 234 0 234 229 1 233 181 0 235 182 1
+		 236 235 0 233 230 0 237 42 0 42 238 1 238 239 0 239 237 0 222 236 1 240 241 1 241 242 0
+		 242 240 0 241 243 1 243 242 0 207 244 1 245 207 0 219 235 0 246 219 1 231 244 1 246 232 1
+		 247 240 1 242 247 0 243 248 1 248 242 0 249 250 0 251 249 0 253 254 0 254 252 0 255 252 0
+		 254 255 0 251 256 0 256 249 0 250 257 1 257 251 0 258 253 0 252 258 0 259 208 0 250 260 0
+		 261 247 1 242 261 0 248 262 1 262 242 0 263 213 0 264 265 1 265 229 1 229 264 0 266 267 0
+		 267 268 1 268 266 0 269 270 1 270 271 0 271 269 0 272 261 1 242 272 0 262 272 1 273 274 0
+		 274 196 0 260 275 1 275 257 0 51 58 1 60 52 1 244 276 0 276 245 1 235 277 1 277 246 0
+		 255 278 0 278 279 1 279 255 0 280 256 0 256 281 0 281 280 1 264 260 0 260 265 1 282 245 0
+		 221 283 0 284 222 0 234 232 1 285 234 0 278 286 1 286 279 0 281 287 0 287 280 1 270 112 0
+		 196 267 0 267 288 0 278 244 1 244 286 1 287 246 1 246 280 1 263 259 0 289 276 1 277 290 1
+		 278 289 0 290 280 0 231 291 0 291 244 0 246 292 0 292 232 0 227 293 0;
+	setAttr ".ed[498:663]" 293 263 0 259 294 0 294 228 0 142 295 0 295 270 0 285 264 1
+		 283 293 0 294 284 0 288 127 0 236 296 1 296 277 0 276 297 0 297 282 1 275 285 0 287 275 1
+		 289 298 0 299 290 0 54 300 0 300 301 0 301 53 0 53 54 0 55 302 0 302 300 0 54 55 0
+		 303 236 0 291 286 0 287 292 0 292 285 0 298 297 1 296 299 1 304 305 0 305 263 0 306 293 0
+		 305 306 0 307 304 0 294 307 0 288 308 0 259 304 0 263 259 0 293 263 0 259 294 0 284 303 0
+		 308 148 0 308 295 0 306 309 0 310 307 0 311 282 0 312 313 1 313 314 0 314 312 0 313 315 1
+		 315 314 0 263 316 0 316 259 0 293 316 0 316 294 0 309 283 0 283 293 0 294 284 0 284 310 0
+		 189 317 1 317 49 1 318 312 1 314 318 0 315 319 1 319 314 0 283 316 0 316 284 0 320 321 0
+		 298 322 0 323 299 0 324 318 1 314 324 0 319 325 1 325 314 0 326 310 0 316 303 0 283 311 0
+		 311 316 0 327 324 1 314 327 0 325 327 1 303 328 0 328 296 0 297 329 0 329 311 0 303 326 0
+		 284 303 0 301 330 0 330 61 0 61 53 0 71 331 0 331 302 0 55 71 0 322 329 0 328 323 0
+		 54 131 0 130 53 0 55 133 0 316 328 0 329 316 0 303 328 0 329 311 0 311 332 0 322 316 0
+		 316 323 0 322 323 0 333 79 1 78 334 0 334 333 0 335 329 0 332 335 0 336 326 0 328 336 0
+		 337 322 0 322 329 0 328 323 0 323 338 0 339 56 0 333 339 0 335 337 0 338 336 0 91 76 0
+		 40 340 0 340 341 0 68 80 0 140 61 0 317 121 1 71 141 0 69 342 0 342 114 0 92 317 1
+		 117 342 0 137 94 1 97 139 1 330 343 0 343 86 0 86 61 0 135 89 0 102 344 0 344 331 0
+		 71 102 0 149 86 0 102 150 0 99 345 0 345 346 0 346 98 0 347 129 0 129 348 0 348 349 0
+		 349 347 0 129 347 0 347 147 0 128 350 0 350 348 0 129 128 0 124 351 0 351 119 0 199 352 0
+		 154 120 0 343 353 0 353 120 0 120 86 0 353 344 0 102 120 0 354 82 1;
+	setAttr ".ed[664:829]" 115 355 0 355 354 0 158 351 0 153 356 0 356 350 0 128 153 0
+		 128 175 0 173 129 0 153 188 0 59 57 1 357 340 1 40 202 0 202 357 0 358 172 0 187 359 0
+		 359 358 0 164 360 0 360 356 0 153 164 0 164 191 0 190 361 0 361 359 0 168 180 0 155 362 1
+		 362 178 0 170 192 0 170 363 0 363 360 0 164 170 0 357 249 0 249 341 0 364 363 0 170 179 0
+		 179 364 0 202 365 0 365 366 0 366 200 0 46 225 0 224 367 0 367 44 0 194 368 0 368 369 0
+		 369 193 0 193 194 0 195 370 0 370 368 0 194 195 0 186 205 0 371 341 0 249 372 0 372 371 0
+		 373 214 0 206 373 0 369 374 0 374 212 0 212 193 0 215 375 0 375 370 0 195 215 0 194 241 0
+		 240 193 0 195 243 0 156 321 0 320 345 0 217 218 0 220 216 1 219 138 1 245 183 1 210 376 1
+		 376 357 1 247 212 0 215 248 0 352 377 0 374 378 0 378 226 0 226 212 0 230 379 0 379 375 0
+		 215 230 0 37 239 1 238 64 0 265 376 1 261 226 0 230 262 0 376 250 1 282 221 1 272 233 0
+		 378 380 0 380 233 0 233 226 0 380 379 0 230 233 0 254 381 0 381 382 0 382 255 0 279 258 0
+		 257 281 1 274 268 0 383 112 0 269 383 0 384 385 0 385 267 0 267 266 0 266 384 0 271 270 0
+		 270 386 0 386 387 0 387 271 0 388 313 0 312 389 0 389 388 0 390 315 0 388 390 0 278 280 1
+		 290 289 1 385 391 0 391 288 0 288 267 0 295 392 0 392 386 0 270 295 0 267 318 0 324 288 0
+		 295 325 0 319 270 0 299 298 1 304 305 0 305 393 0 393 394 0 394 304 0 395 393 0 305 306 0
+		 306 395 0 307 304 0 394 396 0 396 307 0 327 308 0 391 397 0 397 308 0 308 288 0 397 392 0
+		 295 308 0 306 309 0 309 398 0 398 395 0 396 399 0 399 310 0 310 307 0 309 332 0 311 283 0
+		 309 332 0 332 400 0 400 398 0 326 310 0 399 401 0 401 326 0 355 101 0 100 402 0 402 354 0
+		 337 338 0 323 322 0 403 400 0 332 335 0 335 403 0 336 326 0 401 404 0;
+	setAttr ".ed[830:868]" 404 336 0 335 337 0 337 405 0 405 403 0 404 406 0 406 338 0
+		 338 336 0 337 338 0 406 405 0 358 347 0 38 237 0 223 43 0 372 407 0 339 367 0 198 408 0
+		 408 377 0 179 361 0 334 59 1 146 346 0 408 167 0 256 409 0 409 407 0 384 266 1 384 389 1
+		 389 266 0 266 384 1 390 271 0 402 362 0 409 273 0 383 382 0 347 349 1 349 136 1 373 366 0
+		 365 160 0 179 364 1 364 136 1 387 271 1 271 387 1 387 255 1;
+	setAttr -s 402 -ch 1577 ".fc[0:401]" -type "polyFaces" 
+		f 4 1 2 6 5
+		mu 0 4 2 3 1 7
+		f 4 3 4 7 -7
+		mu 0 4 5 6 4 8
+		f 4 9 8 17 18
+		mu 0 4 12 10 11 20
+		f 3 10 11 12
+		mu 0 3 11 13 14
+		f 3 13 14 -12
+		mu 0 3 13 15 14
+		f 4 -2 15 23 22
+		mu 0 4 17 2 16 22
+		f 4 16 -5 -10 24
+		mu 0 4 19 4 18 23
+		f 3 -18 -13 19
+		mu 0 3 20 11 14
+		f 3 20 21 -15
+		mu 0 3 15 21 14
+		f 3 25 -19 26
+		mu 0 3 24 12 20
+		f 3 27 28 29
+		mu 0 3 25 26 21
+		f 4 -22 -29 30 31
+		mu 0 4 14 21 26 27
+		f 3 32 33 34
+		mu 0 3 29 30 14
+		f 3 35 -35 -32
+		mu 0 3 27 29 14
+		f 5 36 -33 -45 274 273
+		mu 0 5 32 33 31 215 214
+		f 5 -36 -31 271 272 -43
+		mu 0 5 36 34 35 213 212
+		f 4 -26 37 40 -25
+		mu 0 4 38 32 37 19
+		f 4 38 -28 -24 39
+		mu 0 4 41 39 40 16
+		f 3 41 42 43
+		mu 0 3 42 29 43
+		f 3 44 -42 45
+		mu 0 3 44 29 42
+		f 4 -6 46 62 63
+		mu 0 4 2 7 46 59
+		f 4 -47 -8 64 65
+		mu 0 4 46 8 4 60
+		f 3 47 48 49
+		mu 0 3 47 41 48
+		f 4 50 -16 -64 67
+		mu 0 4 49 16 2 59
+		f 4 -17 51 68 -65
+		mu 0 4 4 19 50 60
+		f 3 52 53 54
+		mu 0 3 51 37 52
+		f 3 56 57 58
+		mu 0 3 53 54 55
+		f 3 59 60 61
+		mu 0 3 56 57 58
+		f 4 -59 69 71 72
+		mu 0 4 53 61 62 64
+		f 4 70 -61 74 73
+		mu 0 4 63 58 57 65
+		f 4 75 76 81 -63
+		mu 0 4 46 67 66 59
+		f 4 78 79 -76 -66
+		mu 0 4 60 68 67 46
+		f 7 -51 80 -617 843 -703 -376 -40
+		mu 0 7 16 49 69 475 645 300 41
+		f 3 82 83 84
+		mu 0 3 70 54 71
+		f 3 85 86 87
+		mu 0 3 56 72 73
+		f 4 -82 88 105 -68
+		mu 0 4 59 66 74 49
+		f 4 -79 -69 100 101
+		mu 0 4 68 60 50 84
+		f 3 89 90 91
+		mu 0 3 75 76 77
+		f 4 93 94 103 102
+		mu 0 4 79 80 78 85
+		f 3 95 -90 96
+		mu 0 3 81 76 75
+		f 3 97 -95 98
+		mu 0 3 82 78 80
+		f 4 -72 99 108 109
+		mu 0 4 64 62 83 88
+		f 4 104 -74 116 117
+		mu 0 4 86 63 65 94
+		f 3 -94 106 107
+		mu 0 3 80 79 87
+		f 3 110 111 -107
+		mu 0 3 79 89 87
+		f 3 113 114 115
+		mu 0 3 91 92 93
+		f 4 -98 118 125 -120
+		mu 0 4 97 95 96 98
+		f 4 -104 119 132 131
+		mu 0 4 99 100 98 107
+		f 3 -85 120 121
+		mu 0 3 70 71 101
+		f 3 -87 122 123
+		mu 0 3 73 72 102
+		f 4 -101 124 144 145
+		mu 0 4 84 50 76 120
+		f 4 -106 126 152 -81
+		mu 0 4 49 74 103 69
+		f 5 127 128 -174 630 -628
+		mu 0 5 95 105 104 482 480
+		f 3 129 130 -112
+		mu 0 3 89 106 87
+		f 4 133 -132 172 171
+		mu 0 4 108 109 107 137
+		f 4 134 135 146 -140
+		mu 0 4 111 112 110 117
+		f 4 136 137 -144 147
+		mu 0 4 114 115 113 121
+		f 3 138 139 140
+		mu 0 3 116 111 117
+		f 3 141 142 143
+		mu 0 3 113 118 119
+		f 4 149 148 188 189
+		mu 0 4 101 88 122 148
+		f 4 151 150 190 191
+		mu 0 4 123 94 102 149
+		f 3 -129 153 154
+		mu 0 3 124 125 87
+		f 4 155 -136 156 157
+		mu 0 4 126 110 112 127
+		f 3 158 -155 159
+		mu 0 3 128 124 87
+		f 4 -137 160 161 162
+		mu 0 4 115 114 129 130
+		f 4 -109 163 200 -149
+		mu 0 4 88 83 131 122
+		f 3 164 165 -131
+		mu 0 3 106 132 87
+		f 4 166 -118 -152 201
+		mu 0 4 134 86 94 123
+		f 4 -145 167 -183 192
+		mu 0 4 120 76 92 141
+		f 3 168 169 170
+		mu 0 3 96 135 136
+		f 3 173 174 175
+		mu 0 3 138 124 139
+		f 3 -175 176 177
+		mu 0 3 139 124 140
+		f 4 -153 178 182 181
+		mu 0 4 69 103 141 92
+		f 3 179 180 -164
+		mu 0 3 83 142 131
+		f 4 184 183 216 -189
+		mu 0 4 122 127 143 148
+		f 4 186 185 -192 217
+		mu 0 4 144 130 123 149
+		f 5 -159 187 654 655 -177
+		mu 0 5 147 145 146 499 498
+		f 4 193 194 -67 230
+		mu 0 4 151 152 0 9
+		f 3 195 196 197
+		mu 0 3 153 154 155
+		f 3 198 199 -197
+		mu 0 3 156 157 158
+		f 3 202 203 -167
+		mu 0 3 134 129 159
+		f 3 -181 204 205
+		mu 0 3 131 142 160
+		f 4 -206 -158 -185 -201
+		mu 0 4 131 126 127 122
+		f 4 206 207 -172 222
+		mu 0 4 162 163 161 176
+		f 4 -162 -203 -202 -186
+		mu 0 4 130 129 134 123
+		f 4 -4 208 -11 -9
+		mu 0 4 10 164 13 11
+		f 4 -3 209 -14 -209
+		mu 0 4 164 165 15 13
+		f 3 210 211 212
+		mu 0 3 116 166 167
+		f 3 213 214 215
+		mu 0 3 168 118 169
+		f 3 218 -198 219
+		mu 0 3 170 171 172
+		f 3 220 221 -200
+		mu 0 3 173 174 175
+		f 3 223 224 225
+		mu 0 3 178 179 132
+		f 3 -123 226 227
+		mu 0 3 102 72 180
+		f 3 -122 228 229
+		mu 0 3 70 101 181
+		f 3 231 232 233
+		mu 0 3 182 0 183
+		f 3 -212 234 235
+		mu 0 3 167 166 143
+		f 3 -216 236 237
+		mu 0 3 168 169 144
+		f 3 -229 -190 238
+		mu 0 3 181 101 148
+		f 3 -228 239 -191
+		mu 0 3 102 180 149
+		f 3 240 -220 241
+		mu 0 3 185 186 187
+		f 3 242 243 -222
+		mu 0 3 188 189 190
+		f 4 244 -224 -247 257
+		mu 0 4 193 191 192 196
+		f 4 246 245 -207 253
+		mu 0 4 196 194 195 162
+		f 4 247 -231 -78 261
+		mu 0 4 197 151 9 28
+		f 3 248 -242 249
+		mu 0 3 198 199 200
+		f 3 250 -250 -244
+		mu 0 3 201 202 203
+		f 3 251 -239 -217
+		mu 0 3 143 181 148
+		f 3 252 -218 -240
+		mu 0 3 180 144 149
+		f 4 -133 254 278 279
+		mu 0 4 107 98 204 218
+		f 4 -23 -30 -21 -210
+		mu 0 4 165 25 21 15
+		f 3 258 259 260
+		mu 0 3 205 193 206
+		f 3 -238 -253 262
+		mu 0 3 168 144 180
+		f 3 -235 263 -252
+		mu 0 3 143 166 181
+		f 3 264 265 -260
+		mu 0 3 193 207 206
+		f 4 266 -173 -280 297
+		mu 0 4 208 137 107 218
+		f 4 -262 -93 269 270
+		mu 0 4 197 28 45 211
+		f 4 -227 267 300 301
+		mu 0 4 180 72 209 235
+		f 4 268 -230 302 303
+		mu 0 4 210 70 181 236
+		f 4 -37 -27 -20 -34
+		mu 0 4 30 24 20 14
+		f 4 -223 -267 345 346
+		mu 0 4 162 176 208 279
+		f 3 275 276 277
+		mu 0 3 90 216 217
+		f 4 -270 -113 280 281
+		mu 0 4 211 45 90 219
+		f 4 -272 -39 -48 282
+		mu 0 4 213 35 41 47
+		f 4 283 -38 -274 284
+		mu 0 4 220 37 32 214
+		f 3 285 286 287
+		mu 0 3 221 222 223
+		f 3 288 289 -287
+		mu 0 3 224 225 226
+		f 3 290 291 292
+		mu 0 3 227 228 229
+		f 3 293 294 295
+		mu 0 3 230 219 231
+		f 4 296 -254 -347 355
+		mu 0 4 232 196 162 279
+		f 4 298 -263 -302 317
+		mu 0 4 233 168 180 235
+		f 4 -264 299 318 -303
+		mu 0 4 181 166 234 236
+		f 3 304 -291 305
+		mu 0 3 237 228 227
+		f 3 306 -288 307
+		mu 0 3 238 239 240
+		f 3 308 309 -290
+		mu 0 3 241 242 243
+		f 4 -257 310 311 312
+		mu 0 4 244 245 246 55
+		f 3 313 -308 314
+		mu 0 3 247 248 249
+		f 3 315 316 -310
+		mu 0 3 250 251 252
+		f 3 319 -315 320
+		mu 0 3 253 254 255
+		f 3 321 -321 -317
+		mu 0 3 256 257 258
+		f 4 322 323 342 -279
+		mu 0 4 204 260 259 218
+		f 4 324 325 -323 336
+		mu 0 4 228 261 260 204
+		f 3 327 328 329
+		mu 0 3 263 264 265
+		f 3 330 331 332
+		mu 0 3 266 267 268
+		f 3 333 334 335
+		mu 0 3 269 270 271
+		f 3 337 -334 338
+		mu 0 3 272 270 269
+		f 9 339 340 -866 -865 -296 -687 -277 -850 -845
+		mu 0 9 274 275 273 679 678 680 681 682 647
+		f 4 344 343 -351 370
+		mu 0 4 278 276 277 296
+		f 4 347 -332 362 361
+		mu 0 4 280 268 267 290
+		f 4 -330 348 363 364
+		mu 0 4 263 281 282 291
+		f 4 -343 349 360 -298
+		mu 0 4 218 259 283 208
+		f 4 350 -304 380 381
+		mu 0 4 284 210 236 303
+		f 4 -301 -345 382 383
+		mu 0 4 235 209 285 304
+		f 4 -325 352 358 359
+		mu 0 4 261 228 270 289
+		f 8 -297 357 -716 862 -700 863 -265 -258
+		mu 0 8 196 232 288 545 673 674 207 193
+		f 3 -340 365 366
+		mu 0 3 292 264 293
+		f 3 367 368 369
+		mu 0 3 266 294 295
+		f 4 -319 371 387 -381
+		mu 0 4 236 234 297 303
+		f 4 372 -318 -384 388
+		mu 0 4 298 233 235 304
+		f 4 -284 373 374 -54
+		mu 0 4 37 220 299 52
+		f 4 375 376 377 -49
+		mu 0 4 41 300 301 48
+		f 4 -359 378 385 386
+		mu 0 4 289 270 288 306
+		f 4 -361 379 389 -346
+		mu 0 4 208 283 302 279
+		f 4 384 -362 397 398
+		mu 0 4 305 280 290 312
+		f 4 -311 -256 390 391
+		mu 0 4 246 245 307 308
+		f 3 -367 392 393
+		mu 0 3 292 293 309
+		f 3 -369 394 395
+		mu 0 3 295 294 310
+		f 4 -386 -358 -400 402
+		mu 0 4 306 288 232 311
+		f 4 -390 396 399 -356
+		mu 0 4 279 302 311 232
+		f 4 401 400 -373 407
+		mu 0 4 315 313 314 320
+		f 4 403 404 405 406
+		mu 0 4 316 317 318 319
+		f 3 408 409 410
+		mu 0 3 321 322 323
+		f 3 411 412 -410
+		mu 0 3 324 325 326
+		f 4 414 413 460 461
+		mu 0 4 328 292 327 375
+		f 4 416 415 462 463
+		mu 0 4 330 294 329 376
+		f 3 -394 417 -414
+		mu 0 3 292 309 327
+		f 3 -395 -417 418
+		mu 0 3 310 294 330
+		f 3 419 -411 420
+		mu 0 3 331 332 333
+		f 3 421 422 -413
+		mu 0 3 334 335 336
+		f 4 424 423 431 432
+		mu 0 4 339 337 338 346
+		f 4 425 426 434 433
+		mu 0 4 341 342 340 347
+		f 3 427 -427 428
+		mu 0 3 343 340 342
+		f 3 429 430 -425
+		mu 0 3 339 344 345
+		f 4 435 -371 -442 488
+		mu 0 4 348 278 296 389
+		f 4 -432 436 456 457
+		mu 0 4 346 338 349 374
+		f 3 437 -421 438
+		mu 0 3 350 351 352
+		f 3 439 440 -423
+		mu 0 3 353 354 355
+		f 4 441 -382 497 498
+		mu 0 4 356 284 303 394
+		f 4 -383 -436 499 500
+		mu 0 4 304 285 357 395
+		f 3 442 443 444
+		mu 0 3 358 359 360
+		f 4 -445 -399 -477 503
+		mu 0 4 358 305 312 385
+		f 3 445 446 447
+		mu 0 3 361 362 363
+		f 3 448 449 450
+		mu 0 3 364 365 366
+		f 3 451 -439 452
+		mu 0 3 367 368 369
+		f 3 453 -453 -441
+		mu 0 3 370 371 372
+		f 4 -57 -73 458 -84
+		mu 0 4 54 53 64 71
+		f 4 -60 -88 459 -75
+		mu 0 4 57 56 73 65
+		f 3 464 465 466
+		mu 0 3 343 377 378
+		f 3 467 468 469
+		mu 0 3 379 344 380
+		f 3 470 471 -443
+		mu 0 3 358 349 359
+		f 4 -463 -402 507 508
+		mu 0 4 376 329 381 397
+		f 4 472 -462 509 510
+		mu 0 4 382 328 375 398
+		f 4 -388 473 504 -498
+		mu 0 4 303 297 383 394
+		f 4 474 -389 -501 505
+		mu 0 4 384 298 304 395
+		f 4 476 475 -497 525
+		mu 0 4 385 312 310 393
+		f 3 -466 477 478
+		mu 0 3 378 377 386
+		f 3 -470 479 480
+		mu 0 3 379 380 387
+		f 4 481 -342 501 502
+		mu 0 4 365 133 177 396
+		f 4 -457 -471 -504 -512
+		mu 0 4 374 349 358 385
+		f 4 482 483 506 -327
+		mu 0 4 262 362 388 150
+		f 3 -478 484 485
+		mu 0 3 386 377 327
+		f 3 -481 486 487
+		mu 0 3 379 387 330
+		f 4 489 -461 -485 491
+		mu 0 4 390 375 327 377
+		f 4 -464 490 492 -488
+		mu 0 4 330 376 391 379
+		f 3 -418 493 494
+		mu 0 3 327 309 392
+		f 3 -419 495 496
+		mu 0 3 310 330 393
+		f 4 512 511 -526 -525
+		mu 0 4 387 374 385 393
+		f 4 -490 513 526 -510
+		mu 0 4 375 390 399 398
+		f 4 514 -491 -509 527
+		mu 0 4 400 391 376 397
+		f 4 515 516 517 518
+		mu 0 4 67 401 402 66
+		f 4 519 520 -516 521
+		mu 0 4 68 403 401 67
+		f 4 522 -408 -475 539
+		mu 0 4 404 315 320 412
+		f 3 -486 -495 523
+		mu 0 3 386 327 392
+		f 3 -487 524 -496
+		mu 0 3 330 387 393
+		f 4 -502 -357 -541 541
+		mu 0 4 396 177 184 411
+		f 4 528 529 536 535
+		mu 0 4 405 406 389 348
+		f 4 531 530 537 -530
+		mu 0 4 408 407 394 356
+		f 4 533 532 -536 538
+		mu 0 4 395 409 410 357
+		f 4 -507 534 540 -352
+		mu 0 4 150 388 411 184
+		f 4 -531 542 554 555
+		mu 0 4 394 407 413 383
+		f 4 543 -534 556 557
+		mu 0 4 414 409 395 384
+		f 4 -508 -523 580 581
+		mu 0 4 397 381 415 454
+		f 4 544 -511 582 583
+		mu 0 4 416 382 398 455
+		f 3 545 546 547
+		mu 0 3 417 418 419
+		f 3 548 549 -547
+		mu 0 3 420 421 422
+		f 3 -489 550 551
+		mu 0 3 348 389 423
+		f 3 -499 552 -551
+		mu 0 3 356 394 424
+		f 3 -552 553 -500
+		mu 0 3 357 425 395
+		f 4 -312 558 559 -70
+		mu 0 4 61 426 427 62
+		f 3 560 -548 561
+		mu 0 3 428 429 430
+		f 3 562 563 -550
+		mu 0 3 431 432 433
+		f 3 564 -553 -505
+		mu 0 3 383 424 394
+		f 3 -506 -554 565
+		mu 0 3 384 395 425
+		f 4 -527 567 592 -583
+		mu 0 4 398 399 434 455
+		f 4 568 -528 -582 593
+		mu 0 4 435 400 397 454
+		f 3 569 -562 570
+		mu 0 3 436 437 438
+		f 3 571 572 -564
+		mu 0 3 439 440 441
+		f 4 573 -558 585 584
+		mu 0 4 442 443 412 404
+		f 3 -540 -566 574
+		mu 0 3 404 412 444
+		f 3 575 576 -565
+		mu 0 3 445 446 447
+		f 3 577 -571 578
+		mu 0 3 448 449 450
+		f 3 579 -579 -573
+		mu 0 3 451 452 453
+		f 4 -518 586 587 588
+		mu 0 4 66 402 456 74
+		f 4 589 590 -520 591
+		mu 0 4 84 457 403 68
+		f 4 -77 594 -196 595
+		mu 0 4 458 459 154 153
+		f 4 -80 596 -199 -595
+		mu 0 4 460 461 157 156
+		f 4 -459 -110 -150 -121
+		mu 0 4 71 64 88 101
+		f 4 -460 -124 -151 -117
+		mu 0 4 65 73 102 94
+		f 3 -575 597 -581
+		mu 0 3 415 462 454
+		f 3 -584 598 -577
+		mu 0 3 416 455 463
+		f 4 -585 599 611 610
+		mu 0 4 464 415 454 472
+		f 4 600 601 609 608
+		mu 0 4 455 416 465 471
+		f 3 602 -599 -593
+		mu 0 3 434 463 455
+		f 3 -594 -598 603
+		mu 0 3 435 454 462
+		f 3 604 -604 -603
+		mu 0 3 466 467 468
+		f 4 605 -114 606 607
+		mu 0 4 469 92 91 470
+		f 4 612 613 -609 618
+		mu 0 4 473 434 455 471
+		f 4 614 615 619 -612
+		mu 0 4 454 435 474 472
+		f 4 616 -182 -606 617
+		mu 0 4 475 69 92 469
+		f 4 -134 620 -111 -103
+		mu 0 4 85 476 89 79
+		f 4 -128 -99 -108 -154
+		mu 0 4 125 82 80 87
+		f 4 -115 -168 -96 623
+		mu 0 4 93 92 76 81
+		f 4 -89 -596 -219 624
+		mu 0 4 477 458 171 170
+		f 4 -560 625 -180 -100
+		mu 0 4 62 427 142 83
+		f 4 -102 626 -221 -597
+		mu 0 4 478 479 174 173
+		f 4 -169 -119 627 628
+		mu 0 4 135 96 95 480
+		f 4 -559 -392 -147 629
+		mu 0 4 427 426 308 481
+		f 4 -139 -213 631 -135
+		mu 0 4 111 116 167 112
+		f 4 -142 -138 632 -215
+		mu 0 4 118 113 115 169
+		f 4 -588 633 634 635
+		mu 0 4 74 456 483 103
+		f 4 -208 636 -130 -621
+		mu 0 4 476 484 106 89
+		f 4 637 638 -590 639
+		mu 0 4 120 485 457 84
+		f 4 -626 -630 -156 -205
+		mu 0 4 142 427 481 160
+		f 4 -632 -236 -184 -157
+		mu 0 4 112 167 143 127
+		f 4 -633 -163 -187 -237
+		mu 0 4 169 115 130 144
+		f 4 -127 -625 -241 640
+		mu 0 4 486 487 186 185
+		f 4 -146 641 -243 -627
+		mu 0 4 488 489 189 188
+		f 4 642 643 644 -141
+		mu 0 4 490 491 492 493
+		f 4 645 646 647 648
+		mu 0 4 494 152 495 496
+		f 4 -225 -188 -160 -166
+		mu 0 4 132 179 128 87
+		f 4 -233 -195 649 650
+		mu 0 4 183 0 152 494
+		f 4 651 652 -647 653
+		mu 0 4 151 497 495 152
+		f 4 -246 -226 -165 -637
+		mu 0 4 484 178 132 106
+		f 4 -179 -641 -249 657
+		mu 0 4 500 501 199 198
+		f 4 -193 -658 -251 -642
+		mu 0 4 502 503 202 201
+		f 4 -635 658 659 660
+		mu 0 4 103 483 504 141
+		f 4 -660 661 -638 662
+		mu 0 4 141 504 485 120
+		f 4 663 -171 664 665
+		mu 0 4 505 96 136 506
+		f 4 -655 -245 -259 666
+		mu 0 4 499 146 193 205
+		f 4 667 668 -652 669
+		mu 0 4 197 507 497 151
+		f 4 -194 670 -289 671
+		mu 0 4 508 509 225 224
+		f 4 -248 672 -309 -671
+		mu 0 4 510 511 242 241
+		f 4 673 -269 -344 -268
+		mu 0 4 512 513 277 276
+		f 4 674 -622 675 676
+		mu 0 4 514 515 516 517
+		f 4 677 -307 678 679
+		mu 0 4 518 239 238 519
+		f 4 680 681 -668 682
+		mu 0 4 211 520 507 197
+		f 4 -271 683 -316 -673
+		mu 0 4 521 522 251 250
+		f 4 -679 -314 684 685
+		mu 0 4 523 248 247 524
+		f 4 -295 -281 -278 686
+		mu 0 4 231 219 90 217
+		f 4 687 688 -292 -337
+		mu 0 4 204 525 229 228
+		f 4 -282 689 -322 -684
+		mu 0 4 526 527 257 256
+		f 4 690 691 -681 692
+		mu 0 4 219 528 520 211
+		f 4 -623 -675 693 694
+		mu 0 4 529 515 514 345
+		f 4 695 -691 696 697
+		mu 0 4 530 528 219 230
+		f 4 698 699 700 -333
+		mu 0 4 531 532 533 534
+		f 5 701 -377 702 703 -62
+		mu 0 5 535 536 537 538 539
+		f 4 704 705 706 707
+		mu 0 4 260 540 541 259
+		f 4 708 709 -705 710
+		mu 0 4 261 542 540 260
+		f 4 -335 -353 -305 711
+		mu 0 4 271 270 228 237
+		f 4 712 -695 713 714
+		mu 0 4 543 529 345 544
+		f 4 715 -379 -338 716
+		mu 0 4 545 288 270 272
+		f 4 -707 717 718 719
+		mu 0 4 259 541 546 283
+		f 4 720 721 -709 722
+		mu 0 4 289 547 542 261
+		f 4 -324 723 -409 724
+		mu 0 4 548 549 322 321
+		f 4 -326 725 -412 -724
+		mu 0 4 550 551 325 324
+		f 5 726 -567 727 -643 -391
+		mu 0 5 307 552 553 554 308
+		f 4 -328 -365 728 -366
+		mu 0 4 264 263 291 293
+		f 4 -331 -370 729 -363
+		mu 0 4 267 266 295 290
+		f 4 730 -299 -401 -416
+		mu 0 4 555 556 314 313
+		f 4 -341 -415 731 -300
+		mu 0 4 273 275 557 558
+		f 4 732 733 -677 -348
+		mu 0 4 559 560 561 517
+		f 4 -350 -725 -420 734
+		mu 0 4 562 563 332 331
+		f 4 -360 735 -422 -726
+		mu 0 4 564 565 335 334
+		f 4 -719 737 738 739
+		mu 0 4 283 546 566 302
+		f 4 740 741 -721 742
+		mu 0 4 306 567 547 289
+		f 5 743 -406 744 -91 -125
+		mu 0 5 50 568 569 77 76
+		f 4 -444 745 -733 -385
+		mu 0 4 360 359 560 559
+		f 4 -380 -735 -438 746
+		mu 0 4 570 571 351 350
+		f 4 -387 747 -440 -736
+		mu 0 4 572 573 354 353
+		f 4 -734 748 -424 -694
+		mu 0 4 561 560 338 337
+		f 4 -730 -396 -476 -398
+		mu 0 4 290 295 310 312
+		f 4 -732 -473 749 -372
+		mu 0 4 558 557 574 575
+		f 4 -397 -747 -452 750
+		mu 0 4 576 570 368 367
+		f 4 -403 -751 -454 -748
+		mu 0 4 577 578 371 370
+		f 4 -739 751 752 753
+		mu 0 4 302 566 579 311
+		f 4 -753 754 -741 755
+		mu 0 4 311 579 567 306
+		f 4 -746 -472 -437 -749
+		mu 0 4 560 359 349 338
+		f 4 756 757 758 -429
+		mu 0 4 580 581 582 583
+		f 4 -428 -467 759 -435
+		mu 0 4 340 343 378 347
+		f 4 -430 -433 760 -469
+		mu 0 4 344 339 346 380
+		f 4 -447 -483 -456 761
+		mu 0 4 363 362 262 373
+		f 4 762 -482 -449 763
+		mu 0 4 584 133 365 364
+		f 4 764 765 766 767
+		mu 0 4 585 586 362 361
+		f 4 768 769 770 771
+		mu 0 4 366 365 587 588
+		f 4 -761 -458 -513 -480
+		mu 0 4 380 346 374 387
+		f 4 772 -546 773 774
+		mu 0 4 589 418 417 590
+		f 4 775 -549 -773 776
+		mu 0 4 591 421 420 592
+		f 4 777 -493 778 -492
+		mu 0 4 593 594 595 596
+		f 4 -766 779 780 781
+		mu 0 4 362 586 597 388
+		f 4 782 783 -770 784
+		mu 0 4 396 598 587 365
+		f 4 -484 785 -570 786
+		mu 0 4 599 600 437 436
+		f 4 -503 787 -572 788
+		mu 0 4 601 602 440 439
+		f 4 -779 -515 789 -514
+		mu 0 4 596 595 603 604
+		f 4 -750 -545 -576 -474
+		mu 0 4 575 574 446 445
+		f 4 790 791 792 793
+		mu 0 4 405 406 605 606
+		f 4 794 -792 795 796
+		mu 0 4 607 608 408 407
+		f 4 797 -794 798 799
+		mu 0 4 409 410 609 610
+		f 4 -535 -787 -578 800
+		mu 0 4 611 599 449 448
+		f 4 -542 -801 -580 -788
+		mu 0 4 612 613 452 451
+		f 4 -781 801 802 803
+		mu 0 4 388 597 614 411
+		f 4 -803 804 -783 805
+		mu 0 4 411 614 598 396
+		f 4 806 807 808 -797
+		mu 0 4 407 413 615 607
+		f 4 809 810 811 -800
+		mu 0 4 610 616 414 409
+		f 4 -555 812 -602 813
+		mu 0 4 445 617 618 446
+		f 4 -790 -569 -605 -568
+		mu 0 4 604 603 467 466
+		f 4 814 815 816 -808
+		mu 0 4 617 618 619 620
+		f 4 817 -811 818 819
+		mu 0 4 442 443 621 622
+		f 5 820 -143 821 822 -666
+		mu 0 5 623 624 625 626 627
+		f 4 -613 823 -616 824
+		mu 0 4 466 628 629 467
+		f 4 825 -816 826 827
+		mu 0 4 630 631 465 471
+		f 4 828 -820 829 830
+		mu 0 4 472 464 632 633
+		f 4 831 832 833 -828
+		mu 0 4 471 473 634 630
+		f 4 834 835 836 -831
+		mu 0 4 633 635 474 472
+		f 4 837 -836 838 -833
+		mu 0 4 628 629 636 637
+		f 5 -650 -672 -286 -678 839
+		mu 0 5 638 639 222 221 640
+		f 6 -41 -53 840 -407 -744 -52
+		mu 0 6 19 37 51 641 568 50
+		f 6 841 -58 -404 -841 -55 -375
+		mu 0 6 642 55 317 316 643 644
+		f 5 -657 -329 844 845 -737
+		mu 0 5 646 265 274 647 648
+		f 5 -685 -320 -690 -294 846
+		mu 0 5 649 254 253 650 651
+		f 6 -704 -844 -618 -608 847 -86
+		mu 0 6 539 538 652 653 654 512
+		f 5 -714 -431 850 851 -843
+		mu 0 5 655 345 656 657 658
+		f 5 852 -853 853 854 855
+		mu 0 5 659 660 659 661 660
+		f 5 -774 -561 -786 -446 -855
+		mu 0 5 662 429 428 663 664
+		f 5 -450 -789 -563 -776 856
+		mu 0 5 665 666 432 431 667
+		f 6 -126 -664 -823 857 -688 -255
+		mu 0 6 98 96 505 668 525 204
+		f 7 -645 -849 -234 -651 860 861 -211
+		mu 0 7 493 492 669 670 671 672 273
+		f 8 -861 -840 -680 -686 -847 864 865 -862
+		mu 0 8 672 671 675 676 677 678 679 273
+		f 10 -848 -607 -116 -624 -97 -92 -745 -405 -83 -674
+		mu 0 10 512 654 683 684 685 686 687 318 317 513
+		f 8 866 867 868 -759 -860 -764 -451 -867
+		mu 0 8 688 689 688 583 582 690 691 689
+		f 14 -1 -313 -842 -374 -285 -275 -46 -44 -273 -283 -50 -378 -702 -354
+		mu 0 14 286 244 55 692 693 694 695 696 697 698 699 700 701 287
+		f 14 -701 -863 -717 -339 -336 -712 -306 -293 -689 -858 -822 -214 -731 -368
+		mu 0 14 534 533 702 703 704 705 706 707 708 709 626 625 556 555
+		f 16 -56 -355 -821 -665 -170 -629 -631 -176 -178 -656 -667 -261 -266 -864 -699 -676
+		mu 0 16 516 710 624 711 712 713 714 715 716 717 718 719 720 721 722 517
+		f 15 -869 -868 -857 -777 -775 -854 -856 -448 -762 -455 -859 -851 -468 -778 -465
+		mu 0 15 583 688 689 723 724 661 659 660 725 726 727 657 656 594 593;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+	setAttr ".dr" 1;
 parent -s -nc -r -add "|First_Layer|Tower_2|Tower_Shape8" "Tower_1" ;
 parent -s -nc -r -add "|First_Layer|Tower_2|Tower_Shape8" "Tower_3" ;
 parent -s -nc -r -add "|First_Layer|Tower_2|Tower_Shape8" "Tower_4" ;
@@ -13192,20 +14454,20 @@ parent -s -nc -r -add "|Second_Layer|Balcony_1|Balcony_Shape1" "Balcony_2" ;
 parent -s -nc -r -add "|Second_Layer|Small_Tower_1|Small_Tower_1Shape" "|Second_Layer|Small_Tower_2" ;
 parent -s -nc -r -add "|Third_Layer|Turret_1|Turret_1Shape" "|Third_Layer|Turret_2" ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "94F7C4F9-4EB8-7879-7108-FCA43704103D";
+	rename -uid "E10C66BB-43A5-2DC7-61DA-A3B37C9F1892";
 	setAttr -s 3 ".lnk";
 	setAttr -s 3 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "D1C138F2-41A4-9220-5930-B09D6FC2A645";
+	rename -uid "8C636128-46D0-F36D-65C1-D19F17CA2EBB";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "A4C76B0C-44E4-2CEA-1921-429C4BE473DB";
+	rename -uid "829D568B-4506-332B-A06D-5C8428508082";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "4411DB33-4D3E-1B3A-D328-49B678E7216E";
+	rename -uid "AAD60620-4C29-FD5D-17DC-B6825A4649F1";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "37A4DC58-4F76-6715-7B04-488944B9C9B4";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "B6E31B6E-4791-B112-DF22-F6A097E917A9";
+	rename -uid "585E68A3-4380-F9A8-51AE-83A629B79B13";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "BE5B6C7F-4511-0018-7A1D-4799502C661F";
 	setAttr ".g" yes;
@@ -13228,17 +14490,17 @@ createNode script -n "uiConfigurationScriptNode";
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $nodeEditorPanelVisible = stringArrayContains(\"nodeEditorPanel1\", `getPanel -vis`);\n\tint    $nodeEditorWorkspaceControlOpen = (`workspaceControl -exists nodeEditorPanel1Window` && `workspaceControl -q -visible nodeEditorPanel1Window`);\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\n\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 1\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
 		+ "            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n"
-		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 664\n            -height 378\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n"
+		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n"
 		+ "            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n"
 		+ "            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n"
-		+ "            -shadows 0\n            -captureSequenceNumber -1\n            -width 663\n            -height 377\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n"
+		+ "            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n"
 		+ "            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n"
 		+ "            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n"
-		+ "            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 664\n            -height 377\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n"
-		+ "        modelEditor -e \n            -camera \"|persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 1\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n"
+		+ "            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n"
+		+ "            -camera \"|persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 1\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n"
 		+ "            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n"
-		+ "            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1333\n            -height 802\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n"
+		+ "            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1134\n            -height 802\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n"
 		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n"
 		+ "            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -showUfeItems 1\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n"
 		+ "            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n"
@@ -13265,8 +14527,8 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n"
 		+ "                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -bluePencil 1\n                -greasePencils 0\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n"
 		+ "        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 1\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1333\\n    -height 802\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 1\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1333\\n    -height 802\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 1\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1134\\n    -height 802\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 1\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1134\\n    -height 802\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -14386,7 +15648,7 @@ createNode lambert -n "Workspace_Arch";
 createNode shadingEngine -n "lambert2SG";
 	rename -uid "11C7E7DC-4236-D032-7989-5386039B5010";
 	setAttr ".ihi" 0;
-	setAttr -s 4 ".dsm";
+	setAttr -s 5 ".dsm";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo1";
 	rename -uid "5C5D8425-42EF-6E29-6D32-34B6E97A3B9E";
@@ -15253,9 +16515,6 @@ createNode groupId -n "groupId158";
 createNode groupId -n "groupId160";
 	rename -uid "C5D4DB82-4272-BDA5-3CB3-5E9FA6ED59DA";
 	setAttr ".ihi" 0;
-createNode groupId -n "groupId159";
-	rename -uid "75EC244F-4827-89F7-17DF-E58512688F56";
-	setAttr ".ihi" 0;
 createNode groupId -n "groupId172";
 	rename -uid "B10FA06B-4732-6544-A59A-D5BB6DA2F9A3";
 	setAttr ".ihi" 0;
@@ -15277,11 +16536,6 @@ createNode groupId -n "groupId188";
 createNode groupId -n "groupId190";
 	rename -uid "CD2BD4A7-46C2-731A-9349-E0819AF143E0";
 	setAttr ".ihi" 0;
-createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "4BA94DB5-48CF-24B2-6169-449AB97BFD62";
-	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
-	setAttr ".tgi[0].vl" -type "double2" -84.872738827788794 -263.85466931831326 ;
-	setAttr ".tgi[0].vh" -type "double2" 1452.8735054863848 534.50326283299796 ;
 createNode groupId -n "groupId192";
 	rename -uid "1C56BB54-4196-62D5-C9FC-818284C2AEC9";
 	setAttr ".ihi" 0;
@@ -15319,7 +16573,7 @@ createNode groupId -n "groupId202";
 createNode groupParts -n "groupParts32";
 	rename -uid "5A0519C9-41CF-45D3-A0D2-C7BB31096B78";
 	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 49 "f[0]" "f[1]" "f[2]" "f[3]" "f[4]" "f[5]" "f[6]" "f[7]" "f[8]" "f[9]" "f[10]" "f[11]" "f[12]" "f[13]" "f[14]" "f[15]" "f[16]" "f[17]" "f[18]" "f[19]" "f[20]" "f[21]" "f[22]" "f[23]" "f[24]" "f[25]" "f[26]" "f[27]" "f[28]" "f[29]" "f[30]" "f[31]" "f[32]" "f[33]" "f[34]" "f[35]" "f[36]" "f[37]" "f[38]" "f[39]" "f[40]" "f[41]" "f[42]" "f[43]" "f[44]" "f[45]" "f[46]" "f[47]" "f[48]";
+	setAttr ".ic" -type "componentList" 1 "f[0:48]";
 createNode polyChipOff -n "polyChipOff3";
 	rename -uid "D63C7136-4DCD-8481-D270-B7BF57D398CE";
 	setAttr ".ics" -type "componentList" 9 "f[17:18]" "f[104:105]" "f[118:119]" "f[121]" "f[128]" "f[133:134]" "f[136:137]" "f[147:148]" "f[150:151]";
@@ -15332,7 +16586,7 @@ createNode groupId -n "groupId204";
 createNode groupParts -n "groupParts34";
 	rename -uid "F8FA0CAC-45BC-0027-2A35-079CF87F4B1C";
 	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 204 "f[0]" "f[1]" "f[2]" "f[3]" "f[4]" "f[5]" "f[6]" "f[7]" "f[8]" "f[9]" "f[10]" "f[11]" "f[12]" "f[13]" "f[14]" "f[15]" "f[16]" "f[17]" "f[18]" "f[19]" "f[20]" "f[21]" "f[22]" "f[23]" "f[24]" "f[25]" "f[26]" "f[27]" "f[28]" "f[29]" "f[30]" "f[31]" "f[32]" "f[33]" "f[34]" "f[35]" "f[36]" "f[37]" "f[38]" "f[39]" "f[40]" "f[41]" "f[42]" "f[43]" "f[44]" "f[45]" "f[46]" "f[47]" "f[48]" "f[49]" "f[50]" "f[51]" "f[52]" "f[53]" "f[54]" "f[55]" "f[56]" "f[57]" "f[58]" "f[59]" "f[60]" "f[61]" "f[62]" "f[63]" "f[64]" "f[65]" "f[66]" "f[67]" "f[68]" "f[69]" "f[70]" "f[71]" "f[72]" "f[73]" "f[74]" "f[75]" "f[76]" "f[77]" "f[78]" "f[79]" "f[80]" "f[81]" "f[82]" "f[83]" "f[84]" "f[85]" "f[86]" "f[87]" "f[88]" "f[89]" "f[90]" "f[91]" "f[92]" "f[93]" "f[94]" "f[95]" "f[96]" "f[97]" "f[98]" "f[99]" "f[100]" "f[101]" "f[102]" "f[103]" "f[104]" "f[105]" "f[106]" "f[107]" "f[108]" "f[109]" "f[110]" "f[111]" "f[112]" "f[113]" "f[114]" "f[115]" "f[116]" "f[117]" "f[118]" "f[119]" "f[120]" "f[121]" "f[122]" "f[123]" "f[124]" "f[125]" "f[126]" "f[127]" "f[128]" "f[129]" "f[130]" "f[131]" "f[132]" "f[133]" "f[134]" "f[135]" "f[136]" "f[137]" "f[138]" "f[139]" "f[140]" "f[141]" "f[142]" "f[143]" "f[144]" "f[145]" "f[146]" "f[147]" "f[148]" "f[149]" "f[150]" "f[151]" "f[152]" "f[153]" "f[154]" "f[155]" "f[156]" "f[157]" "f[158]" "f[159]" "f[160]" "f[161]" "f[162]" "f[163]" "f[164]" "f[165]" "f[166]" "f[167]" "f[168]" "f[169]" "f[170]" "f[171]" "f[172]" "f[173]" "f[174]" "f[175]" "f[176]" "f[177]" "f[178]" "f[179]" "f[180]" "f[181]" "f[182]" "f[183]" "f[184]" "f[185]" "f[186]" "f[187]" "f[188]" "f[189]" "f[190]" "f[191]" "f[192]" "f[193]" "f[194]" "f[195]" "f[196]" "f[197]" "f[198]" "f[199]" "f[200]" "f[201]" "f[202]" "f[203]";
+	setAttr ".ic" -type "componentList" 1 "f[0:203]";
 createNode polySeparate -n "polySeparate3";
 	rename -uid "E1E93A05-4526-DF1B-AA57-68988BC29B87";
 	setAttr ".ic" 2;
@@ -15342,7 +16596,7 @@ createNode groupId -n "groupId205";
 createNode groupParts -n "groupParts35";
 	rename -uid "966CED3D-4871-EA44-6811-1B928FB931A8";
 	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 204 "f[0]" "f[1]" "f[2]" "f[3]" "f[4]" "f[5]" "f[6]" "f[7]" "f[8]" "f[9]" "f[10]" "f[11]" "f[12]" "f[13]" "f[14]" "f[15]" "f[16]" "f[17]" "f[18]" "f[19]" "f[20]" "f[21]" "f[22]" "f[23]" "f[24]" "f[25]" "f[26]" "f[27]" "f[28]" "f[29]" "f[30]" "f[31]" "f[32]" "f[33]" "f[34]" "f[35]" "f[36]" "f[37]" "f[38]" "f[39]" "f[40]" "f[41]" "f[42]" "f[43]" "f[44]" "f[45]" "f[46]" "f[47]" "f[48]" "f[49]" "f[50]" "f[51]" "f[52]" "f[53]" "f[54]" "f[55]" "f[56]" "f[57]" "f[58]" "f[59]" "f[60]" "f[61]" "f[62]" "f[63]" "f[64]" "f[65]" "f[66]" "f[67]" "f[68]" "f[69]" "f[70]" "f[71]" "f[72]" "f[73]" "f[74]" "f[75]" "f[76]" "f[77]" "f[78]" "f[79]" "f[80]" "f[81]" "f[82]" "f[83]" "f[84]" "f[85]" "f[86]" "f[87]" "f[88]" "f[89]" "f[90]" "f[91]" "f[92]" "f[93]" "f[94]" "f[95]" "f[96]" "f[97]" "f[98]" "f[99]" "f[100]" "f[101]" "f[102]" "f[103]" "f[104]" "f[105]" "f[106]" "f[107]" "f[108]" "f[109]" "f[110]" "f[111]" "f[112]" "f[113]" "f[114]" "f[115]" "f[116]" "f[117]" "f[118]" "f[119]" "f[120]" "f[121]" "f[122]" "f[123]" "f[124]" "f[125]" "f[126]" "f[127]" "f[128]" "f[129]" "f[130]" "f[131]" "f[132]" "f[133]" "f[134]" "f[135]" "f[136]" "f[137]" "f[138]" "f[139]" "f[140]" "f[141]" "f[142]" "f[143]" "f[144]" "f[145]" "f[146]" "f[147]" "f[148]" "f[149]" "f[150]" "f[151]" "f[152]" "f[153]" "f[154]" "f[155]" "f[156]" "f[157]" "f[158]" "f[159]" "f[160]" "f[161]" "f[162]" "f[163]" "f[164]" "f[165]" "f[166]" "f[167]" "f[168]" "f[169]" "f[170]" "f[171]" "f[172]" "f[173]" "f[174]" "f[175]" "f[176]" "f[177]" "f[178]" "f[179]" "f[180]" "f[181]" "f[182]" "f[183]" "f[184]" "f[185]" "f[186]" "f[187]" "f[188]" "f[189]" "f[190]" "f[191]" "f[192]" "f[193]" "f[194]" "f[195]" "f[196]" "f[197]" "f[198]" "f[199]" "f[200]" "f[201]" "f[202]" "f[203]";
+	setAttr ".ic" -type "componentList" 1 "f[0:203]";
 createNode polyChipOff -n "polyChipOff4";
 	rename -uid "B2FB331C-47FA-B2EB-3BC6-A0B50864C298";
 	setAttr ".ics" -type "componentList" 2 "f[1:2]" "f[7:8]";
@@ -15355,7 +16609,7 @@ createNode groupId -n "groupId207";
 createNode groupParts -n "groupParts37";
 	rename -uid "CA85934C-4697-EE51-1B10-B5BFA570A732";
 	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 36 "f[0]" "f[1]" "f[2]" "f[3]" "f[4]" "f[5]" "f[6]" "f[7]" "f[8]" "f[9]" "f[10]" "f[11]" "f[12]" "f[13]" "f[14]" "f[15]" "f[16]" "f[17]" "f[18]" "f[19]" "f[20]" "f[21]" "f[22]" "f[23]" "f[24]" "f[25]" "f[26]" "f[27]" "f[28]" "f[29]" "f[30]" "f[31]" "f[32]" "f[33]" "f[34]" "f[35]";
+	setAttr ".ic" -type "componentList" 1 "f[0:35]";
 createNode polySeparate -n "polySeparate4";
 	rename -uid "68920F99-419A-C55E-E860-A39384B8A018";
 	setAttr ".ic" 3;
@@ -15365,7 +16619,7 @@ createNode groupId -n "groupId208";
 createNode groupParts -n "groupParts38";
 	rename -uid "60D43C14-4E7B-970C-8AD2-4D8C2EC1C565";
 	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 36 "f[0]" "f[1]" "f[2]" "f[3]" "f[4]" "f[5]" "f[6]" "f[7]" "f[8]" "f[9]" "f[10]" "f[11]" "f[12]" "f[13]" "f[14]" "f[15]" "f[16]" "f[17]" "f[18]" "f[19]" "f[20]" "f[21]" "f[22]" "f[23]" "f[24]" "f[25]" "f[26]" "f[27]" "f[28]" "f[29]" "f[30]" "f[31]" "f[32]" "f[33]" "f[34]" "f[35]";
+	setAttr ".ic" -type "componentList" 1 "f[0:35]";
 createNode polyChipOff -n "polyChipOff5";
 	rename -uid "471DFCCC-40F4-AE06-B157-0499C5769D20";
 	setAttr ".ics" -type "componentList" 2 "f[1:2]" "f[7:8]";
@@ -15378,7 +16632,7 @@ createNode groupId -n "groupId211";
 createNode groupParts -n "groupParts41";
 	rename -uid "16D41BE7-4DC8-BC27-6EE4-FFBE3F67597C";
 	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 36 "f[0]" "f[1]" "f[2]" "f[3]" "f[4]" "f[5]" "f[6]" "f[7]" "f[8]" "f[9]" "f[10]" "f[11]" "f[12]" "f[13]" "f[14]" "f[15]" "f[16]" "f[17]" "f[18]" "f[19]" "f[20]" "f[21]" "f[22]" "f[23]" "f[24]" "f[25]" "f[26]" "f[27]" "f[28]" "f[29]" "f[30]" "f[31]" "f[32]" "f[33]" "f[34]" "f[35]";
+	setAttr ".ic" -type "componentList" 1 "f[0:35]";
 createNode polySeparate -n "polySeparate5";
 	rename -uid "61D1251F-4D52-926C-275C-C2871444C37D";
 	setAttr ".ic" 3;
@@ -15388,7 +16642,7 @@ createNode groupId -n "groupId212";
 createNode groupParts -n "groupParts42";
 	rename -uid "163AF6F2-4376-C644-5EC2-3D8211B8DD30";
 	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 36 "f[0]" "f[1]" "f[2]" "f[3]" "f[4]" "f[5]" "f[6]" "f[7]" "f[8]" "f[9]" "f[10]" "f[11]" "f[12]" "f[13]" "f[14]" "f[15]" "f[16]" "f[17]" "f[18]" "f[19]" "f[20]" "f[21]" "f[22]" "f[23]" "f[24]" "f[25]" "f[26]" "f[27]" "f[28]" "f[29]" "f[30]" "f[31]" "f[32]" "f[33]" "f[34]" "f[35]";
+	setAttr ".ic" -type "componentList" 1 "f[0:35]";
 createNode polyChipOff -n "polyChipOff6";
 	rename -uid "8A256D9F-45CE-6999-6662-A0BABF37422F";
 	setAttr ".ics" -type "componentList" 2 "f[0]" "f[9:11]";
@@ -15404,7 +16658,7 @@ createNode groupId -n "groupId214";
 createNode groupParts -n "groupParts43";
 	rename -uid "CDA98D13-46C9-841F-6905-63AD24E7091C";
 	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 36 "f[0]" "f[1]" "f[2]" "f[3]" "f[4]" "f[5]" "f[6]" "f[7]" "f[8]" "f[9]" "f[10]" "f[11]" "f[12]" "f[13]" "f[14]" "f[15]" "f[16]" "f[17]" "f[18]" "f[19]" "f[20]" "f[21]" "f[22]" "f[23]" "f[24]" "f[25]" "f[26]" "f[27]" "f[28]" "f[29]" "f[30]" "f[31]" "f[32]" "f[33]" "f[34]" "f[35]";
+	setAttr ".ic" -type "componentList" 1 "f[0:35]";
 createNode polyChipOff -n "polyChipOff7";
 	rename -uid "410872D0-4D2E-A5F4-31CE-C1BACED1F20B";
 	setAttr ".ics" -type "componentList" 1 "f[3:6]";
@@ -15420,23 +16674,21 @@ createNode groupId -n "groupId216";
 createNode groupParts -n "groupParts45";
 	rename -uid "FB9EDBAC-4DFD-8C2B-466C-BB9C60D78B75";
 	setAttr ".ihi" 0;
-	setAttr ".ic" -type "componentList" 36 "f[0]" "f[1]" "f[2]" "f[3]" "f[4]" "f[5]" "f[6]" "f[7]" "f[8]" "f[9]" "f[10]" "f[11]" "f[12]" "f[13]" "f[14]" "f[15]" "f[16]" "f[17]" "f[18]" "f[19]" "f[20]" "f[21]" "f[22]" "f[23]" "f[24]" "f[25]" "f[26]" "f[27]" "f[28]" "f[29]" "f[30]" "f[31]" "f[32]" "f[33]" "f[34]" "f[35]";
+	setAttr ".ic" -type "componentList" 1 "f[0:35]";
 createNode polyMergeVert -n "polyMergeVert47";
 	rename -uid "BC2C416F-403A-EDA3-ADC0-6E9E330222FE";
 	setAttr ".ics" -type "componentList" 4 "vtx[18]" "vtx[729]" "vtx[731]" "vtx[821]";
 	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
 	setAttr ".d" 1e-06;
-createNode groupId -n "groupId217";
-	rename -uid "C7BA9B89-4F9E-72C1-BDF1-F488922D3A07";
-	setAttr ".ihi" 0;
 createNode groupParts -n "groupParts46";
 	rename -uid "81837E54-424D-7625-7027-3983F179F0A1";
 	setAttr ".ihi" 0;
 	setAttr ".ic" -type "componentList" 1 "f[0:737]";
+	setAttr ".gi" 150;
 createNode polyTweakUV -n "polyTweakUV33";
 	rename -uid "307A5006-4E3F-8FA8-DEE6-7F8880EF97DD";
 	setAttr ".uopa" yes;
-	setAttr -s 6 ".uvtk";
+	setAttr -s 5 ".uvtk";
 	setAttr ".uvtk[19]" -type "float2" -4.970795e-07 -1.9164183e-06 ;
 	setAttr ".uvtk[766]" -type "float2" -6.7992896e-06 0.053514455 ;
 	setAttr ".uvtk[774]" -type "float2" 1.3572594e-06 0.099803895 ;
@@ -15450,13 +16702,13 @@ createNode polyMergeVert -n "polyMergeVert48";
 createNode polyTweak -n "polyTweak120";
 	rename -uid "CCE8C722-4AA3-D153-43B9-629EBEBDFFFD";
 	setAttr ".uopa" yes;
-	setAttr -s 4 ".tk";
+	setAttr -s 2 ".tk";
 	setAttr ".tk[543]" -type "float3" 0 2.4805832 0 ;
 	setAttr ".tk[551]" -type "float3" 0 2.4805832 0 ;
 createNode polyTweakUV -n "polyTweakUV34";
 	rename -uid "9B97E27F-426D-12D9-ED8A-88A330C258C5";
 	setAttr ".uopa" yes;
-	setAttr -s 8 ".uvtk";
+	setAttr -s 7 ".uvtk";
 	setAttr ".uvtk[6]" -type "float2" 3.6104109e-07 0.37499696 ;
 	setAttr ".uvtk[19]" -type "float2" -4.0319884e-07 -1.5412454e-06 ;
 	setAttr ".uvtk[766]" -type "float2" -4.0749692e-06 0.0023953428 ;
@@ -15472,13 +16724,13 @@ createNode polyMergeVert -n "polyMergeVert49";
 createNode polyTweak -n "polyTweak121";
 	rename -uid "5F143A42-41C3-7477-6C8D-D598D6176A9D";
 	setAttr ".uopa" yes;
-	setAttr -s 4 ".tk";
+	setAttr -s 2 ".tk";
 	setAttr ".tk[6]" -type "float3" 0 2.4805832 0 ;
 	setAttr ".tk[805]" -type "float3" 0 2.4805832 0 ;
 createNode polyTweakUV -n "polyTweakUV35";
 	rename -uid "1E9A2407-4385-1618-D7C6-E9AD5A4C2742";
 	setAttr ".uopa" yes;
-	setAttr -s 5 ".uvtk";
+	setAttr -s 4 ".uvtk";
 	setAttr ".uvtk[773]" -type "float2" -1.0915068e-06 0.091369957 ;
 	setAttr ".uvtk[1312]" -type "float2" -6.4473149e-08 -2.0313657e-06 ;
 	setAttr ".uvtk[1324]" -type "float2" -6.3642212e-05 0.37499818 ;
@@ -15491,13 +16743,13 @@ createNode polyMergeVert -n "polyMergeVert50";
 createNode polyTweak -n "polyTweak122";
 	rename -uid "9BE2C5EE-496F-E4C8-09B8-0EBC0676B2BE";
 	setAttr ".uopa" yes;
-	setAttr -s 4 ".tk";
+	setAttr -s 2 ".tk";
 	setAttr ".tk[549]" -type "float3" 0 2.4805832 0 ;
 	setAttr ".tk[815]" -type "float3" 0 2.4805832 0 ;
 createNode polyTweakUV -n "polyTweakUV36";
 	rename -uid "9B9F278E-4E8A-DB35-20A3-459088A1BE6B";
 	setAttr ".uopa" yes;
-	setAttr -s 6 ".uvtk";
+	setAttr -s 5 ".uvtk";
 	setAttr ".uvtk[764]" -type "float2" -2.2340164e-06 0.08766342 ;
 	setAttr ".uvtk[773]" -type "float2" -4.8274211e-07 -0.002018987 ;
 	setAttr ".uvtk[1311]" -type "float2" -1.1413672e-07 0.37499627 ;
@@ -15511,13 +16763,13 @@ createNode polyMergeVert -n "polyMergeVert51";
 createNode polyTweak -n "polyTweak123";
 	rename -uid "DD560E51-4CC4-D053-875F-978EFBC2D50E";
 	setAttr ".uopa" yes;
-	setAttr -s 4 ".tk";
+	setAttr -s 2 ".tk";
 	setAttr ".tk[541]" -type "float3" 0 2.4805832 0 ;
 	setAttr ".tk[804]" -type "float3" 0 2.4805832 0 ;
 createNode polyTweakUV -n "polyTweakUV37";
 	rename -uid "6678DADD-4494-7D16-B5FA-6DAE9019393B";
 	setAttr ".uopa" yes;
-	setAttr -s 5 ".uvtk";
+	setAttr -s 4 ".uvtk";
 	setAttr ".uvtk[776]" -type "float2" -3.3783672e-07 0.094600618 ;
 	setAttr ".uvtk[1314]" -type "float2" -6.44811e-08 -2.0315565e-06 ;
 	setAttr ".uvtk[1321]" -type "float2" 5.6964815e-08 0.37499797 ;
@@ -15530,13 +16782,13 @@ createNode polyMergeVert -n "polyMergeVert52";
 createNode polyTweak -n "polyTweak124";
 	rename -uid "F579DB88-4619-5204-0C5B-879BFB038623";
 	setAttr ".uopa" yes;
-	setAttr -s 4 ".tk";
+	setAttr -s 2 ".tk";
 	setAttr ".tk[551]" -type "float3" 0 2.4805832 0 ;
 	setAttr ".tk[811]" -type "float3" 0 2.4805832 0 ;
 createNode polyTweakUV -n "polyTweakUV38";
 	rename -uid "9248D799-423B-FDDB-D10C-AA84C46502E8";
 	setAttr ".uopa" yes;
-	setAttr -s 6 ".uvtk";
+	setAttr -s 5 ".uvtk";
 	setAttr ".uvtk[762]" -type "float2" -4.4731979e-07 0.094250537 ;
 	setAttr ".uvtk[776]" -type "float2" -1.4370501e-07 -0.00060265133 ;
 	setAttr ".uvtk[1313]" -type "float2" -1.1414438e-07 0.37499627 ;
@@ -15550,13 +16802,13 @@ createNode polyMergeVert -n "polyMergeVert53";
 createNode polyTweak -n "polyTweak125";
 	rename -uid "39EF97AA-4A36-0E44-AC8A-029EF0EAF7E0";
 	setAttr ".uopa" yes;
-	setAttr -s 4 ".tk";
+	setAttr -s 2 ".tk";
 	setAttr ".tk[539]" -type "float3" 0 2.4805832 0 ;
 	setAttr ".tk[805]" -type "float3" 0 2.4805832 0 ;
 createNode polyTweakUV -n "polyTweakUV39";
 	rename -uid "00006668-4976-D500-479B-DAAE5D36419F";
 	setAttr ".uopa" yes;
-	setAttr -s 7 ".uvtk";
+	setAttr -s 6 ".uvtk";
 	setAttr ".uvtk[770]" -type "float2" 3.610435e-07 0.09597452 ;
 	setAttr ".uvtk[778]" -type "float2" -5.9076933e-07 0.095246375 ;
 	setAttr ".uvtk[1309]" -type "float2" 3.6117768e-07 -3.04689e-06 ;
@@ -15571,13 +16823,13 @@ createNode polyMergeVert -n "polyMergeVert54";
 createNode polyTweak -n "polyTweak126";
 	rename -uid "A3E2E653-455C-481F-47AA-AA9B336BA84B";
 	setAttr ".uopa" yes;
-	setAttr -s 4 ".tk";
+	setAttr -s 2 ".tk";
 	setAttr ".tk[546]" -type "float3" 0 2.4805832 0 ;
 	setAttr ".tk[806]" -type "float3" 0 2.4805832 0 ;
 createNode polyTweakUV -n "polyTweakUV40";
 	rename -uid "4DDFCC85-45EF-35A6-975D-5BB355770A54";
 	setAttr ".uopa" yes;
-	setAttr -s 9 ".uvtk";
+	setAttr -s 8 ".uvtk";
 	setAttr ".uvtk[759]" -type "float2" -7.6379173e-08 0.095617004 ;
 	setAttr ".uvtk[770]" -type "float2" 2.4683706e-07 -1.3245759e-07 ;
 	setAttr ".uvtk[778]" -type "float2" -3.3169036e-07 -0.00031227441 ;
@@ -15594,13 +16846,13 @@ createNode polyMergeVert -n "polyMergeVert55";
 createNode polyTweak -n "polyTweak127";
 	rename -uid "DC2CF6B1-4154-659D-1F99-47AA6C608C60";
 	setAttr ".uopa" yes;
-	setAttr -s 4 ".tk";
+	setAttr -s 2 ".tk";
 	setAttr ".tk[536]" -type "float3" 0 2.4805832 0 ;
 	setAttr ".tk[800]" -type "float3" 0 2.4805832 0 ;
 createNode polyTweakUV -n "polyTweakUV41";
 	rename -uid "DDCD8CC4-4F47-5D98-4C23-7DBFBFF80E2F";
 	setAttr ".uopa" yes;
-	setAttr -s 5 ".uvtk";
+	setAttr -s 4 ".uvtk";
 	setAttr ".uvtk[10]" -type "float2" 0.0033160918 3.0470887e-06 ;
 	setAttr ".uvtk[757]" -type "float2" -6.4359192e-05 0.031355005 ;
 	setAttr ".uvtk[1182]" -type "float2" 0.00011401183 0.031362049 ;
@@ -15613,13 +16865,13 @@ createNode polyMergeVert -n "polyMergeVert56";
 createNode polyTweak -n "polyTweak128";
 	rename -uid "98591F31-486F-CCA8-505B-9A87B7F305C7";
 	setAttr ".uopa" yes;
-	setAttr -s 6 ".tk";
+	setAttr -s 2 ".tk";
 	setAttr ".tk[10]" -type "float3" -0.26113319 0 -0.069970369 ;
 	setAttr ".tk[803]" -type "float3" 0.26615095 0 -0.071314573 ;
 createNode polyTweakUV -n "polyTweakUV42";
 	rename -uid "3748D3B4-461C-69B7-8155-C2BC363D89EB";
 	setAttr ".uopa" yes;
-	setAttr -s 6 ".uvtk";
+	setAttr -s 5 ".uvtk";
 	setAttr ".uvtk[13]" -type "float2" 4.8678561e-07 -2.0143293e-06 ;
 	setAttr ".uvtk[760]" -type "float2" -1.2923259e-05 0.10232369 ;
 	setAttr ".uvtk[769]" -type "float2" 1.429204e-05 0.070608012 ;
@@ -15633,13 +16885,13 @@ createNode polyMergeVert -n "polyMergeVert57";
 createNode polyTweak -n "polyTweak129";
 	rename -uid "737CCF28-468B-A9F9-D56B-EB9FF868D2F1";
 	setAttr ".uopa" yes;
-	setAttr -s 4 ".tk";
+	setAttr -s 2 ".tk";
 	setAttr ".tk[537]" -type "float3" 0 2.4805832 0 ;
 	setAttr ".tk[545]" -type "float3" 0 2.4805832 0 ;
 createNode polyTweakUV -n "polyTweakUV43";
 	rename -uid "101F8488-41AE-C36B-469A-52BE01D22FAE";
 	setAttr ".uopa" yes;
-	setAttr -s 8 ".uvtk";
+	setAttr -s 7 ".uvtk";
 	setAttr ".uvtk[4]" -type "float2" -3.6105646e-07 0.37499696 ;
 	setAttr ".uvtk[13]" -type "float2" 3.8803387e-07 -1.594662e-06 ;
 	setAttr ".uvtk[760]" -type "float2" -1.2520288e-05 0.006161585 ;
@@ -15655,13 +16907,13 @@ createNode polyMergeVert -n "polyMergeVert58";
 createNode polyTweak -n "polyTweak130";
 	rename -uid "A15539AC-4230-2EAC-5184-A395F239AA45";
 	setAttr ".uopa" yes;
-	setAttr -s 4 ".tk";
+	setAttr -s 2 ".tk";
 	setAttr ".tk[4]" -type "float3" 0 2.4805832 0 ;
 	setAttr ".tk[798]" -type "float3" 0 2.4805832 0 ;
 createNode polyTweakUV -n "polyTweakUV44";
 	rename -uid "EA34B243-4DA6-C63F-1D14-68811E434DAA";
 	setAttr ".uopa" yes;
-	setAttr -s 5 ".uvtk";
+	setAttr -s 4 ".uvtk";
 	setAttr ".uvtk[1258]" -type "float2" 0.0027720907 -0.0026487373 ;
 	setAttr ".uvtk[1262]" -type "float2" 0.0033163442 -0.00046437353 ;
 	setAttr ".uvtk[1281]" -type "float2" -0.0032511214 -6.2067724e-05 ;
@@ -15674,9 +16926,8 @@ createNode polyMergeVert -n "polyMergeVert59";
 createNode polyTweak -n "polyTweak131";
 	rename -uid "7D339F29-4F76-A221-EA67-9E8FC102CF01";
 	setAttr ".uopa" yes;
-	setAttr -s 4 ".tk";
-	setAttr ".tk[780]" -type "float3" -0.026481628 0.0009765625 0.069027901 ;
-	setAttr ".tk[781]" -type "float3" 0.027442455 0 0.069141865 ;
+	setAttr -s 2 ".tk[780:781]" -type "float3"  -0.026481628 0.0009765625
+		 0.069027901 0.027442455 0 0.069141865;
 createNode polySplit -n "polySplit75";
 	rename -uid "6F75F72F-4C97-3B0B-017A-FA99575572D3";
 	setAttr ".e[0]"  0.5;
@@ -15686,7 +16937,7 @@ createNode polySplit -n "polySplit75";
 createNode polyTweakUV -n "polyTweakUV45";
 	rename -uid "F8316DB5-489C-A636-1D07-C18CBFD9D5F9";
 	setAttr ".uopa" yes;
-	setAttr -s 4 ".uvtk";
+	setAttr -s 3 ".uvtk";
 	setAttr ".uvtk[1176]" -type "float2" -1.1261237e-05 0.026287403 ;
 	setAttr ".uvtk[1314]" -type "float2" 1.0816692e-10 6.0744228e-06 ;
 	setAttr ".uvtk[1316]" -type "float2" -0.0070295939 -0.18749052 ;
@@ -15698,8 +16949,7 @@ createNode polyMergeVert -n "polyMergeVert60";
 createNode polyTweak -n "polyTweak132";
 	rename -uid "903FD9DD-4FE2-4667-548F-2AA22562E9E4";
 	setAttr ".uopa" yes;
-	setAttr -s 2 ".tk";
-	setAttr ".tk[797]" -type "float3" -0.55300379 -1.2402916 -0.15083194 ;
+	setAttr ".tk[797]" -type "float3"  -0.55300379 -1.2402916 -0.15083194;
 createNode polySplit -n "polySplit76";
 	rename -uid "D53D7275-4E9B-B0C6-3D0B-B59B87DCBA89";
 	setAttr ".e[0]"  0.5;
@@ -15721,8 +16971,7 @@ createNode polyMergeVert -n "polyMergeVert61";
 createNode polyTweak -n "polyTweak133";
 	rename -uid "F11CA97A-4756-D6EB-3161-CEB789D54CAC";
 	setAttr ".uopa" yes;
-	setAttr -s 2 ".tk";
-	setAttr ".tk[797]" -type "float3" -0.55419445 -1.2402916 0.14849615 ;
+	setAttr ".tk[797]" -type "float3"  -0.55419445 -1.2402916 0.14849615;
 createNode polyDelEdge -n "polyDelEdge16";
 	rename -uid "D2C6B90D-45ED-7585-E73F-6489863A2911";
 	setAttr ".ics" -type "componentList" 1 "e[1538:1539]";
@@ -15751,6 +17000,7841 @@ createNode deleteComponent -n "deleteComponent42";
 createNode deleteComponent -n "deleteComponent43";
 	rename -uid "31ED94BE-4D52-412E-86EB-ACA0059A617A";
 	setAttr ".dc" -type "componentList" 1 "f[732]";
+createNode polyAppendVertex -n "polyAppendVertex1";
+	rename -uid "2A024CE5-4B21-B093-B7FF-A39DD8DC74CD";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  730 389 388 734;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak134";
+	rename -uid "DCD75E35-4A3A-9CA4-4DB2-16B4EF5ACF9D";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk";
+	setAttr ".tk[730]" -type "float3" 0.28335258 0 0 ;
+	setAttr ".tk[733]" -type "float3" -0.28335258 0 0 ;
+	setAttr ".tk[734]" -type "float3" 0.28335258 0 0 ;
+	setAttr ".tk[735]" -type "float3" -0.28335258 0 0 ;
+createNode groupParts -n "groupParts47";
+	rename -uid "49B00D1F-4C20-DECC-F9FD-C1ABFDDC9FB1";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:732]";
+	setAttr ".gi" 153;
+createNode polyAppendVertex -n "polyAppendVertex2";
+	rename -uid "451ECDBA-4B9A-18FF-19B8-759E907F8648";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  735 391 390 733;
+	setAttr ".tx" 2;
+createNode groupParts -n "groupParts48";
+	rename -uid "26B7A54C-4DD0-2FEF-CB7C-6CBC9FAA4139";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:733]";
+	setAttr ".gi" 154;
+createNode polyAppendVertex -n "polyAppendVertex3";
+	rename -uid "7FF46CEB-43C3-73D0-071E-87A70D6EA447";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  730 557 748 389;
+	setAttr ".tx" 2;
+createNode groupParts -n "groupParts49";
+	rename -uid "C06FC9F8-4387-FE4D-7FCA-6EBFEE7E9083";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:734]";
+	setAttr ".gi" 155;
+createNode polyAppendVertex -n "polyAppendVertex4";
+	rename -uid "757471C0-49E3-3C27-6DF2-CEBEA11915D3";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  390 751 550 733;
+	setAttr ".tx" 2;
+createNode groupParts -n "groupParts50";
+	rename -uid "C2DEC926-4132-72AB-EB94-F8B9B861BC6E";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:735]";
+	setAttr ".gi" 156;
+createNode polyAppendVertex -n "polyAppendVertex5";
+	rename -uid "FC53443D-45A3-243F-3ABC-DE9060F2D120";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  748 557 762 760;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak135";
+	rename -uid "81858808-468B-1668-5159-8C98A58052FA";
+	setAttr ".uopa" yes;
+	setAttr -s 797 ".tk[752:796]" -type "float3"  0.027605295 -0.0010261536
+		 0.091675758 0.026017189 0.00086975098 0.10844421 -0.021625042 0.00086975098 0.11283779
+		 -0.023212671 -0.0010261536 0.096069336 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+createNode groupParts -n "groupParts51";
+	rename -uid "DC1FB868-40C8-649A-F629-888222E93028";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:736]";
+	setAttr ".gi" 157;
+createNode polyAppendVertex -n "polyAppendVertex6";
+	rename -uid "63110238-4E24-B961-2D38-73A751E692BB";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  778 776 550 751;
+	setAttr ".tx" 2;
+createNode groupParts -n "groupParts52";
+	rename -uid "D0696679-4B9F-CA1B-2F2B-04A7D84B9CAB";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:737]";
+	setAttr ".gi" 158;
+createNode polyAppendVertex -n "polyAppendVertex7";
+	rename -uid "2C195445-4B72-9BE7-B45E-3CA6E9661FFB";
+	setAttr ".uopa" yes;
+	setAttr -s 3 ".d[0:2]"  760 752 748;
+	setAttr ".tx" 2;
+createNode groupParts -n "groupParts53";
+	rename -uid "9256FF84-487F-4064-2DEE-11AB540FDCC6";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:738]";
+	setAttr ".gi" 159;
+createNode polyAppendVertex -n "polyAppendVertex8";
+	rename -uid "2770FB05-4498-B4A0-A4BC-2398912A4870";
+	setAttr ".uopa" yes;
+	setAttr -s 3 ".d[0:2]"  751 755 778;
+	setAttr ".tx" 2;
+createNode groupParts -n "groupParts54";
+	rename -uid "00D36F21-48D9-2D9E-7729-E79C1921D340";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:739]";
+	setAttr ".gi" 160;
+createNode polyAppendVertex -n "polyAppendVertex9";
+	rename -uid "678F8137-4968-9A05-2358-598756804295";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  5.139822 19.285732 6.6800928;
+	setAttr -s 4 ".d[0:3]"  -1 764 762 557;
+	setAttr ".tx" 2;
+createNode groupParts -n "groupParts55";
+	rename -uid "8A38B37A-4C72-D68B-C97E-DEBB0BECBC2E";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:740]";
+	setAttr ".gi" 161;
+createNode polyAppendVertex -n "polyAppendVertex10";
+	rename -uid "3F941372-476B-14F2-EDEA-6F96FDE7A103";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  -5.139822 19.285732 6.6800928;
+	setAttr -s 4 ".d[0:3]"  550 776 774 -1;
+	setAttr ".tx" 2;
+createNode groupParts -n "groupParts56";
+	rename -uid "4E0ABDE5-456B-4335-ECF0-1FBFA60FBA23";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:741]";
+	setAttr ".gi" 162;
+createNode deleteComponent -n "deleteComponent44";
+	rename -uid "9B435941-424A-06CB-053E-D3A91FC37B8E";
+	setAttr ".dc" -type "componentList" 1 "vtx[797:798]";
+createNode polyAppendVertex -n "polyAppendVertex11";
+	rename -uid "807727F9-4159-1B91-51B6-12A576723DB4";
+	setAttr ".uopa" yes;
+	setAttr -s 2 ".v[0:1]" -type "float3"  6.141232 19.285732 5.6134481 
+		6.6184201 19.285732 4.8357158;
+	setAttr -s 4 ".d[0:3]"  764 -1 -1 766;
+	setAttr ".tx" 2;
+createNode groupParts -n "groupParts57";
+	rename -uid "9759EA3C-48C2-5A9B-0922-D5A294C7933A";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:742]";
+	setAttr ".gi" 163;
+createNode polyAppendVertex -n "polyAppendVertex12";
+	rename -uid "56DBCB75-475C-D546-40A1-54B95A33188A";
+	setAttr ".uopa" yes;
+	setAttr -s 2 ".v[0:1]" -type "float3"  -6.6184201 19.285732 4.8357158 
+		-6.141232 19.285732 5.6134481;
+	setAttr -s 4 ".d[0:3]"  772 -1 -1 774;
+	setAttr ".tx" 2;
+createNode groupParts -n "groupParts58";
+	rename -uid "E2511EB9-424F-4FD4-4D64-9B910ED732D9";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:743]";
+	setAttr ".gi" 164;
+createNode polyMergeVert -n "polyMergeVert62";
+	rename -uid "317D6CE3-4125-24B5-823A-7B962E516295";
+	setAttr ".ics" -type "componentList" 3 "vtx[553]" "vtx[556]" "vtx[798:799]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 0.001;
+createNode polyTweak -n "polyTweak136";
+	rename -uid "C4BEA0B2-4003-3D59-EAD0-07B73F646C81";
+	setAttr ".uopa" yes;
+	setAttr -s 801 ".tk[798:800]" -type "float3"  0.3651123 0 -0.1674428 -0.3651123
+		 0 -0.1674428 0 0 0;
+createNode deleteComponent -n "deleteComponent45";
+	rename -uid "A8B8F71E-4052-5F0F-5998-3E93809CB00A";
+	setAttr ".dc" -type "componentList" 1 "vtx[797:798]";
+createNode polyAppendVertex -n "polyAppendVertex13";
+	rename -uid "D6A82229-4CDD-BF37-51CF-70AD6F7445CC";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".v[0:3]" -type "float3"  5.5583138 19.285732 6.108058 
+		5.5872879 19.285732 6.1966372 5.7246752 19.285732 6.0753598 5.6218891 19.285732 6.0510988;
+	setAttr -s 4 ".d[0:3]"  -1 -1 -1 -1;
+	setAttr ".tx" 2;
+createNode groupParts -n "groupParts59";
+	rename -uid "68912D6F-4B13-2A04-E7F6-539ED4621275";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:744]";
+	setAttr ".gi" 165;
+createNode polyAppendVertex -n "polyAppendVertex14";
+	rename -uid "69DFEFD2-449E-4B8F-810A-C68F0E0055E5";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".v[0:3]" -type "float3"  -5.6218891 19.285732 6.0510988 
+		-5.7246752 19.285732 6.0753598 -5.5872879 19.285732 6.1966372 -5.5583138 19.285732 
+		6.108058;
+	setAttr -s 4 ".d[0:3]"  -1 -1 -1 -1;
+	setAttr ".tx" 2;
+createNode groupParts -n "groupParts60";
+	rename -uid "D0C6781D-4A0B-1AFB-0902-D1B88F9B1521";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:745]";
+	setAttr ".gi" 166;
+createNode polyMergeVert -n "polyMergeVert63";
+	rename -uid "9E337676-4A54-79E0-4064-0993016A2A8C";
+	setAttr ".ics" -type "componentList" 3 "vtx[764]" "vtx[774]" "vtx[800:801]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 0.001;
+createNode polyTweak -n "polyTweak137";
+	rename -uid "0DA9F4D8-49C4-1451-B733-A483E4D5ED19";
+	setAttr ".uopa" yes;
+	setAttr -s 805 ".tk[800:804]" -type "float3"  -0.013383865 0 -0.13417244
+		 0.013383865 0 -0.13417244 0 0 0 0 0 0 0 0 0;
+createNode deleteComponent -n "deleteComponent46";
+	rename -uid "DF6E5C5C-40DE-455A-0B3A-E6B73230DA84";
+	setAttr ".dc" -type "componentList" 2 "vtx[797]" "vtx[802]";
+createNode polyMergeVert -n "polyMergeVert64";
+	rename -uid "47AD8050-4B79-247B-39A5-01B7FF00FD3D";
+	setAttr ".ics" -type "componentList" 4 "vtx[550]" "vtx[557]" "vtx[797]" "vtx[800]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 0.001;
+createNode polyTweak -n "polyTweak138";
+	rename -uid "7AB25F2C-4D58-8744-B8B2-E0A62AFF8D1C";
+	setAttr ".uopa" yes;
+	setAttr -s 801 ".tk[797:800]" -type "float3"  -1.021555424 0 1.42279911
+		 0 0 0 0 0 0 1.021555424 0 1.42279911;
+createNode polyMergeVert -n "polyMergeVert65";
+	rename -uid "87A79ECE-4A95-082E-05A1-668796524348";
+	setAttr ".ics" -type "componentList" 3 "vtx[553]" "vtx[556]" "vtx[797:798]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 0.001;
+createNode polyTweak -n "polyTweak139";
+	rename -uid "2E94AD3F-4E5E-70BE-EC56-9CA78F703F73";
+	setAttr ".uopa" yes;
+	setAttr -s 799 ".tk[797:798]" -type "float3"  1.25885725 0 -1.40708685 -1.25885725
+		 0 -1.40708685;
+createNode polyAppendVertex -n "polyAppendVertex15";
+	rename -uid "9943944D-41B9-B770-3298-AA9DBE6C601B";
+	setAttr ".uopa" yes;
+	setAttr -s 2 ".v[0:1]" -type "float3"  6.088438 19.285732 4.238852 
+		6.092711 19.285732 4.5140228;
+	setAttr -s 4 ".d[0:3]"  -1 -1 556 18;
+	setAttr ".tx" 2;
+createNode groupParts -n "groupParts61";
+	rename -uid "04AF1210-4C0B-0633-20AD-5EBF8A72CF25";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:746]";
+	setAttr ".gi" 167;
+createNode polyAppendVertex -n "polyAppendVertex16";
+	rename -uid "55B6D4BA-4033-5F82-C73F-1E94C42ED9A7";
+	setAttr ".uopa" yes;
+	setAttr -s 2 ".v[0:1]" -type "float3"  -6.092711 19.285732 4.5140228 
+		-6.088438 19.285732 4.238852;
+	setAttr -s 4 ".d[0:3]"  725 553 -1 -1;
+	setAttr ".tx" 2;
+createNode groupParts -n "groupParts62";
+	rename -uid "399C3100-40DF-9F9A-E1AB-B5BA61744C83";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:747]";
+	setAttr ".gi" 168;
+createNode polyMergeVert -n "polyMergeVert66";
+	rename -uid "2DCF8355-491A-5BB3-C425-35A4C5104005";
+	setAttr ".ics" -type "componentList" 3 "vtx[766]" "vtx[772]" "vtx[798:799]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 0.001;
+createNode polyTweak -n "polyTweak140";
+	rename -uid "37D78440-4F4F-A1A0-53F4-E4921B638ADA";
+	setAttr ".uopa" yes;
+	setAttr -s 801 ".tk[798:800]" -type "float3"  -0.11791563 0 0.51860237 0.11791563
+		 0 0.51860237 0 0 0;
+createNode polyMergeVert -n "polyMergeVert67";
+	rename -uid "55E8CA8E-4F6D-F102-C4D7-1D8227E05E79";
+	setAttr ".ics" -type "componentList" 3 "vtx[7]" "vtx[16]" "vtx[797:798]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 0.001;
+createNode polyTweak -n "polyTweak141";
+	rename -uid "72972201-4B10-F885-175F-E395CC895958";
+	setAttr ".uopa" yes;
+	setAttr -s 799 ".tk[797:798]" -type "float3"  -0.47993279 0 -0.087207317
+		 0.47993279 0 -0.087207317;
+createNode polyTweakUV -n "polyTweakUV47";
+	rename -uid "FF220343-4A59-FDCF-7C1E-9D9334531E57";
+	setAttr ".uopa" yes;
+	setAttr -s 9 ".uvtk";
+	setAttr ".uvtk[28]" -type "float2" -0.011180602 0.03221681 ;
+	setAttr ".uvtk[30]" -type "float2" -0.004261863 0.026373735 ;
+	setAttr ".uvtk[480]" -type "float2" -0.011180622 0.032216825 ;
+	setAttr ".uvtk[482]" -type "float2" -0.0042618937 0.026373729 ;
+	setAttr ".uvtk[827]" -type "float2" -0.02364946 0.12376126 ;
+	setAttr ".uvtk[828]" -type "float2" -0.0082205255 0.11610833 ;
+	setAttr ".uvtk[908]" -type "float2" -0.023649449 0.12376149 ;
+	setAttr ".uvtk[909]" -type "float2" -0.0082204714 0.11610834 ;
+createNode polyMergeVert -n "polyMergeVert68";
+	rename -uid "5B291559-4654-24CF-386E-BBA5D9911DF3";
+	setAttr ".ics" -type "componentList" 5 "vtx[24:25]" "vtx[280:281]" "vtx[641:642]" "vtx[662]" "vtx[665]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak142";
+	rename -uid "1925D880-43FB-0884-9D74-0B989198666B";
+	setAttr ".uopa" yes;
+	setAttr -s 23 ".tk";
+	setAttr ".tk[641]" -type "float3" -3.8146973e-06 2.417614 9.5367432e-07 ;
+	setAttr ".tk[642]" -type "float3" -3.8146973e-06 2.417614 9.5367432e-07 ;
+	setAttr ".tk[662]" -type "float3" 2.3841858e-06 2.417614 0 ;
+	setAttr ".tk[665]" -type "float3" 2.3841858e-06 2.417614 9.5367432e-07 ;
+	setAttr ".tk[757]" -type "float3" 0.32381248 0.00037765503 0.13354015 ;
+	setAttr ".tk[758]" -type "float3" 0.32407093 0.20306969 0.13323641 ;
+	setAttr ".tk[763]" -type "float3" 0.00045251846 0.67707253 0.00044965744 ;
+	setAttr ".tk[765]" -type "float3" 0.00045251846 0.67707253 0.00044965744 ;
+	setAttr ".tk[767]" -type "float3" 0.00045251846 0.67707253 0.00044965744 ;
+	setAttr ".tk[768]" -type "float3" -0.32381248 0.00037765503 0.13354015 ;
+	setAttr ".tk[771]" -type "float3" -0.32407093 0.20306969 0.13323641 ;
+	setAttr ".tk[773]" -type "float3" -0.00045251846 0.67707253 0.00044965744 ;
+	setAttr ".tk[775]" -type "float3" -0.00045251846 0.67707253 0.00044965744 ;
+	setAttr ".tk[777]" -type "float3" -0.00045251846 0.67707253 0.00044965744 ;
+createNode polyTweakUV -n "polyTweakUV48";
+	rename -uid "E3C775EE-4A98-E1D1-5CA8-B68188A65684";
+	setAttr ".uopa" yes;
+	setAttr -s 5 ".uvtk";
+	setAttr ".uvtk[26]" -type "float2" -0.0018775064 0.034053784 ;
+	setAttr ".uvtk[484]" -type "float2" 0.00041077152 0.029590501 ;
+	setAttr ".uvtk[827]" -type "float2" 0.0086502936 0.12684858 ;
+	setAttr ".uvtk[905]" -type "float2" -0.036889262 0.1615357 ;
+createNode polyMergeVert -n "polyMergeVert69";
+	rename -uid "46E254DD-4E5E-CD01-EF2C-7CA106E3E082";
+	setAttr ".ics" -type "componentList" 4 "vtx[23]" "vtx[282]" "vtx[640]" "vtx[662]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak143";
+	rename -uid "2D26CCB6-4F9D-0B09-D2F4-EDA7C1221F15";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk";
+	setAttr ".tk[640]" -type "float3" -3.8146973e-06 2.417614 0 ;
+	setAttr ".tk[662]" -type "float3" 5.2452087e-06 2.417614 0 ;
+createNode polyTweakUV -n "polyTweakUV49";
+	rename -uid "2A010F16-4D85-884B-9F7D-87B116CE0B31";
+	setAttr ".uopa" yes;
+	setAttr -s 5 ".uvtk";
+	setAttr ".uvtk[99]" -type "float2" -0.01118063 0.032216832 ;
+	setAttr ".uvtk[426]" -type "float2" -0.0059584514 0.027561482 ;
+	setAttr ".uvtk[834]" -type "float2" -0.0071666245 0.11396544 ;
+	setAttr ".uvtk[896]" -type "float2" -0.023649311 0.1237613 ;
+createNode polyMergeVert -n "polyMergeVert70";
+	rename -uid "E43B2926-4430-8B90-70AB-83802B2AE809";
+	setAttr ".ics" -type "componentList" 4 "vtx[64]" "vtx[248]" "vtx[594]" "vtx[709]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak144";
+	rename -uid "E98D418E-40A9-11B4-B46E-05A34F3DE60B";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk";
+	setAttr ".tk[594]" -type "float3" -3.8146973e-06 2.417614 1.9073486e-06 ;
+	setAttr ".tk[709]" -type "float3" 2.8610229e-06 2.417614 0 ;
+createNode polyTweakUV -n "polyTweakUV50";
+	rename -uid "CB60BE93-4656-91D6-A758-68A691AC2C2A";
+	setAttr ".uopa" yes;
+	setAttr -s 5 ".uvtk";
+	setAttr ".uvtk[97]" -type "float2" -0.0078687202 0.040900879 ;
+	setAttr ".uvtk[428]" -type "float2" 0.00035389757 0.029505972 ;
+	setAttr ".uvtk[834]" -type "float2" 0.008619288 0.12680249 ;
+	setAttr ".uvtk[894]" -type "float2" -0.027474694 0.150776 ;
+createNode polyMergeVert -n "polyMergeVert71";
+	rename -uid "87AAB50E-4769-1F64-CACD-D4842417E256";
+	setAttr ".ics" -type "componentList" 4 "vtx[63]" "vtx[249]" "vtx[594]" "vtx[707]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak145";
+	rename -uid "70870EEF-45A4-555B-73F6-A588BF0DEC7C";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk";
+	setAttr ".tk[594]" -type "float3" -2.8610229e-06 2.417614 4.7683716e-07 ;
+	setAttr ".tk[707]" -type "float3" 1.9073486e-06 2.417614 4.7683716e-07 ;
+createNode polyTweakUV -n "polyTweakUV51";
+	rename -uid "7780908A-4CFA-E848-6D0B-539F869F5669";
+	setAttr ".uopa" yes;
+	setAttr -s 5 ".uvtk";
+	setAttr ".uvtk[95]" -type "float2" 0.004831118 0.050183456 ;
+	setAttr ".uvtk[430]" -type "float2" -0.019016104 0.032408901 ;
+	setAttr ".uvtk[834]" -type "float2" 0.0080981171 0.14854607 ;
+	setAttr ".uvtk[892]" -type "float2" -0.010752208 0.17568892 ;
+createNode polyMergeVert -n "polyMergeVert72";
+	rename -uid "9A051257-4FD9-DE48-7035-9DAEFE2B5B62";
+	setAttr ".ics" -type "componentList" 4 "vtx[62]" "vtx[250]" "vtx[594]" "vtx[703]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak146";
+	rename -uid "5638C3A3-4B98-ED1B-DED6-1EBBCDBC3BA8";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk";
+	setAttr ".tk[594]" -type "float3" -3.8146973e-06 2.417614 -7.1525574e-07 ;
+	setAttr ".tk[703]" -type "float3" 9.5367432e-07 2.417614 9.5367432e-07 ;
+createNode polyTweakUV -n "polyTweakUV52";
+	rename -uid "6314F856-4465-4128-C588-819CB85C3788";
+	setAttr ".uopa" yes;
+	setAttr -s 5 ".uvtk";
+	setAttr ".uvtk[168]" -type "float2" -0.015054447 0.038189236 ;
+	setAttr ".uvtk[372]" -type "float2" -0.0037169924 0.003761027 ;
+	setAttr ".uvtk[847]" -type "float2" -0.0078706639 0.11898641 ;
+	setAttr ".uvtk[883]" -type "float2" -0.015165517 0.15852372 ;
+createNode polyMergeVert -n "polyMergeVert73";
+	rename -uid "FAADE7F8-4830-0A28-3404-D7B3929422B9";
+	setAttr ".ics" -type "componentList" 4 "vtx[103]" "vtx[219]" "vtx[671]" "vtx[696]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak147";
+	rename -uid "71DBE763-4315-2FB5-5484-27B961B205E7";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk";
+	setAttr ".tk[671]" -type "float3" 1.7166138e-05 2.417614 4.7683716e-07 ;
+	setAttr ".tk[696]" -type "float3" 1.9073486e-06 2.417614 0 ;
+createNode polyTweakUV -n "polyTweakUV53";
+	rename -uid "8BF2B6DE-4C18-49BA-9149-B092FBD950C2";
+	setAttr ".uopa" yes;
+	setAttr -s 5 ".uvtk";
+	setAttr ".uvtk[166]" -type "float2" 0.0052847955 0.050629307 ;
+	setAttr ".uvtk[374]" -type "float2" -0.005868406 0.00061702577 ;
+	setAttr ".uvtk[849]" -type "float2" -0.00054820708 0.11273977 ;
+	setAttr ".uvtk[882]" -type "float2" -0.010506167 0.17593083 ;
+createNode polyMergeVert -n "polyMergeVert74";
+	rename -uid "019B50E4-4088-A612-AAFB-569DEB400B85";
+	setAttr ".ics" -type "componentList" 4 "vtx[102]" "vtx[220]" "vtx[672]" "vtx[694]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak148";
+	rename -uid "DCFC4B87-4113-0D96-A1BE-818EDEAC3EBD";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk";
+	setAttr ".tk[672]" -type "float3" 1.2397766e-05 2.417614 -4.7683716e-07 ;
+	setAttr ".tk[694]" -type "float3" 9.5367432e-07 2.417614 9.5367432e-07 ;
+createNode polyTweakUV -n "polyTweakUV54";
+	rename -uid "EC3116F5-49FA-0E0D-DF6B-E3AFD3308E4A";
+	setAttr ".uopa" yes;
+	setAttr -s 6 ".uvtk";
+	setAttr ".uvtk[163]" -type "float2" 0.033981428 0.038858149 ;
+	setAttr ".uvtk[360]" -type "float2" -0.0047063138 -0.0035919428 ;
+	setAttr ".uvtk[835]" -type "float2" 2.9732385e-07 0.11157802 ;
+	setAttr ".uvtk[851]" -type "float2" -7.2289797e-05 0.11294274 ;
+	setAttr ".uvtk[881]" -type "float2" 0.017844621 0.19182035 ;
+createNode polyMergeVert -n "polyMergeVert75";
+	rename -uid "18607025-4138-3919-B96D-0B99A348E15E";
+	setAttr ".ics" -type "componentList" 4 "vtx[101]" "vtx[213]" "vtx[670]" "vtx[690]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak149";
+	rename -uid "B6BAB04C-45EA-4C5A-86E1-908FEA2A1465";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk";
+	setAttr ".tk[670]" -type "float3" 1.0490417e-05 2.417614 0 ;
+	setAttr ".tk[690]" -type "float3" 1.9073486e-06 2.417614 -9.5367432e-07 ;
+createNode polyTweakUV -n "polyTweakUV55";
+	rename -uid "E528EF6C-4C7A-52EE-81ED-2C8173DB868B";
+	setAttr ".uopa" yes;
+	setAttr -s 5 ".uvtk";
+	setAttr ".uvtk[237]" -type "float2" -0.0047854618 0.049330257 ;
+	setAttr ".uvtk[318]" -type "float2" -0.0052178809 -4.1190833e-05 ;
+	setAttr ".uvtk[867]" -type "float2" 2.1778558e-08 0.11157796 ;
+	setAttr ".uvtk[873]" -type "float2" 0.0024909086 0.1821733 ;
+createNode polyMergeVert -n "polyMergeVert76";
+	rename -uid "18F4CCF6-421B-2250-D81A-59B874EBD17D";
+	setAttr ".ics" -type "componentList" 4 "vtx[142]" "vtx[187]" "vtx[622]" "vtx[678]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak150";
+	rename -uid "45522339-44CF-48CB-7E82-98A5072DAB4C";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk";
+	setAttr ".tk[622]" -type "float3" -6.6757202e-06 2.417614 9.5367432e-07 ;
+	setAttr ".tk[678]" -type "float3" 4.7683716e-07 2.417614 -9.5367432e-07 ;
+createNode polyTweakUV -n "polyTweakUV56";
+	rename -uid "EAF83F4F-4A1B-5C54-E8FB-129CE1127A6A";
+	setAttr ".uopa" yes;
+	setAttr -s 6 ".uvtk";
+	setAttr ".uvtk[234]" -type "float2" 0.030817047 0.043860584 ;
+	setAttr ".uvtk[304]" -type "float2" -0.0045924936 -0.0037071204 ;
+	setAttr ".uvtk[853]" -type "float2" 4.326622e-07 0.11157792 ;
+	setAttr ".uvtk[869]" -type "float2" -5.0101471e-07 0.11279068 ;
+	setAttr ".uvtk[872]" -type "float2" 0.023365013 0.18488485 ;
+createNode polyMergeVert -n "polyMergeVert77";
+	rename -uid "85CB0BC3-4444-33C1-B5F4-60ACBBC2A149";
+	setAttr ".ics" -type "componentList" 4 "vtx[141]" "vtx[180]" "vtx[621]" "vtx[674]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak151";
+	rename -uid "537DF6D8-40E4-7B51-7731-27858F9B32BA";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk";
+	setAttr ".tk[621]" -type "float3" -4.7683716e-06 2.417614 -9.5367432e-07 ;
+	setAttr ".tk[674]" -type "float3" 1.9073486e-06 2.417614 0 ;
+createNode polyTweakUV -n "polyTweakUV57";
+	rename -uid "E1328F81-4B35-F6F0-4DBA-DF8E87529CD4";
+	setAttr ".uopa" yes;
+	setAttr -s 6 ".uvtk";
+	setAttr ".uvtk[233]" -type "float2" 0.022654036 0.070770115 ;
+	setAttr ".uvtk[305]" -type "float2" -0.00079021015 -0.0058655897 ;
+	setAttr ".uvtk[854]" -type "float2" -5.5646048e-08 0.11222342 ;
+	setAttr ".uvtk[871]" -type "float2" 0.065704927 0.17146149 ;
+	setAttr ".uvtk[877]" -type "float2" -0.027981525 0.15123282 ;
+createNode polyMergeVert -n "polyMergeVert78";
+	rename -uid "B4832498-4001-CB77-E12B-7FB68867671C";
+	setAttr ".ics" -type "componentList" 4 "vtx[140]" "vtx[181]" "vtx[620]" "vtx[672]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak152";
+	rename -uid "DCC2833F-47AA-D3A7-365E-D7B89BD654EF";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk";
+	setAttr ".tk[620]" -type "float3" -1.9073486e-06 2.417614 0 ;
+	setAttr ".tk[672]" -type "float3" 4.529953e-06 2.417614 -9.5367432e-07 ;
+createNode polyCloseBorder -n "polyCloseBorder7";
+	rename -uid "E08BBA8C-4BB8-AF2A-E59F-1A94520F4911";
+	setAttr ".ics" -type "componentList" 7 "e[1319]" "e[1333]" "e[1339:1340]" "e[1368]" "e[1371]" "e[1374]" "e[1379]";
+createNode polyTweak -n "polyTweak153";
+	rename -uid "EB8C4FA4-4690-2AD8-EB09-0CB08E8EFFF7";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk";
+	setAttr ".tk[732]" -type "float3" 0.0032076836 2.4805698 -0.0036993027 ;
+	setAttr ".tk[733]" -type "float3" 0.0032076836 2.4805698 -0.0036997795 ;
+	setAttr ".tk[744]" -type "float3" -0.0032076836 2.4805698 -0.0036997795 ;
+	setAttr ".tk[745]" -type "float3" -0.0032076836 2.4805698 -0.0036993027 ;
+createNode groupParts -n "groupParts63";
+	rename -uid "68946C36-4D42-DCAE-407C-6CB5BC6847E0";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 2 "f[0:736]" "f[737]";
+	setAttr ".gi" 169;
+createNode polyTweakUV -n "polyTweakUV58";
+	rename -uid "9A0A9A77-4A48-4B63-849F-7F9B473DBA95";
+	setAttr ".uopa" yes;
+	setAttr -s 6 ".uvtk";
+	setAttr ".uvtk[8]" -type "float2" -0.0016077892 -0.041245878 ;
+	setAttr ".uvtk[17]" -type "float2" 6.0489179e-05 -6.5219097e-06 ;
+	setAttr ".uvtk[1235]" -type "float2" 0.029474549 -0.012830589 ;
+	setAttr ".uvtk[1249]" -type "float2" -0.03698419 0.055029053 ;
+	setAttr ".uvtk[1251]" -type "float2" -0.0031302448 0.04332418 ;
+createNode polyMergeVert -n "polyMergeVert79";
+	rename -uid "E08A5969-4953-F2EC-C770-FF969E761610";
+	setAttr ".ics" -type "componentList" 4 "vtx[8]" "vtx[17]" "vtx[732]" "vtx[745]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak154";
+	rename -uid "DB1D487B-4A53-DD68-FF2E-3097D708B03E";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".tk";
+	setAttr ".tk[8]" -type "float3" -0.0032076836 -1.335144e-05 -0.0070199966 ;
+	setAttr ".tk[17]" -type "float3" 0.0032076836 -1.335144e-05 -0.0070199966 ;
+createNode polyAppendVertex -n "polyAppendVertex17";
+	rename -uid "9F1C7EF8-448D-284E-32DC-FE8F0DC5992A";
+	setAttr ".uopa" yes;
+	setAttr -s 3 ".d[0:2]"  17 741 16;
+	setAttr ".tx" 2;
+createNode groupParts -n "groupParts64";
+	rename -uid "D5FA42C6-4682-5D83-1D79-D799701F4D12";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:738]";
+	setAttr ".gi" 174;
+createNode polyAppendVertex -n "polyAppendVertex18";
+	rename -uid "E6E01CE9-4AEF-F9AB-794F-47AB58CCFB76";
+	setAttr ".uopa" yes;
+	setAttr -s 3 ".d[0:2]"  7 746 8;
+	setAttr ".tx" 2;
+createNode groupId -n "groupId217";
+	rename -uid "B3EE3BA1-4DF0-D2CB-69EF-A295A79191DD";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts65";
+	rename -uid "7B9BF4EF-4F76-E338-BDCC-11A5196D5C35";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:739]";
+createNode deleteComponent -n "deleteComponent47";
+	rename -uid "1E120DE1-4FCB-4B0C-2518-8B98B1AD85BC";
+	setAttr ".dc" -type "componentList" 1 "e[773]";
+createNode deleteComponent -n "deleteComponent48";
+	rename -uid "2607DA73-4927-F6C0-3A4E-4CACDDBB9986";
+	setAttr ".dc" -type "componentList" 1 "f[352]";
+createNode polyExtrudeEdge -n "polyExtrudeEdge37";
+	rename -uid "4CE81BC6-4125-99E2-E795-2E87B14ACB50";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 1 "e[1482]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".ws" yes;
+	setAttr ".pvt" -type "float3" 0.30935028 32.064381 6.5848856 ;
+	setAttr ".rs" 53717;
+	setAttr ".c[0]"  0 1 1;
+	setAttr ".cbn" -type "double3" 1.1920928955078125e-07 30.952310562133789 6.5848851203918457 ;
+	setAttr ".cbx" -type "double3" 0.61870044469833374 33.17645263671875 6.5848855972290039 ;
+createNode polyTweakUV -n "polyTweakUV59";
+	rename -uid "52A4CBF6-43B8-2536-1B84-54B5A337B07E";
+	setAttr ".uopa" yes;
+	setAttr -s 3 ".uvtk";
+	setAttr ".uvtk[1268]" -type "float2" 0.00046422455 -6.2261707e-09 ;
+	setAttr ".uvtk[1399]" -type "float2" -3.8571391e-09 1.9070245e-10 ;
+createNode polyMergeVert -n "polyMergeVert80";
+	rename -uid "639FAB87-4BA2-67C3-789E-AA9F2731BDA6";
+	setAttr ".ics" -type "componentList" 2 "vtx[764]" "vtx[772]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak155";
+	rename -uid "E6C99DFA-4D60-3771-FBC3-518F7E18B770";
+	setAttr ".uopa" yes;
+	setAttr -s 8 ".tk";
+	setAttr ".tk[771]" -type "float3" -0.24699996 0 0 ;
+createNode polyTweakUV -n "polyTweakUV60";
+	rename -uid "9D947363-4343-A719-717B-F4A95F684192";
+	setAttr ".uopa" yes;
+	setAttr -s 3 ".uvtk";
+	setAttr ".uvtk[1273]" -type "float2" -0.0033485678 9.6647508e-09 ;
+	setAttr ".uvtk[1399]" -type "float2" -1.7887833e-05 3.8413528e-10 ;
+createNode polyMergeVert -n "polyMergeVert81";
+	rename -uid "58E48482-42FE-3317-0EAF-C083D176AF52";
+	setAttr ".ics" -type "componentList" 2 "vtx[767]" "vtx[771]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak156";
+	rename -uid "5B8CC16C-4B99-3E42-220F-5CAB0CAFA615";
+	setAttr ".uopa" yes;
+	setAttr -s 2 ".tk";
+	setAttr ".tk[771]" -type "float3" -0.99040079 0 -4.7683716e-07 ;
+createNode groupId -n "groupId223";
+	rename -uid "2774AFC1-46B6-68C5-8654-B39B0AD02D83";
+	setAttr ".ihi" 0;
+createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
+	rename -uid "0BC75948-43C3-1A79-6D4D-65A5CE87EA1B";
+	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
+	setAttr ".tgi[0].vl" -type "double2" -109.9235430326425 -88.429441658694259 ;
+	setAttr ".tgi[0].vh" -type "double2" 1893.8334765151503 123.23503223719928 ;
+createNode polyColorPerVertex -n "polyColorPerVertex1";
+	rename -uid "90B29A61-4BFA-53A9-3138-8A8CBC3FCE36";
+	setAttr ".uopa" yes;
+	setAttr -s 771 ".vclr";
+	setAttr ".vclr[0].vxal" 1;
+	setAttr ".vclr[0].vfcl[0].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[0].vfcl[0].vfal" 1;
+	setAttr ".vclr[1].vxal" 1;
+	setAttr -s 2 ".vclr[1].vfcl";
+	setAttr ".vclr[1].vfcl[0].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[1].vfcl[0].vfal" 1;
+	setAttr ".vclr[1].vfcl[1].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[1].vfcl[1].vfal" 1;
+	setAttr ".vclr[2].vxal" 1;
+	setAttr -s 2 ".vclr[2].vfcl";
+	setAttr ".vclr[2].vfcl[0].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[2].vfcl[0].vfal" 1;
+	setAttr ".vclr[2].vfcl[1].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[2].vfcl[1].vfal" 1;
+	setAttr ".vclr[3].vxal" 1;
+	setAttr ".vclr[3].vfcl[0].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[3].vfcl[0].vfal" 1;
+	setAttr ".vclr[4].vxal" 1;
+	setAttr -s 3 ".vclr[4].vfcl";
+	setAttr ".vclr[4].vfcl[1].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[4].vfcl[1].vfal" 1;
+	setAttr ".vclr[4].vfcl[453].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[4].vfcl[453].vfal" 1;
+	setAttr ".vclr[4].vfcl[660].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[4].vfcl[660].vfal" 1;
+	setAttr ".vclr[5].vxal" 1;
+	setAttr ".vclr[5].vfcl[1].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[5].vfcl[1].vfal" 1;
+	setAttr ".vclr[6].vxal" 1;
+	setAttr -s 3 ".vclr[6].vfcl";
+	setAttr ".vclr[6].vfcl[2].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[6].vfcl[2].vfal" 1;
+	setAttr ".vclr[6].vfcl[456].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[6].vfcl[456].vfal" 1;
+	setAttr ".vclr[6].vfcl[658].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[6].vfcl[658].vfal" 1;
+	setAttr ".vclr[7].vxal" 1;
+	setAttr -s 3 ".vclr[7].vfcl";
+	setAttr ".vclr[7].vfcl[2].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[7].vfcl[2].vfal" 1;
+	setAttr ".vclr[7].vfcl[734].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[7].vfcl[734].vfal" 1;
+	setAttr ".vclr[7].vfcl[738].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[7].vfcl[738].vfal" 1;
+	setAttr ".vclr[8].vxal" 1;
+	setAttr -s 4 ".vclr[8].vfcl";
+	setAttr ".vclr[8].vfcl[2].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[8].vfcl[2].vfal" 1;
+	setAttr ".vclr[8].vfcl[703].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[8].vfcl[703].vfal" 1;
+	setAttr ".vclr[8].vfcl[704].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[8].vfcl[704].vfal" 1;
+	setAttr ".vclr[8].vfcl[738].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[8].vfcl[738].vfal" 1;
+	setAttr ".vclr[9].vxal" 1;
+	setAttr ".vclr[9].vfcl[2].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[9].vfcl[2].vfal" 1;
+	setAttr ".vclr[10].vxal" 1;
+	setAttr -s 3 ".vclr[10].vfcl";
+	setAttr ".vclr[10].vfcl[3].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[10].vfcl[3].vfal" 1;
+	setAttr ".vclr[10].vfcl[661].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[10].vfcl[661].vfal" 1;
+	setAttr ".vclr[10].vfcl[662].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[10].vfcl[662].vfal" 1;
+	setAttr ".vclr[11].vxal" 1;
+	setAttr -s 2 ".vclr[11].vfcl";
+	setAttr ".vclr[11].vfcl[3].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[11].vfcl[3].vfal" 1;
+	setAttr ".vclr[11].vfcl[4].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[11].vfcl[4].vfal" 1;
+	setAttr ".vclr[12].vxal" 1;
+	setAttr -s 2 ".vclr[12].vfcl";
+	setAttr ".vclr[12].vfcl[3].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[12].vfcl[3].vfal" 1;
+	setAttr ".vclr[12].vfcl[4].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[12].vfcl[4].vfal" 1;
+	setAttr ".vclr[13].vxal" 1;
+	setAttr -s 4 ".vclr[13].vfcl";
+	setAttr ".vclr[13].vfcl[3].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[13].vfcl[3].vfal" 1;
+	setAttr ".vclr[13].vfcl[457].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[13].vfcl[457].vfal" 1;
+	setAttr ".vclr[13].vfcl[661].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[13].vfcl[661].vfal" 1;
+	setAttr ".vclr[13].vfcl[717].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[13].vfcl[717].vfal" 1;
+	setAttr ".vclr[14].vxal" 1;
+	setAttr ".vclr[14].vfcl[4].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[14].vfcl[4].vfal" 1;
+	setAttr ".vclr[15].vxal" 1;
+	setAttr ".vclr[15].vfcl[4].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[15].vfcl[4].vfal" 1;
+	setAttr ".vclr[16].vxal" 1;
+	setAttr -s 3 ".vclr[16].vfcl";
+	setAttr ".vclr[16].vfcl[5].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[16].vfcl[5].vfal" 1;
+	setAttr ".vclr[16].vfcl[733].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[16].vfcl[733].vfal" 1;
+	setAttr ".vclr[16].vfcl[737].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[16].vfcl[737].vfal" 1;
+	setAttr ".vclr[17].vxal" 1;
+	setAttr -s 4 ".vclr[17].vfcl";
+	setAttr ".vclr[17].vfcl[5].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[17].vfcl[5].vfal" 1;
+	setAttr ".vclr[17].vfcl[697].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[17].vfcl[697].vfal" 1;
+	setAttr ".vclr[17].vfcl[702].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[17].vfcl[702].vfal" 1;
+	setAttr ".vclr[17].vfcl[737].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[17].vfcl[737].vfal" 1;
+	setAttr ".vclr[18].vxal" 1;
+	setAttr -s 4 ".vclr[18].vfcl";
+	setAttr ".vclr[18].vfcl[5].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[18].vfcl[5].vfal" 1;
+	setAttr ".vclr[18].vfcl[659].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[18].vfcl[659].vfal" 1;
+	setAttr ".vclr[18].vfcl[663].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[18].vfcl[663].vfal" 1;
+	setAttr ".vclr[18].vfcl[733].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[18].vfcl[733].vfal" 1;
+	setAttr ".vclr[19].vxal" 1;
+	setAttr -s 4 ".vclr[19].vfcl";
+	setAttr ".vclr[19].vfcl[5].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[19].vfcl[5].vfal" 1;
+	setAttr ".vclr[19].vfcl[458].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[19].vfcl[458].vfal" 1;
+	setAttr ".vclr[19].vfcl[659].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[19].vfcl[659].vfal" 1;
+	setAttr ".vclr[19].vfcl[718].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[19].vfcl[718].vfal" 1;
+	setAttr ".vclr[20].vxal" 1;
+	setAttr -s 4 ".vclr[20].vfcl";
+	setAttr ".vclr[20].vfcl[6].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[20].vfcl[6].vfal" 1;
+	setAttr ".vclr[20].vfcl[13].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[20].vfcl[13].vfal" 1;
+	setAttr ".vclr[20].vfcl[523].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[20].vfcl[523].vfal" 1;
+	setAttr ".vclr[20].vfcl[528].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[20].vfcl[528].vfal" 1;
+	setAttr ".vclr[21].vxal" 1;
+	setAttr -s 4 ".vclr[21].vfcl";
+	setAttr ".vclr[21].vfcl[6].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[21].vfcl[6].vfal" 1;
+	setAttr ".vclr[21].vfcl[7].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[21].vfcl[7].vfal" 1;
+	setAttr ".vclr[21].vfcl[523].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[21].vfcl[523].vfal" 1;
+	setAttr ".vclr[21].vfcl[524].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[21].vfcl[524].vfal" 1;
+	setAttr ".vclr[22].vxal" 1;
+	setAttr -s 4 ".vclr[22].vfcl";
+	setAttr ".vclr[22].vfcl[7].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[22].vfcl[7].vfal" 1;
+	setAttr ".vclr[22].vfcl[8].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[22].vfcl[8].vfal" 1;
+	setAttr ".vclr[22].vfcl[524].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[22].vfcl[524].vfal" 1;
+	setAttr ".vclr[22].vfcl[525].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[22].vfcl[525].vfal" 1;
+	setAttr ".vclr[23].vxal" 1;
+	setAttr -s 5 ".vclr[23].vfcl";
+	setAttr ".vclr[23].vfcl[8].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[23].vfcl[8].vfal" 1;
+	setAttr ".vclr[23].vfcl[9].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[23].vfcl[9].vfal" 1;
+	setAttr ".vclr[23].vfcl[525].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[23].vfcl[525].vfal" 1;
+	setAttr ".vclr[23].vfcl[537].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[23].vfcl[537].vfal" 1;
+	setAttr ".vclr[23].vfcl[538].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[23].vfcl[538].vfal" 1;
+	setAttr ".vclr[24].vxal" 1;
+	setAttr -s 4 ".vclr[24].vfcl";
+	setAttr ".vclr[24].vfcl[9].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[24].vfcl[9].vfal" 1;
+	setAttr ".vclr[24].vfcl[10].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[24].vfcl[10].vfal" 1;
+	setAttr ".vclr[24].vfcl[538].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[24].vfcl[538].vfal" 1;
+	setAttr ".vclr[24].vfcl[539].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[24].vfcl[539].vfal" 1;
+	setAttr ".vclr[25].vxal" 1;
+	setAttr -s 5 ".vclr[25].vfcl";
+	setAttr ".vclr[25].vfcl[10].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[25].vfcl[10].vfal" 1;
+	setAttr ".vclr[25].vfcl[11].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[25].vfcl[11].vfal" 1;
+	setAttr ".vclr[25].vfcl[526].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[25].vfcl[526].vfal" 1;
+	setAttr ".vclr[25].vfcl[539].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[25].vfcl[539].vfal" 1;
+	setAttr ".vclr[25].vfcl[540].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[25].vfcl[540].vfal" 1;
+	setAttr ".vclr[26].vxal" 1;
+	setAttr -s 4 ".vclr[26].vfcl";
+	setAttr ".vclr[26].vfcl[11].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[26].vfcl[11].vfal" 1;
+	setAttr ".vclr[26].vfcl[12].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[26].vfcl[12].vfal" 1;
+	setAttr ".vclr[26].vfcl[526].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[26].vfcl[526].vfal" 1;
+	setAttr ".vclr[26].vfcl[527].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[26].vfcl[527].vfal" 1;
+	setAttr ".vclr[27].vxal" 1;
+	setAttr -s 4 ".vclr[27].vfcl";
+	setAttr ".vclr[27].vfcl[12].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[27].vfcl[12].vfal" 1;
+	setAttr ".vclr[27].vfcl[13].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[27].vfcl[13].vfal" 1;
+	setAttr ".vclr[27].vfcl[527].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[27].vfcl[527].vfal" 1;
+	setAttr ".vclr[27].vfcl[528].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[27].vfcl[528].vfal" 1;
+	setAttr ".vclr[28].vxal" 1;
+	setAttr -s 6 ".vclr[28].vfcl";
+	setAttr ".vclr[28].vfcl[6].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[28].vfcl[6].vfal" 1;
+	setAttr ".vclr[28].vfcl[13].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[28].vfcl[13].vfal" 1;
+	setAttr ".vclr[28].vfcl[14].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[28].vfcl[14].vfal" 1;
+	setAttr ".vclr[28].vfcl[21].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[28].vfcl[21].vfal" 1;
+	setAttr ".vclr[28].vfcl[22].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[28].vfcl[22].vfal" 1;
+	setAttr ".vclr[28].vfcl[29].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[28].vfcl[29].vfal" 1;
+	setAttr ".vclr[29].vxal" 1;
+	setAttr -s 6 ".vclr[29].vfcl";
+	setAttr ".vclr[29].vfcl[6].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[29].vfcl[6].vfal" 1;
+	setAttr ".vclr[29].vfcl[7].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[29].vfcl[7].vfal" 1;
+	setAttr ".vclr[29].vfcl[14].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[29].vfcl[14].vfal" 1;
+	setAttr ".vclr[29].vfcl[15].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[29].vfcl[15].vfal" 1;
+	setAttr ".vclr[29].vfcl[22].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[29].vfcl[22].vfal" 1;
+	setAttr ".vclr[29].vfcl[23].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[29].vfcl[23].vfal" 1;
+	setAttr ".vclr[30].vxal" 1;
+	setAttr -s 6 ".vclr[30].vfcl";
+	setAttr ".vclr[30].vfcl[7].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[30].vfcl[7].vfal" 1;
+	setAttr ".vclr[30].vfcl[8].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[30].vfcl[8].vfal" 1;
+	setAttr ".vclr[30].vfcl[15].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[30].vfcl[15].vfal" 1;
+	setAttr ".vclr[30].vfcl[16].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[30].vfcl[16].vfal" 1;
+	setAttr ".vclr[30].vfcl[23].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[30].vfcl[23].vfal" 1;
+	setAttr ".vclr[30].vfcl[24].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[30].vfcl[24].vfal" 1;
+	setAttr ".vclr[31].vxal" 1;
+	setAttr -s 6 ".vclr[31].vfcl";
+	setAttr ".vclr[31].vfcl[8].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[31].vfcl[8].vfal" 1;
+	setAttr ".vclr[31].vfcl[9].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[31].vfcl[9].vfal" 1;
+	setAttr ".vclr[31].vfcl[16].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[31].vfcl[16].vfal" 1;
+	setAttr ".vclr[31].vfcl[17].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[31].vfcl[17].vfal" 1;
+	setAttr ".vclr[31].vfcl[24].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[31].vfcl[24].vfal" 1;
+	setAttr ".vclr[31].vfcl[25].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[31].vfcl[25].vfal" 1;
+	setAttr ".vclr[32].vxal" 1;
+	setAttr -s 6 ".vclr[32].vfcl";
+	setAttr ".vclr[32].vfcl[9].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[32].vfcl[9].vfal" 1;
+	setAttr ".vclr[32].vfcl[10].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[32].vfcl[10].vfal" 1;
+	setAttr ".vclr[32].vfcl[17].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[32].vfcl[17].vfal" 1;
+	setAttr ".vclr[32].vfcl[18].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[32].vfcl[18].vfal" 1;
+	setAttr ".vclr[32].vfcl[25].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[32].vfcl[25].vfal" 1;
+	setAttr ".vclr[32].vfcl[26].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[32].vfcl[26].vfal" 1;
+	setAttr ".vclr[33].vxal" 1;
+	setAttr -s 6 ".vclr[33].vfcl";
+	setAttr ".vclr[33].vfcl[10].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[33].vfcl[10].vfal" 1;
+	setAttr ".vclr[33].vfcl[11].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[33].vfcl[11].vfal" 1;
+	setAttr ".vclr[33].vfcl[18].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[33].vfcl[18].vfal" 1;
+	setAttr ".vclr[33].vfcl[19].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[33].vfcl[19].vfal" 1;
+	setAttr ".vclr[33].vfcl[26].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[33].vfcl[26].vfal" 1;
+	setAttr ".vclr[33].vfcl[27].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[33].vfcl[27].vfal" 1;
+	setAttr ".vclr[34].vxal" 1;
+	setAttr -s 6 ".vclr[34].vfcl";
+	setAttr ".vclr[34].vfcl[11].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[34].vfcl[11].vfal" 1;
+	setAttr ".vclr[34].vfcl[12].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[34].vfcl[12].vfal" 1;
+	setAttr ".vclr[34].vfcl[19].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[34].vfcl[19].vfal" 1;
+	setAttr ".vclr[34].vfcl[20].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[34].vfcl[20].vfal" 1;
+	setAttr ".vclr[34].vfcl[27].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[34].vfcl[27].vfal" 1;
+	setAttr ".vclr[34].vfcl[28].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[34].vfcl[28].vfal" 1;
+	setAttr ".vclr[35].vxal" 1;
+	setAttr -s 6 ".vclr[35].vfcl";
+	setAttr ".vclr[35].vfcl[12].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[35].vfcl[12].vfal" 1;
+	setAttr ".vclr[35].vfcl[13].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[35].vfcl[13].vfal" 1;
+	setAttr ".vclr[35].vfcl[20].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[35].vfcl[20].vfal" 1;
+	setAttr ".vclr[35].vfcl[21].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[35].vfcl[21].vfal" 1;
+	setAttr ".vclr[35].vfcl[28].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[35].vfcl[28].vfal" 1;
+	setAttr ".vclr[35].vfcl[29].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[35].vfcl[29].vfal" 1;
+	setAttr ".vclr[36].vxal" 1;
+	setAttr -s 2 ".vclr[36].vfcl";
+	setAttr ".vclr[36].vfcl[14].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[36].vfcl[14].vfal" 1;
+	setAttr ".vclr[36].vfcl[21].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[36].vfcl[21].vfal" 1;
+	setAttr ".vclr[37].vxal" 1;
+	setAttr -s 2 ".vclr[37].vfcl";
+	setAttr ".vclr[37].vfcl[14].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[37].vfcl[14].vfal" 1;
+	setAttr ".vclr[37].vfcl[15].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[37].vfcl[15].vfal" 1;
+	setAttr ".vclr[38].vxal" 1;
+	setAttr -s 2 ".vclr[38].vfcl";
+	setAttr ".vclr[38].vfcl[15].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[38].vfcl[15].vfal" 1;
+	setAttr ".vclr[38].vfcl[16].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[38].vfcl[16].vfal" 1;
+	setAttr ".vclr[39].vxal" 1;
+	setAttr -s 2 ".vclr[39].vfcl";
+	setAttr ".vclr[39].vfcl[16].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[39].vfcl[16].vfal" 1;
+	setAttr ".vclr[39].vfcl[17].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[39].vfcl[17].vfal" 1;
+	setAttr ".vclr[40].vxal" 1;
+	setAttr -s 2 ".vclr[40].vfcl";
+	setAttr ".vclr[40].vfcl[17].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[40].vfcl[17].vfal" 1;
+	setAttr ".vclr[40].vfcl[18].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[40].vfcl[18].vfal" 1;
+	setAttr ".vclr[41].vxal" 1;
+	setAttr -s 2 ".vclr[41].vfcl";
+	setAttr ".vclr[41].vfcl[18].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[41].vfcl[18].vfal" 1;
+	setAttr ".vclr[41].vfcl[19].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[41].vfcl[19].vfal" 1;
+	setAttr ".vclr[42].vxal" 1;
+	setAttr -s 2 ".vclr[42].vfcl";
+	setAttr ".vclr[42].vfcl[19].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[42].vfcl[19].vfal" 1;
+	setAttr ".vclr[42].vfcl[20].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[42].vfcl[20].vfal" 1;
+	setAttr ".vclr[43].vxal" 1;
+	setAttr -s 2 ".vclr[43].vfcl";
+	setAttr ".vclr[43].vfcl[20].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[43].vfcl[20].vfal" 1;
+	setAttr ".vclr[43].vfcl[21].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[43].vfcl[21].vfal" 1;
+	setAttr ".vclr[44].vxal" 1;
+	setAttr -s 3 ".vclr[44].vfcl";
+	setAttr ".vclr[44].vfcl[30].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[44].vfcl[30].vfal" 1;
+	setAttr ".vclr[44].vfcl[31].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[44].vfcl[31].vfal" 1;
+	setAttr ".vclr[44].vfcl[38].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[44].vfcl[38].vfal" 1;
+	setAttr ".vclr[45].vxal" 1;
+	setAttr -s 3 ".vclr[45].vfcl";
+	setAttr ".vclr[45].vfcl[30].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[45].vfcl[30].vfal" 1;
+	setAttr ".vclr[45].vfcl[31].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[45].vfcl[31].vfal" 1;
+	setAttr ".vclr[45].vfcl[32].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[45].vfcl[32].vfal" 1;
+	setAttr ".vclr[46].vxal" 1;
+	setAttr -s 3 ".vclr[46].vfcl";
+	setAttr ".vclr[46].vfcl[30].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[46].vfcl[30].vfal" 1;
+	setAttr ".vclr[46].vfcl[32].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[46].vfcl[32].vfal" 1;
+	setAttr ".vclr[46].vfcl[33].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[46].vfcl[33].vfal" 1;
+	setAttr ".vclr[47].vxal" 1;
+	setAttr -s 3 ".vclr[47].vfcl";
+	setAttr ".vclr[47].vfcl[30].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[47].vfcl[30].vfal" 1;
+	setAttr ".vclr[47].vfcl[33].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[47].vfcl[33].vfal" 1;
+	setAttr ".vclr[47].vfcl[34].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[47].vfcl[34].vfal" 1;
+	setAttr ".vclr[48].vxal" 1;
+	setAttr -s 3 ".vclr[48].vfcl";
+	setAttr ".vclr[48].vfcl[30].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[48].vfcl[30].vfal" 1;
+	setAttr ".vclr[48].vfcl[34].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[48].vfcl[34].vfal" 1;
+	setAttr ".vclr[48].vfcl[35].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[48].vfcl[35].vfal" 1;
+	setAttr ".vclr[49].vxal" 1;
+	setAttr -s 3 ".vclr[49].vfcl";
+	setAttr ".vclr[49].vfcl[30].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[49].vfcl[30].vfal" 1;
+	setAttr ".vclr[49].vfcl[35].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[49].vfcl[35].vfal" 1;
+	setAttr ".vclr[49].vfcl[36].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[49].vfcl[36].vfal" 1;
+	setAttr ".vclr[50].vxal" 1;
+	setAttr -s 3 ".vclr[50].vfcl";
+	setAttr ".vclr[50].vfcl[30].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[50].vfcl[30].vfal" 1;
+	setAttr ".vclr[50].vfcl[36].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[50].vfcl[36].vfal" 1;
+	setAttr ".vclr[50].vfcl[37].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[50].vfcl[37].vfal" 1;
+	setAttr ".vclr[51].vxal" 1;
+	setAttr -s 3 ".vclr[51].vfcl";
+	setAttr ".vclr[51].vfcl[30].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[51].vfcl[30].vfal" 1;
+	setAttr ".vclr[51].vfcl[37].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[51].vfcl[37].vfal" 1;
+	setAttr ".vclr[51].vfcl[38].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[51].vfcl[38].vfal" 1;
+	setAttr ".vclr[52].vxal" 1;
+	setAttr -s 4 ".vclr[52].vfcl";
+	setAttr ".vclr[52].vfcl[26].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[52].vfcl[26].vfal" 1;
+	setAttr ".vclr[52].vfcl[27].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[52].vfcl[27].vfal" 1;
+	setAttr ".vclr[52].vfcl[31].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[52].vfcl[31].vfal" 1;
+	setAttr ".vclr[52].vfcl[38].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[52].vfcl[38].vfal" 1;
+	setAttr ".vclr[53].vxal" 1;
+	setAttr -s 4 ".vclr[53].vfcl";
+	setAttr ".vclr[53].vfcl[25].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[53].vfcl[25].vfal" 1;
+	setAttr ".vclr[53].vfcl[26].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[53].vfcl[26].vfal" 1;
+	setAttr ".vclr[53].vfcl[31].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[53].vfcl[31].vfal" 1;
+	setAttr ".vclr[53].vfcl[32].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[53].vfcl[32].vfal" 1;
+	setAttr ".vclr[54].vxal" 1;
+	setAttr -s 4 ".vclr[54].vfcl";
+	setAttr ".vclr[54].vfcl[24].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[54].vfcl[24].vfal" 1;
+	setAttr ".vclr[54].vfcl[25].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[54].vfcl[25].vfal" 1;
+	setAttr ".vclr[54].vfcl[32].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[54].vfcl[32].vfal" 1;
+	setAttr ".vclr[54].vfcl[33].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[54].vfcl[33].vfal" 1;
+	setAttr ".vclr[55].vxal" 1;
+	setAttr -s 4 ".vclr[55].vfcl";
+	setAttr ".vclr[55].vfcl[23].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[55].vfcl[23].vfal" 1;
+	setAttr ".vclr[55].vfcl[24].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[55].vfcl[24].vfal" 1;
+	setAttr ".vclr[55].vfcl[33].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[55].vfcl[33].vfal" 1;
+	setAttr ".vclr[55].vfcl[34].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[55].vfcl[34].vfal" 1;
+	setAttr ".vclr[56].vxal" 1;
+	setAttr -s 4 ".vclr[56].vfcl";
+	setAttr ".vclr[56].vfcl[22].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[56].vfcl[22].vfal" 1;
+	setAttr ".vclr[56].vfcl[23].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[56].vfcl[23].vfal" 1;
+	setAttr ".vclr[56].vfcl[34].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[56].vfcl[34].vfal" 1;
+	setAttr ".vclr[56].vfcl[35].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[56].vfcl[35].vfal" 1;
+	setAttr ".vclr[57].vxal" 1;
+	setAttr -s 4 ".vclr[57].vfcl";
+	setAttr ".vclr[57].vfcl[22].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[57].vfcl[22].vfal" 1;
+	setAttr ".vclr[57].vfcl[29].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[57].vfcl[29].vfal" 1;
+	setAttr ".vclr[57].vfcl[35].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[57].vfcl[35].vfal" 1;
+	setAttr ".vclr[57].vfcl[36].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[57].vfcl[36].vfal" 1;
+	setAttr ".vclr[58].vxal" 1;
+	setAttr -s 4 ".vclr[58].vfcl";
+	setAttr ".vclr[58].vfcl[28].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[58].vfcl[28].vfal" 1;
+	setAttr ".vclr[58].vfcl[29].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[58].vfcl[29].vfal" 1;
+	setAttr ".vclr[58].vfcl[36].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[58].vfcl[36].vfal" 1;
+	setAttr ".vclr[58].vfcl[37].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[58].vfcl[37].vfal" 1;
+	setAttr ".vclr[59].vxal" 1;
+	setAttr -s 4 ".vclr[59].vfcl";
+	setAttr ".vclr[59].vfcl[27].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[59].vfcl[27].vfal" 1;
+	setAttr ".vclr[59].vfcl[28].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[59].vfcl[28].vfal" 1;
+	setAttr ".vclr[59].vfcl[37].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[59].vfcl[37].vfal" 1;
+	setAttr ".vclr[59].vfcl[38].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[59].vfcl[38].vfal" 1;
+	setAttr ".vclr[60].vxal" 1;
+	setAttr -s 4 ".vclr[60].vfcl";
+	setAttr ".vclr[60].vfcl[39].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[60].vfcl[39].vfal" 1;
+	setAttr ".vclr[60].vfcl[46].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[60].vfcl[46].vfal" 1;
+	setAttr ".vclr[60].vfcl[517].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[60].vfcl[517].vfal" 1;
+	setAttr ".vclr[60].vfcl[522].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[60].vfcl[522].vfal" 1;
+	setAttr ".vclr[61].vxal" 1;
+	setAttr -s 4 ".vclr[61].vfcl";
+	setAttr ".vclr[61].vfcl[39].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[61].vfcl[39].vfal" 1;
+	setAttr ".vclr[61].vfcl[40].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[61].vfcl[40].vfal" 1;
+	setAttr ".vclr[61].vfcl[517].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[61].vfcl[517].vfal" 1;
+	setAttr ".vclr[61].vfcl[518].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[61].vfcl[518].vfal" 1;
+	setAttr ".vclr[62].vxal" 1;
+	setAttr -s 5 ".vclr[62].vfcl";
+	setAttr ".vclr[62].vfcl[40].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[62].vfcl[40].vfal" 1;
+	setAttr ".vclr[62].vfcl[41].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[62].vfcl[41].vfal" 1;
+	setAttr ".vclr[62].vfcl[518].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[62].vfcl[518].vfal" 1;
+	setAttr ".vclr[62].vfcl[593].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[62].vfcl[593].vfal" 1;
+	setAttr ".vclr[62].vfcl[594].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[62].vfcl[594].vfal" 1;
+	setAttr ".vclr[63].vxal" 1;
+	setAttr -s 4 ".vclr[63].vfcl";
+	setAttr ".vclr[63].vfcl[41].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[63].vfcl[41].vfal" 1;
+	setAttr ".vclr[63].vfcl[42].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[63].vfcl[42].vfal" 1;
+	setAttr ".vclr[63].vfcl[594].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[63].vfcl[594].vfal" 1;
+	setAttr ".vclr[63].vfcl[595].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[63].vfcl[595].vfal" 1;
+	setAttr ".vclr[64].vxal" 1;
+	setAttr -s 5 ".vclr[64].vfcl";
+	setAttr ".vclr[64].vfcl[42].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[64].vfcl[42].vfal" 1;
+	setAttr ".vclr[64].vfcl[43].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[64].vfcl[43].vfal" 1;
+	setAttr ".vclr[64].vfcl[519].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[64].vfcl[519].vfal" 1;
+	setAttr ".vclr[64].vfcl[595].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[64].vfcl[595].vfal" 1;
+	setAttr ".vclr[64].vfcl[596].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[64].vfcl[596].vfal" 1;
+	setAttr ".vclr[65].vxal" 1;
+	setAttr -s 4 ".vclr[65].vfcl";
+	setAttr ".vclr[65].vfcl[43].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[65].vfcl[43].vfal" 1;
+	setAttr ".vclr[65].vfcl[44].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[65].vfcl[44].vfal" 1;
+	setAttr ".vclr[65].vfcl[519].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[65].vfcl[519].vfal" 1;
+	setAttr ".vclr[65].vfcl[520].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[65].vfcl[520].vfal" 1;
+	setAttr ".vclr[66].vxal" 1;
+	setAttr -s 4 ".vclr[66].vfcl";
+	setAttr ".vclr[66].vfcl[44].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[66].vfcl[44].vfal" 1;
+	setAttr ".vclr[66].vfcl[45].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[66].vfcl[45].vfal" 1;
+	setAttr ".vclr[66].vfcl[520].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[66].vfcl[520].vfal" 1;
+	setAttr ".vclr[66].vfcl[521].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[66].vfcl[521].vfal" 1;
+	setAttr ".vclr[67].vxal" 1;
+	setAttr -s 4 ".vclr[67].vfcl";
+	setAttr ".vclr[67].vfcl[45].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[67].vfcl[45].vfal" 1;
+	setAttr ".vclr[67].vfcl[46].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[67].vfcl[46].vfal" 1;
+	setAttr ".vclr[67].vfcl[521].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[67].vfcl[521].vfal" 1;
+	setAttr ".vclr[67].vfcl[522].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[67].vfcl[522].vfal" 1;
+	setAttr ".vclr[68].vxal" 1;
+	setAttr -s 6 ".vclr[68].vfcl";
+	setAttr ".vclr[68].vfcl[39].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[68].vfcl[39].vfal" 1;
+	setAttr ".vclr[68].vfcl[46].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[68].vfcl[46].vfal" 1;
+	setAttr ".vclr[68].vfcl[47].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[68].vfcl[47].vfal" 1;
+	setAttr ".vclr[68].vfcl[54].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[68].vfcl[54].vfal" 1;
+	setAttr ".vclr[68].vfcl[55].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[68].vfcl[55].vfal" 1;
+	setAttr ".vclr[68].vfcl[62].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[68].vfcl[62].vfal" 1;
+	setAttr ".vclr[69].vxal" 1;
+	setAttr -s 6 ".vclr[69].vfcl";
+	setAttr ".vclr[69].vfcl[39].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[69].vfcl[39].vfal" 1;
+	setAttr ".vclr[69].vfcl[40].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[69].vfcl[40].vfal" 1;
+	setAttr ".vclr[69].vfcl[47].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[69].vfcl[47].vfal" 1;
+	setAttr ".vclr[69].vfcl[48].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[69].vfcl[48].vfal" 1;
+	setAttr ".vclr[69].vfcl[55].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[69].vfcl[55].vfal" 1;
+	setAttr ".vclr[69].vfcl[56].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[69].vfcl[56].vfal" 1;
+	setAttr ".vclr[70].vxal" 1;
+	setAttr -s 6 ".vclr[70].vfcl";
+	setAttr ".vclr[70].vfcl[40].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[70].vfcl[40].vfal" 1;
+	setAttr ".vclr[70].vfcl[41].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[70].vfcl[41].vfal" 1;
+	setAttr ".vclr[70].vfcl[48].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[70].vfcl[48].vfal" 1;
+	setAttr ".vclr[70].vfcl[49].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[70].vfcl[49].vfal" 1;
+	setAttr ".vclr[70].vfcl[56].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[70].vfcl[56].vfal" 1;
+	setAttr ".vclr[70].vfcl[57].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[70].vfcl[57].vfal" 1;
+	setAttr ".vclr[71].vxal" 1;
+	setAttr -s 6 ".vclr[71].vfcl";
+	setAttr ".vclr[71].vfcl[41].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[71].vfcl[41].vfal" 1;
+	setAttr ".vclr[71].vfcl[42].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[71].vfcl[42].vfal" 1;
+	setAttr ".vclr[71].vfcl[49].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[71].vfcl[49].vfal" 1;
+	setAttr ".vclr[71].vfcl[50].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[71].vfcl[50].vfal" 1;
+	setAttr ".vclr[71].vfcl[57].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[71].vfcl[57].vfal" 1;
+	setAttr ".vclr[71].vfcl[58].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[71].vfcl[58].vfal" 1;
+	setAttr ".vclr[72].vxal" 1;
+	setAttr -s 6 ".vclr[72].vfcl";
+	setAttr ".vclr[72].vfcl[42].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[72].vfcl[42].vfal" 1;
+	setAttr ".vclr[72].vfcl[43].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[72].vfcl[43].vfal" 1;
+	setAttr ".vclr[72].vfcl[50].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[72].vfcl[50].vfal" 1;
+	setAttr ".vclr[72].vfcl[51].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[72].vfcl[51].vfal" 1;
+	setAttr ".vclr[72].vfcl[58].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[72].vfcl[58].vfal" 1;
+	setAttr ".vclr[72].vfcl[59].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[72].vfcl[59].vfal" 1;
+	setAttr ".vclr[73].vxal" 1;
+	setAttr -s 6 ".vclr[73].vfcl";
+	setAttr ".vclr[73].vfcl[43].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[73].vfcl[43].vfal" 1;
+	setAttr ".vclr[73].vfcl[44].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[73].vfcl[44].vfal" 1;
+	setAttr ".vclr[73].vfcl[51].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[73].vfcl[51].vfal" 1;
+	setAttr ".vclr[73].vfcl[52].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[73].vfcl[52].vfal" 1;
+	setAttr ".vclr[73].vfcl[59].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[73].vfcl[59].vfal" 1;
+	setAttr ".vclr[73].vfcl[60].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[73].vfcl[60].vfal" 1;
+	setAttr ".vclr[74].vxal" 1;
+	setAttr -s 6 ".vclr[74].vfcl";
+	setAttr ".vclr[74].vfcl[44].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[74].vfcl[44].vfal" 1;
+	setAttr ".vclr[74].vfcl[45].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[74].vfcl[45].vfal" 1;
+	setAttr ".vclr[74].vfcl[52].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[74].vfcl[52].vfal" 1;
+	setAttr ".vclr[74].vfcl[53].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[74].vfcl[53].vfal" 1;
+	setAttr ".vclr[74].vfcl[60].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[74].vfcl[60].vfal" 1;
+	setAttr ".vclr[74].vfcl[61].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[74].vfcl[61].vfal" 1;
+	setAttr ".vclr[75].vxal" 1;
+	setAttr -s 6 ".vclr[75].vfcl";
+	setAttr ".vclr[75].vfcl[45].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[75].vfcl[45].vfal" 1;
+	setAttr ".vclr[75].vfcl[46].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[75].vfcl[46].vfal" 1;
+	setAttr ".vclr[75].vfcl[53].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[75].vfcl[53].vfal" 1;
+	setAttr ".vclr[75].vfcl[54].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[75].vfcl[54].vfal" 1;
+	setAttr ".vclr[75].vfcl[61].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[75].vfcl[61].vfal" 1;
+	setAttr ".vclr[75].vfcl[62].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[75].vfcl[62].vfal" 1;
+	setAttr ".vclr[76].vxal" 1;
+	setAttr -s 2 ".vclr[76].vfcl";
+	setAttr ".vclr[76].vfcl[47].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[76].vfcl[47].vfal" 1;
+	setAttr ".vclr[76].vfcl[54].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[76].vfcl[54].vfal" 1;
+	setAttr ".vclr[77].vxal" 1;
+	setAttr -s 2 ".vclr[77].vfcl";
+	setAttr ".vclr[77].vfcl[47].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[77].vfcl[47].vfal" 1;
+	setAttr ".vclr[77].vfcl[48].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[77].vfcl[48].vfal" 1;
+	setAttr ".vclr[78].vxal" 1;
+	setAttr -s 2 ".vclr[78].vfcl";
+	setAttr ".vclr[78].vfcl[48].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[78].vfcl[48].vfal" 1;
+	setAttr ".vclr[78].vfcl[49].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[78].vfcl[49].vfal" 1;
+	setAttr ".vclr[79].vxal" 1;
+	setAttr -s 2 ".vclr[79].vfcl";
+	setAttr ".vclr[79].vfcl[49].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[79].vfcl[49].vfal" 1;
+	setAttr ".vclr[79].vfcl[50].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[79].vfcl[50].vfal" 1;
+	setAttr ".vclr[80].vxal" 1;
+	setAttr -s 2 ".vclr[80].vfcl";
+	setAttr ".vclr[80].vfcl[50].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[80].vfcl[50].vfal" 1;
+	setAttr ".vclr[80].vfcl[51].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[80].vfcl[51].vfal" 1;
+	setAttr ".vclr[81].vxal" 1;
+	setAttr -s 2 ".vclr[81].vfcl";
+	setAttr ".vclr[81].vfcl[51].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[81].vfcl[51].vfal" 1;
+	setAttr ".vclr[81].vfcl[52].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[81].vfcl[52].vfal" 1;
+	setAttr ".vclr[82].vxal" 1;
+	setAttr -s 2 ".vclr[82].vfcl";
+	setAttr ".vclr[82].vfcl[52].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[82].vfcl[52].vfal" 1;
+	setAttr ".vclr[82].vfcl[53].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[82].vfcl[53].vfal" 1;
+	setAttr ".vclr[83].vxal" 1;
+	setAttr -s 2 ".vclr[83].vfcl";
+	setAttr ".vclr[83].vfcl[53].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[83].vfcl[53].vfal" 1;
+	setAttr ".vclr[83].vfcl[54].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[83].vfcl[54].vfal" 1;
+	setAttr ".vclr[84].vxal" 1;
+	setAttr -s 3 ".vclr[84].vfcl";
+	setAttr ".vclr[84].vfcl[63].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[84].vfcl[63].vfal" 1;
+	setAttr ".vclr[84].vfcl[64].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[84].vfcl[64].vfal" 1;
+	setAttr ".vclr[84].vfcl[71].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[84].vfcl[71].vfal" 1;
+	setAttr ".vclr[85].vxal" 1;
+	setAttr -s 3 ".vclr[85].vfcl";
+	setAttr ".vclr[85].vfcl[63].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[85].vfcl[63].vfal" 1;
+	setAttr ".vclr[85].vfcl[64].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[85].vfcl[64].vfal" 1;
+	setAttr ".vclr[85].vfcl[65].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[85].vfcl[65].vfal" 1;
+	setAttr ".vclr[86].vxal" 1;
+	setAttr -s 3 ".vclr[86].vfcl";
+	setAttr ".vclr[86].vfcl[63].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[86].vfcl[63].vfal" 1;
+	setAttr ".vclr[86].vfcl[65].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[86].vfcl[65].vfal" 1;
+	setAttr ".vclr[86].vfcl[66].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[86].vfcl[66].vfal" 1;
+	setAttr ".vclr[87].vxal" 1;
+	setAttr -s 3 ".vclr[87].vfcl";
+	setAttr ".vclr[87].vfcl[63].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[87].vfcl[63].vfal" 1;
+	setAttr ".vclr[87].vfcl[66].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[87].vfcl[66].vfal" 1;
+	setAttr ".vclr[87].vfcl[67].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[87].vfcl[67].vfal" 1;
+	setAttr ".vclr[88].vxal" 1;
+	setAttr -s 3 ".vclr[88].vfcl";
+	setAttr ".vclr[88].vfcl[63].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[88].vfcl[63].vfal" 1;
+	setAttr ".vclr[88].vfcl[67].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[88].vfcl[67].vfal" 1;
+	setAttr ".vclr[88].vfcl[68].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[88].vfcl[68].vfal" 1;
+	setAttr ".vclr[89].vxal" 1;
+	setAttr -s 3 ".vclr[89].vfcl";
+	setAttr ".vclr[89].vfcl[63].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[89].vfcl[63].vfal" 1;
+	setAttr ".vclr[89].vfcl[68].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[89].vfcl[68].vfal" 1;
+	setAttr ".vclr[89].vfcl[69].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[89].vfcl[69].vfal" 1;
+	setAttr ".vclr[90].vxal" 1;
+	setAttr -s 3 ".vclr[90].vfcl";
+	setAttr ".vclr[90].vfcl[63].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[90].vfcl[63].vfal" 1;
+	setAttr ".vclr[90].vfcl[69].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[90].vfcl[69].vfal" 1;
+	setAttr ".vclr[90].vfcl[70].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[90].vfcl[70].vfal" 1;
+	setAttr ".vclr[91].vxal" 1;
+	setAttr -s 3 ".vclr[91].vfcl";
+	setAttr ".vclr[91].vfcl[63].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[91].vfcl[63].vfal" 1;
+	setAttr ".vclr[91].vfcl[70].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[91].vfcl[70].vfal" 1;
+	setAttr ".vclr[91].vfcl[71].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[91].vfcl[71].vfal" 1;
+	setAttr ".vclr[92].vxal" 1;
+	setAttr -s 4 ".vclr[92].vfcl";
+	setAttr ".vclr[92].vfcl[59].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[92].vfcl[59].vfal" 1;
+	setAttr ".vclr[92].vfcl[60].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[92].vfcl[60].vfal" 1;
+	setAttr ".vclr[92].vfcl[64].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[92].vfcl[64].vfal" 1;
+	setAttr ".vclr[92].vfcl[71].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[92].vfcl[71].vfal" 1;
+	setAttr ".vclr[93].vxal" 1;
+	setAttr -s 4 ".vclr[93].vfcl";
+	setAttr ".vclr[93].vfcl[58].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[93].vfcl[58].vfal" 1;
+	setAttr ".vclr[93].vfcl[59].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[93].vfcl[59].vfal" 1;
+	setAttr ".vclr[93].vfcl[64].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[93].vfcl[64].vfal" 1;
+	setAttr ".vclr[93].vfcl[65].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[93].vfcl[65].vfal" 1;
+	setAttr ".vclr[94].vxal" 1;
+	setAttr -s 4 ".vclr[94].vfcl";
+	setAttr ".vclr[94].vfcl[57].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[94].vfcl[57].vfal" 1;
+	setAttr ".vclr[94].vfcl[58].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[94].vfcl[58].vfal" 1;
+	setAttr ".vclr[94].vfcl[65].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[94].vfcl[65].vfal" 1;
+	setAttr ".vclr[94].vfcl[66].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[94].vfcl[66].vfal" 1;
+	setAttr ".vclr[95].vxal" 1;
+	setAttr -s 4 ".vclr[95].vfcl";
+	setAttr ".vclr[95].vfcl[56].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[95].vfcl[56].vfal" 1;
+	setAttr ".vclr[95].vfcl[57].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[95].vfcl[57].vfal" 1;
+	setAttr ".vclr[95].vfcl[66].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[95].vfcl[66].vfal" 1;
+	setAttr ".vclr[95].vfcl[67].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[95].vfcl[67].vfal" 1;
+	setAttr ".vclr[96].vxal" 1;
+	setAttr -s 4 ".vclr[96].vfcl";
+	setAttr ".vclr[96].vfcl[55].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[96].vfcl[55].vfal" 1;
+	setAttr ".vclr[96].vfcl[56].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[96].vfcl[56].vfal" 1;
+	setAttr ".vclr[96].vfcl[67].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[96].vfcl[67].vfal" 1;
+	setAttr ".vclr[96].vfcl[68].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[96].vfcl[68].vfal" 1;
+	setAttr ".vclr[97].vxal" 1;
+	setAttr -s 4 ".vclr[97].vfcl";
+	setAttr ".vclr[97].vfcl[55].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[97].vfcl[55].vfal" 1;
+	setAttr ".vclr[97].vfcl[62].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[97].vfcl[62].vfal" 1;
+	setAttr ".vclr[97].vfcl[68].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[97].vfcl[68].vfal" 1;
+	setAttr ".vclr[97].vfcl[69].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[97].vfcl[69].vfal" 1;
+	setAttr ".vclr[98].vxal" 1;
+	setAttr -s 4 ".vclr[98].vfcl";
+	setAttr ".vclr[98].vfcl[61].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[98].vfcl[61].vfal" 1;
+	setAttr ".vclr[98].vfcl[62].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[98].vfcl[62].vfal" 1;
+	setAttr ".vclr[98].vfcl[69].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[98].vfcl[69].vfal" 1;
+	setAttr ".vclr[98].vfcl[70].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[98].vfcl[70].vfal" 1;
+	setAttr ".vclr[99].vxal" 1;
+	setAttr -s 4 ".vclr[99].vfcl";
+	setAttr ".vclr[99].vfcl[60].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[99].vfcl[60].vfal" 1;
+	setAttr ".vclr[99].vfcl[61].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[99].vfcl[61].vfal" 1;
+	setAttr ".vclr[99].vfcl[70].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[99].vfcl[70].vfal" 1;
+	setAttr ".vclr[99].vfcl[71].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[99].vfcl[71].vfal" 1;
+	setAttr ".vclr[100].vxal" 1;
+	setAttr -s 4 ".vclr[100].vfcl";
+	setAttr ".vclr[100].vfcl[72].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[100].vfcl[72].vfal" 1;
+	setAttr ".vclr[100].vfcl[79].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[100].vfcl[79].vfal" 1;
+	setAttr ".vclr[100].vfcl[511].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[100].vfcl[511].vfal" 1;
+	setAttr ".vclr[100].vfcl[516].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[100].vfcl[516].vfal" 1;
+	setAttr ".vclr[101].vxal" 1;
+	setAttr -s 5 ".vclr[101].vfcl";
+	setAttr ".vclr[101].vfcl[72].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[101].vfcl[72].vfal" 1;
+	setAttr ".vclr[101].vfcl[73].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[101].vfcl[73].vfal" 1;
+	setAttr ".vclr[101].vfcl[511].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[101].vfcl[511].vfal" 1;
+	setAttr ".vclr[101].vfcl[585].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[101].vfcl[585].vfal" 1;
+	setAttr ".vclr[101].vfcl[586].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[101].vfcl[586].vfal" 1;
+	setAttr ".vclr[102].vxal" 1;
+	setAttr -s 4 ".vclr[102].vfcl";
+	setAttr ".vclr[102].vfcl[73].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[102].vfcl[73].vfal" 1;
+	setAttr ".vclr[102].vfcl[74].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[102].vfcl[74].vfal" 1;
+	setAttr ".vclr[102].vfcl[586].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[102].vfcl[586].vfal" 1;
+	setAttr ".vclr[102].vfcl[587].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[102].vfcl[587].vfal" 1;
+	setAttr ".vclr[103].vxal" 1;
+	setAttr -s 5 ".vclr[103].vfcl";
+	setAttr ".vclr[103].vfcl[74].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[103].vfcl[74].vfal" 1;
+	setAttr ".vclr[103].vfcl[75].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[103].vfcl[75].vfal" 1;
+	setAttr ".vclr[103].vfcl[512].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[103].vfcl[512].vfal" 1;
+	setAttr ".vclr[103].vfcl[587].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[103].vfcl[587].vfal" 1;
+	setAttr ".vclr[103].vfcl[588].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[103].vfcl[588].vfal" 1;
+	setAttr ".vclr[104].vxal" 1;
+	setAttr -s 4 ".vclr[104].vfcl";
+	setAttr ".vclr[104].vfcl[75].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[104].vfcl[75].vfal" 1;
+	setAttr ".vclr[104].vfcl[76].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[104].vfcl[76].vfal" 1;
+	setAttr ".vclr[104].vfcl[512].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[104].vfcl[512].vfal" 1;
+	setAttr ".vclr[104].vfcl[513].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[104].vfcl[513].vfal" 1;
+	setAttr ".vclr[105].vxal" 1;
+	setAttr -s 4 ".vclr[105].vfcl";
+	setAttr ".vclr[105].vfcl[76].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[105].vfcl[76].vfal" 1;
+	setAttr ".vclr[105].vfcl[77].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[105].vfcl[77].vfal" 1;
+	setAttr ".vclr[105].vfcl[513].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[105].vfcl[513].vfal" 1;
+	setAttr ".vclr[105].vfcl[514].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[105].vfcl[514].vfal" 1;
+	setAttr ".vclr[106].vxal" 1;
+	setAttr -s 4 ".vclr[106].vfcl";
+	setAttr ".vclr[106].vfcl[77].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[106].vfcl[77].vfal" 1;
+	setAttr ".vclr[106].vfcl[78].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[106].vfcl[78].vfal" 1;
+	setAttr ".vclr[106].vfcl[514].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[106].vfcl[514].vfal" 1;
+	setAttr ".vclr[106].vfcl[515].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[106].vfcl[515].vfal" 1;
+	setAttr ".vclr[107].vxal" 1;
+	setAttr -s 4 ".vclr[107].vfcl";
+	setAttr ".vclr[107].vfcl[78].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[107].vfcl[78].vfal" 1;
+	setAttr ".vclr[107].vfcl[79].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[107].vfcl[79].vfal" 1;
+	setAttr ".vclr[107].vfcl[515].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[107].vfcl[515].vfal" 1;
+	setAttr ".vclr[107].vfcl[516].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[107].vfcl[516].vfal" 1;
+	setAttr ".vclr[108].vxal" 1;
+	setAttr -s 6 ".vclr[108].vfcl";
+	setAttr ".vclr[108].vfcl[72].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[108].vfcl[72].vfal" 1;
+	setAttr ".vclr[108].vfcl[79].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[108].vfcl[79].vfal" 1;
+	setAttr ".vclr[108].vfcl[80].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[108].vfcl[80].vfal" 1;
+	setAttr ".vclr[108].vfcl[87].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[108].vfcl[87].vfal" 1;
+	setAttr ".vclr[108].vfcl[88].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[108].vfcl[88].vfal" 1;
+	setAttr ".vclr[108].vfcl[95].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[108].vfcl[95].vfal" 1;
+	setAttr ".vclr[109].vxal" 1;
+	setAttr -s 6 ".vclr[109].vfcl";
+	setAttr ".vclr[109].vfcl[72].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[109].vfcl[72].vfal" 1;
+	setAttr ".vclr[109].vfcl[73].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[109].vfcl[73].vfal" 1;
+	setAttr ".vclr[109].vfcl[80].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[109].vfcl[80].vfal" 1;
+	setAttr ".vclr[109].vfcl[81].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[109].vfcl[81].vfal" 1;
+	setAttr ".vclr[109].vfcl[88].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[109].vfcl[88].vfal" 1;
+	setAttr ".vclr[109].vfcl[89].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[109].vfcl[89].vfal" 1;
+	setAttr ".vclr[110].vxal" 1;
+	setAttr -s 6 ".vclr[110].vfcl";
+	setAttr ".vclr[110].vfcl[73].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[110].vfcl[73].vfal" 1;
+	setAttr ".vclr[110].vfcl[74].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[110].vfcl[74].vfal" 1;
+	setAttr ".vclr[110].vfcl[81].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[110].vfcl[81].vfal" 1;
+	setAttr ".vclr[110].vfcl[82].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[110].vfcl[82].vfal" 1;
+	setAttr ".vclr[110].vfcl[89].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[110].vfcl[89].vfal" 1;
+	setAttr ".vclr[110].vfcl[90].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[110].vfcl[90].vfal" 1;
+	setAttr ".vclr[111].vxal" 1;
+	setAttr -s 6 ".vclr[111].vfcl";
+	setAttr ".vclr[111].vfcl[74].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[111].vfcl[74].vfal" 1;
+	setAttr ".vclr[111].vfcl[75].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[111].vfcl[75].vfal" 1;
+	setAttr ".vclr[111].vfcl[82].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[111].vfcl[82].vfal" 1;
+	setAttr ".vclr[111].vfcl[83].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[111].vfcl[83].vfal" 1;
+	setAttr ".vclr[111].vfcl[90].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[111].vfcl[90].vfal" 1;
+	setAttr ".vclr[111].vfcl[91].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[111].vfcl[91].vfal" 1;
+	setAttr ".vclr[112].vxal" 1;
+	setAttr -s 6 ".vclr[112].vfcl";
+	setAttr ".vclr[112].vfcl[75].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[112].vfcl[75].vfal" 1;
+	setAttr ".vclr[112].vfcl[76].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[112].vfcl[76].vfal" 1;
+	setAttr ".vclr[112].vfcl[83].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[112].vfcl[83].vfal" 1;
+	setAttr ".vclr[112].vfcl[84].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[112].vfcl[84].vfal" 1;
+	setAttr ".vclr[112].vfcl[91].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[112].vfcl[91].vfal" 1;
+	setAttr ".vclr[112].vfcl[92].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[112].vfcl[92].vfal" 1;
+	setAttr ".vclr[113].vxal" 1;
+	setAttr -s 6 ".vclr[113].vfcl";
+	setAttr ".vclr[113].vfcl[76].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[113].vfcl[76].vfal" 1;
+	setAttr ".vclr[113].vfcl[77].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[113].vfcl[77].vfal" 1;
+	setAttr ".vclr[113].vfcl[84].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[113].vfcl[84].vfal" 1;
+	setAttr ".vclr[113].vfcl[85].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[113].vfcl[85].vfal" 1;
+	setAttr ".vclr[113].vfcl[92].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[113].vfcl[92].vfal" 1;
+	setAttr ".vclr[113].vfcl[93].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[113].vfcl[93].vfal" 1;
+	setAttr ".vclr[114].vxal" 1;
+	setAttr -s 6 ".vclr[114].vfcl";
+	setAttr ".vclr[114].vfcl[77].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[114].vfcl[77].vfal" 1;
+	setAttr ".vclr[114].vfcl[78].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[114].vfcl[78].vfal" 1;
+	setAttr ".vclr[114].vfcl[85].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[114].vfcl[85].vfal" 1;
+	setAttr ".vclr[114].vfcl[86].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[114].vfcl[86].vfal" 1;
+	setAttr ".vclr[114].vfcl[93].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[114].vfcl[93].vfal" 1;
+	setAttr ".vclr[114].vfcl[94].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[114].vfcl[94].vfal" 1;
+	setAttr ".vclr[115].vxal" 1;
+	setAttr -s 6 ".vclr[115].vfcl";
+	setAttr ".vclr[115].vfcl[78].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[115].vfcl[78].vfal" 1;
+	setAttr ".vclr[115].vfcl[79].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[115].vfcl[79].vfal" 1;
+	setAttr ".vclr[115].vfcl[86].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[115].vfcl[86].vfal" 1;
+	setAttr ".vclr[115].vfcl[87].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[115].vfcl[87].vfal" 1;
+	setAttr ".vclr[115].vfcl[94].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[115].vfcl[94].vfal" 1;
+	setAttr ".vclr[115].vfcl[95].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[115].vfcl[95].vfal" 1;
+	setAttr ".vclr[116].vxal" 1;
+	setAttr -s 2 ".vclr[116].vfcl";
+	setAttr ".vclr[116].vfcl[80].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[116].vfcl[80].vfal" 1;
+	setAttr ".vclr[116].vfcl[87].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[116].vfcl[87].vfal" 1;
+	setAttr ".vclr[117].vxal" 1;
+	setAttr -s 2 ".vclr[117].vfcl";
+	setAttr ".vclr[117].vfcl[80].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[117].vfcl[80].vfal" 1;
+	setAttr ".vclr[117].vfcl[81].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[117].vfcl[81].vfal" 1;
+	setAttr ".vclr[118].vxal" 1;
+	setAttr -s 2 ".vclr[118].vfcl";
+	setAttr ".vclr[118].vfcl[81].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[118].vfcl[81].vfal" 1;
+	setAttr ".vclr[118].vfcl[82].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[118].vfcl[82].vfal" 1;
+	setAttr ".vclr[119].vxal" 1;
+	setAttr -s 2 ".vclr[119].vfcl";
+	setAttr ".vclr[119].vfcl[82].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[119].vfcl[82].vfal" 1;
+	setAttr ".vclr[119].vfcl[83].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[119].vfcl[83].vfal" 1;
+	setAttr ".vclr[120].vxal" 1;
+	setAttr -s 2 ".vclr[120].vfcl";
+	setAttr ".vclr[120].vfcl[83].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[120].vfcl[83].vfal" 1;
+	setAttr ".vclr[120].vfcl[84].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[120].vfcl[84].vfal" 1;
+	setAttr ".vclr[121].vxal" 1;
+	setAttr -s 2 ".vclr[121].vfcl";
+	setAttr ".vclr[121].vfcl[84].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[121].vfcl[84].vfal" 1;
+	setAttr ".vclr[121].vfcl[85].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[121].vfcl[85].vfal" 1;
+	setAttr ".vclr[122].vxal" 1;
+	setAttr -s 2 ".vclr[122].vfcl";
+	setAttr ".vclr[122].vfcl[85].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[122].vfcl[85].vfal" 1;
+	setAttr ".vclr[122].vfcl[86].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[122].vfcl[86].vfal" 1;
+	setAttr ".vclr[123].vxal" 1;
+	setAttr -s 2 ".vclr[123].vfcl";
+	setAttr ".vclr[123].vfcl[86].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[123].vfcl[86].vfal" 1;
+	setAttr ".vclr[123].vfcl[87].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[123].vfcl[87].vfal" 1;
+	setAttr ".vclr[124].vxal" 1;
+	setAttr -s 3 ".vclr[124].vfcl";
+	setAttr ".vclr[124].vfcl[96].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[124].vfcl[96].vfal" 1;
+	setAttr ".vclr[124].vfcl[97].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[124].vfcl[97].vfal" 1;
+	setAttr ".vclr[124].vfcl[104].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[124].vfcl[104].vfal" 1;
+	setAttr ".vclr[125].vxal" 1;
+	setAttr -s 3 ".vclr[125].vfcl";
+	setAttr ".vclr[125].vfcl[96].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[125].vfcl[96].vfal" 1;
+	setAttr ".vclr[125].vfcl[97].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[125].vfcl[97].vfal" 1;
+	setAttr ".vclr[125].vfcl[98].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[125].vfcl[98].vfal" 1;
+	setAttr ".vclr[126].vxal" 1;
+	setAttr -s 3 ".vclr[126].vfcl";
+	setAttr ".vclr[126].vfcl[96].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[126].vfcl[96].vfal" 1;
+	setAttr ".vclr[126].vfcl[98].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[126].vfcl[98].vfal" 1;
+	setAttr ".vclr[126].vfcl[99].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[126].vfcl[99].vfal" 1;
+	setAttr ".vclr[127].vxal" 1;
+	setAttr -s 3 ".vclr[127].vfcl";
+	setAttr ".vclr[127].vfcl[96].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[127].vfcl[96].vfal" 1;
+	setAttr ".vclr[127].vfcl[99].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[127].vfcl[99].vfal" 1;
+	setAttr ".vclr[127].vfcl[100].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[127].vfcl[100].vfal" 1;
+	setAttr ".vclr[128].vxal" 1;
+	setAttr -s 3 ".vclr[128].vfcl";
+	setAttr ".vclr[128].vfcl[96].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[128].vfcl[96].vfal" 1;
+	setAttr ".vclr[128].vfcl[100].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[128].vfcl[100].vfal" 1;
+	setAttr ".vclr[128].vfcl[101].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[128].vfcl[101].vfal" 1;
+	setAttr ".vclr[129].vxal" 1;
+	setAttr -s 3 ".vclr[129].vfcl";
+	setAttr ".vclr[129].vfcl[96].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[129].vfcl[96].vfal" 1;
+	setAttr ".vclr[129].vfcl[101].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[129].vfcl[101].vfal" 1;
+	setAttr ".vclr[129].vfcl[102].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[129].vfcl[102].vfal" 1;
+	setAttr ".vclr[130].vxal" 1;
+	setAttr -s 3 ".vclr[130].vfcl";
+	setAttr ".vclr[130].vfcl[96].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[130].vfcl[96].vfal" 1;
+	setAttr ".vclr[130].vfcl[102].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[130].vfcl[102].vfal" 1;
+	setAttr ".vclr[130].vfcl[103].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[130].vfcl[103].vfal" 1;
+	setAttr ".vclr[131].vxal" 1;
+	setAttr -s 3 ".vclr[131].vfcl";
+	setAttr ".vclr[131].vfcl[96].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[131].vfcl[96].vfal" 1;
+	setAttr ".vclr[131].vfcl[103].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[131].vfcl[103].vfal" 1;
+	setAttr ".vclr[131].vfcl[104].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[131].vfcl[104].vfal" 1;
+	setAttr ".vclr[132].vxal" 1;
+	setAttr -s 4 ".vclr[132].vfcl";
+	setAttr ".vclr[132].vfcl[92].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[132].vfcl[92].vfal" 1;
+	setAttr ".vclr[132].vfcl[93].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[132].vfcl[93].vfal" 1;
+	setAttr ".vclr[132].vfcl[97].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[132].vfcl[97].vfal" 1;
+	setAttr ".vclr[132].vfcl[104].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[132].vfcl[104].vfal" 1;
+	setAttr ".vclr[133].vxal" 1;
+	setAttr -s 4 ".vclr[133].vfcl";
+	setAttr ".vclr[133].vfcl[91].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[133].vfcl[91].vfal" 1;
+	setAttr ".vclr[133].vfcl[92].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[133].vfcl[92].vfal" 1;
+	setAttr ".vclr[133].vfcl[97].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[133].vfcl[97].vfal" 1;
+	setAttr ".vclr[133].vfcl[98].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[133].vfcl[98].vfal" 1;
+	setAttr ".vclr[134].vxal" 1;
+	setAttr -s 4 ".vclr[134].vfcl";
+	setAttr ".vclr[134].vfcl[90].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[134].vfcl[90].vfal" 1;
+	setAttr ".vclr[134].vfcl[91].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[134].vfcl[91].vfal" 1;
+	setAttr ".vclr[134].vfcl[98].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[134].vfcl[98].vfal" 1;
+	setAttr ".vclr[134].vfcl[99].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[134].vfcl[99].vfal" 1;
+	setAttr ".vclr[135].vxal" 1;
+	setAttr -s 4 ".vclr[135].vfcl";
+	setAttr ".vclr[135].vfcl[89].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[135].vfcl[89].vfal" 1;
+	setAttr ".vclr[135].vfcl[90].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[135].vfcl[90].vfal" 1;
+	setAttr ".vclr[135].vfcl[99].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[135].vfcl[99].vfal" 1;
+	setAttr ".vclr[135].vfcl[100].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[135].vfcl[100].vfal" 1;
+	setAttr ".vclr[136].vxal" 1;
+	setAttr -s 4 ".vclr[136].vfcl";
+	setAttr ".vclr[136].vfcl[88].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[136].vfcl[88].vfal" 1;
+	setAttr ".vclr[136].vfcl[89].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[136].vfcl[89].vfal" 1;
+	setAttr ".vclr[136].vfcl[100].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[136].vfcl[100].vfal" 1;
+	setAttr ".vclr[136].vfcl[101].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[136].vfcl[101].vfal" 1;
+	setAttr ".vclr[137].vxal" 1;
+	setAttr -s 4 ".vclr[137].vfcl";
+	setAttr ".vclr[137].vfcl[88].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[137].vfcl[88].vfal" 1;
+	setAttr ".vclr[137].vfcl[95].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[137].vfcl[95].vfal" 1;
+	setAttr ".vclr[137].vfcl[101].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[137].vfcl[101].vfal" 1;
+	setAttr ".vclr[137].vfcl[102].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[137].vfcl[102].vfal" 1;
+	setAttr ".vclr[138].vxal" 1;
+	setAttr -s 4 ".vclr[138].vfcl";
+	setAttr ".vclr[138].vfcl[94].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[138].vfcl[94].vfal" 1;
+	setAttr ".vclr[138].vfcl[95].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[138].vfcl[95].vfal" 1;
+	setAttr ".vclr[138].vfcl[102].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[138].vfcl[102].vfal" 1;
+	setAttr ".vclr[138].vfcl[103].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[138].vfcl[103].vfal" 1;
+	setAttr ".vclr[139].vxal" 1;
+	setAttr -s 4 ".vclr[139].vfcl";
+	setAttr ".vclr[139].vfcl[93].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[139].vfcl[93].vfal" 1;
+	setAttr ".vclr[139].vfcl[94].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[139].vfcl[94].vfal" 1;
+	setAttr ".vclr[139].vfcl[103].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[139].vfcl[103].vfal" 1;
+	setAttr ".vclr[139].vfcl[104].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[139].vfcl[104].vfal" 1;
+	setAttr ".vclr[140].vxal" 1;
+	setAttr -s 5 ".vclr[140].vfcl";
+	setAttr ".vclr[140].vfcl[105].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[140].vfcl[105].vfal" 1;
+	setAttr ".vclr[140].vfcl[112].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[140].vfcl[112].vfal" 1;
+	setAttr ".vclr[140].vfcl[510].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[140].vfcl[510].vfal" 1;
+	setAttr ".vclr[140].vfcl[577].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[140].vfcl[577].vfal" 1;
+	setAttr ".vclr[140].vfcl[580].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[140].vfcl[580].vfal" 1;
+	setAttr ".vclr[141].vxal" 1;
+	setAttr -s 4 ".vclr[141].vfcl";
+	setAttr ".vclr[141].vfcl[105].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[141].vfcl[105].vfal" 1;
+	setAttr ".vclr[141].vfcl[106].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[141].vfcl[106].vfal" 1;
+	setAttr ".vclr[141].vfcl[577].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[141].vfcl[577].vfal" 1;
+	setAttr ".vclr[141].vfcl[578].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[141].vfcl[578].vfal" 1;
+	setAttr ".vclr[142].vxal" 1;
+	setAttr -s 5 ".vclr[142].vfcl";
+	setAttr ".vclr[142].vfcl[106].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[142].vfcl[106].vfal" 1;
+	setAttr ".vclr[142].vfcl[107].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[142].vfcl[107].vfal" 1;
+	setAttr ".vclr[142].vfcl[505].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[142].vfcl[505].vfal" 1;
+	setAttr ".vclr[142].vfcl[578].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[142].vfcl[578].vfal" 1;
+	setAttr ".vclr[142].vfcl[579].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[142].vfcl[579].vfal" 1;
+	setAttr ".vclr[143].vxal" 1;
+	setAttr -s 4 ".vclr[143].vfcl";
+	setAttr ".vclr[143].vfcl[107].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[143].vfcl[107].vfal" 1;
+	setAttr ".vclr[143].vfcl[108].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[143].vfcl[108].vfal" 1;
+	setAttr ".vclr[143].vfcl[505].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[143].vfcl[505].vfal" 1;
+	setAttr ".vclr[143].vfcl[506].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[143].vfcl[506].vfal" 1;
+	setAttr ".vclr[144].vxal" 1;
+	setAttr -s 4 ".vclr[144].vfcl";
+	setAttr ".vclr[144].vfcl[108].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[144].vfcl[108].vfal" 1;
+	setAttr ".vclr[144].vfcl[109].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[144].vfcl[109].vfal" 1;
+	setAttr ".vclr[144].vfcl[506].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[144].vfcl[506].vfal" 1;
+	setAttr ".vclr[144].vfcl[507].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[144].vfcl[507].vfal" 1;
+	setAttr ".vclr[145].vxal" 1;
+	setAttr -s 4 ".vclr[145].vfcl";
+	setAttr ".vclr[145].vfcl[109].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[145].vfcl[109].vfal" 1;
+	setAttr ".vclr[145].vfcl[110].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[145].vfcl[110].vfal" 1;
+	setAttr ".vclr[145].vfcl[507].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[145].vfcl[507].vfal" 1;
+	setAttr ".vclr[145].vfcl[508].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[145].vfcl[508].vfal" 1;
+	setAttr ".vclr[146].vxal" 1;
+	setAttr -s 4 ".vclr[146].vfcl";
+	setAttr ".vclr[146].vfcl[110].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[146].vfcl[110].vfal" 1;
+	setAttr ".vclr[146].vfcl[111].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[146].vfcl[111].vfal" 1;
+	setAttr ".vclr[146].vfcl[508].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[146].vfcl[508].vfal" 1;
+	setAttr ".vclr[146].vfcl[509].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[146].vfcl[509].vfal" 1;
+	setAttr ".vclr[147].vxal" 1;
+	setAttr -s 4 ".vclr[147].vfcl";
+	setAttr ".vclr[147].vfcl[111].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[147].vfcl[111].vfal" 1;
+	setAttr ".vclr[147].vfcl[112].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[147].vfcl[112].vfal" 1;
+	setAttr ".vclr[147].vfcl[509].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[147].vfcl[509].vfal" 1;
+	setAttr ".vclr[147].vfcl[510].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[147].vfcl[510].vfal" 1;
+	setAttr ".vclr[148].vxal" 1;
+	setAttr -s 6 ".vclr[148].vfcl";
+	setAttr ".vclr[148].vfcl[105].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[148].vfcl[105].vfal" 1;
+	setAttr ".vclr[148].vfcl[112].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[148].vfcl[112].vfal" 1;
+	setAttr ".vclr[148].vfcl[113].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[148].vfcl[113].vfal" 1;
+	setAttr ".vclr[148].vfcl[120].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[148].vfcl[120].vfal" 1;
+	setAttr ".vclr[148].vfcl[121].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[148].vfcl[121].vfal" 1;
+	setAttr ".vclr[148].vfcl[128].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[148].vfcl[128].vfal" 1;
+	setAttr ".vclr[149].vxal" 1;
+	setAttr -s 6 ".vclr[149].vfcl";
+	setAttr ".vclr[149].vfcl[105].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[149].vfcl[105].vfal" 1;
+	setAttr ".vclr[149].vfcl[106].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[149].vfcl[106].vfal" 1;
+	setAttr ".vclr[149].vfcl[113].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[149].vfcl[113].vfal" 1;
+	setAttr ".vclr[149].vfcl[114].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[149].vfcl[114].vfal" 1;
+	setAttr ".vclr[149].vfcl[121].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[149].vfcl[121].vfal" 1;
+	setAttr ".vclr[149].vfcl[122].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[149].vfcl[122].vfal" 1;
+	setAttr ".vclr[150].vxal" 1;
+	setAttr -s 6 ".vclr[150].vfcl";
+	setAttr ".vclr[150].vfcl[106].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[150].vfcl[106].vfal" 1;
+	setAttr ".vclr[150].vfcl[107].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[150].vfcl[107].vfal" 1;
+	setAttr ".vclr[150].vfcl[114].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[150].vfcl[114].vfal" 1;
+	setAttr ".vclr[150].vfcl[115].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[150].vfcl[115].vfal" 1;
+	setAttr ".vclr[150].vfcl[122].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[150].vfcl[122].vfal" 1;
+	setAttr ".vclr[150].vfcl[123].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[150].vfcl[123].vfal" 1;
+	setAttr ".vclr[151].vxal" 1;
+	setAttr -s 6 ".vclr[151].vfcl";
+	setAttr ".vclr[151].vfcl[107].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[151].vfcl[107].vfal" 1;
+	setAttr ".vclr[151].vfcl[108].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[151].vfcl[108].vfal" 1;
+	setAttr ".vclr[151].vfcl[115].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[151].vfcl[115].vfal" 1;
+	setAttr ".vclr[151].vfcl[116].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[151].vfcl[116].vfal" 1;
+	setAttr ".vclr[151].vfcl[123].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[151].vfcl[123].vfal" 1;
+	setAttr ".vclr[151].vfcl[124].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[151].vfcl[124].vfal" 1;
+	setAttr ".vclr[152].vxal" 1;
+	setAttr -s 6 ".vclr[152].vfcl";
+	setAttr ".vclr[152].vfcl[108].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[152].vfcl[108].vfal" 1;
+	setAttr ".vclr[152].vfcl[109].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[152].vfcl[109].vfal" 1;
+	setAttr ".vclr[152].vfcl[116].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[152].vfcl[116].vfal" 1;
+	setAttr ".vclr[152].vfcl[117].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[152].vfcl[117].vfal" 1;
+	setAttr ".vclr[152].vfcl[124].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[152].vfcl[124].vfal" 1;
+	setAttr ".vclr[152].vfcl[125].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[152].vfcl[125].vfal" 1;
+	setAttr ".vclr[153].vxal" 1;
+	setAttr -s 6 ".vclr[153].vfcl";
+	setAttr ".vclr[153].vfcl[109].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[153].vfcl[109].vfal" 1;
+	setAttr ".vclr[153].vfcl[110].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[153].vfcl[110].vfal" 1;
+	setAttr ".vclr[153].vfcl[117].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[153].vfcl[117].vfal" 1;
+	setAttr ".vclr[153].vfcl[118].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[153].vfcl[118].vfal" 1;
+	setAttr ".vclr[153].vfcl[125].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[153].vfcl[125].vfal" 1;
+	setAttr ".vclr[153].vfcl[126].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[153].vfcl[126].vfal" 1;
+	setAttr ".vclr[154].vxal" 1;
+	setAttr -s 6 ".vclr[154].vfcl";
+	setAttr ".vclr[154].vfcl[110].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[154].vfcl[110].vfal" 1;
+	setAttr ".vclr[154].vfcl[111].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[154].vfcl[111].vfal" 1;
+	setAttr ".vclr[154].vfcl[118].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[154].vfcl[118].vfal" 1;
+	setAttr ".vclr[154].vfcl[119].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[154].vfcl[119].vfal" 1;
+	setAttr ".vclr[154].vfcl[126].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[154].vfcl[126].vfal" 1;
+	setAttr ".vclr[154].vfcl[127].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[154].vfcl[127].vfal" 1;
+	setAttr ".vclr[155].vxal" 1;
+	setAttr -s 6 ".vclr[155].vfcl";
+	setAttr ".vclr[155].vfcl[111].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[155].vfcl[111].vfal" 1;
+	setAttr ".vclr[155].vfcl[112].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[155].vfcl[112].vfal" 1;
+	setAttr ".vclr[155].vfcl[119].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[155].vfcl[119].vfal" 1;
+	setAttr ".vclr[155].vfcl[120].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[155].vfcl[120].vfal" 1;
+	setAttr ".vclr[155].vfcl[127].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[155].vfcl[127].vfal" 1;
+	setAttr ".vclr[155].vfcl[128].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[155].vfcl[128].vfal" 1;
+	setAttr ".vclr[156].vxal" 1;
+	setAttr -s 2 ".vclr[156].vfcl";
+	setAttr ".vclr[156].vfcl[113].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[156].vfcl[113].vfal" 1;
+	setAttr ".vclr[156].vfcl[120].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[156].vfcl[120].vfal" 1;
+	setAttr ".vclr[157].vxal" 1;
+	setAttr -s 2 ".vclr[157].vfcl";
+	setAttr ".vclr[157].vfcl[113].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[157].vfcl[113].vfal" 1;
+	setAttr ".vclr[157].vfcl[114].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[157].vfcl[114].vfal" 1;
+	setAttr ".vclr[158].vxal" 1;
+	setAttr -s 2 ".vclr[158].vfcl";
+	setAttr ".vclr[158].vfcl[114].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[158].vfcl[114].vfal" 1;
+	setAttr ".vclr[158].vfcl[115].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[158].vfcl[115].vfal" 1;
+	setAttr ".vclr[159].vxal" 1;
+	setAttr -s 2 ".vclr[159].vfcl";
+	setAttr ".vclr[159].vfcl[115].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[159].vfcl[115].vfal" 1;
+	setAttr ".vclr[159].vfcl[116].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[159].vfcl[116].vfal" 1;
+	setAttr ".vclr[160].vxal" 1;
+	setAttr -s 2 ".vclr[160].vfcl";
+	setAttr ".vclr[160].vfcl[116].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[160].vfcl[116].vfal" 1;
+	setAttr ".vclr[160].vfcl[117].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[160].vfcl[117].vfal" 1;
+	setAttr ".vclr[161].vxal" 1;
+	setAttr -s 2 ".vclr[161].vfcl";
+	setAttr ".vclr[161].vfcl[117].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[161].vfcl[117].vfal" 1;
+	setAttr ".vclr[161].vfcl[118].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[161].vfcl[118].vfal" 1;
+	setAttr ".vclr[162].vxal" 1;
+	setAttr -s 2 ".vclr[162].vfcl";
+	setAttr ".vclr[162].vfcl[118].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[162].vfcl[118].vfal" 1;
+	setAttr ".vclr[162].vfcl[119].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[162].vfcl[119].vfal" 1;
+	setAttr ".vclr[163].vxal" 1;
+	setAttr -s 2 ".vclr[163].vfcl";
+	setAttr ".vclr[163].vfcl[119].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[163].vfcl[119].vfal" 1;
+	setAttr ".vclr[163].vfcl[120].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[163].vfcl[120].vfal" 1;
+	setAttr ".vclr[164].vxal" 1;
+	setAttr -s 3 ".vclr[164].vfcl";
+	setAttr ".vclr[164].vfcl[129].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[164].vfcl[129].vfal" 1;
+	setAttr ".vclr[164].vfcl[130].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[164].vfcl[130].vfal" 1;
+	setAttr ".vclr[164].vfcl[137].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[164].vfcl[137].vfal" 1;
+	setAttr ".vclr[165].vxal" 1;
+	setAttr -s 3 ".vclr[165].vfcl";
+	setAttr ".vclr[165].vfcl[129].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[165].vfcl[129].vfal" 1;
+	setAttr ".vclr[165].vfcl[130].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[165].vfcl[130].vfal" 1;
+	setAttr ".vclr[165].vfcl[131].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[165].vfcl[131].vfal" 1;
+	setAttr ".vclr[166].vxal" 1;
+	setAttr -s 3 ".vclr[166].vfcl";
+	setAttr ".vclr[166].vfcl[129].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[166].vfcl[129].vfal" 1;
+	setAttr ".vclr[166].vfcl[131].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[166].vfcl[131].vfal" 1;
+	setAttr ".vclr[166].vfcl[132].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[166].vfcl[132].vfal" 1;
+	setAttr ".vclr[167].vxal" 1;
+	setAttr -s 3 ".vclr[167].vfcl";
+	setAttr ".vclr[167].vfcl[129].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[167].vfcl[129].vfal" 1;
+	setAttr ".vclr[167].vfcl[132].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[167].vfcl[132].vfal" 1;
+	setAttr ".vclr[167].vfcl[133].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[167].vfcl[133].vfal" 1;
+	setAttr ".vclr[168].vxal" 1;
+	setAttr -s 3 ".vclr[168].vfcl";
+	setAttr ".vclr[168].vfcl[129].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[168].vfcl[129].vfal" 1;
+	setAttr ".vclr[168].vfcl[133].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[168].vfcl[133].vfal" 1;
+	setAttr ".vclr[168].vfcl[134].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[168].vfcl[134].vfal" 1;
+	setAttr ".vclr[169].vxal" 1;
+	setAttr -s 3 ".vclr[169].vfcl";
+	setAttr ".vclr[169].vfcl[129].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[169].vfcl[129].vfal" 1;
+	setAttr ".vclr[169].vfcl[134].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[169].vfcl[134].vfal" 1;
+	setAttr ".vclr[169].vfcl[135].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[169].vfcl[135].vfal" 1;
+	setAttr ".vclr[170].vxal" 1;
+	setAttr -s 3 ".vclr[170].vfcl";
+	setAttr ".vclr[170].vfcl[129].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[170].vfcl[129].vfal" 1;
+	setAttr ".vclr[170].vfcl[135].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[170].vfcl[135].vfal" 1;
+	setAttr ".vclr[170].vfcl[136].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[170].vfcl[136].vfal" 1;
+	setAttr ".vclr[171].vxal" 1;
+	setAttr -s 3 ".vclr[171].vfcl";
+	setAttr ".vclr[171].vfcl[129].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[171].vfcl[129].vfal" 1;
+	setAttr ".vclr[171].vfcl[136].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[171].vfcl[136].vfal" 1;
+	setAttr ".vclr[171].vfcl[137].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[171].vfcl[137].vfal" 1;
+	setAttr ".vclr[172].vxal" 1;
+	setAttr -s 4 ".vclr[172].vfcl";
+	setAttr ".vclr[172].vfcl[125].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[172].vfcl[125].vfal" 1;
+	setAttr ".vclr[172].vfcl[126].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[172].vfcl[126].vfal" 1;
+	setAttr ".vclr[172].vfcl[130].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[172].vfcl[130].vfal" 1;
+	setAttr ".vclr[172].vfcl[137].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[172].vfcl[137].vfal" 1;
+	setAttr ".vclr[173].vxal" 1;
+	setAttr -s 4 ".vclr[173].vfcl";
+	setAttr ".vclr[173].vfcl[124].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[173].vfcl[124].vfal" 1;
+	setAttr ".vclr[173].vfcl[125].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[173].vfcl[125].vfal" 1;
+	setAttr ".vclr[173].vfcl[130].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[173].vfcl[130].vfal" 1;
+	setAttr ".vclr[173].vfcl[131].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[173].vfcl[131].vfal" 1;
+	setAttr ".vclr[174].vxal" 1;
+	setAttr -s 4 ".vclr[174].vfcl";
+	setAttr ".vclr[174].vfcl[123].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[174].vfcl[123].vfal" 1;
+	setAttr ".vclr[174].vfcl[124].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[174].vfcl[124].vfal" 1;
+	setAttr ".vclr[174].vfcl[131].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[174].vfcl[131].vfal" 1;
+	setAttr ".vclr[174].vfcl[132].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[174].vfcl[132].vfal" 1;
+	setAttr ".vclr[175].vxal" 1;
+	setAttr -s 4 ".vclr[175].vfcl";
+	setAttr ".vclr[175].vfcl[122].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[175].vfcl[122].vfal" 1;
+	setAttr ".vclr[175].vfcl[123].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[175].vfcl[123].vfal" 1;
+	setAttr ".vclr[175].vfcl[132].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[175].vfcl[132].vfal" 1;
+	setAttr ".vclr[175].vfcl[133].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[175].vfcl[133].vfal" 1;
+	setAttr ".vclr[176].vxal" 1;
+	setAttr -s 4 ".vclr[176].vfcl";
+	setAttr ".vclr[176].vfcl[121].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[176].vfcl[121].vfal" 1;
+	setAttr ".vclr[176].vfcl[122].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[176].vfcl[122].vfal" 1;
+	setAttr ".vclr[176].vfcl[133].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[176].vfcl[133].vfal" 1;
+	setAttr ".vclr[176].vfcl[134].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[176].vfcl[134].vfal" 1;
+	setAttr ".vclr[177].vxal" 1;
+	setAttr -s 4 ".vclr[177].vfcl";
+	setAttr ".vclr[177].vfcl[121].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[177].vfcl[121].vfal" 1;
+	setAttr ".vclr[177].vfcl[128].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[177].vfcl[128].vfal" 1;
+	setAttr ".vclr[177].vfcl[134].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[177].vfcl[134].vfal" 1;
+	setAttr ".vclr[177].vfcl[135].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[177].vfcl[135].vfal" 1;
+	setAttr ".vclr[178].vxal" 1;
+	setAttr -s 4 ".vclr[178].vfcl";
+	setAttr ".vclr[178].vfcl[127].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[178].vfcl[127].vfal" 1;
+	setAttr ".vclr[178].vfcl[128].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[178].vfcl[128].vfal" 1;
+	setAttr ".vclr[178].vfcl[135].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[178].vfcl[135].vfal" 1;
+	setAttr ".vclr[178].vfcl[136].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[178].vfcl[136].vfal" 1;
+	setAttr ".vclr[179].vxal" 1;
+	setAttr -s 4 ".vclr[179].vfcl";
+	setAttr ".vclr[179].vfcl[126].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[179].vfcl[126].vfal" 1;
+	setAttr ".vclr[179].vfcl[127].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[179].vfcl[127].vfal" 1;
+	setAttr ".vclr[179].vfcl[136].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[179].vfcl[136].vfal" 1;
+	setAttr ".vclr[179].vfcl[137].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[179].vfcl[137].vfal" 1;
+	setAttr ".vclr[180].vxal" 1;
+	setAttr -s 6 ".vclr[180].vfcl";
+	setAttr ".vclr[180].vfcl[138].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[180].vfcl[138].vfal" 1;
+	setAttr ".vclr[180].vfcl[145].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[180].vfcl[145].vfal" 1;
+	setAttr ".vclr[180].vfcl[497].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[180].vfcl[497].vfal" 1;
+	setAttr ".vclr[180].vfcl[504].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[180].vfcl[504].vfal" 1;
+	setAttr ".vclr[180].vfcl[569].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[180].vfcl[569].vfal" 1;
+	setAttr ".vclr[180].vfcl[572].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[180].vfcl[572].vfal" 1;
+	setAttr ".vclr[181].vxal" 1;
+	setAttr -s 6 ".vclr[181].vfcl";
+	setAttr ".vclr[181].vfcl[138].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[181].vfcl[138].vfal" 1;
+	setAttr ".vclr[181].vfcl[139].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[181].vfcl[139].vfal" 1;
+	setAttr ".vclr[181].vfcl[497].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[181].vfcl[497].vfal" 1;
+	setAttr ".vclr[181].vfcl[498].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[181].vfcl[498].vfal" 1;
+	setAttr ".vclr[181].vfcl[569].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[181].vfcl[569].vfal" 1;
+	setAttr ".vclr[181].vfcl[570].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[181].vfcl[570].vfal" 1;
+	setAttr ".vclr[182].vxal" 1;
+	setAttr -s 2 ".vclr[182].vfcl";
+	setAttr ".vclr[182].vfcl[139].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[182].vfcl[139].vfal" 1;
+	setAttr ".vclr[182].vfcl[140].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[182].vfcl[140].vfal" 1;
+	setAttr ".vclr[183].vxal" 1;
+	setAttr -s 2 ".vclr[183].vfcl";
+	setAttr ".vclr[183].vfcl[140].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[183].vfcl[140].vfal" 1;
+	setAttr ".vclr[183].vfcl[141].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[183].vfcl[141].vfal" 1;
+	setAttr ".vclr[184].vxal" 1;
+	setAttr -s 2 ".vclr[184].vfcl";
+	setAttr ".vclr[184].vfcl[141].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[184].vfcl[141].vfal" 1;
+	setAttr ".vclr[184].vfcl[142].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[184].vfcl[142].vfal" 1;
+	setAttr ".vclr[185].vxal" 1;
+	setAttr -s 2 ".vclr[185].vfcl";
+	setAttr ".vclr[185].vfcl[142].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[185].vfcl[142].vfal" 1;
+	setAttr ".vclr[185].vfcl[143].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[185].vfcl[143].vfal" 1;
+	setAttr ".vclr[186].vxal" 1;
+	setAttr -s 2 ".vclr[186].vfcl";
+	setAttr ".vclr[186].vfcl[143].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[186].vfcl[143].vfal" 1;
+	setAttr ".vclr[186].vfcl[144].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[186].vfcl[144].vfal" 1;
+	setAttr ".vclr[187].vxal" 1;
+	setAttr -s 6 ".vclr[187].vfcl";
+	setAttr ".vclr[187].vfcl[144].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[187].vfcl[144].vfal" 1;
+	setAttr ".vclr[187].vfcl[145].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[187].vfcl[145].vfal" 1;
+	setAttr ".vclr[187].vfcl[503].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[187].vfcl[503].vfal" 1;
+	setAttr ".vclr[187].vfcl[504].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[187].vfcl[504].vfal" 1;
+	setAttr ".vclr[187].vfcl[571].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[187].vfcl[571].vfal" 1;
+	setAttr ".vclr[187].vfcl[572].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[187].vfcl[572].vfal" 1;
+	setAttr ".vclr[188].vxal" 1;
+	setAttr -s 6 ".vclr[188].vfcl";
+	setAttr ".vclr[188].vfcl[138].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[188].vfcl[138].vfal" 1;
+	setAttr ".vclr[188].vfcl[145].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[188].vfcl[145].vfal" 1;
+	setAttr ".vclr[188].vfcl[146].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[188].vfcl[146].vfal" 1;
+	setAttr ".vclr[188].vfcl[153].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[188].vfcl[153].vfal" 1;
+	setAttr ".vclr[188].vfcl[154].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[188].vfcl[154].vfal" 1;
+	setAttr ".vclr[188].vfcl[161].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[188].vfcl[161].vfal" 1;
+	setAttr ".vclr[189].vxal" 1;
+	setAttr -s 6 ".vclr[189].vfcl";
+	setAttr ".vclr[189].vfcl[138].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[189].vfcl[138].vfal" 1;
+	setAttr ".vclr[189].vfcl[139].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[189].vfcl[139].vfal" 1;
+	setAttr ".vclr[189].vfcl[146].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[189].vfcl[146].vfal" 1;
+	setAttr ".vclr[189].vfcl[147].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[189].vfcl[147].vfal" 1;
+	setAttr ".vclr[189].vfcl[154].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[189].vfcl[154].vfal" 1;
+	setAttr ".vclr[189].vfcl[155].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[189].vfcl[155].vfal" 1;
+	setAttr ".vclr[190].vxal" 1;
+	setAttr -s 6 ".vclr[190].vfcl";
+	setAttr ".vclr[190].vfcl[139].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[190].vfcl[139].vfal" 1;
+	setAttr ".vclr[190].vfcl[140].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[190].vfcl[140].vfal" 1;
+	setAttr ".vclr[190].vfcl[147].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[190].vfcl[147].vfal" 1;
+	setAttr ".vclr[190].vfcl[148].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[190].vfcl[148].vfal" 1;
+	setAttr ".vclr[190].vfcl[155].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[190].vfcl[155].vfal" 1;
+	setAttr ".vclr[190].vfcl[156].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[190].vfcl[156].vfal" 1;
+	setAttr ".vclr[191].vxal" 1;
+	setAttr -s 6 ".vclr[191].vfcl";
+	setAttr ".vclr[191].vfcl[140].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[191].vfcl[140].vfal" 1;
+	setAttr ".vclr[191].vfcl[141].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[191].vfcl[141].vfal" 1;
+	setAttr ".vclr[191].vfcl[148].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[191].vfcl[148].vfal" 1;
+	setAttr ".vclr[191].vfcl[149].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[191].vfcl[149].vfal" 1;
+	setAttr ".vclr[191].vfcl[156].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[191].vfcl[156].vfal" 1;
+	setAttr ".vclr[191].vfcl[157].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[191].vfcl[157].vfal" 1;
+	setAttr ".vclr[192].vxal" 1;
+	setAttr -s 6 ".vclr[192].vfcl";
+	setAttr ".vclr[192].vfcl[141].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[192].vfcl[141].vfal" 1;
+	setAttr ".vclr[192].vfcl[142].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[192].vfcl[142].vfal" 1;
+	setAttr ".vclr[192].vfcl[149].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[192].vfcl[149].vfal" 1;
+	setAttr ".vclr[192].vfcl[150].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[192].vfcl[150].vfal" 1;
+	setAttr ".vclr[192].vfcl[157].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[192].vfcl[157].vfal" 1;
+	setAttr ".vclr[192].vfcl[158].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[192].vfcl[158].vfal" 1;
+	setAttr ".vclr[193].vxal" 1;
+	setAttr -s 6 ".vclr[193].vfcl";
+	setAttr ".vclr[193].vfcl[142].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[193].vfcl[142].vfal" 1;
+	setAttr ".vclr[193].vfcl[143].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[193].vfcl[143].vfal" 1;
+	setAttr ".vclr[193].vfcl[150].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[193].vfcl[150].vfal" 1;
+	setAttr ".vclr[193].vfcl[151].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[193].vfcl[151].vfal" 1;
+	setAttr ".vclr[193].vfcl[158].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[193].vfcl[158].vfal" 1;
+	setAttr ".vclr[193].vfcl[159].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[193].vfcl[159].vfal" 1;
+	setAttr ".vclr[194].vxal" 1;
+	setAttr -s 6 ".vclr[194].vfcl";
+	setAttr ".vclr[194].vfcl[143].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[194].vfcl[143].vfal" 1;
+	setAttr ".vclr[194].vfcl[144].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[194].vfcl[144].vfal" 1;
+	setAttr ".vclr[194].vfcl[151].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[194].vfcl[151].vfal" 1;
+	setAttr ".vclr[194].vfcl[152].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[194].vfcl[152].vfal" 1;
+	setAttr ".vclr[194].vfcl[159].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[194].vfcl[159].vfal" 1;
+	setAttr ".vclr[194].vfcl[160].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[194].vfcl[160].vfal" 1;
+	setAttr ".vclr[195].vxal" 1;
+	setAttr -s 6 ".vclr[195].vfcl";
+	setAttr ".vclr[195].vfcl[144].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[195].vfcl[144].vfal" 1;
+	setAttr ".vclr[195].vfcl[145].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[195].vfcl[145].vfal" 1;
+	setAttr ".vclr[195].vfcl[152].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[195].vfcl[152].vfal" 1;
+	setAttr ".vclr[195].vfcl[153].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[195].vfcl[153].vfal" 1;
+	setAttr ".vclr[195].vfcl[160].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[195].vfcl[160].vfal" 1;
+	setAttr ".vclr[195].vfcl[161].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[195].vfcl[161].vfal" 1;
+	setAttr ".vclr[196].vxal" 1;
+	setAttr -s 2 ".vclr[196].vfcl";
+	setAttr ".vclr[196].vfcl[146].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[196].vfcl[146].vfal" 1;
+	setAttr ".vclr[196].vfcl[153].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[196].vfcl[153].vfal" 1;
+	setAttr ".vclr[197].vxal" 1;
+	setAttr -s 2 ".vclr[197].vfcl";
+	setAttr ".vclr[197].vfcl[146].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[197].vfcl[146].vfal" 1;
+	setAttr ".vclr[197].vfcl[147].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[197].vfcl[147].vfal" 1;
+	setAttr ".vclr[198].vxal" 1;
+	setAttr -s 2 ".vclr[198].vfcl";
+	setAttr ".vclr[198].vfcl[147].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[198].vfcl[147].vfal" 1;
+	setAttr ".vclr[198].vfcl[148].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[198].vfcl[148].vfal" 1;
+	setAttr ".vclr[199].vxal" 1;
+	setAttr -s 2 ".vclr[199].vfcl";
+	setAttr ".vclr[199].vfcl[148].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[199].vfcl[148].vfal" 1;
+	setAttr ".vclr[199].vfcl[149].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[199].vfcl[149].vfal" 1;
+	setAttr ".vclr[200].vxal" 1;
+	setAttr -s 2 ".vclr[200].vfcl";
+	setAttr ".vclr[200].vfcl[149].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[200].vfcl[149].vfal" 1;
+	setAttr ".vclr[200].vfcl[150].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[200].vfcl[150].vfal" 1;
+	setAttr ".vclr[201].vxal" 1;
+	setAttr -s 2 ".vclr[201].vfcl";
+	setAttr ".vclr[201].vfcl[150].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[201].vfcl[150].vfal" 1;
+	setAttr ".vclr[201].vfcl[151].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[201].vfcl[151].vfal" 1;
+	setAttr ".vclr[202].vxal" 1;
+	setAttr -s 2 ".vclr[202].vfcl";
+	setAttr ".vclr[202].vfcl[151].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[202].vfcl[151].vfal" 1;
+	setAttr ".vclr[202].vfcl[152].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[202].vfcl[152].vfal" 1;
+	setAttr ".vclr[203].vxal" 1;
+	setAttr -s 2 ".vclr[203].vfcl";
+	setAttr ".vclr[203].vfcl[152].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[203].vfcl[152].vfal" 1;
+	setAttr ".vclr[203].vfcl[153].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[203].vfcl[153].vfal" 1;
+	setAttr ".vclr[204].vxal" 1;
+	setAttr -s 8 ".vclr[204].vfcl";
+	setAttr ".vclr[204].vfcl[162].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[204].vfcl[162].vfal" 1;
+	setAttr ".vclr[204].vfcl[163].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[204].vfcl[163].vfal" 1;
+	setAttr ".vclr[204].vfcl[164].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[204].vfcl[164].vfal" 1;
+	setAttr ".vclr[204].vfcl[165].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[204].vfcl[165].vfal" 1;
+	setAttr ".vclr[204].vfcl[166].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[204].vfcl[166].vfal" 1;
+	setAttr ".vclr[204].vfcl[167].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[204].vfcl[167].vfal" 1;
+	setAttr ".vclr[204].vfcl[168].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[204].vfcl[168].vfal" 1;
+	setAttr ".vclr[204].vfcl[169].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[204].vfcl[169].vfal" 1;
+	setAttr ".vclr[205].vxal" 1;
+	setAttr -s 4 ".vclr[205].vfcl";
+	setAttr ".vclr[205].vfcl[158].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[205].vfcl[158].vfal" 1;
+	setAttr ".vclr[205].vfcl[159].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[205].vfcl[159].vfal" 1;
+	setAttr ".vclr[205].vfcl[162].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[205].vfcl[162].vfal" 1;
+	setAttr ".vclr[205].vfcl[169].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[205].vfcl[169].vfal" 1;
+	setAttr ".vclr[206].vxal" 1;
+	setAttr -s 4 ".vclr[206].vfcl";
+	setAttr ".vclr[206].vfcl[157].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[206].vfcl[157].vfal" 1;
+	setAttr ".vclr[206].vfcl[158].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[206].vfcl[158].vfal" 1;
+	setAttr ".vclr[206].vfcl[162].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[206].vfcl[162].vfal" 1;
+	setAttr ".vclr[206].vfcl[163].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[206].vfcl[163].vfal" 1;
+	setAttr ".vclr[207].vxal" 1;
+	setAttr -s 4 ".vclr[207].vfcl";
+	setAttr ".vclr[207].vfcl[156].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[207].vfcl[156].vfal" 1;
+	setAttr ".vclr[207].vfcl[157].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[207].vfcl[157].vfal" 1;
+	setAttr ".vclr[207].vfcl[163].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[207].vfcl[163].vfal" 1;
+	setAttr ".vclr[207].vfcl[164].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[207].vfcl[164].vfal" 1;
+	setAttr ".vclr[208].vxal" 1;
+	setAttr -s 4 ".vclr[208].vfcl";
+	setAttr ".vclr[208].vfcl[155].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[208].vfcl[155].vfal" 1;
+	setAttr ".vclr[208].vfcl[156].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[208].vfcl[156].vfal" 1;
+	setAttr ".vclr[208].vfcl[164].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[208].vfcl[164].vfal" 1;
+	setAttr ".vclr[208].vfcl[165].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[208].vfcl[165].vfal" 1;
+	setAttr ".vclr[209].vxal" 1;
+	setAttr -s 4 ".vclr[209].vfcl";
+	setAttr ".vclr[209].vfcl[154].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[209].vfcl[154].vfal" 1;
+	setAttr ".vclr[209].vfcl[155].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[209].vfcl[155].vfal" 1;
+	setAttr ".vclr[209].vfcl[165].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[209].vfcl[165].vfal" 1;
+	setAttr ".vclr[209].vfcl[166].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[209].vfcl[166].vfal" 1;
+	setAttr ".vclr[210].vxal" 1;
+	setAttr -s 4 ".vclr[210].vfcl";
+	setAttr ".vclr[210].vfcl[154].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[210].vfcl[154].vfal" 1;
+	setAttr ".vclr[210].vfcl[161].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[210].vfcl[161].vfal" 1;
+	setAttr ".vclr[210].vfcl[166].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[210].vfcl[166].vfal" 1;
+	setAttr ".vclr[210].vfcl[167].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[210].vfcl[167].vfal" 1;
+	setAttr ".vclr[211].vxal" 1;
+	setAttr -s 4 ".vclr[211].vfcl";
+	setAttr ".vclr[211].vfcl[160].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[211].vfcl[160].vfal" 1;
+	setAttr ".vclr[211].vfcl[161].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[211].vfcl[161].vfal" 1;
+	setAttr ".vclr[211].vfcl[167].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[211].vfcl[167].vfal" 1;
+	setAttr ".vclr[211].vfcl[168].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[211].vfcl[168].vfal" 1;
+	setAttr ".vclr[212].vxal" 1;
+	setAttr -s 4 ".vclr[212].vfcl";
+	setAttr ".vclr[212].vfcl[159].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[212].vfcl[159].vfal" 1;
+	setAttr ".vclr[212].vfcl[160].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[212].vfcl[160].vfal" 1;
+	setAttr ".vclr[212].vfcl[168].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[212].vfcl[168].vfal" 1;
+	setAttr ".vclr[212].vfcl[169].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[212].vfcl[169].vfal" 1;
+	setAttr ".vclr[213].vxal" 1;
+	setAttr -s 6 ".vclr[213].vfcl";
+	setAttr ".vclr[213].vfcl[170].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[213].vfcl[170].vfal" 1;
+	setAttr ".vclr[213].vfcl[177].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[213].vfcl[177].vfal" 1;
+	setAttr ".vclr[213].vfcl[489].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[213].vfcl[489].vfal" 1;
+	setAttr ".vclr[213].vfcl[496].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[213].vfcl[496].vfal" 1;
+	setAttr ".vclr[213].vfcl[561].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[213].vfcl[561].vfal" 1;
+	setAttr ".vclr[213].vfcl[564].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[213].vfcl[564].vfal" 1;
+	setAttr ".vclr[214].vxal" 1;
+	setAttr -s 2 ".vclr[214].vfcl";
+	setAttr ".vclr[214].vfcl[170].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[214].vfcl[170].vfal" 1;
+	setAttr ".vclr[214].vfcl[171].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[214].vfcl[171].vfal" 1;
+	setAttr ".vclr[215].vxal" 1;
+	setAttr -s 2 ".vclr[215].vfcl";
+	setAttr ".vclr[215].vfcl[171].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[215].vfcl[171].vfal" 1;
+	setAttr ".vclr[215].vfcl[172].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[215].vfcl[172].vfal" 1;
+	setAttr ".vclr[216].vxal" 1;
+	setAttr -s 2 ".vclr[216].vfcl";
+	setAttr ".vclr[216].vfcl[172].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[216].vfcl[172].vfal" 1;
+	setAttr ".vclr[216].vfcl[173].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[216].vfcl[173].vfal" 1;
+	setAttr ".vclr[217].vxal" 1;
+	setAttr -s 2 ".vclr[217].vfcl";
+	setAttr ".vclr[217].vfcl[173].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[217].vfcl[173].vfal" 1;
+	setAttr ".vclr[217].vfcl[174].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[217].vfcl[174].vfal" 1;
+	setAttr ".vclr[218].vxal" 1;
+	setAttr -s 2 ".vclr[218].vfcl";
+	setAttr ".vclr[218].vfcl[174].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[218].vfcl[174].vfal" 1;
+	setAttr ".vclr[218].vfcl[175].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[218].vfcl[175].vfal" 1;
+	setAttr ".vclr[219].vxal" 1;
+	setAttr -s 6 ".vclr[219].vfcl";
+	setAttr ".vclr[219].vfcl[175].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[219].vfcl[175].vfal" 1;
+	setAttr ".vclr[219].vfcl[176].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[219].vfcl[176].vfal" 1;
+	setAttr ".vclr[219].vfcl[494].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[219].vfcl[494].vfal" 1;
+	setAttr ".vclr[219].vfcl[495].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[219].vfcl[495].vfal" 1;
+	setAttr ".vclr[219].vfcl[562].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[219].vfcl[562].vfal" 1;
+	setAttr ".vclr[219].vfcl[563].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[219].vfcl[563].vfal" 1;
+	setAttr ".vclr[220].vxal" 1;
+	setAttr -s 6 ".vclr[220].vfcl";
+	setAttr ".vclr[220].vfcl[176].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[220].vfcl[176].vfal" 1;
+	setAttr ".vclr[220].vfcl[177].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[220].vfcl[177].vfal" 1;
+	setAttr ".vclr[220].vfcl[495].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[220].vfcl[495].vfal" 1;
+	setAttr ".vclr[220].vfcl[496].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[220].vfcl[496].vfal" 1;
+	setAttr ".vclr[220].vfcl[563].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[220].vfcl[563].vfal" 1;
+	setAttr ".vclr[220].vfcl[564].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[220].vfcl[564].vfal" 1;
+	setAttr ".vclr[221].vxal" 1;
+	setAttr -s 6 ".vclr[221].vfcl";
+	setAttr ".vclr[221].vfcl[170].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[221].vfcl[170].vfal" 1;
+	setAttr ".vclr[221].vfcl[177].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[221].vfcl[177].vfal" 1;
+	setAttr ".vclr[221].vfcl[178].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[221].vfcl[178].vfal" 1;
+	setAttr ".vclr[221].vfcl[185].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[221].vfcl[185].vfal" 1;
+	setAttr ".vclr[221].vfcl[186].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[221].vfcl[186].vfal" 1;
+	setAttr ".vclr[221].vfcl[193].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[221].vfcl[193].vfal" 1;
+	setAttr ".vclr[222].vxal" 1;
+	setAttr -s 6 ".vclr[222].vfcl";
+	setAttr ".vclr[222].vfcl[170].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[222].vfcl[170].vfal" 1;
+	setAttr ".vclr[222].vfcl[171].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[222].vfcl[171].vfal" 1;
+	setAttr ".vclr[222].vfcl[178].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[222].vfcl[178].vfal" 1;
+	setAttr ".vclr[222].vfcl[179].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[222].vfcl[179].vfal" 1;
+	setAttr ".vclr[222].vfcl[186].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[222].vfcl[186].vfal" 1;
+	setAttr ".vclr[222].vfcl[187].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[222].vfcl[187].vfal" 1;
+	setAttr ".vclr[223].vxal" 1;
+	setAttr -s 6 ".vclr[223].vfcl";
+	setAttr ".vclr[223].vfcl[171].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[223].vfcl[171].vfal" 1;
+	setAttr ".vclr[223].vfcl[172].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[223].vfcl[172].vfal" 1;
+	setAttr ".vclr[223].vfcl[179].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[223].vfcl[179].vfal" 1;
+	setAttr ".vclr[223].vfcl[180].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[223].vfcl[180].vfal" 1;
+	setAttr ".vclr[223].vfcl[187].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[223].vfcl[187].vfal" 1;
+	setAttr ".vclr[223].vfcl[188].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[223].vfcl[188].vfal" 1;
+	setAttr ".vclr[224].vxal" 1;
+	setAttr -s 6 ".vclr[224].vfcl";
+	setAttr ".vclr[224].vfcl[172].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[224].vfcl[172].vfal" 1;
+	setAttr ".vclr[224].vfcl[173].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[224].vfcl[173].vfal" 1;
+	setAttr ".vclr[224].vfcl[180].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[224].vfcl[180].vfal" 1;
+	setAttr ".vclr[224].vfcl[181].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[224].vfcl[181].vfal" 1;
+	setAttr ".vclr[224].vfcl[188].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[224].vfcl[188].vfal" 1;
+	setAttr ".vclr[224].vfcl[189].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[224].vfcl[189].vfal" 1;
+	setAttr ".vclr[225].vxal" 1;
+	setAttr -s 6 ".vclr[225].vfcl";
+	setAttr ".vclr[225].vfcl[173].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[225].vfcl[173].vfal" 1;
+	setAttr ".vclr[225].vfcl[174].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[225].vfcl[174].vfal" 1;
+	setAttr ".vclr[225].vfcl[181].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[225].vfcl[181].vfal" 1;
+	setAttr ".vclr[225].vfcl[182].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[225].vfcl[182].vfal" 1;
+	setAttr ".vclr[225].vfcl[189].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[225].vfcl[189].vfal" 1;
+	setAttr ".vclr[225].vfcl[190].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[225].vfcl[190].vfal" 1;
+	setAttr ".vclr[226].vxal" 1;
+	setAttr -s 6 ".vclr[226].vfcl";
+	setAttr ".vclr[226].vfcl[174].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[226].vfcl[174].vfal" 1;
+	setAttr ".vclr[226].vfcl[175].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[226].vfcl[175].vfal" 1;
+	setAttr ".vclr[226].vfcl[182].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[226].vfcl[182].vfal" 1;
+	setAttr ".vclr[226].vfcl[183].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[226].vfcl[183].vfal" 1;
+	setAttr ".vclr[226].vfcl[190].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[226].vfcl[190].vfal" 1;
+	setAttr ".vclr[226].vfcl[191].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[226].vfcl[191].vfal" 1;
+	setAttr ".vclr[227].vxal" 1;
+	setAttr -s 6 ".vclr[227].vfcl";
+	setAttr ".vclr[227].vfcl[175].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[227].vfcl[175].vfal" 1;
+	setAttr ".vclr[227].vfcl[176].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[227].vfcl[176].vfal" 1;
+	setAttr ".vclr[227].vfcl[183].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[227].vfcl[183].vfal" 1;
+	setAttr ".vclr[227].vfcl[184].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[227].vfcl[184].vfal" 1;
+	setAttr ".vclr[227].vfcl[191].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[227].vfcl[191].vfal" 1;
+	setAttr ".vclr[227].vfcl[192].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[227].vfcl[192].vfal" 1;
+	setAttr ".vclr[228].vxal" 1;
+	setAttr -s 6 ".vclr[228].vfcl";
+	setAttr ".vclr[228].vfcl[176].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[228].vfcl[176].vfal" 1;
+	setAttr ".vclr[228].vfcl[177].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[228].vfcl[177].vfal" 1;
+	setAttr ".vclr[228].vfcl[184].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[228].vfcl[184].vfal" 1;
+	setAttr ".vclr[228].vfcl[185].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[228].vfcl[185].vfal" 1;
+	setAttr ".vclr[228].vfcl[192].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[228].vfcl[192].vfal" 1;
+	setAttr ".vclr[228].vfcl[193].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[228].vfcl[193].vfal" 1;
+	setAttr ".vclr[229].vxal" 1;
+	setAttr -s 2 ".vclr[229].vfcl";
+	setAttr ".vclr[229].vfcl[178].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[229].vfcl[178].vfal" 1;
+	setAttr ".vclr[229].vfcl[185].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[229].vfcl[185].vfal" 1;
+	setAttr ".vclr[230].vxal" 1;
+	setAttr -s 2 ".vclr[230].vfcl";
+	setAttr ".vclr[230].vfcl[178].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[230].vfcl[178].vfal" 1;
+	setAttr ".vclr[230].vfcl[179].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[230].vfcl[179].vfal" 1;
+	setAttr ".vclr[231].vxal" 1;
+	setAttr -s 2 ".vclr[231].vfcl";
+	setAttr ".vclr[231].vfcl[179].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[231].vfcl[179].vfal" 1;
+	setAttr ".vclr[231].vfcl[180].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[231].vfcl[180].vfal" 1;
+	setAttr ".vclr[232].vxal" 1;
+	setAttr -s 2 ".vclr[232].vfcl";
+	setAttr ".vclr[232].vfcl[180].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[232].vfcl[180].vfal" 1;
+	setAttr ".vclr[232].vfcl[181].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[232].vfcl[181].vfal" 1;
+	setAttr ".vclr[233].vxal" 1;
+	setAttr -s 2 ".vclr[233].vfcl";
+	setAttr ".vclr[233].vfcl[181].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[233].vfcl[181].vfal" 1;
+	setAttr ".vclr[233].vfcl[182].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[233].vfcl[182].vfal" 1;
+	setAttr ".vclr[234].vxal" 1;
+	setAttr -s 2 ".vclr[234].vfcl";
+	setAttr ".vclr[234].vfcl[182].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[234].vfcl[182].vfal" 1;
+	setAttr ".vclr[234].vfcl[183].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[234].vfcl[183].vfal" 1;
+	setAttr ".vclr[235].vxal" 1;
+	setAttr -s 2 ".vclr[235].vfcl";
+	setAttr ".vclr[235].vfcl[183].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[235].vfcl[183].vfal" 1;
+	setAttr ".vclr[235].vfcl[184].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[235].vfcl[184].vfal" 1;
+	setAttr ".vclr[236].vxal" 1;
+	setAttr -s 2 ".vclr[236].vfcl";
+	setAttr ".vclr[236].vfcl[184].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[236].vfcl[184].vfal" 1;
+	setAttr ".vclr[236].vfcl[185].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[236].vfcl[185].vfal" 1;
+	setAttr ".vclr[237].vxal" 1;
+	setAttr -s 8 ".vclr[237].vfcl";
+	setAttr ".vclr[237].vfcl[194].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[237].vfcl[194].vfal" 1;
+	setAttr ".vclr[237].vfcl[195].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[237].vfcl[195].vfal" 1;
+	setAttr ".vclr[237].vfcl[196].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[237].vfcl[196].vfal" 1;
+	setAttr ".vclr[237].vfcl[197].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[237].vfcl[197].vfal" 1;
+	setAttr ".vclr[237].vfcl[198].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[237].vfcl[198].vfal" 1;
+	setAttr ".vclr[237].vfcl[199].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[237].vfcl[199].vfal" 1;
+	setAttr ".vclr[237].vfcl[200].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[237].vfcl[200].vfal" 1;
+	setAttr ".vclr[237].vfcl[201].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[237].vfcl[201].vfal" 1;
+	setAttr ".vclr[238].vxal" 1;
+	setAttr -s 4 ".vclr[238].vfcl";
+	setAttr ".vclr[238].vfcl[190].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[238].vfcl[190].vfal" 1;
+	setAttr ".vclr[238].vfcl[191].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[238].vfcl[191].vfal" 1;
+	setAttr ".vclr[238].vfcl[194].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[238].vfcl[194].vfal" 1;
+	setAttr ".vclr[238].vfcl[201].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[238].vfcl[201].vfal" 1;
+	setAttr ".vclr[239].vxal" 1;
+	setAttr -s 4 ".vclr[239].vfcl";
+	setAttr ".vclr[239].vfcl[189].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[239].vfcl[189].vfal" 1;
+	setAttr ".vclr[239].vfcl[190].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[239].vfcl[190].vfal" 1;
+	setAttr ".vclr[239].vfcl[194].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[239].vfcl[194].vfal" 1;
+	setAttr ".vclr[239].vfcl[195].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[239].vfcl[195].vfal" 1;
+	setAttr ".vclr[240].vxal" 1;
+	setAttr -s 4 ".vclr[240].vfcl";
+	setAttr ".vclr[240].vfcl[188].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[240].vfcl[188].vfal" 1;
+	setAttr ".vclr[240].vfcl[189].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[240].vfcl[189].vfal" 1;
+	setAttr ".vclr[240].vfcl[195].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[240].vfcl[195].vfal" 1;
+	setAttr ".vclr[240].vfcl[196].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[240].vfcl[196].vfal" 1;
+	setAttr ".vclr[241].vxal" 1;
+	setAttr -s 4 ".vclr[241].vfcl";
+	setAttr ".vclr[241].vfcl[187].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[241].vfcl[187].vfal" 1;
+	setAttr ".vclr[241].vfcl[188].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[241].vfcl[188].vfal" 1;
+	setAttr ".vclr[241].vfcl[196].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[241].vfcl[196].vfal" 1;
+	setAttr ".vclr[241].vfcl[197].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[241].vfcl[197].vfal" 1;
+	setAttr ".vclr[242].vxal" 1;
+	setAttr -s 4 ".vclr[242].vfcl";
+	setAttr ".vclr[242].vfcl[186].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[242].vfcl[186].vfal" 1;
+	setAttr ".vclr[242].vfcl[187].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[242].vfcl[187].vfal" 1;
+	setAttr ".vclr[242].vfcl[197].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[242].vfcl[197].vfal" 1;
+	setAttr ".vclr[242].vfcl[198].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[242].vfcl[198].vfal" 1;
+	setAttr ".vclr[243].vxal" 1;
+	setAttr -s 4 ".vclr[243].vfcl";
+	setAttr ".vclr[243].vfcl[186].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[243].vfcl[186].vfal" 1;
+	setAttr ".vclr[243].vfcl[193].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[243].vfcl[193].vfal" 1;
+	setAttr ".vclr[243].vfcl[198].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[243].vfcl[198].vfal" 1;
+	setAttr ".vclr[243].vfcl[199].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[243].vfcl[199].vfal" 1;
+	setAttr ".vclr[244].vxal" 1;
+	setAttr -s 4 ".vclr[244].vfcl";
+	setAttr ".vclr[244].vfcl[192].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[244].vfcl[192].vfal" 1;
+	setAttr ".vclr[244].vfcl[193].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[244].vfcl[193].vfal" 1;
+	setAttr ".vclr[244].vfcl[199].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[244].vfcl[199].vfal" 1;
+	setAttr ".vclr[244].vfcl[200].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[244].vfcl[200].vfal" 1;
+	setAttr ".vclr[245].vxal" 1;
+	setAttr -s 4 ".vclr[245].vfcl";
+	setAttr ".vclr[245].vfcl[191].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[245].vfcl[191].vfal" 1;
+	setAttr ".vclr[245].vfcl[192].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[245].vfcl[192].vfal" 1;
+	setAttr ".vclr[245].vfcl[200].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[245].vfcl[200].vfal" 1;
+	setAttr ".vclr[245].vfcl[201].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[245].vfcl[201].vfal" 1;
+	setAttr ".vclr[246].vxal" 1;
+	setAttr -s 4 ".vclr[246].vfcl";
+	setAttr ".vclr[246].vfcl[202].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[246].vfcl[202].vfal" 1;
+	setAttr ".vclr[246].vfcl[209].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[246].vfcl[209].vfal" 1;
+	setAttr ".vclr[246].vfcl[483].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[246].vfcl[483].vfal" 1;
+	setAttr ".vclr[246].vfcl[488].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[246].vfcl[488].vfal" 1;
+	setAttr ".vclr[247].vxal" 1;
+	setAttr -s 4 ".vclr[247].vfcl";
+	setAttr ".vclr[247].vfcl[202].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[247].vfcl[202].vfal" 1;
+	setAttr ".vclr[247].vfcl[203].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[247].vfcl[203].vfal" 1;
+	setAttr ".vclr[247].vfcl[483].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[247].vfcl[483].vfal" 1;
+	setAttr ".vclr[247].vfcl[484].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[247].vfcl[484].vfal" 1;
+	setAttr ".vclr[248].vxal" 1;
+	setAttr -s 5 ".vclr[248].vfcl";
+	setAttr ".vclr[248].vfcl[206].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[248].vfcl[206].vfal" 1;
+	setAttr ".vclr[248].vfcl[207].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[248].vfcl[207].vfal" 1;
+	setAttr ".vclr[248].vfcl[487].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[248].vfcl[487].vfal" 1;
+	setAttr ".vclr[248].vfcl[553].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[248].vfcl[553].vfal" 1;
+	setAttr ".vclr[248].vfcl[554].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[248].vfcl[554].vfal" 1;
+	setAttr ".vclr[249].vxal" 1;
+	setAttr -s 4 ".vclr[249].vfcl";
+	setAttr ".vclr[249].vfcl[207].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[249].vfcl[207].vfal" 1;
+	setAttr ".vclr[249].vfcl[208].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[249].vfcl[208].vfal" 1;
+	setAttr ".vclr[249].vfcl[554].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[249].vfcl[554].vfal" 1;
+	setAttr ".vclr[249].vfcl[555].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[249].vfcl[555].vfal" 1;
+	setAttr ".vclr[250].vxal" 1;
+	setAttr -s 5 ".vclr[250].vfcl";
+	setAttr ".vclr[250].vfcl[208].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[250].vfcl[208].vfal" 1;
+	setAttr ".vclr[250].vfcl[209].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[250].vfcl[209].vfal" 1;
+	setAttr ".vclr[250].vfcl[488].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[250].vfcl[488].vfal" 1;
+	setAttr ".vclr[250].vfcl[555].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[250].vfcl[555].vfal" 1;
+	setAttr ".vclr[250].vfcl[556].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[250].vfcl[556].vfal" 1;
+	setAttr ".vclr[251].vxal" 1;
+	setAttr -s 6 ".vclr[251].vfcl";
+	setAttr ".vclr[251].vfcl[202].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[251].vfcl[202].vfal" 1;
+	setAttr ".vclr[251].vfcl[209].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[251].vfcl[209].vfal" 1;
+	setAttr ".vclr[251].vfcl[210].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[251].vfcl[210].vfal" 1;
+	setAttr ".vclr[251].vfcl[217].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[251].vfcl[217].vfal" 1;
+	setAttr ".vclr[251].vfcl[218].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[251].vfcl[218].vfal" 1;
+	setAttr ".vclr[251].vfcl[225].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[251].vfcl[225].vfal" 1;
+	setAttr ".vclr[252].vxal" 1;
+	setAttr -s 6 ".vclr[252].vfcl";
+	setAttr ".vclr[252].vfcl[202].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[252].vfcl[202].vfal" 1;
+	setAttr ".vclr[252].vfcl[203].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[252].vfcl[203].vfal" 1;
+	setAttr ".vclr[252].vfcl[210].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[252].vfcl[210].vfal" 1;
+	setAttr ".vclr[252].vfcl[211].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[252].vfcl[211].vfal" 1;
+	setAttr ".vclr[252].vfcl[218].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[252].vfcl[218].vfal" 1;
+	setAttr ".vclr[252].vfcl[219].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[252].vfcl[219].vfal" 1;
+	setAttr ".vclr[253].vxal" 1;
+	setAttr -s 6 ".vclr[253].vfcl";
+	setAttr ".vclr[253].vfcl[203].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[253].vfcl[203].vfal" 1;
+	setAttr ".vclr[253].vfcl[204].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[253].vfcl[204].vfal" 1;
+	setAttr ".vclr[253].vfcl[211].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[253].vfcl[211].vfal" 1;
+	setAttr ".vclr[253].vfcl[212].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[253].vfcl[212].vfal" 1;
+	setAttr ".vclr[253].vfcl[219].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[253].vfcl[219].vfal" 1;
+	setAttr ".vclr[253].vfcl[220].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[253].vfcl[220].vfal" 1;
+	setAttr ".vclr[254].vxal" 1;
+	setAttr -s 6 ".vclr[254].vfcl";
+	setAttr ".vclr[254].vfcl[204].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[254].vfcl[204].vfal" 1;
+	setAttr ".vclr[254].vfcl[205].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[254].vfcl[205].vfal" 1;
+	setAttr ".vclr[254].vfcl[212].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[254].vfcl[212].vfal" 1;
+	setAttr ".vclr[254].vfcl[213].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[254].vfcl[213].vfal" 1;
+	setAttr ".vclr[254].vfcl[220].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[254].vfcl[220].vfal" 1;
+	setAttr ".vclr[254].vfcl[221].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[254].vfcl[221].vfal" 1;
+	setAttr ".vclr[255].vxal" 1;
+	setAttr -s 6 ".vclr[255].vfcl";
+	setAttr ".vclr[255].vfcl[205].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[255].vfcl[205].vfal" 1;
+	setAttr ".vclr[255].vfcl[206].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[255].vfcl[206].vfal" 1;
+	setAttr ".vclr[255].vfcl[213].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[255].vfcl[213].vfal" 1;
+	setAttr ".vclr[255].vfcl[214].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[255].vfcl[214].vfal" 1;
+	setAttr ".vclr[255].vfcl[221].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[255].vfcl[221].vfal" 1;
+	setAttr ".vclr[255].vfcl[222].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[255].vfcl[222].vfal" 1;
+	setAttr ".vclr[256].vxal" 1;
+	setAttr -s 6 ".vclr[256].vfcl";
+	setAttr ".vclr[256].vfcl[206].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[256].vfcl[206].vfal" 1;
+	setAttr ".vclr[256].vfcl[207].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[256].vfcl[207].vfal" 1;
+	setAttr ".vclr[256].vfcl[214].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[256].vfcl[214].vfal" 1;
+	setAttr ".vclr[256].vfcl[215].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[256].vfcl[215].vfal" 1;
+	setAttr ".vclr[256].vfcl[222].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[256].vfcl[222].vfal" 1;
+	setAttr ".vclr[256].vfcl[223].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[256].vfcl[223].vfal" 1;
+	setAttr ".vclr[257].vxal" 1;
+	setAttr -s 6 ".vclr[257].vfcl";
+	setAttr ".vclr[257].vfcl[207].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[257].vfcl[207].vfal" 1;
+	setAttr ".vclr[257].vfcl[208].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[257].vfcl[208].vfal" 1;
+	setAttr ".vclr[257].vfcl[215].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[257].vfcl[215].vfal" 1;
+	setAttr ".vclr[257].vfcl[216].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[257].vfcl[216].vfal" 1;
+	setAttr ".vclr[257].vfcl[223].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[257].vfcl[223].vfal" 1;
+	setAttr ".vclr[257].vfcl[224].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[257].vfcl[224].vfal" 1;
+	setAttr ".vclr[258].vxal" 1;
+	setAttr -s 6 ".vclr[258].vfcl";
+	setAttr ".vclr[258].vfcl[208].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[258].vfcl[208].vfal" 1;
+	setAttr ".vclr[258].vfcl[209].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[258].vfcl[209].vfal" 1;
+	setAttr ".vclr[258].vfcl[216].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[258].vfcl[216].vfal" 1;
+	setAttr ".vclr[258].vfcl[217].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[258].vfcl[217].vfal" 1;
+	setAttr ".vclr[258].vfcl[224].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[258].vfcl[224].vfal" 1;
+	setAttr ".vclr[258].vfcl[225].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[258].vfcl[225].vfal" 1;
+	setAttr ".vclr[259].vxal" 1;
+	setAttr -s 2 ".vclr[259].vfcl";
+	setAttr ".vclr[259].vfcl[210].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[259].vfcl[210].vfal" 1;
+	setAttr ".vclr[259].vfcl[217].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[259].vfcl[217].vfal" 1;
+	setAttr ".vclr[260].vxal" 1;
+	setAttr -s 2 ".vclr[260].vfcl";
+	setAttr ".vclr[260].vfcl[210].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[260].vfcl[210].vfal" 1;
+	setAttr ".vclr[260].vfcl[211].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[260].vfcl[211].vfal" 1;
+	setAttr ".vclr[261].vxal" 1;
+	setAttr -s 2 ".vclr[261].vfcl";
+	setAttr ".vclr[261].vfcl[211].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[261].vfcl[211].vfal" 1;
+	setAttr ".vclr[261].vfcl[212].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[261].vfcl[212].vfal" 1;
+	setAttr ".vclr[262].vxal" 1;
+	setAttr -s 2 ".vclr[262].vfcl";
+	setAttr ".vclr[262].vfcl[212].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[262].vfcl[212].vfal" 1;
+	setAttr ".vclr[262].vfcl[213].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[262].vfcl[213].vfal" 1;
+	setAttr ".vclr[263].vxal" 1;
+	setAttr -s 2 ".vclr[263].vfcl";
+	setAttr ".vclr[263].vfcl[213].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[263].vfcl[213].vfal" 1;
+	setAttr ".vclr[263].vfcl[214].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[263].vfcl[214].vfal" 1;
+	setAttr ".vclr[264].vxal" 1;
+	setAttr -s 2 ".vclr[264].vfcl";
+	setAttr ".vclr[264].vfcl[214].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[264].vfcl[214].vfal" 1;
+	setAttr ".vclr[264].vfcl[215].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[264].vfcl[215].vfal" 1;
+	setAttr ".vclr[265].vxal" 1;
+	setAttr -s 2 ".vclr[265].vfcl";
+	setAttr ".vclr[265].vfcl[215].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[265].vfcl[215].vfal" 1;
+	setAttr ".vclr[265].vfcl[216].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[265].vfcl[216].vfal" 1;
+	setAttr ".vclr[266].vxal" 1;
+	setAttr -s 2 ".vclr[266].vfcl";
+	setAttr ".vclr[266].vfcl[216].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[266].vfcl[216].vfal" 1;
+	setAttr ".vclr[266].vfcl[217].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[266].vfcl[217].vfal" 1;
+	setAttr ".vclr[267].vxal" 1;
+	setAttr -s 8 ".vclr[267].vfcl";
+	setAttr ".vclr[267].vfcl[226].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[267].vfcl[226].vfal" 1;
+	setAttr ".vclr[267].vfcl[227].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[267].vfcl[227].vfal" 1;
+	setAttr ".vclr[267].vfcl[228].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[267].vfcl[228].vfal" 1;
+	setAttr ".vclr[267].vfcl[229].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[267].vfcl[229].vfal" 1;
+	setAttr ".vclr[267].vfcl[230].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[267].vfcl[230].vfal" 1;
+	setAttr ".vclr[267].vfcl[231].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[267].vfcl[231].vfal" 1;
+	setAttr ".vclr[267].vfcl[232].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[267].vfcl[232].vfal" 1;
+	setAttr ".vclr[267].vfcl[233].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[267].vfcl[233].vfal" 1;
+	setAttr ".vclr[268].vxal" 1;
+	setAttr -s 4 ".vclr[268].vfcl";
+	setAttr ".vclr[268].vfcl[222].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[268].vfcl[222].vfal" 1;
+	setAttr ".vclr[268].vfcl[223].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[268].vfcl[223].vfal" 1;
+	setAttr ".vclr[268].vfcl[226].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[268].vfcl[226].vfal" 1;
+	setAttr ".vclr[268].vfcl[233].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[268].vfcl[233].vfal" 1;
+	setAttr ".vclr[269].vxal" 1;
+	setAttr -s 4 ".vclr[269].vfcl";
+	setAttr ".vclr[269].vfcl[221].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[269].vfcl[221].vfal" 1;
+	setAttr ".vclr[269].vfcl[222].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[269].vfcl[222].vfal" 1;
+	setAttr ".vclr[269].vfcl[226].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[269].vfcl[226].vfal" 1;
+	setAttr ".vclr[269].vfcl[227].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[269].vfcl[227].vfal" 1;
+	setAttr ".vclr[270].vxal" 1;
+	setAttr -s 4 ".vclr[270].vfcl";
+	setAttr ".vclr[270].vfcl[220].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[270].vfcl[220].vfal" 1;
+	setAttr ".vclr[270].vfcl[221].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[270].vfcl[221].vfal" 1;
+	setAttr ".vclr[270].vfcl[227].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[270].vfcl[227].vfal" 1;
+	setAttr ".vclr[270].vfcl[228].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[270].vfcl[228].vfal" 1;
+	setAttr ".vclr[271].vxal" 1;
+	setAttr -s 4 ".vclr[271].vfcl";
+	setAttr ".vclr[271].vfcl[219].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[271].vfcl[219].vfal" 1;
+	setAttr ".vclr[271].vfcl[220].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[271].vfcl[220].vfal" 1;
+	setAttr ".vclr[271].vfcl[228].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[271].vfcl[228].vfal" 1;
+	setAttr ".vclr[271].vfcl[229].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[271].vfcl[229].vfal" 1;
+	setAttr ".vclr[272].vxal" 1;
+	setAttr -s 4 ".vclr[272].vfcl";
+	setAttr ".vclr[272].vfcl[218].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[272].vfcl[218].vfal" 1;
+	setAttr ".vclr[272].vfcl[219].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[272].vfcl[219].vfal" 1;
+	setAttr ".vclr[272].vfcl[229].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[272].vfcl[229].vfal" 1;
+	setAttr ".vclr[272].vfcl[230].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[272].vfcl[230].vfal" 1;
+	setAttr ".vclr[273].vxal" 1;
+	setAttr -s 4 ".vclr[273].vfcl";
+	setAttr ".vclr[273].vfcl[218].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[273].vfcl[218].vfal" 1;
+	setAttr ".vclr[273].vfcl[225].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[273].vfcl[225].vfal" 1;
+	setAttr ".vclr[273].vfcl[230].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[273].vfcl[230].vfal" 1;
+	setAttr ".vclr[273].vfcl[231].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[273].vfcl[231].vfal" 1;
+	setAttr ".vclr[274].vxal" 1;
+	setAttr -s 4 ".vclr[274].vfcl";
+	setAttr ".vclr[274].vfcl[224].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[274].vfcl[224].vfal" 1;
+	setAttr ".vclr[274].vfcl[225].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[274].vfcl[225].vfal" 1;
+	setAttr ".vclr[274].vfcl[231].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[274].vfcl[231].vfal" 1;
+	setAttr ".vclr[274].vfcl[232].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[274].vfcl[232].vfal" 1;
+	setAttr ".vclr[275].vxal" 1;
+	setAttr -s 4 ".vclr[275].vfcl";
+	setAttr ".vclr[275].vfcl[223].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[275].vfcl[223].vfal" 1;
+	setAttr ".vclr[275].vfcl[224].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[275].vfcl[224].vfal" 1;
+	setAttr ".vclr[275].vfcl[232].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[275].vfcl[232].vfal" 1;
+	setAttr ".vclr[275].vfcl[233].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[275].vfcl[233].vfal" 1;
+	setAttr ".vclr[276].vxal" 1;
+	setAttr -s 4 ".vclr[276].vfcl";
+	setAttr ".vclr[276].vfcl[234].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[276].vfcl[234].vfal" 1;
+	setAttr ".vclr[276].vfcl[241].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[276].vfcl[241].vfal" 1;
+	setAttr ".vclr[276].vfcl[477].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[276].vfcl[477].vfal" 1;
+	setAttr ".vclr[276].vfcl[482].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[276].vfcl[482].vfal" 1;
+	setAttr ".vclr[277].vxal" 1;
+	setAttr -s 4 ".vclr[277].vfcl";
+	setAttr ".vclr[277].vfcl[234].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[277].vfcl[234].vfal" 1;
+	setAttr ".vclr[277].vfcl[235].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[277].vfcl[235].vfal" 1;
+	setAttr ".vclr[277].vfcl[477].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[277].vfcl[477].vfal" 1;
+	setAttr ".vclr[277].vfcl[478].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[277].vfcl[478].vfal" 1;
+	setAttr ".vclr[278].vxal" 1;
+	setAttr -s 4 ".vclr[278].vfcl";
+	setAttr ".vclr[278].vfcl[235].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[278].vfcl[235].vfal" 1;
+	setAttr ".vclr[278].vfcl[236].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[278].vfcl[236].vfal" 1;
+	setAttr ".vclr[278].vfcl[478].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[278].vfcl[478].vfal" 1;
+	setAttr ".vclr[278].vfcl[479].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[278].vfcl[479].vfal" 1;
+	setAttr ".vclr[279].vxal" 1;
+	setAttr -s 4 ".vclr[279].vfcl";
+	setAttr ".vclr[279].vfcl[236].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[279].vfcl[236].vfal" 1;
+	setAttr ".vclr[279].vfcl[237].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[279].vfcl[237].vfal" 1;
+	setAttr ".vclr[279].vfcl[479].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[279].vfcl[479].vfal" 1;
+	setAttr ".vclr[279].vfcl[480].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[279].vfcl[480].vfal" 1;
+	setAttr ".vclr[280].vxal" 1;
+	setAttr -s 5 ".vclr[280].vfcl";
+	setAttr ".vclr[280].vfcl[237].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[280].vfcl[237].vfal" 1;
+	setAttr ".vclr[280].vfcl[238].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[280].vfcl[238].vfal" 1;
+	setAttr ".vclr[280].vfcl[480].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[280].vfcl[480].vfal" 1;
+	setAttr ".vclr[280].vfcl[545].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[280].vfcl[545].vfal" 1;
+	setAttr ".vclr[280].vfcl[546].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[280].vfcl[546].vfal" 1;
+	setAttr ".vclr[281].vxal" 1;
+	setAttr -s 4 ".vclr[281].vfcl";
+	setAttr ".vclr[281].vfcl[238].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[281].vfcl[238].vfal" 1;
+	setAttr ".vclr[281].vfcl[239].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[281].vfcl[239].vfal" 1;
+	setAttr ".vclr[281].vfcl[546].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[281].vfcl[546].vfal" 1;
+	setAttr ".vclr[281].vfcl[547].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[281].vfcl[547].vfal" 1;
+	setAttr ".vclr[282].vxal" 1;
+	setAttr -s 5 ".vclr[282].vfcl";
+	setAttr ".vclr[282].vfcl[239].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[282].vfcl[239].vfal" 1;
+	setAttr ".vclr[282].vfcl[240].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[282].vfcl[240].vfal" 1;
+	setAttr ".vclr[282].vfcl[481].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[282].vfcl[481].vfal" 1;
+	setAttr ".vclr[282].vfcl[547].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[282].vfcl[547].vfal" 1;
+	setAttr ".vclr[282].vfcl[548].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[282].vfcl[548].vfal" 1;
+	setAttr ".vclr[283].vxal" 1;
+	setAttr -s 4 ".vclr[283].vfcl";
+	setAttr ".vclr[283].vfcl[240].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[283].vfcl[240].vfal" 1;
+	setAttr ".vclr[283].vfcl[241].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[283].vfcl[241].vfal" 1;
+	setAttr ".vclr[283].vfcl[481].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[283].vfcl[481].vfal" 1;
+	setAttr ".vclr[283].vfcl[482].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[283].vfcl[482].vfal" 1;
+	setAttr ".vclr[284].vxal" 1;
+	setAttr -s 6 ".vclr[284].vfcl";
+	setAttr ".vclr[284].vfcl[234].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[284].vfcl[234].vfal" 1;
+	setAttr ".vclr[284].vfcl[241].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[284].vfcl[241].vfal" 1;
+	setAttr ".vclr[284].vfcl[242].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[284].vfcl[242].vfal" 1;
+	setAttr ".vclr[284].vfcl[249].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[284].vfcl[249].vfal" 1;
+	setAttr ".vclr[284].vfcl[250].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[284].vfcl[250].vfal" 1;
+	setAttr ".vclr[284].vfcl[257].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[284].vfcl[257].vfal" 1;
+	setAttr ".vclr[285].vxal" 1;
+	setAttr -s 6 ".vclr[285].vfcl";
+	setAttr ".vclr[285].vfcl[234].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[285].vfcl[234].vfal" 1;
+	setAttr ".vclr[285].vfcl[235].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[285].vfcl[235].vfal" 1;
+	setAttr ".vclr[285].vfcl[242].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[285].vfcl[242].vfal" 1;
+	setAttr ".vclr[285].vfcl[243].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[285].vfcl[243].vfal" 1;
+	setAttr ".vclr[285].vfcl[250].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[285].vfcl[250].vfal" 1;
+	setAttr ".vclr[285].vfcl[251].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[285].vfcl[251].vfal" 1;
+	setAttr ".vclr[286].vxal" 1;
+	setAttr -s 6 ".vclr[286].vfcl";
+	setAttr ".vclr[286].vfcl[235].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[286].vfcl[235].vfal" 1;
+	setAttr ".vclr[286].vfcl[236].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[286].vfcl[236].vfal" 1;
+	setAttr ".vclr[286].vfcl[243].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[286].vfcl[243].vfal" 1;
+	setAttr ".vclr[286].vfcl[244].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[286].vfcl[244].vfal" 1;
+	setAttr ".vclr[286].vfcl[251].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[286].vfcl[251].vfal" 1;
+	setAttr ".vclr[286].vfcl[252].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[286].vfcl[252].vfal" 1;
+	setAttr ".vclr[287].vxal" 1;
+	setAttr -s 6 ".vclr[287].vfcl";
+	setAttr ".vclr[287].vfcl[236].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[287].vfcl[236].vfal" 1;
+	setAttr ".vclr[287].vfcl[237].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[287].vfcl[237].vfal" 1;
+	setAttr ".vclr[287].vfcl[244].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[287].vfcl[244].vfal" 1;
+	setAttr ".vclr[287].vfcl[245].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[287].vfcl[245].vfal" 1;
+	setAttr ".vclr[287].vfcl[252].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[287].vfcl[252].vfal" 1;
+	setAttr ".vclr[287].vfcl[253].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[287].vfcl[253].vfal" 1;
+	setAttr ".vclr[288].vxal" 1;
+	setAttr -s 6 ".vclr[288].vfcl";
+	setAttr ".vclr[288].vfcl[237].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[288].vfcl[237].vfal" 1;
+	setAttr ".vclr[288].vfcl[238].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[288].vfcl[238].vfal" 1;
+	setAttr ".vclr[288].vfcl[245].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[288].vfcl[245].vfal" 1;
+	setAttr ".vclr[288].vfcl[246].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[288].vfcl[246].vfal" 1;
+	setAttr ".vclr[288].vfcl[253].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[288].vfcl[253].vfal" 1;
+	setAttr ".vclr[288].vfcl[254].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[288].vfcl[254].vfal" 1;
+	setAttr ".vclr[289].vxal" 1;
+	setAttr -s 6 ".vclr[289].vfcl";
+	setAttr ".vclr[289].vfcl[238].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[289].vfcl[238].vfal" 1;
+	setAttr ".vclr[289].vfcl[239].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[289].vfcl[239].vfal" 1;
+	setAttr ".vclr[289].vfcl[246].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[289].vfcl[246].vfal" 1;
+	setAttr ".vclr[289].vfcl[247].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[289].vfcl[247].vfal" 1;
+	setAttr ".vclr[289].vfcl[254].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[289].vfcl[254].vfal" 1;
+	setAttr ".vclr[289].vfcl[255].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[289].vfcl[255].vfal" 1;
+	setAttr ".vclr[290].vxal" 1;
+	setAttr -s 6 ".vclr[290].vfcl";
+	setAttr ".vclr[290].vfcl[239].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[290].vfcl[239].vfal" 1;
+	setAttr ".vclr[290].vfcl[240].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[290].vfcl[240].vfal" 1;
+	setAttr ".vclr[290].vfcl[247].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[290].vfcl[247].vfal" 1;
+	setAttr ".vclr[290].vfcl[248].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[290].vfcl[248].vfal" 1;
+	setAttr ".vclr[290].vfcl[255].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[290].vfcl[255].vfal" 1;
+	setAttr ".vclr[290].vfcl[256].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[290].vfcl[256].vfal" 1;
+	setAttr ".vclr[291].vxal" 1;
+	setAttr -s 6 ".vclr[291].vfcl";
+	setAttr ".vclr[291].vfcl[240].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[291].vfcl[240].vfal" 1;
+	setAttr ".vclr[291].vfcl[241].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[291].vfcl[241].vfal" 1;
+	setAttr ".vclr[291].vfcl[248].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[291].vfcl[248].vfal" 1;
+	setAttr ".vclr[291].vfcl[249].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[291].vfcl[249].vfal" 1;
+	setAttr ".vclr[291].vfcl[256].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[291].vfcl[256].vfal" 1;
+	setAttr ".vclr[291].vfcl[257].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[291].vfcl[257].vfal" 1;
+	setAttr ".vclr[292].vxal" 1;
+	setAttr -s 2 ".vclr[292].vfcl";
+	setAttr ".vclr[292].vfcl[242].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[292].vfcl[242].vfal" 1;
+	setAttr ".vclr[292].vfcl[249].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[292].vfcl[249].vfal" 1;
+	setAttr ".vclr[293].vxal" 1;
+	setAttr -s 2 ".vclr[293].vfcl";
+	setAttr ".vclr[293].vfcl[242].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[293].vfcl[242].vfal" 1;
+	setAttr ".vclr[293].vfcl[243].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[293].vfcl[243].vfal" 1;
+	setAttr ".vclr[294].vxal" 1;
+	setAttr -s 2 ".vclr[294].vfcl";
+	setAttr ".vclr[294].vfcl[243].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[294].vfcl[243].vfal" 1;
+	setAttr ".vclr[294].vfcl[244].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[294].vfcl[244].vfal" 1;
+	setAttr ".vclr[295].vxal" 1;
+	setAttr -s 2 ".vclr[295].vfcl";
+	setAttr ".vclr[295].vfcl[244].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[295].vfcl[244].vfal" 1;
+	setAttr ".vclr[295].vfcl[245].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[295].vfcl[245].vfal" 1;
+	setAttr ".vclr[296].vxal" 1;
+	setAttr -s 2 ".vclr[296].vfcl";
+	setAttr ".vclr[296].vfcl[245].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[296].vfcl[245].vfal" 1;
+	setAttr ".vclr[296].vfcl[246].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[296].vfcl[246].vfal" 1;
+	setAttr ".vclr[297].vxal" 1;
+	setAttr -s 2 ".vclr[297].vfcl";
+	setAttr ".vclr[297].vfcl[246].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[297].vfcl[246].vfal" 1;
+	setAttr ".vclr[297].vfcl[247].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[297].vfcl[247].vfal" 1;
+	setAttr ".vclr[298].vxal" 1;
+	setAttr -s 2 ".vclr[298].vfcl";
+	setAttr ".vclr[298].vfcl[247].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[298].vfcl[247].vfal" 1;
+	setAttr ".vclr[298].vfcl[248].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[298].vfcl[248].vfal" 1;
+	setAttr ".vclr[299].vxal" 1;
+	setAttr -s 2 ".vclr[299].vfcl";
+	setAttr ".vclr[299].vfcl[248].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[299].vfcl[248].vfal" 1;
+	setAttr ".vclr[299].vfcl[249].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[299].vfcl[249].vfal" 1;
+	setAttr ".vclr[300].vxal" 1;
+	setAttr -s 8 ".vclr[300].vfcl";
+	setAttr ".vclr[300].vfcl[258].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[300].vfcl[258].vfal" 1;
+	setAttr ".vclr[300].vfcl[259].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[300].vfcl[259].vfal" 1;
+	setAttr ".vclr[300].vfcl[260].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[300].vfcl[260].vfal" 1;
+	setAttr ".vclr[300].vfcl[261].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[300].vfcl[261].vfal" 1;
+	setAttr ".vclr[300].vfcl[262].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[300].vfcl[262].vfal" 1;
+	setAttr ".vclr[300].vfcl[263].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[300].vfcl[263].vfal" 1;
+	setAttr ".vclr[300].vfcl[264].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[300].vfcl[264].vfal" 1;
+	setAttr ".vclr[300].vfcl[265].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[300].vfcl[265].vfal" 1;
+	setAttr ".vclr[301].vxal" 1;
+	setAttr -s 4 ".vclr[301].vfcl";
+	setAttr ".vclr[301].vfcl[254].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[301].vfcl[254].vfal" 1;
+	setAttr ".vclr[301].vfcl[255].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[301].vfcl[255].vfal" 1;
+	setAttr ".vclr[301].vfcl[258].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[301].vfcl[258].vfal" 1;
+	setAttr ".vclr[301].vfcl[265].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[301].vfcl[265].vfal" 1;
+	setAttr ".vclr[302].vxal" 1;
+	setAttr -s 4 ".vclr[302].vfcl";
+	setAttr ".vclr[302].vfcl[253].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[302].vfcl[253].vfal" 1;
+	setAttr ".vclr[302].vfcl[254].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[302].vfcl[254].vfal" 1;
+	setAttr ".vclr[302].vfcl[258].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[302].vfcl[258].vfal" 1;
+	setAttr ".vclr[302].vfcl[259].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[302].vfcl[259].vfal" 1;
+	setAttr ".vclr[303].vxal" 1;
+	setAttr -s 4 ".vclr[303].vfcl";
+	setAttr ".vclr[303].vfcl[252].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[303].vfcl[252].vfal" 1;
+	setAttr ".vclr[303].vfcl[253].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[303].vfcl[253].vfal" 1;
+	setAttr ".vclr[303].vfcl[259].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[303].vfcl[259].vfal" 1;
+	setAttr ".vclr[303].vfcl[260].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[303].vfcl[260].vfal" 1;
+	setAttr ".vclr[304].vxal" 1;
+	setAttr -s 4 ".vclr[304].vfcl";
+	setAttr ".vclr[304].vfcl[251].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[304].vfcl[251].vfal" 1;
+	setAttr ".vclr[304].vfcl[252].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[304].vfcl[252].vfal" 1;
+	setAttr ".vclr[304].vfcl[260].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[304].vfcl[260].vfal" 1;
+	setAttr ".vclr[304].vfcl[261].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[304].vfcl[261].vfal" 1;
+	setAttr ".vclr[305].vxal" 1;
+	setAttr -s 4 ".vclr[305].vfcl";
+	setAttr ".vclr[305].vfcl[250].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[305].vfcl[250].vfal" 1;
+	setAttr ".vclr[305].vfcl[251].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[305].vfcl[251].vfal" 1;
+	setAttr ".vclr[305].vfcl[261].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[305].vfcl[261].vfal" 1;
+	setAttr ".vclr[305].vfcl[262].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[305].vfcl[262].vfal" 1;
+	setAttr ".vclr[306].vxal" 1;
+	setAttr -s 4 ".vclr[306].vfcl";
+	setAttr ".vclr[306].vfcl[250].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[306].vfcl[250].vfal" 1;
+	setAttr ".vclr[306].vfcl[257].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[306].vfcl[257].vfal" 1;
+	setAttr ".vclr[306].vfcl[262].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[306].vfcl[262].vfal" 1;
+	setAttr ".vclr[306].vfcl[263].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[306].vfcl[263].vfal" 1;
+	setAttr ".vclr[307].vxal" 1;
+	setAttr -s 4 ".vclr[307].vfcl";
+	setAttr ".vclr[307].vfcl[256].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[307].vfcl[256].vfal" 1;
+	setAttr ".vclr[307].vfcl[257].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[307].vfcl[257].vfal" 1;
+	setAttr ".vclr[307].vfcl[263].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[307].vfcl[263].vfal" 1;
+	setAttr ".vclr[307].vfcl[264].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[307].vfcl[264].vfal" 1;
+	setAttr ".vclr[308].vxal" 1;
+	setAttr -s 4 ".vclr[308].vfcl";
+	setAttr ".vclr[308].vfcl[255].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[308].vfcl[255].vfal" 1;
+	setAttr ".vclr[308].vfcl[256].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[308].vfcl[256].vfal" 1;
+	setAttr ".vclr[308].vfcl[264].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[308].vfcl[264].vfal" 1;
+	setAttr ".vclr[308].vfcl[265].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[308].vfcl[265].vfal" 1;
+	setAttr ".vclr[309].vxal" 1;
+	setAttr -s 2 ".vclr[309].vfcl";
+	setAttr ".vclr[309].vfcl[266].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[309].vfcl[266].vfal" 1;
+	setAttr ".vclr[309].vfcl[280].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[309].vfcl[280].vfal" 1;
+	setAttr ".vclr[310].vxal" 1;
+	setAttr ".vclr[310].vfcl[266].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[310].vfcl[266].vfal" 1;
+	setAttr ".vclr[311].vxal" 1;
+	setAttr -s 2 ".vclr[311].vfcl";
+	setAttr ".vclr[311].vfcl[268].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[311].vfcl[268].vfal" 1;
+	setAttr ".vclr[311].vfcl[321].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[311].vfcl[321].vfal" 1;
+	setAttr ".vclr[312].vxal" 1;
+	setAttr ".vclr[312].vfcl[268].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[312].vfcl[268].vfal" 1;
+	setAttr ".vclr[313].vxal" 1;
+	setAttr ".vclr[313].vfcl[269].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[313].vfcl[269].vfal" 1;
+	setAttr ".vclr[314].vxal" 1;
+	setAttr -s 2 ".vclr[314].vfcl";
+	setAttr ".vclr[314].vfcl[269].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[314].vfcl[269].vfal" 1;
+	setAttr ".vclr[314].vfcl[321].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[314].vfcl[321].vfal" 1;
+	setAttr ".vclr[315].vxal" 1;
+	setAttr -s 2 ".vclr[315].vfcl";
+	setAttr ".vclr[315].vfcl[270].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[315].vfcl[270].vfal" 1;
+	setAttr ".vclr[315].vfcl[280].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[315].vfcl[280].vfal" 1;
+	setAttr ".vclr[316].vxal" 1;
+	setAttr ".vclr[316].vfcl[270].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[316].vfcl[270].vfal" 1;
+	setAttr ".vclr[317].vxal" 1;
+	setAttr -s 2 ".vclr[317].vfcl";
+	setAttr ".vclr[317].vfcl[273].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[317].vfcl[273].vfal" 1;
+	setAttr ".vclr[317].vfcl[276].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[317].vfcl[276].vfal" 1;
+	setAttr ".vclr[318].vxal" 1;
+	setAttr -s 5 ".vclr[318].vfcl";
+	setAttr ".vclr[318].vfcl[273].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[318].vfcl[273].vfal" 1;
+	setAttr ".vclr[318].vfcl[276].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[318].vfcl[276].vfal" 1;
+	setAttr ".vclr[318].vfcl[326].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[318].vfcl[326].vfal" 1;
+	setAttr ".vclr[318].vfcl[327].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[318].vfcl[327].vfal" 1;
+	setAttr ".vclr[318].vfcl[328].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[318].vfcl[328].vfal" 1;
+	setAttr ".vclr[319].vxal" 1;
+	setAttr -s 2 ".vclr[319].vfcl";
+	setAttr ".vclr[319].vfcl[274].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[319].vfcl[274].vfal" 1;
+	setAttr ".vclr[319].vfcl[278].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[319].vfcl[278].vfal" 1;
+	setAttr ".vclr[320].vxal" 1;
+	setAttr -s 2 ".vclr[320].vfcl";
+	setAttr ".vclr[320].vfcl[269].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[320].vfcl[269].vfal" 1;
+	setAttr ".vclr[320].vfcl[278].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[320].vfcl[278].vfal" 1;
+	setAttr ".vclr[321].vxal" 1;
+	setAttr -s 4 ".vclr[321].vfcl";
+	setAttr ".vclr[321].vfcl[274].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[321].vfcl[274].vfal" 1;
+	setAttr ".vclr[321].vfcl[278].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[321].vfcl[278].vfal" 1;
+	setAttr ".vclr[321].vfcl[319].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[321].vfcl[319].vfal" 1;
+	setAttr ".vclr[321].vfcl[323].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[321].vfcl[323].vfal" 1;
+	setAttr ".vclr[322].vxal" 1;
+	setAttr -s 4 ".vclr[322].vfcl";
+	setAttr ".vclr[322].vfcl[269].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[322].vfcl[269].vfal" 1;
+	setAttr ".vclr[322].vfcl[278].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[322].vfcl[278].vfal" 1;
+	setAttr ".vclr[322].vfcl[319].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[322].vfcl[319].vfal" 1;
+	setAttr ".vclr[322].vfcl[321].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[322].vfcl[321].vfal" 1;
+	setAttr ".vclr[323].vxal" 1;
+	setAttr -s 2 ".vclr[323].vfcl";
+	setAttr ".vclr[323].vfcl[267].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[323].vfcl[267].vfal" 1;
+	setAttr ".vclr[323].vfcl[279].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[323].vfcl[279].vfal" 1;
+	setAttr ".vclr[324].vxal" 1;
+	setAttr -s 2 ".vclr[324].vfcl";
+	setAttr ".vclr[324].vfcl[270].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[324].vfcl[270].vfal" 1;
+	setAttr ".vclr[324].vfcl[279].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[324].vfcl[279].vfal" 1;
+	setAttr ".vclr[325].vxal" 1;
+	setAttr -s 4 ".vclr[325].vfcl";
+	setAttr ".vclr[325].vfcl[270].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[325].vfcl[270].vfal" 1;
+	setAttr ".vclr[325].vfcl[279].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[325].vfcl[279].vfal" 1;
+	setAttr ".vclr[325].vfcl[280].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[325].vfcl[280].vfal" 1;
+	setAttr ".vclr[325].vfcl[322].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[325].vfcl[322].vfal" 1;
+	setAttr ".vclr[326].vxal" 1;
+	setAttr -s 4 ".vclr[326].vfcl";
+	setAttr ".vclr[326].vfcl[267].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[326].vfcl[267].vfal" 1;
+	setAttr ".vclr[326].vfcl[279].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[326].vfcl[279].vfal" 1;
+	setAttr ".vclr[326].vfcl[320].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[326].vfcl[320].vfal" 1;
+	setAttr ".vclr[326].vfcl[322].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[326].vfcl[322].vfal" 1;
+	setAttr ".vclr[327].vxal" 1;
+	setAttr -s 2 ".vclr[327].vfcl";
+	setAttr ".vclr[327].vfcl[274].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[327].vfcl[274].vfal" 1;
+	setAttr ".vclr[327].vfcl[281].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[327].vfcl[281].vfal" 1;
+	setAttr ".vclr[328].vxal" 1;
+	setAttr -s 2 ".vclr[328].vfcl";
+	setAttr ".vclr[328].vfcl[272].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[328].vfcl[272].vfal" 1;
+	setAttr ".vclr[328].vfcl[281].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[328].vfcl[281].vfal" 1;
+	setAttr ".vclr[329].vxal" 1;
+	setAttr -s 4 ".vclr[329].vfcl";
+	setAttr ".vclr[329].vfcl[274].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[329].vfcl[274].vfal" 1;
+	setAttr ".vclr[329].vfcl[281].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[329].vfcl[281].vfal" 1;
+	setAttr ".vclr[329].vfcl[323].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[329].vfcl[323].vfal" 1;
+	setAttr ".vclr[329].vfcl[325].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[329].vfcl[325].vfal" 1;
+	setAttr ".vclr[330].vxal" 1;
+	setAttr -s 4 ".vclr[330].vfcl";
+	setAttr ".vclr[330].vfcl[272].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[330].vfcl[272].vfal" 1;
+	setAttr ".vclr[330].vfcl[281].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[330].vfcl[281].vfal" 1;
+	setAttr ".vclr[330].vfcl[325].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[330].vfcl[325].vfal" 1;
+	setAttr ".vclr[330].vfcl[327].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[330].vfcl[327].vfal" 1;
+	setAttr ".vclr[331].vxal" 1;
+	setAttr -s 2 ".vclr[331].vfcl";
+	setAttr ".vclr[331].vfcl[267].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[331].vfcl[267].vfal" 1;
+	setAttr ".vclr[331].vfcl[282].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[331].vfcl[282].vfal" 1;
+	setAttr ".vclr[332].vxal" 1;
+	setAttr -s 2 ".vclr[332].vfcl";
+	setAttr ".vclr[332].vfcl[275].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[332].vfcl[275].vfal" 1;
+	setAttr ".vclr[332].vfcl[282].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[332].vfcl[282].vfal" 1;
+	setAttr ".vclr[333].vxal" 1;
+	setAttr -s 4 ".vclr[333].vfcl";
+	setAttr ".vclr[333].vfcl[267].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[333].vfcl[267].vfal" 1;
+	setAttr ".vclr[333].vfcl[282].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[333].vfcl[282].vfal" 1;
+	setAttr ".vclr[333].vfcl[320].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[333].vfcl[320].vfal" 1;
+	setAttr ".vclr[333].vfcl[324].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[333].vfcl[324].vfal" 1;
+	setAttr ".vclr[334].vxal" 1;
+	setAttr -s 4 ".vclr[334].vfcl";
+	setAttr ".vclr[334].vfcl[275].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[334].vfcl[275].vfal" 1;
+	setAttr ".vclr[334].vfcl[282].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[334].vfcl[282].vfal" 1;
+	setAttr ".vclr[334].vfcl[324].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[334].vfcl[324].vfal" 1;
+	setAttr ".vclr[334].vfcl[326].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[334].vfcl[326].vfal" 1;
+	setAttr ".vclr[335].vxal" 1;
+	setAttr -s 2 ".vclr[335].vfcl";
+	setAttr ".vclr[335].vfcl[271].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[335].vfcl[271].vfal" 1;
+	setAttr ".vclr[335].vfcl[283].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[335].vfcl[283].vfal" 1;
+	setAttr ".vclr[336].vxal" 1;
+	setAttr -s 2 ".vclr[336].vfcl";
+	setAttr ".vclr[336].vfcl[276].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[336].vfcl[276].vfal" 1;
+	setAttr ".vclr[336].vfcl[283].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[336].vfcl[283].vfal" 1;
+	setAttr ".vclr[337].vxal" 1;
+	setAttr -s 4 ".vclr[337].vfcl";
+	setAttr ".vclr[337].vfcl[276].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[337].vfcl[276].vfal" 1;
+	setAttr ".vclr[337].vfcl[283].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[337].vfcl[283].vfal" 1;
+	setAttr ".vclr[337].vfcl[325].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[337].vfcl[325].vfal" 1;
+	setAttr ".vclr[337].vfcl[327].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[337].vfcl[327].vfal" 1;
+	setAttr ".vclr[338].vxal" 1;
+	setAttr -s 4 ".vclr[338].vfcl";
+	setAttr ".vclr[338].vfcl[271].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[338].vfcl[271].vfal" 1;
+	setAttr ".vclr[338].vfcl[283].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[338].vfcl[283].vfal" 1;
+	setAttr ".vclr[338].vfcl[323].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[338].vfcl[323].vfal" 1;
+	setAttr ".vclr[338].vfcl[325].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[338].vfcl[325].vfal" 1;
+	setAttr ".vclr[339].vxal" 1;
+	setAttr -s 2 ".vclr[339].vfcl";
+	setAttr ".vclr[339].vfcl[273].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[339].vfcl[273].vfal" 1;
+	setAttr ".vclr[339].vfcl[284].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[339].vfcl[284].vfal" 1;
+	setAttr ".vclr[340].vxal" 1;
+	setAttr -s 2 ".vclr[340].vfcl";
+	setAttr ".vclr[340].vfcl[277].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[340].vfcl[277].vfal" 1;
+	setAttr ".vclr[340].vfcl[284].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[340].vfcl[284].vfal" 1;
+	setAttr ".vclr[341].vxal" 1;
+	setAttr -s 4 ".vclr[341].vfcl";
+	setAttr ".vclr[341].vfcl[277].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[341].vfcl[277].vfal" 1;
+	setAttr ".vclr[341].vfcl[284].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[341].vfcl[284].vfal" 1;
+	setAttr ".vclr[341].vfcl[320].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[341].vfcl[320].vfal" 1;
+	setAttr ".vclr[341].vfcl[324].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[341].vfcl[324].vfal" 1;
+	setAttr ".vclr[342].vxal" 1;
+	setAttr -s 4 ".vclr[342].vfcl";
+	setAttr ".vclr[342].vfcl[273].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[342].vfcl[273].vfal" 1;
+	setAttr ".vclr[342].vfcl[284].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[342].vfcl[284].vfal" 1;
+	setAttr ".vclr[342].vfcl[324].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[342].vfcl[324].vfal" 1;
+	setAttr ".vclr[342].vfcl[326].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[342].vfcl[326].vfal" 1;
+	setAttr ".vclr[343].vxal" 1;
+	setAttr -s 2 ".vclr[343].vfcl";
+	setAttr ".vclr[343].vfcl[277].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[343].vfcl[277].vfal" 1;
+	setAttr ".vclr[343].vfcl[285].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[343].vfcl[285].vfal" 1;
+	setAttr ".vclr[344].vxal" 1;
+	setAttr -s 2 ".vclr[344].vfcl";
+	setAttr ".vclr[344].vfcl[266].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[344].vfcl[266].vfal" 1;
+	setAttr ".vclr[344].vfcl[285].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[344].vfcl[285].vfal" 1;
+	setAttr ".vclr[345].vxal" 1;
+	setAttr -s 4 ".vclr[345].vfcl";
+	setAttr ".vclr[345].vfcl[277].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[345].vfcl[277].vfal" 1;
+	setAttr ".vclr[345].vfcl[285].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[345].vfcl[285].vfal" 1;
+	setAttr ".vclr[345].vfcl[320].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[345].vfcl[320].vfal" 1;
+	setAttr ".vclr[345].vfcl[322].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[345].vfcl[322].vfal" 1;
+	setAttr ".vclr[346].vxal" 1;
+	setAttr -s 4 ".vclr[346].vfcl";
+	setAttr ".vclr[346].vfcl[266].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[346].vfcl[266].vfal" 1;
+	setAttr ".vclr[346].vfcl[280].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[346].vfcl[280].vfal" 1;
+	setAttr ".vclr[346].vfcl[285].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[346].vfcl[285].vfal" 1;
+	setAttr ".vclr[346].vfcl[322].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[346].vfcl[322].vfal" 1;
+	setAttr ".vclr[347].vxal" 1;
+	setAttr -s 2 ".vclr[347].vfcl";
+	setAttr ".vclr[347].vfcl[268].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[347].vfcl[268].vfal" 1;
+	setAttr ".vclr[347].vfcl[286].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[347].vfcl[286].vfal" 1;
+	setAttr ".vclr[348].vxal" 1;
+	setAttr -s 2 ".vclr[348].vfcl";
+	setAttr ".vclr[348].vfcl[271].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[348].vfcl[271].vfal" 1;
+	setAttr ".vclr[348].vfcl[286].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[348].vfcl[286].vfal" 1;
+	setAttr ".vclr[349].vxal" 1;
+	setAttr -s 4 ".vclr[349].vfcl";
+	setAttr ".vclr[349].vfcl[271].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[349].vfcl[271].vfal" 1;
+	setAttr ".vclr[349].vfcl[286].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[349].vfcl[286].vfal" 1;
+	setAttr ".vclr[349].vfcl[319].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[349].vfcl[319].vfal" 1;
+	setAttr ".vclr[349].vfcl[323].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[349].vfcl[323].vfal" 1;
+	setAttr ".vclr[350].vxal" 1;
+	setAttr -s 4 ".vclr[350].vfcl";
+	setAttr ".vclr[350].vfcl[268].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[350].vfcl[268].vfal" 1;
+	setAttr ".vclr[350].vfcl[286].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[350].vfcl[286].vfal" 1;
+	setAttr ".vclr[350].vfcl[319].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[350].vfcl[319].vfal" 1;
+	setAttr ".vclr[350].vfcl[321].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[350].vfcl[321].vfal" 1;
+	setAttr ".vclr[351].vxal" 1;
+	setAttr -s 3 ".vclr[351].vfcl";
+	setAttr ".vclr[351].vfcl[272].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[351].vfcl[272].vfal" 1;
+	setAttr ".vclr[351].vfcl[287].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[351].vfcl[287].vfal" 1;
+	setAttr ".vclr[351].vfcl[288].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[351].vfcl[288].vfal" 1;
+	setAttr ".vclr[352].vxal" 1;
+	setAttr -s 3 ".vclr[352].vfcl";
+	setAttr ".vclr[352].vfcl[275].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[352].vfcl[275].vfal" 1;
+	setAttr ".vclr[352].vfcl[287].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[352].vfcl[287].vfal" 1;
+	setAttr ".vclr[352].vfcl[290].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[352].vfcl[290].vfal" 1;
+	setAttr ".vclr[353].vxal" 1;
+	setAttr -s 5 ".vclr[353].vfcl";
+	setAttr ".vclr[353].vfcl[275].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[353].vfcl[275].vfal" 1;
+	setAttr ".vclr[353].vfcl[289].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[353].vfcl[289].vfal" 1;
+	setAttr ".vclr[353].vfcl[290].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[353].vfcl[290].vfal" 1;
+	setAttr ".vclr[353].vfcl[326].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[353].vfcl[326].vfal" 1;
+	setAttr ".vclr[353].vfcl[328].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[353].vfcl[328].vfal" 1;
+	setAttr ".vclr[354].vxal" 1;
+	setAttr -s 5 ".vclr[354].vfcl";
+	setAttr ".vclr[354].vfcl[272].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[354].vfcl[272].vfal" 1;
+	setAttr ".vclr[354].vfcl[288].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[354].vfcl[288].vfal" 1;
+	setAttr ".vclr[354].vfcl[289].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[354].vfcl[289].vfal" 1;
+	setAttr ".vclr[354].vfcl[327].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[354].vfcl[327].vfal" 1;
+	setAttr ".vclr[354].vfcl[328].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[354].vfcl[328].vfal" 1;
+	setAttr ".vclr[355].vxal" 1;
+	setAttr -s 4 ".vclr[355].vfcl";
+	setAttr ".vclr[355].vfcl[287].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[355].vfcl[287].vfal" 1;
+	setAttr ".vclr[355].vfcl[288].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[355].vfcl[288].vfal" 1;
+	setAttr ".vclr[355].vfcl[291].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[355].vfcl[291].vfal" 1;
+	setAttr ".vclr[355].vfcl[292].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[355].vfcl[292].vfal" 1;
+	setAttr ".vclr[356].vxal" 1;
+	setAttr -s 4 ".vclr[356].vfcl";
+	setAttr ".vclr[356].vfcl[287].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[356].vfcl[287].vfal" 1;
+	setAttr ".vclr[356].vfcl[290].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[356].vfcl[290].vfal" 1;
+	setAttr ".vclr[356].vfcl[291].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[356].vfcl[291].vfal" 1;
+	setAttr ".vclr[356].vfcl[294].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[356].vfcl[294].vfal" 1;
+	setAttr ".vclr[357].vxal" 1;
+	setAttr -s 4 ".vclr[357].vfcl";
+	setAttr ".vclr[357].vfcl[288].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[357].vfcl[288].vfal" 1;
+	setAttr ".vclr[357].vfcl[289].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[357].vfcl[289].vfal" 1;
+	setAttr ".vclr[357].vfcl[292].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[357].vfcl[292].vfal" 1;
+	setAttr ".vclr[357].vfcl[293].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[357].vfcl[293].vfal" 1;
+	setAttr ".vclr[358].vxal" 1;
+	setAttr -s 4 ".vclr[358].vfcl";
+	setAttr ".vclr[358].vfcl[289].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[358].vfcl[289].vfal" 1;
+	setAttr ".vclr[358].vfcl[290].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[358].vfcl[290].vfal" 1;
+	setAttr ".vclr[358].vfcl[293].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[358].vfcl[293].vfal" 1;
+	setAttr ".vclr[358].vfcl[294].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[358].vfcl[294].vfal" 1;
+	setAttr ".vclr[359].vxal" 1;
+	setAttr -s 4 ".vclr[359].vfcl";
+	setAttr ".vclr[359].vfcl[291].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[359].vfcl[291].vfal" 1;
+	setAttr ".vclr[359].vfcl[292].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[359].vfcl[292].vfal" 1;
+	setAttr ".vclr[359].vfcl[295].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[359].vfcl[295].vfal" 1;
+	setAttr ".vclr[359].vfcl[296].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[359].vfcl[296].vfal" 1;
+	setAttr ".vclr[360].vxal" 1;
+	setAttr -s 4 ".vclr[360].vfcl";
+	setAttr ".vclr[360].vfcl[291].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[360].vfcl[291].vfal" 1;
+	setAttr ".vclr[360].vfcl[294].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[360].vfcl[294].vfal" 1;
+	setAttr ".vclr[360].vfcl[295].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[360].vfcl[295].vfal" 1;
+	setAttr ".vclr[360].vfcl[298].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[360].vfcl[298].vfal" 1;
+	setAttr ".vclr[361].vxal" 1;
+	setAttr -s 4 ".vclr[361].vfcl";
+	setAttr ".vclr[361].vfcl[292].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[361].vfcl[292].vfal" 1;
+	setAttr ".vclr[361].vfcl[293].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[361].vfcl[293].vfal" 1;
+	setAttr ".vclr[361].vfcl[296].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[361].vfcl[296].vfal" 1;
+	setAttr ".vclr[361].vfcl[297].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[361].vfcl[297].vfal" 1;
+	setAttr ".vclr[362].vxal" 1;
+	setAttr -s 4 ".vclr[362].vfcl";
+	setAttr ".vclr[362].vfcl[293].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[362].vfcl[293].vfal" 1;
+	setAttr ".vclr[362].vfcl[294].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[362].vfcl[294].vfal" 1;
+	setAttr ".vclr[362].vfcl[297].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[362].vfcl[297].vfal" 1;
+	setAttr ".vclr[362].vfcl[298].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[362].vfcl[298].vfal" 1;
+	setAttr ".vclr[363].vxal" 1;
+	setAttr -s 4 ".vclr[363].vfcl";
+	setAttr ".vclr[363].vfcl[295].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[363].vfcl[295].vfal" 1;
+	setAttr ".vclr[363].vfcl[296].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[363].vfcl[296].vfal" 1;
+	setAttr ".vclr[363].vfcl[299].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[363].vfcl[299].vfal" 1;
+	setAttr ".vclr[363].vfcl[300].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[363].vfcl[300].vfal" 1;
+	setAttr ".vclr[364].vxal" 1;
+	setAttr -s 4 ".vclr[364].vfcl";
+	setAttr ".vclr[364].vfcl[295].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[364].vfcl[295].vfal" 1;
+	setAttr ".vclr[364].vfcl[298].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[364].vfcl[298].vfal" 1;
+	setAttr ".vclr[364].vfcl[299].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[364].vfcl[299].vfal" 1;
+	setAttr ".vclr[364].vfcl[302].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[364].vfcl[302].vfal" 1;
+	setAttr ".vclr[365].vxal" 1;
+	setAttr -s 4 ".vclr[365].vfcl";
+	setAttr ".vclr[365].vfcl[296].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[365].vfcl[296].vfal" 1;
+	setAttr ".vclr[365].vfcl[297].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[365].vfcl[297].vfal" 1;
+	setAttr ".vclr[365].vfcl[300].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[365].vfcl[300].vfal" 1;
+	setAttr ".vclr[365].vfcl[301].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[365].vfcl[301].vfal" 1;
+	setAttr ".vclr[366].vxal" 1;
+	setAttr -s 4 ".vclr[366].vfcl";
+	setAttr ".vclr[366].vfcl[297].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[366].vfcl[297].vfal" 1;
+	setAttr ".vclr[366].vfcl[298].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[366].vfcl[298].vfal" 1;
+	setAttr ".vclr[366].vfcl[301].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[366].vfcl[301].vfal" 1;
+	setAttr ".vclr[366].vfcl[302].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[366].vfcl[302].vfal" 1;
+	setAttr ".vclr[367].vxal" 1;
+	setAttr -s 4 ".vclr[367].vfcl";
+	setAttr ".vclr[367].vfcl[299].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[367].vfcl[299].vfal" 1;
+	setAttr ".vclr[367].vfcl[300].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[367].vfcl[300].vfal" 1;
+	setAttr ".vclr[367].vfcl[303].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[367].vfcl[303].vfal" 1;
+	setAttr ".vclr[367].vfcl[304].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[367].vfcl[304].vfal" 1;
+	setAttr ".vclr[368].vxal" 1;
+	setAttr -s 4 ".vclr[368].vfcl";
+	setAttr ".vclr[368].vfcl[299].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[368].vfcl[299].vfal" 1;
+	setAttr ".vclr[368].vfcl[302].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[368].vfcl[302].vfal" 1;
+	setAttr ".vclr[368].vfcl[303].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[368].vfcl[303].vfal" 1;
+	setAttr ".vclr[368].vfcl[306].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[368].vfcl[306].vfal" 1;
+	setAttr ".vclr[369].vxal" 1;
+	setAttr -s 4 ".vclr[369].vfcl";
+	setAttr ".vclr[369].vfcl[300].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[369].vfcl[300].vfal" 1;
+	setAttr ".vclr[369].vfcl[301].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[369].vfcl[301].vfal" 1;
+	setAttr ".vclr[369].vfcl[304].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[369].vfcl[304].vfal" 1;
+	setAttr ".vclr[369].vfcl[305].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[369].vfcl[305].vfal" 1;
+	setAttr ".vclr[370].vxal" 1;
+	setAttr -s 4 ".vclr[370].vfcl";
+	setAttr ".vclr[370].vfcl[301].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[370].vfcl[301].vfal" 1;
+	setAttr ".vclr[370].vfcl[302].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[370].vfcl[302].vfal" 1;
+	setAttr ".vclr[370].vfcl[305].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[370].vfcl[305].vfal" 1;
+	setAttr ".vclr[370].vfcl[306].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[370].vfcl[306].vfal" 1;
+	setAttr ".vclr[371].vxal" 1;
+	setAttr -s 4 ".vclr[371].vfcl";
+	setAttr ".vclr[371].vfcl[303].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[371].vfcl[303].vfal" 1;
+	setAttr ".vclr[371].vfcl[304].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[371].vfcl[304].vfal" 1;
+	setAttr ".vclr[371].vfcl[307].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[371].vfcl[307].vfal" 1;
+	setAttr ".vclr[371].vfcl[308].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[371].vfcl[308].vfal" 1;
+	setAttr ".vclr[372].vxal" 1;
+	setAttr -s 4 ".vclr[372].vfcl";
+	setAttr ".vclr[372].vfcl[303].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[372].vfcl[303].vfal" 1;
+	setAttr ".vclr[372].vfcl[306].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[372].vfcl[306].vfal" 1;
+	setAttr ".vclr[372].vfcl[307].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[372].vfcl[307].vfal" 1;
+	setAttr ".vclr[372].vfcl[310].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[372].vfcl[310].vfal" 1;
+	setAttr ".vclr[373].vxal" 1;
+	setAttr -s 4 ".vclr[373].vfcl";
+	setAttr ".vclr[373].vfcl[304].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[373].vfcl[304].vfal" 1;
+	setAttr ".vclr[373].vfcl[305].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[373].vfcl[305].vfal" 1;
+	setAttr ".vclr[373].vfcl[308].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[373].vfcl[308].vfal" 1;
+	setAttr ".vclr[373].vfcl[309].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[373].vfcl[309].vfal" 1;
+	setAttr ".vclr[374].vxal" 1;
+	setAttr -s 4 ".vclr[374].vfcl";
+	setAttr ".vclr[374].vfcl[305].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[374].vfcl[305].vfal" 1;
+	setAttr ".vclr[374].vfcl[306].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[374].vfcl[306].vfal" 1;
+	setAttr ".vclr[374].vfcl[309].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[374].vfcl[309].vfal" 1;
+	setAttr ".vclr[374].vfcl[310].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[374].vfcl[310].vfal" 1;
+	setAttr ".vclr[375].vxal" 1;
+	setAttr -s 4 ".vclr[375].vfcl";
+	setAttr ".vclr[375].vfcl[307].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[375].vfcl[307].vfal" 1;
+	setAttr ".vclr[375].vfcl[308].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[375].vfcl[308].vfal" 1;
+	setAttr ".vclr[375].vfcl[311].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[375].vfcl[311].vfal" 1;
+	setAttr ".vclr[375].vfcl[312].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[375].vfcl[312].vfal" 1;
+	setAttr ".vclr[376].vxal" 1;
+	setAttr -s 4 ".vclr[376].vfcl";
+	setAttr ".vclr[376].vfcl[307].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[376].vfcl[307].vfal" 1;
+	setAttr ".vclr[376].vfcl[310].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[376].vfcl[310].vfal" 1;
+	setAttr ".vclr[376].vfcl[311].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[376].vfcl[311].vfal" 1;
+	setAttr ".vclr[376].vfcl[314].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[376].vfcl[314].vfal" 1;
+	setAttr ".vclr[377].vxal" 1;
+	setAttr -s 4 ".vclr[377].vfcl";
+	setAttr ".vclr[377].vfcl[308].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[377].vfcl[308].vfal" 1;
+	setAttr ".vclr[377].vfcl[309].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[377].vfcl[309].vfal" 1;
+	setAttr ".vclr[377].vfcl[312].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[377].vfcl[312].vfal" 1;
+	setAttr ".vclr[377].vfcl[313].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[377].vfcl[313].vfal" 1;
+	setAttr ".vclr[378].vxal" 1;
+	setAttr -s 4 ".vclr[378].vfcl";
+	setAttr ".vclr[378].vfcl[309].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[378].vfcl[309].vfal" 1;
+	setAttr ".vclr[378].vfcl[310].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[378].vfcl[310].vfal" 1;
+	setAttr ".vclr[378].vfcl[313].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[378].vfcl[313].vfal" 1;
+	setAttr ".vclr[378].vfcl[314].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[378].vfcl[314].vfal" 1;
+	setAttr ".vclr[379].vxal" 1;
+	setAttr -s 4 ".vclr[379].vfcl";
+	setAttr ".vclr[379].vfcl[311].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[379].vfcl[311].vfal" 1;
+	setAttr ".vclr[379].vfcl[312].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[379].vfcl[312].vfal" 1;
+	setAttr ".vclr[379].vfcl[315].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[379].vfcl[315].vfal" 1;
+	setAttr ".vclr[379].vfcl[316].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[379].vfcl[316].vfal" 1;
+	setAttr ".vclr[380].vxal" 1;
+	setAttr -s 4 ".vclr[380].vfcl";
+	setAttr ".vclr[380].vfcl[311].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[380].vfcl[311].vfal" 1;
+	setAttr ".vclr[380].vfcl[314].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[380].vfcl[314].vfal" 1;
+	setAttr ".vclr[380].vfcl[315].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[380].vfcl[315].vfal" 1;
+	setAttr ".vclr[380].vfcl[318].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[380].vfcl[318].vfal" 1;
+	setAttr ".vclr[381].vxal" 1;
+	setAttr -s 4 ".vclr[381].vfcl";
+	setAttr ".vclr[381].vfcl[312].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[381].vfcl[312].vfal" 1;
+	setAttr ".vclr[381].vfcl[313].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[381].vfcl[313].vfal" 1;
+	setAttr ".vclr[381].vfcl[316].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[381].vfcl[316].vfal" 1;
+	setAttr ".vclr[381].vfcl[317].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[381].vfcl[317].vfal" 1;
+	setAttr ".vclr[382].vxal" 1;
+	setAttr -s 4 ".vclr[382].vfcl";
+	setAttr ".vclr[382].vfcl[313].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[382].vfcl[313].vfal" 1;
+	setAttr ".vclr[382].vfcl[314].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[382].vfcl[314].vfal" 1;
+	setAttr ".vclr[382].vfcl[317].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[382].vfcl[317].vfal" 1;
+	setAttr ".vclr[382].vfcl[318].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[382].vfcl[318].vfal" 1;
+	setAttr ".vclr[383].vxal" 1;
+	setAttr -s 4 ".vclr[383].vfcl";
+	setAttr ".vclr[383].vfcl[315].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[383].vfcl[315].vfal" 1;
+	setAttr ".vclr[383].vfcl[316].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[383].vfcl[316].vfal" 1;
+	setAttr ".vclr[383].vfcl[317].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[383].vfcl[317].vfal" 1;
+	setAttr ".vclr[383].vfcl[318].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[383].vfcl[318].vfal" 1;
+	setAttr ".vclr[384].vxal" 1;
+	setAttr -s 2 ".vclr[384].vfcl";
+	setAttr ".vclr[384].vfcl[329].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[384].vfcl[329].vfal" 1;
+	setAttr ".vclr[384].vfcl[682].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[384].vfcl[682].vfal" 1;
+	setAttr ".vclr[385].vxal" 1;
+	setAttr -s 4 ".vclr[385].vfcl";
+	setAttr ".vclr[385].vfcl[329].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[385].vfcl[329].vfal" 1;
+	setAttr ".vclr[385].vfcl[381].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[385].vfcl[381].vfal" 1;
+	setAttr ".vclr[385].vfcl[680].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[385].vfcl[680].vfal" 1;
+	setAttr ".vclr[385].vfcl[682].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[385].vfcl[682].vfal" 1;
+	setAttr ".vclr[386].vxal" 1;
+	setAttr -s 4 ".vclr[386].vfcl";
+	setAttr ".vclr[386].vfcl[331].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[386].vfcl[331].vfal" 1;
+	setAttr ".vclr[386].vfcl[681].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[386].vfcl[681].vfal" 1;
+	setAttr ".vclr[386].vfcl[683].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[386].vfcl[683].vfal" 1;
+	setAttr ".vclr[386].vfcl[684].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[386].vfcl[684].vfal" 1;
+	setAttr ".vclr[387].vxal" 1;
+	setAttr -s 4 ".vclr[387].vfcl";
+	setAttr ".vclr[387].vfcl[331].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[387].vfcl[331].vfal" 1;
+	setAttr ".vclr[387].vfcl[343].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[387].vfcl[343].vfal" 1;
+	setAttr ".vclr[387].vfcl[679].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[387].vfcl[679].vfal" 1;
+	setAttr ".vclr[387].vfcl[681].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[387].vfcl[681].vfal" 1;
+	setAttr ".vclr[388].vxal" 1;
+	setAttr -s 4 ".vclr[388].vfcl";
+	setAttr ".vclr[388].vfcl[332].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[388].vfcl[332].vfal" 1;
+	setAttr ".vclr[388].vfcl[343].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[388].vfcl[343].vfal" 1;
+	setAttr ".vclr[388].vfcl[679].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[388].vfcl[679].vfal" 1;
+	setAttr ".vclr[388].vfcl[719].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[388].vfcl[719].vfal" 1;
+	setAttr ".vclr[389].vxal" 1;
+	setAttr -s 4 ".vclr[389].vfcl";
+	setAttr ".vclr[389].vfcl[332].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[389].vfcl[332].vfal" 1;
+	setAttr ".vclr[389].vfcl[689].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[389].vfcl[689].vfal" 1;
+	setAttr ".vclr[389].vfcl[719].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[389].vfcl[719].vfal" 1;
+	setAttr ".vclr[389].vfcl[721].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[389].vfcl[721].vfal" 1;
+	setAttr ".vclr[390].vxal" 1;
+	setAttr -s 4 ".vclr[390].vfcl";
+	setAttr ".vclr[390].vfcl[333].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[390].vfcl[333].vfal" 1;
+	setAttr ".vclr[390].vfcl[690].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[390].vfcl[690].vfal" 1;
+	setAttr ".vclr[390].vfcl[720].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[390].vfcl[720].vfal" 1;
+	setAttr ".vclr[390].vfcl[722].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[390].vfcl[722].vfal" 1;
+	setAttr ".vclr[391].vxal" 1;
+	setAttr -s 4 ".vclr[391].vfcl";
+	setAttr ".vclr[391].vfcl[333].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[391].vfcl[333].vfal" 1;
+	setAttr ".vclr[391].vfcl[381].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[391].vfcl[381].vfal" 1;
+	setAttr ".vclr[391].vfcl[680].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[391].vfcl[680].vfal" 1;
+	setAttr ".vclr[391].vfcl[720].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[391].vfcl[720].vfal" 1;
+	setAttr ".vclr[392].vxal" 1;
+	setAttr -s 5 ".vclr[392].vfcl";
+	setAttr ".vclr[392].vfcl[336].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[392].vfcl[336].vfal" 1;
+	setAttr ".vclr[392].vfcl[339].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[392].vfcl[339].vfal" 1;
+	setAttr ".vclr[392].vfcl[386].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[392].vfcl[386].vfal" 1;
+	setAttr ".vclr[392].vfcl[388].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[392].vfcl[388].vfal" 1;
+	setAttr ".vclr[392].vfcl[389].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[392].vfcl[389].vfal" 1;
+	setAttr ".vclr[393].vxal" 1;
+	setAttr -s 3 ".vclr[393].vfcl";
+	setAttr ".vclr[393].vfcl[336].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[393].vfcl[336].vfal" 1;
+	setAttr ".vclr[393].vfcl[339].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[393].vfcl[339].vfal" 1;
+	setAttr ".vclr[393].vfcl[688].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[393].vfcl[688].vfal" 1;
+	setAttr ".vclr[394].vxal" 1;
+	setAttr -s 4 ".vclr[394].vfcl";
+	setAttr ".vclr[394].vfcl[337].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[394].vfcl[337].vfal" 1;
+	setAttr ".vclr[394].vfcl[341].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[394].vfcl[341].vfal" 1;
+	setAttr ".vclr[394].vfcl[380].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[394].vfcl[380].vfal" 1;
+	setAttr ".vclr[394].vfcl[382].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[394].vfcl[382].vfal" 1;
+	setAttr ".vclr[395].vxal" 1;
+	setAttr -s 4 ".vclr[395].vfcl";
+	setAttr ".vclr[395].vfcl[332].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[395].vfcl[332].vfal" 1;
+	setAttr ".vclr[395].vfcl[341].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[395].vfcl[341].vfal" 1;
+	setAttr ".vclr[395].vfcl[343].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[395].vfcl[343].vfal" 1;
+	setAttr ".vclr[395].vfcl[380].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[395].vfcl[380].vfal" 1;
+	setAttr ".vclr[396].vxal" 1;
+	setAttr -s 4 ".vclr[396].vfcl";
+	setAttr ".vclr[396].vfcl[337].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[396].vfcl[337].vfal" 1;
+	setAttr ".vclr[396].vfcl[341].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[396].vfcl[341].vfal" 1;
+	setAttr ".vclr[396].vfcl[691].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[396].vfcl[691].vfal" 1;
+	setAttr ".vclr[396].vfcl[694].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[396].vfcl[694].vfal" 1;
+	setAttr ".vclr[397].vxal" 1;
+	setAttr -s 4 ".vclr[397].vfcl";
+	setAttr ".vclr[397].vfcl[332].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[397].vfcl[332].vfal" 1;
+	setAttr ".vclr[397].vfcl[341].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[397].vfcl[341].vfal" 1;
+	setAttr ".vclr[397].vfcl[689].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[397].vfcl[689].vfal" 1;
+	setAttr ".vclr[397].vfcl[691].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[397].vfcl[691].vfal" 1;
+	setAttr ".vclr[398].vxal" 1;
+	setAttr -s 4 ".vclr[398].vfcl";
+	setAttr ".vclr[398].vfcl[330].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[398].vfcl[330].vfal" 1;
+	setAttr ".vclr[398].vfcl[342].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[398].vfcl[342].vfal" 1;
+	setAttr ".vclr[398].vfcl[383].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[398].vfcl[383].vfal" 1;
+	setAttr ".vclr[398].vfcl[385].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[398].vfcl[385].vfal" 1;
+	setAttr ".vclr[399].vxal" 1;
+	setAttr -s 4 ".vclr[399].vfcl";
+	setAttr ".vclr[399].vfcl[333].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[399].vfcl[333].vfal" 1;
+	setAttr ".vclr[399].vfcl[342].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[399].vfcl[342].vfal" 1;
+	setAttr ".vclr[399].vfcl[381].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[399].vfcl[381].vfal" 1;
+	setAttr ".vclr[399].vfcl[383].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[399].vfcl[383].vfal" 1;
+	setAttr ".vclr[400].vxal" 1;
+	setAttr -s 4 ".vclr[400].vfcl";
+	setAttr ".vclr[400].vfcl[333].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[400].vfcl[333].vfal" 1;
+	setAttr ".vclr[400].vfcl[342].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[400].vfcl[342].vfal" 1;
+	setAttr ".vclr[400].vfcl[690].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[400].vfcl[690].vfal" 1;
+	setAttr ".vclr[400].vfcl[692].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[400].vfcl[692].vfal" 1;
+	setAttr ".vclr[401].vxal" 1;
+	setAttr -s 4 ".vclr[401].vfcl";
+	setAttr ".vclr[401].vfcl[330].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[401].vfcl[330].vfal" 1;
+	setAttr ".vclr[401].vfcl[342].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[401].vfcl[342].vfal" 1;
+	setAttr ".vclr[401].vfcl[692].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[401].vfcl[692].vfal" 1;
+	setAttr ".vclr[401].vfcl[693].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[401].vfcl[693].vfal" 1;
+	setAttr ".vclr[402].vxal" 1;
+	setAttr -s 4 ".vclr[402].vfcl";
+	setAttr ".vclr[402].vfcl[337].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[402].vfcl[337].vfal" 1;
+	setAttr ".vclr[402].vfcl[344].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[402].vfcl[344].vfal" 1;
+	setAttr ".vclr[402].vfcl[382].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[402].vfcl[382].vfal" 1;
+	setAttr ".vclr[402].vfcl[384].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[402].vfcl[384].vfal" 1;
+	setAttr ".vclr[403].vxal" 1;
+	setAttr -s 4 ".vclr[403].vfcl";
+	setAttr ".vclr[403].vfcl[335].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[403].vfcl[335].vfal" 1;
+	setAttr ".vclr[403].vfcl[344].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[403].vfcl[344].vfal" 1;
+	setAttr ".vclr[403].vfcl[384].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[403].vfcl[384].vfal" 1;
+	setAttr ".vclr[403].vfcl[389].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[403].vfcl[389].vfal" 1;
+	setAttr ".vclr[404].vxal" 1;
+	setAttr -s 3 ".vclr[404].vfcl";
+	setAttr ".vclr[404].vfcl[337].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[404].vfcl[337].vfal" 1;
+	setAttr ".vclr[404].vfcl[344].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[404].vfcl[344].vfal" 1;
+	setAttr ".vclr[404].vfcl[694].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[404].vfcl[694].vfal" 1;
+	setAttr ".vclr[405].vxal" 1;
+	setAttr -s 2 ".vclr[405].vfcl";
+	setAttr ".vclr[405].vfcl[335].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[405].vfcl[335].vfal" 1;
+	setAttr ".vclr[405].vfcl[344].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[405].vfcl[344].vfal" 1;
+	setAttr ".vclr[406].vxal" 1;
+	setAttr -s 4 ".vclr[406].vfcl";
+	setAttr ".vclr[406].vfcl[330].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[406].vfcl[330].vfal" 1;
+	setAttr ".vclr[406].vfcl[345].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[406].vfcl[345].vfal" 1;
+	setAttr ".vclr[406].vfcl[385].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[406].vfcl[385].vfal" 1;
+	setAttr ".vclr[406].vfcl[387].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[406].vfcl[387].vfal" 1;
+	setAttr ".vclr[407].vxal" 1;
+	setAttr -s 4 ".vclr[407].vfcl";
+	setAttr ".vclr[407].vfcl[338].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[407].vfcl[338].vfal" 1;
+	setAttr ".vclr[407].vfcl[345].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[407].vfcl[345].vfal" 1;
+	setAttr ".vclr[407].vfcl[387].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[407].vfcl[387].vfal" 1;
+	setAttr ".vclr[407].vfcl[388].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[407].vfcl[388].vfal" 1;
+	setAttr ".vclr[408].vxal" 1;
+	setAttr -s 3 ".vclr[408].vfcl";
+	setAttr ".vclr[408].vfcl[330].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[408].vfcl[330].vfal" 1;
+	setAttr ".vclr[408].vfcl[345].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[408].vfcl[345].vfal" 1;
+	setAttr ".vclr[408].vfcl[693].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[408].vfcl[693].vfal" 1;
+	setAttr ".vclr[409].vxal" 1;
+	setAttr -s 2 ".vclr[409].vfcl";
+	setAttr ".vclr[409].vfcl[338].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[409].vfcl[338].vfal" 1;
+	setAttr ".vclr[409].vfcl[345].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[409].vfcl[345].vfal" 1;
+	setAttr ".vclr[410].vxal" 1;
+	setAttr -s 4 ".vclr[410].vfcl";
+	setAttr ".vclr[410].vfcl[334].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[410].vfcl[334].vfal" 1;
+	setAttr ".vclr[410].vfcl[346].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[410].vfcl[346].vfal" 1;
+	setAttr ".vclr[410].vfcl[382].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[410].vfcl[382].vfal" 1;
+	setAttr ".vclr[410].vfcl[384].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[410].vfcl[384].vfal" 1;
+	setAttr ".vclr[411].vxal" 1;
+	setAttr -s 4 ".vclr[411].vfcl";
+	setAttr ".vclr[411].vfcl[339].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[411].vfcl[339].vfal" 1;
+	setAttr ".vclr[411].vfcl[346].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[411].vfcl[346].vfal" 1;
+	setAttr ".vclr[411].vfcl[384].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[411].vfcl[384].vfal" 1;
+	setAttr ".vclr[411].vfcl[389].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[411].vfcl[389].vfal" 1;
+	setAttr ".vclr[412].vxal" 1;
+	setAttr -s 4 ".vclr[412].vfcl";
+	setAttr ".vclr[412].vfcl[339].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[412].vfcl[339].vfal" 1;
+	setAttr ".vclr[412].vfcl[346].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[412].vfcl[346].vfal" 1;
+	setAttr ".vclr[412].vfcl[687].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[412].vfcl[687].vfal" 1;
+	setAttr ".vclr[412].vfcl[688].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[412].vfcl[688].vfal" 1;
+	setAttr ".vclr[413].vxal" 1;
+	setAttr -s 4 ".vclr[413].vfcl";
+	setAttr ".vclr[413].vfcl[334].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[413].vfcl[334].vfal" 1;
+	setAttr ".vclr[413].vfcl[346].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[413].vfcl[346].vfal" 1;
+	setAttr ".vclr[413].vfcl[686].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[413].vfcl[686].vfal" 1;
+	setAttr ".vclr[413].vfcl[687].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[413].vfcl[687].vfal" 1;
+	setAttr ".vclr[414].vxal" 1;
+	setAttr -s 4 ".vclr[414].vfcl";
+	setAttr ".vclr[414].vfcl[336].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[414].vfcl[336].vfal" 1;
+	setAttr ".vclr[414].vfcl[347].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[414].vfcl[347].vfal" 1;
+	setAttr ".vclr[414].vfcl[387].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[414].vfcl[387].vfal" 1;
+	setAttr ".vclr[414].vfcl[388].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[414].vfcl[388].vfal" 1;
+	setAttr ".vclr[415].vxal" 1;
+	setAttr -s 4 ".vclr[415].vfcl";
+	setAttr ".vclr[415].vfcl[340].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[415].vfcl[340].vfal" 1;
+	setAttr ".vclr[415].vfcl[347].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[415].vfcl[347].vfal" 1;
+	setAttr ".vclr[415].vfcl[385].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[415].vfcl[385].vfal" 1;
+	setAttr ".vclr[415].vfcl[387].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[415].vfcl[387].vfal" 1;
+	setAttr ".vclr[416].vxal" 1;
+	setAttr -s 2 ".vclr[416].vfcl";
+	setAttr ".vclr[416].vfcl[340].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[416].vfcl[340].vfal" 1;
+	setAttr ".vclr[416].vfcl[347].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[416].vfcl[347].vfal" 1;
+	setAttr ".vclr[417].vxal" 1;
+	setAttr -s 2 ".vclr[417].vfcl";
+	setAttr ".vclr[417].vfcl[336].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[417].vfcl[336].vfal" 1;
+	setAttr ".vclr[417].vfcl[347].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[417].vfcl[347].vfal" 1;
+	setAttr ".vclr[418].vxal" 1;
+	setAttr -s 4 ".vclr[418].vfcl";
+	setAttr ".vclr[418].vfcl[340].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[418].vfcl[340].vfal" 1;
+	setAttr ".vclr[418].vfcl[348].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[418].vfcl[348].vfal" 1;
+	setAttr ".vclr[418].vfcl[383].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[418].vfcl[383].vfal" 1;
+	setAttr ".vclr[418].vfcl[385].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[418].vfcl[385].vfal" 1;
+	setAttr ".vclr[419].vxal" 1;
+	setAttr -s 4 ".vclr[419].vfcl";
+	setAttr ".vclr[419].vfcl[329].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[419].vfcl[329].vfal" 1;
+	setAttr ".vclr[419].vfcl[348].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[419].vfcl[348].vfal" 1;
+	setAttr ".vclr[419].vfcl[381].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[419].vfcl[381].vfal" 1;
+	setAttr ".vclr[419].vfcl[383].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[419].vfcl[383].vfal" 1;
+	setAttr ".vclr[420].vxal" 1;
+	setAttr -s 2 ".vclr[420].vfcl";
+	setAttr ".vclr[420].vfcl[340].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[420].vfcl[340].vfal" 1;
+	setAttr ".vclr[420].vfcl[348].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[420].vfcl[348].vfal" 1;
+	setAttr ".vclr[421].vxal" 1;
+	setAttr -s 2 ".vclr[421].vfcl";
+	setAttr ".vclr[421].vfcl[329].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[421].vfcl[329].vfal" 1;
+	setAttr ".vclr[421].vfcl[348].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[421].vfcl[348].vfal" 1;
+	setAttr ".vclr[422].vxal" 1;
+	setAttr -s 4 ".vclr[422].vfcl";
+	setAttr ".vclr[422].vfcl[331].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[422].vfcl[331].vfal" 1;
+	setAttr ".vclr[422].vfcl[343].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[422].vfcl[343].vfal" 1;
+	setAttr ".vclr[422].vfcl[349].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[422].vfcl[349].vfal" 1;
+	setAttr ".vclr[422].vfcl[380].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[422].vfcl[380].vfal" 1;
+	setAttr ".vclr[423].vxal" 1;
+	setAttr -s 4 ".vclr[423].vfcl";
+	setAttr ".vclr[423].vfcl[334].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[423].vfcl[334].vfal" 1;
+	setAttr ".vclr[423].vfcl[349].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[423].vfcl[349].vfal" 1;
+	setAttr ".vclr[423].vfcl[380].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[423].vfcl[380].vfal" 1;
+	setAttr ".vclr[423].vfcl[382].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[423].vfcl[382].vfal" 1;
+	setAttr ".vclr[424].vxal" 1;
+	setAttr -s 4 ".vclr[424].vfcl";
+	setAttr ".vclr[424].vfcl[334].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[424].vfcl[334].vfal" 1;
+	setAttr ".vclr[424].vfcl[349].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[424].vfcl[349].vfal" 1;
+	setAttr ".vclr[424].vfcl[685].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[424].vfcl[685].vfal" 1;
+	setAttr ".vclr[424].vfcl[686].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[424].vfcl[686].vfal" 1;
+	setAttr ".vclr[425].vxal" 1;
+	setAttr -s 4 ".vclr[425].vfcl";
+	setAttr ".vclr[425].vfcl[331].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[425].vfcl[331].vfal" 1;
+	setAttr ".vclr[425].vfcl[349].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[425].vfcl[349].vfal" 1;
+	setAttr ".vclr[425].vfcl[684].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[425].vfcl[684].vfal" 1;
+	setAttr ".vclr[425].vfcl[685].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[425].vfcl[685].vfal" 1;
+	setAttr ".vclr[426].vxal" 1;
+	setAttr -s 5 ".vclr[426].vfcl";
+	setAttr ".vclr[426].vfcl[335].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[426].vfcl[335].vfal" 1;
+	setAttr ".vclr[426].vfcl[350].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[426].vfcl[350].vfal" 1;
+	setAttr ".vclr[426].vfcl[351].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[426].vfcl[351].vfal" 1;
+	setAttr ".vclr[426].vfcl[386].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[426].vfcl[386].vfal" 1;
+	setAttr ".vclr[426].vfcl[389].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[426].vfcl[389].vfal" 1;
+	setAttr ".vclr[427].vxal" 1;
+	setAttr -s 5 ".vclr[427].vfcl";
+	setAttr ".vclr[427].vfcl[338].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[427].vfcl[338].vfal" 1;
+	setAttr ".vclr[427].vfcl[350].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[427].vfcl[350].vfal" 1;
+	setAttr ".vclr[427].vfcl[352].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[427].vfcl[352].vfal" 1;
+	setAttr ".vclr[427].vfcl[386].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[427].vfcl[386].vfal" 1;
+	setAttr ".vclr[427].vfcl[388].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[427].vfcl[388].vfal" 1;
+	setAttr ".vclr[428].vxal" 1;
+	setAttr -s 2 ".vclr[428].vfcl";
+	setAttr ".vclr[428].vfcl[338].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[428].vfcl[338].vfal" 1;
+	setAttr ".vclr[428].vfcl[352].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[428].vfcl[352].vfal" 1;
+	setAttr ".vclr[429].vxal" 1;
+	setAttr -s 2 ".vclr[429].vfcl";
+	setAttr ".vclr[429].vfcl[335].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[429].vfcl[335].vfal" 1;
+	setAttr ".vclr[429].vfcl[351].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[429].vfcl[351].vfal" 1;
+	setAttr ".vclr[430].vxal" 1;
+	setAttr -s 4 ".vclr[430].vfcl";
+	setAttr ".vclr[430].vfcl[350].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[430].vfcl[350].vfal" 1;
+	setAttr ".vclr[430].vfcl[351].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[430].vfcl[351].vfal" 1;
+	setAttr ".vclr[430].vfcl[353].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[430].vfcl[353].vfal" 1;
+	setAttr ".vclr[430].vfcl[354].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[430].vfcl[354].vfal" 1;
+	setAttr ".vclr[431].vxal" 1;
+	setAttr -s 4 ".vclr[431].vfcl";
+	setAttr ".vclr[431].vfcl[350].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[431].vfcl[350].vfal" 1;
+	setAttr ".vclr[431].vfcl[352].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[431].vfcl[352].vfal" 1;
+	setAttr ".vclr[431].vfcl[353].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[431].vfcl[353].vfal" 1;
+	setAttr ".vclr[431].vfcl[355].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[431].vfcl[355].vfal" 1;
+	setAttr ".vclr[432].vxal" 1;
+	setAttr -s 2 ".vclr[432].vfcl";
+	setAttr ".vclr[432].vfcl[351].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[432].vfcl[351].vfal" 1;
+	setAttr ".vclr[432].vfcl[354].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[432].vfcl[354].vfal" 1;
+	setAttr ".vclr[433].vxal" 1;
+	setAttr -s 2 ".vclr[433].vfcl";
+	setAttr ".vclr[433].vfcl[352].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[433].vfcl[352].vfal" 1;
+	setAttr ".vclr[433].vfcl[355].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[433].vfcl[355].vfal" 1;
+	setAttr ".vclr[434].vxal" 1;
+	setAttr -s 4 ".vclr[434].vfcl";
+	setAttr ".vclr[434].vfcl[353].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[434].vfcl[353].vfal" 1;
+	setAttr ".vclr[434].vfcl[354].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[434].vfcl[354].vfal" 1;
+	setAttr ".vclr[434].vfcl[356].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[434].vfcl[356].vfal" 1;
+	setAttr ".vclr[434].vfcl[357].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[434].vfcl[357].vfal" 1;
+	setAttr ".vclr[435].vxal" 1;
+	setAttr -s 4 ".vclr[435].vfcl";
+	setAttr ".vclr[435].vfcl[353].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[435].vfcl[353].vfal" 1;
+	setAttr ".vclr[435].vfcl[355].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[435].vfcl[355].vfal" 1;
+	setAttr ".vclr[435].vfcl[356].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[435].vfcl[356].vfal" 1;
+	setAttr ".vclr[435].vfcl[359].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[435].vfcl[359].vfal" 1;
+	setAttr ".vclr[436].vxal" 1;
+	setAttr -s 3 ".vclr[436].vfcl";
+	setAttr ".vclr[436].vfcl[354].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[436].vfcl[354].vfal" 1;
+	setAttr ".vclr[436].vfcl[357].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[436].vfcl[357].vfal" 1;
+	setAttr ".vclr[436].vfcl[358].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[436].vfcl[358].vfal" 1;
+	setAttr ".vclr[437].vxal" 1;
+	setAttr -s 3 ".vclr[437].vfcl";
+	setAttr ".vclr[437].vfcl[355].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[437].vfcl[355].vfal" 1;
+	setAttr ".vclr[437].vfcl[358].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[437].vfcl[358].vfal" 1;
+	setAttr ".vclr[437].vfcl[359].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[437].vfcl[359].vfal" 1;
+	setAttr ".vclr[438].vxal" 1;
+	setAttr -s 4 ".vclr[438].vfcl";
+	setAttr ".vclr[438].vfcl[356].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[438].vfcl[356].vfal" 1;
+	setAttr ".vclr[438].vfcl[357].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[438].vfcl[357].vfal" 1;
+	setAttr ".vclr[438].vfcl[360].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[438].vfcl[360].vfal" 1;
+	setAttr ".vclr[438].vfcl[361].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[438].vfcl[361].vfal" 1;
+	setAttr ".vclr[439].vxal" 1;
+	setAttr -s 4 ".vclr[439].vfcl";
+	setAttr ".vclr[439].vfcl[356].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[439].vfcl[356].vfal" 1;
+	setAttr ".vclr[439].vfcl[359].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[439].vfcl[359].vfal" 1;
+	setAttr ".vclr[439].vfcl[360].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[439].vfcl[360].vfal" 1;
+	setAttr ".vclr[439].vfcl[363].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[439].vfcl[363].vfal" 1;
+	setAttr ".vclr[440].vxal" 1;
+	setAttr -s 4 ".vclr[440].vfcl";
+	setAttr ".vclr[440].vfcl[357].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[440].vfcl[357].vfal" 1;
+	setAttr ".vclr[440].vfcl[358].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[440].vfcl[358].vfal" 1;
+	setAttr ".vclr[440].vfcl[361].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[440].vfcl[361].vfal" 1;
+	setAttr ".vclr[440].vfcl[362].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[440].vfcl[362].vfal" 1;
+	setAttr ".vclr[441].vxal" 1;
+	setAttr -s 4 ".vclr[441].vfcl";
+	setAttr ".vclr[441].vfcl[358].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[441].vfcl[358].vfal" 1;
+	setAttr ".vclr[441].vfcl[359].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[441].vfcl[359].vfal" 1;
+	setAttr ".vclr[441].vfcl[362].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[441].vfcl[362].vfal" 1;
+	setAttr ".vclr[441].vfcl[363].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[441].vfcl[363].vfal" 1;
+	setAttr ".vclr[442].vxal" 1;
+	setAttr -s 4 ".vclr[442].vfcl";
+	setAttr ".vclr[442].vfcl[360].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[442].vfcl[360].vfal" 1;
+	setAttr ".vclr[442].vfcl[361].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[442].vfcl[361].vfal" 1;
+	setAttr ".vclr[442].vfcl[364].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[442].vfcl[364].vfal" 1;
+	setAttr ".vclr[442].vfcl[365].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[442].vfcl[365].vfal" 1;
+	setAttr ".vclr[443].vxal" 1;
+	setAttr -s 4 ".vclr[443].vfcl";
+	setAttr ".vclr[443].vfcl[360].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[443].vfcl[360].vfal" 1;
+	setAttr ".vclr[443].vfcl[363].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[443].vfcl[363].vfal" 1;
+	setAttr ".vclr[443].vfcl[364].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[443].vfcl[364].vfal" 1;
+	setAttr ".vclr[443].vfcl[367].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[443].vfcl[367].vfal" 1;
+	setAttr ".vclr[444].vxal" 1;
+	setAttr -s 4 ".vclr[444].vfcl";
+	setAttr ".vclr[444].vfcl[361].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[444].vfcl[361].vfal" 1;
+	setAttr ".vclr[444].vfcl[362].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[444].vfcl[362].vfal" 1;
+	setAttr ".vclr[444].vfcl[365].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[444].vfcl[365].vfal" 1;
+	setAttr ".vclr[444].vfcl[366].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[444].vfcl[366].vfal" 1;
+	setAttr ".vclr[445].vxal" 1;
+	setAttr -s 4 ".vclr[445].vfcl";
+	setAttr ".vclr[445].vfcl[362].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[445].vfcl[362].vfal" 1;
+	setAttr ".vclr[445].vfcl[363].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[445].vfcl[363].vfal" 1;
+	setAttr ".vclr[445].vfcl[366].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[445].vfcl[366].vfal" 1;
+	setAttr ".vclr[445].vfcl[367].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[445].vfcl[367].vfal" 1;
+	setAttr ".vclr[446].vxal" 1;
+	setAttr -s 4 ".vclr[446].vfcl";
+	setAttr ".vclr[446].vfcl[364].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[446].vfcl[364].vfal" 1;
+	setAttr ".vclr[446].vfcl[365].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[446].vfcl[365].vfal" 1;
+	setAttr ".vclr[446].vfcl[368].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[446].vfcl[368].vfal" 1;
+	setAttr ".vclr[446].vfcl[369].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[446].vfcl[369].vfal" 1;
+	setAttr ".vclr[447].vxal" 1;
+	setAttr -s 4 ".vclr[447].vfcl";
+	setAttr ".vclr[447].vfcl[364].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[447].vfcl[364].vfal" 1;
+	setAttr ".vclr[447].vfcl[367].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[447].vfcl[367].vfal" 1;
+	setAttr ".vclr[447].vfcl[368].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[447].vfcl[368].vfal" 1;
+	setAttr ".vclr[447].vfcl[371].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[447].vfcl[371].vfal" 1;
+	setAttr ".vclr[448].vxal" 1;
+	setAttr -s 4 ".vclr[448].vfcl";
+	setAttr ".vclr[448].vfcl[365].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[448].vfcl[365].vfal" 1;
+	setAttr ".vclr[448].vfcl[366].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[448].vfcl[366].vfal" 1;
+	setAttr ".vclr[448].vfcl[369].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[448].vfcl[369].vfal" 1;
+	setAttr ".vclr[448].vfcl[370].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[448].vfcl[370].vfal" 1;
+	setAttr ".vclr[449].vxal" 1;
+	setAttr -s 4 ".vclr[449].vfcl";
+	setAttr ".vclr[449].vfcl[366].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[449].vfcl[366].vfal" 1;
+	setAttr ".vclr[449].vfcl[367].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[449].vfcl[367].vfal" 1;
+	setAttr ".vclr[449].vfcl[370].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[449].vfcl[370].vfal" 1;
+	setAttr ".vclr[449].vfcl[371].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[449].vfcl[371].vfal" 1;
+	setAttr ".vclr[450].vxal" 1;
+	setAttr -s 4 ".vclr[450].vfcl";
+	setAttr ".vclr[450].vfcl[368].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[450].vfcl[368].vfal" 1;
+	setAttr ".vclr[450].vfcl[369].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[450].vfcl[369].vfal" 1;
+	setAttr ".vclr[450].vfcl[372].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[450].vfcl[372].vfal" 1;
+	setAttr ".vclr[450].vfcl[373].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[450].vfcl[373].vfal" 1;
+	setAttr ".vclr[451].vxal" 1;
+	setAttr -s 4 ".vclr[451].vfcl";
+	setAttr ".vclr[451].vfcl[368].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[451].vfcl[368].vfal" 1;
+	setAttr ".vclr[451].vfcl[371].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[451].vfcl[371].vfal" 1;
+	setAttr ".vclr[451].vfcl[372].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[451].vfcl[372].vfal" 1;
+	setAttr ".vclr[451].vfcl[375].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[451].vfcl[375].vfal" 1;
+	setAttr ".vclr[452].vxal" 1;
+	setAttr -s 4 ".vclr[452].vfcl";
+	setAttr ".vclr[452].vfcl[369].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[452].vfcl[369].vfal" 1;
+	setAttr ".vclr[452].vfcl[370].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[452].vfcl[370].vfal" 1;
+	setAttr ".vclr[452].vfcl[373].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[452].vfcl[373].vfal" 1;
+	setAttr ".vclr[452].vfcl[374].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[452].vfcl[374].vfal" 1;
+	setAttr ".vclr[453].vxal" 1;
+	setAttr -s 4 ".vclr[453].vfcl";
+	setAttr ".vclr[453].vfcl[370].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[453].vfcl[370].vfal" 1;
+	setAttr ".vclr[453].vfcl[371].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[453].vfcl[371].vfal" 1;
+	setAttr ".vclr[453].vfcl[374].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[453].vfcl[374].vfal" 1;
+	setAttr ".vclr[453].vfcl[375].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[453].vfcl[375].vfal" 1;
+	setAttr ".vclr[454].vxal" 1;
+	setAttr -s 4 ".vclr[454].vfcl";
+	setAttr ".vclr[454].vfcl[372].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[454].vfcl[372].vfal" 1;
+	setAttr ".vclr[454].vfcl[373].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[454].vfcl[373].vfal" 1;
+	setAttr ".vclr[454].vfcl[376].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[454].vfcl[376].vfal" 1;
+	setAttr ".vclr[454].vfcl[377].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[454].vfcl[377].vfal" 1;
+	setAttr ".vclr[455].vxal" 1;
+	setAttr -s 4 ".vclr[455].vfcl";
+	setAttr ".vclr[455].vfcl[372].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[455].vfcl[372].vfal" 1;
+	setAttr ".vclr[455].vfcl[375].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[455].vfcl[375].vfal" 1;
+	setAttr ".vclr[455].vfcl[376].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[455].vfcl[376].vfal" 1;
+	setAttr ".vclr[455].vfcl[379].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[455].vfcl[379].vfal" 1;
+	setAttr ".vclr[456].vxal" 1;
+	setAttr -s 4 ".vclr[456].vfcl";
+	setAttr ".vclr[456].vfcl[373].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[456].vfcl[373].vfal" 1;
+	setAttr ".vclr[456].vfcl[374].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[456].vfcl[374].vfal" 1;
+	setAttr ".vclr[456].vfcl[377].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[456].vfcl[377].vfal" 1;
+	setAttr ".vclr[456].vfcl[378].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[456].vfcl[378].vfal" 1;
+	setAttr ".vclr[457].vxal" 1;
+	setAttr -s 4 ".vclr[457].vfcl";
+	setAttr ".vclr[457].vfcl[374].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[457].vfcl[374].vfal" 1;
+	setAttr ".vclr[457].vfcl[375].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[457].vfcl[375].vfal" 1;
+	setAttr ".vclr[457].vfcl[378].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[457].vfcl[378].vfal" 1;
+	setAttr ".vclr[457].vfcl[379].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[457].vfcl[379].vfal" 1;
+	setAttr ".vclr[458].vxal" 1;
+	setAttr -s 4 ".vclr[458].vfcl";
+	setAttr ".vclr[458].vfcl[376].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[458].vfcl[376].vfal" 1;
+	setAttr ".vclr[458].vfcl[377].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[458].vfcl[377].vfal" 1;
+	setAttr ".vclr[458].vfcl[378].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[458].vfcl[378].vfal" 1;
+	setAttr ".vclr[458].vfcl[379].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[458].vfcl[379].vfal" 1;
+	setAttr ".vclr[459].vxal" 1;
+	setAttr -s 3 ".vclr[459].vfcl";
+	setAttr ".vclr[459].vfcl[390].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[459].vfcl[390].vfal" 1;
+	setAttr ".vclr[459].vfcl[652].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[459].vfcl[652].vfal" 1;
+	setAttr ".vclr[459].vfcl[653].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[459].vfcl[653].vfal" 1;
+	setAttr ".vclr[460].vxal" 1;
+	setAttr -s 2 ".vclr[460].vfcl";
+	setAttr ".vclr[460].vfcl[390].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[460].vfcl[390].vfal" 1;
+	setAttr ".vclr[460].vfcl[444].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[460].vfcl[444].vfal" 1;
+	setAttr ".vclr[461].vxal" 1;
+	setAttr -s 3 ".vclr[461].vfcl";
+	setAttr ".vclr[461].vfcl[392].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[461].vfcl[392].vfal" 1;
+	setAttr ".vclr[461].vfcl[652].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[461].vfcl[652].vfal" 1;
+	setAttr ".vclr[461].vfcl[653].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[461].vfcl[653].vfal" 1;
+	setAttr ".vclr[462].vxal" 1;
+	setAttr -s 5 ".vclr[462].vfcl";
+	setAttr ".vclr[462].vfcl[392].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[462].vfcl[392].vfal" 1;
+	setAttr ".vclr[462].vfcl[404].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[462].vfcl[404].vfal" 1;
+	setAttr ".vclr[462].vfcl[649].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[462].vfcl[649].vfal" 1;
+	setAttr ".vclr[462].vfcl[650].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[462].vfcl[650].vfal" 1;
+	setAttr ".vclr[462].vfcl[652].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[462].vfcl[652].vfal" 1;
+	setAttr ".vclr[463].vxal" 1;
+	setAttr -s 4 ".vclr[463].vfcl";
+	setAttr ".vclr[463].vfcl[393].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[463].vfcl[393].vfal" 1;
+	setAttr ".vclr[463].vfcl[404].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[463].vfcl[404].vfal" 1;
+	setAttr ".vclr[463].vfcl[647].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[463].vfcl[647].vfal" 1;
+	setAttr ".vclr[463].vfcl[650].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[463].vfcl[650].vfal" 1;
+	setAttr ".vclr[464].vxal" 1;
+	setAttr -s 4 ".vclr[464].vfcl";
+	setAttr ".vclr[464].vfcl[393].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[464].vfcl[393].vfal" 1;
+	setAttr ".vclr[464].vfcl[464].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[464].vfcl[464].vfal" 1;
+	setAttr ".vclr[464].vfcl[645].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[464].vfcl[645].vfal" 1;
+	setAttr ".vclr[464].vfcl[647].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[464].vfcl[647].vfal" 1;
+	setAttr ".vclr[465].vxal" 1;
+	setAttr -s 4 ".vclr[465].vfcl";
+	setAttr ".vclr[465].vfcl[394].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[465].vfcl[394].vfal" 1;
+	setAttr ".vclr[465].vfcl[461].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[465].vfcl[461].vfal" 1;
+	setAttr ".vclr[465].vfcl[646].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[465].vfcl[646].vfal" 1;
+	setAttr ".vclr[465].vfcl[648].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[465].vfcl[648].vfal" 1;
+	setAttr ".vclr[466].vxal" 1;
+	setAttr -s 4 ".vclr[466].vfcl";
+	setAttr ".vclr[466].vfcl[394].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[466].vfcl[394].vfal" 1;
+	setAttr ".vclr[466].vfcl[444].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[466].vfcl[444].vfal" 1;
+	setAttr ".vclr[466].vfcl[648].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[466].vfcl[648].vfal" 1;
+	setAttr ".vclr[466].vfcl[651].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[466].vfcl[651].vfal" 1;
+	setAttr ".vclr[467].vxal" 1;
+	setAttr -s 7 ".vclr[467].vfcl";
+	setAttr ".vclr[467].vfcl[397].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[467].vfcl[397].vfal" 1;
+	setAttr ".vclr[467].vfcl[400].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[467].vfcl[400].vfal" 1;
+	setAttr ".vclr[467].vfcl[449].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[467].vfcl[449].vfal" 1;
+	setAttr ".vclr[467].vfcl[451].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[467].vfcl[451].vfal" 1;
+	setAttr ".vclr[467].vfcl[452].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[467].vfcl[452].vfal" 1;
+	setAttr ".vclr[467].vfcl[671].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[467].vfcl[671].vfal" 1;
+	setAttr ".vclr[467].vfcl[672].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[467].vfcl[672].vfal" 1;
+	setAttr ".vclr[468].vxal" 1;
+	setAttr -s 3 ".vclr[468].vfcl";
+	setAttr ".vclr[468].vfcl[397].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[468].vfcl[397].vfal" 1;
+	setAttr ".vclr[468].vfcl[400].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[468].vfcl[400].vfal" 1;
+	setAttr ".vclr[468].vfcl[657].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[468].vfcl[657].vfal" 1;
+	setAttr ".vclr[469].vxal" 1;
+	setAttr -s 4 ".vclr[469].vfcl";
+	setAttr ".vclr[469].vfcl[398].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[469].vfcl[398].vfal" 1;
+	setAttr ".vclr[469].vfcl[402].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[469].vfcl[402].vfal" 1;
+	setAttr ".vclr[469].vfcl[443].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[469].vfcl[443].vfal" 1;
+	setAttr ".vclr[469].vfcl[445].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[469].vfcl[445].vfal" 1;
+	setAttr ".vclr[470].vxal" 1;
+	setAttr -s 4 ".vclr[470].vfcl";
+	setAttr ".vclr[470].vfcl[393].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[470].vfcl[393].vfal" 1;
+	setAttr ".vclr[470].vfcl[402].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[470].vfcl[402].vfal" 1;
+	setAttr ".vclr[470].vfcl[404].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[470].vfcl[404].vfal" 1;
+	setAttr ".vclr[470].vfcl[443].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[470].vfcl[443].vfal" 1;
+	setAttr ".vclr[471].vxal" 1;
+	setAttr -s 4 ".vclr[471].vfcl";
+	setAttr ".vclr[471].vfcl[398].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[471].vfcl[398].vfal" 1;
+	setAttr ".vclr[471].vfcl[402].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[471].vfcl[402].vfal" 1;
+	setAttr ".vclr[471].vfcl[666].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[471].vfcl[666].vfal" 1;
+	setAttr ".vclr[471].vfcl[668].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[471].vfcl[668].vfal" 1;
+	setAttr ".vclr[472].vxal" 1;
+	setAttr -s 4 ".vclr[472].vfcl";
+	setAttr ".vclr[472].vfcl[393].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[472].vfcl[393].vfal" 1;
+	setAttr ".vclr[472].vfcl[402].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[472].vfcl[402].vfal" 1;
+	setAttr ".vclr[472].vfcl[464].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[472].vfcl[464].vfal" 1;
+	setAttr ".vclr[472].vfcl[666].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[472].vfcl[666].vfal" 1;
+	setAttr ".vclr[473].vxal" 1;
+	setAttr -s 4 ".vclr[473].vfcl";
+	setAttr ".vclr[473].vfcl[391].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[473].vfcl[391].vfal" 1;
+	setAttr ".vclr[473].vfcl[403].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[473].vfcl[403].vfal" 1;
+	setAttr ".vclr[473].vfcl[446].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[473].vfcl[446].vfal" 1;
+	setAttr ".vclr[473].vfcl[448].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[473].vfcl[448].vfal" 1;
+	setAttr ".vclr[474].vxal" 1;
+	setAttr -s 4 ".vclr[474].vfcl";
+	setAttr ".vclr[474].vfcl[394].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[474].vfcl[394].vfal" 1;
+	setAttr ".vclr[474].vfcl[403].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[474].vfcl[403].vfal" 1;
+	setAttr ".vclr[474].vfcl[444].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[474].vfcl[444].vfal" 1;
+	setAttr ".vclr[474].vfcl[446].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[474].vfcl[446].vfal" 1;
+	setAttr ".vclr[475].vxal" 1;
+	setAttr -s 3 ".vclr[475].vfcl";
+	setAttr ".vclr[475].vfcl[394].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[475].vfcl[394].vfal" 1;
+	setAttr ".vclr[475].vfcl[403].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[475].vfcl[403].vfal" 1;
+	setAttr ".vclr[475].vfcl[461].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[475].vfcl[461].vfal" 1;
+	setAttr ".vclr[476].vxal" 1;
+	setAttr -s 2 ".vclr[476].vfcl";
+	setAttr ".vclr[476].vfcl[391].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[476].vfcl[391].vfal" 1;
+	setAttr ".vclr[476].vfcl[403].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[476].vfcl[403].vfal" 1;
+	setAttr ".vclr[477].vxal" 1;
+	setAttr -s 4 ".vclr[477].vfcl";
+	setAttr ".vclr[477].vfcl[398].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[477].vfcl[398].vfal" 1;
+	setAttr ".vclr[477].vfcl[405].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[477].vfcl[405].vfal" 1;
+	setAttr ".vclr[477].vfcl[445].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[477].vfcl[445].vfal" 1;
+	setAttr ".vclr[477].vfcl[447].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[477].vfcl[447].vfal" 1;
+	setAttr ".vclr[478].vxal" 1;
+	setAttr -s 4 ".vclr[478].vfcl";
+	setAttr ".vclr[478].vfcl[405].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[478].vfcl[405].vfal" 1;
+	setAttr ".vclr[478].vfcl[447].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[478].vfcl[447].vfal" 1;
+	setAttr ".vclr[478].vfcl[672].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[478].vfcl[672].vfal" 1;
+	setAttr ".vclr[478].vfcl[673].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[478].vfcl[673].vfal" 1;
+	setAttr ".vclr[479].vxal" 1;
+	setAttr -s 4 ".vclr[479].vfcl";
+	setAttr ".vclr[479].vfcl[398].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[479].vfcl[398].vfal" 1;
+	setAttr ".vclr[479].vfcl[405].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[479].vfcl[405].vfal" 1;
+	setAttr ".vclr[479].vfcl[668].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[479].vfcl[668].vfal" 1;
+	setAttr ".vclr[479].vfcl[674].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[479].vfcl[674].vfal" 1;
+	setAttr ".vclr[480].vxal" 1;
+	setAttr -s 4 ".vclr[480].vfcl";
+	setAttr ".vclr[480].vfcl[405].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[480].vfcl[405].vfal" 1;
+	setAttr ".vclr[480].vfcl[673].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[480].vfcl[673].vfal" 1;
+	setAttr ".vclr[480].vfcl[674].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[480].vfcl[674].vfal" 1;
+	setAttr ".vclr[480].vfcl[676].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[480].vfcl[676].vfal" 1;
+	setAttr ".vclr[481].vxal" 1;
+	setAttr -s 4 ".vclr[481].vfcl";
+	setAttr ".vclr[481].vfcl[391].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[481].vfcl[391].vfal" 1;
+	setAttr ".vclr[481].vfcl[406].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[481].vfcl[406].vfal" 1;
+	setAttr ".vclr[481].vfcl[448].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[481].vfcl[448].vfal" 1;
+	setAttr ".vclr[481].vfcl[450].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[481].vfcl[450].vfal" 1;
+	setAttr ".vclr[482].vxal" 1;
+	setAttr -s 4 ".vclr[482].vfcl";
+	setAttr ".vclr[482].vfcl[406].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[482].vfcl[406].vfal" 1;
+	setAttr ".vclr[482].vfcl[450].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[482].vfcl[450].vfal" 1;
+	setAttr ".vclr[482].vfcl[670].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[482].vfcl[670].vfal" 1;
+	setAttr ".vclr[482].vfcl[671].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[482].vfcl[671].vfal" 1;
+	setAttr ".vclr[483].vxal" 1;
+	setAttr -s 4 ".vclr[483].vfcl";
+	setAttr ".vclr[483].vfcl[391].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[483].vfcl[391].vfal" 1;
+	setAttr ".vclr[483].vfcl[406].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[483].vfcl[406].vfal" 1;
+	setAttr ".vclr[483].vfcl[669].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[483].vfcl[669].vfal" 1;
+	setAttr ".vclr[483].vfcl[675].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[483].vfcl[675].vfal" 1;
+	setAttr ".vclr[484].vxal" 1;
+	setAttr -s 4 ".vclr[484].vfcl";
+	setAttr ".vclr[484].vfcl[406].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[484].vfcl[406].vfal" 1;
+	setAttr ".vclr[484].vfcl[670].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[484].vfcl[670].vfal" 1;
+	setAttr ".vclr[484].vfcl[675].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[484].vfcl[675].vfal" 1;
+	setAttr ".vclr[484].vfcl[677].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[484].vfcl[677].vfal" 1;
+	setAttr ".vclr[485].vxal" 1;
+	setAttr -s 4 ".vclr[485].vfcl";
+	setAttr ".vclr[485].vfcl[395].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[485].vfcl[395].vfal" 1;
+	setAttr ".vclr[485].vfcl[407].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[485].vfcl[407].vfal" 1;
+	setAttr ".vclr[485].vfcl[445].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[485].vfcl[445].vfal" 1;
+	setAttr ".vclr[485].vfcl[447].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[485].vfcl[447].vfal" 1;
+	setAttr ".vclr[486].vxal" 1;
+	setAttr -s 4 ".vclr[486].vfcl";
+	setAttr ".vclr[486].vfcl[400].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[486].vfcl[400].vfal" 1;
+	setAttr ".vclr[486].vfcl[407].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[486].vfcl[407].vfal" 1;
+	setAttr ".vclr[486].vfcl[447].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[486].vfcl[447].vfal" 1;
+	setAttr ".vclr[486].vfcl[672].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[486].vfcl[672].vfal" 1;
+	setAttr ".vclr[487].vxal" 1;
+	setAttr -s 2 ".vclr[487].vfcl";
+	setAttr ".vclr[487].vfcl[400].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[487].vfcl[400].vfal" 1;
+	setAttr ".vclr[487].vfcl[407].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[487].vfcl[407].vfal" 1;
+	setAttr ".vclr[488].vxal" 1;
+	setAttr -s 2 ".vclr[488].vfcl";
+	setAttr ".vclr[488].vfcl[395].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[488].vfcl[395].vfal" 1;
+	setAttr ".vclr[488].vfcl[407].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[488].vfcl[407].vfal" 1;
+	setAttr ".vclr[489].vxal" 1;
+	setAttr -s 4 ".vclr[489].vfcl";
+	setAttr ".vclr[489].vfcl[397].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[489].vfcl[397].vfal" 1;
+	setAttr ".vclr[489].vfcl[408].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[489].vfcl[408].vfal" 1;
+	setAttr ".vclr[489].vfcl[450].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[489].vfcl[450].vfal" 1;
+	setAttr ".vclr[489].vfcl[671].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[489].vfcl[671].vfal" 1;
+	setAttr ".vclr[490].vxal" 1;
+	setAttr -s 4 ".vclr[490].vfcl";
+	setAttr ".vclr[490].vfcl[401].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[490].vfcl[401].vfal" 1;
+	setAttr ".vclr[490].vfcl[408].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[490].vfcl[408].vfal" 1;
+	setAttr ".vclr[490].vfcl[448].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[490].vfcl[448].vfal" 1;
+	setAttr ".vclr[490].vfcl[450].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[490].vfcl[450].vfal" 1;
+	setAttr ".vclr[491].vxal" 1;
+	setAttr -s 4 ".vclr[491].vfcl";
+	setAttr ".vclr[491].vfcl[401].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[491].vfcl[401].vfal" 1;
+	setAttr ".vclr[491].vfcl[408].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[491].vfcl[408].vfal" 1;
+	setAttr ".vclr[491].vfcl[655].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[491].vfcl[655].vfal" 1;
+	setAttr ".vclr[491].vfcl[656].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[491].vfcl[656].vfal" 1;
+	setAttr ".vclr[492].vxal" 1;
+	setAttr -s 4 ".vclr[492].vfcl";
+	setAttr ".vclr[492].vfcl[397].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[492].vfcl[397].vfal" 1;
+	setAttr ".vclr[492].vfcl[408].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[492].vfcl[408].vfal" 1;
+	setAttr ".vclr[492].vfcl[656].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[492].vfcl[656].vfal" 1;
+	setAttr ".vclr[492].vfcl[657].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[492].vfcl[657].vfal" 1;
+	setAttr ".vclr[493].vxal" 1;
+	setAttr -s 4 ".vclr[493].vfcl";
+	setAttr ".vclr[493].vfcl[401].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[493].vfcl[401].vfal" 1;
+	setAttr ".vclr[493].vfcl[409].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[493].vfcl[409].vfal" 1;
+	setAttr ".vclr[493].vfcl[446].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[493].vfcl[446].vfal" 1;
+	setAttr ".vclr[493].vfcl[448].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[493].vfcl[448].vfal" 1;
+	setAttr ".vclr[494].vxal" 1;
+	setAttr -s 4 ".vclr[494].vfcl";
+	setAttr ".vclr[494].vfcl[390].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[494].vfcl[390].vfal" 1;
+	setAttr ".vclr[494].vfcl[409].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[494].vfcl[409].vfal" 1;
+	setAttr ".vclr[494].vfcl[444].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[494].vfcl[444].vfal" 1;
+	setAttr ".vclr[494].vfcl[446].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[494].vfcl[446].vfal" 1;
+	setAttr ".vclr[495].vxal" 1;
+	setAttr -s 4 ".vclr[495].vfcl";
+	setAttr ".vclr[495].vfcl[401].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[495].vfcl[401].vfal" 1;
+	setAttr ".vclr[495].vfcl[409].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[495].vfcl[409].vfal" 1;
+	setAttr ".vclr[495].vfcl[654].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[495].vfcl[654].vfal" 1;
+	setAttr ".vclr[495].vfcl[655].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[495].vfcl[655].vfal" 1;
+	setAttr ".vclr[496].vxal" 1;
+	setAttr -s 4 ".vclr[496].vfcl";
+	setAttr ".vclr[496].vfcl[390].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[496].vfcl[390].vfal" 1;
+	setAttr ".vclr[496].vfcl[409].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[496].vfcl[409].vfal" 1;
+	setAttr ".vclr[496].vfcl[653].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[496].vfcl[653].vfal" 1;
+	setAttr ".vclr[496].vfcl[654].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[496].vfcl[654].vfal" 1;
+	setAttr ".vclr[497].vxal" 1;
+	setAttr -s 4 ".vclr[497].vfcl";
+	setAttr ".vclr[497].vfcl[392].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[497].vfcl[392].vfal" 1;
+	setAttr ".vclr[497].vfcl[404].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[497].vfcl[404].vfal" 1;
+	setAttr ".vclr[497].vfcl[410].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[497].vfcl[410].vfal" 1;
+	setAttr ".vclr[497].vfcl[443].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[497].vfcl[443].vfal" 1;
+	setAttr ".vclr[498].vxal" 1;
+	setAttr -s 4 ".vclr[498].vfcl";
+	setAttr ".vclr[498].vfcl[395].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[498].vfcl[395].vfal" 1;
+	setAttr ".vclr[498].vfcl[410].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[498].vfcl[410].vfal" 1;
+	setAttr ".vclr[498].vfcl[443].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[498].vfcl[443].vfal" 1;
+	setAttr ".vclr[498].vfcl[445].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[498].vfcl[445].vfal" 1;
+	setAttr ".vclr[499].vxal" 1;
+	setAttr -s 2 ".vclr[499].vfcl";
+	setAttr ".vclr[499].vfcl[395].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[499].vfcl[395].vfal" 1;
+	setAttr ".vclr[499].vfcl[410].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[499].vfcl[410].vfal" 1;
+	setAttr ".vclr[500].vxal" 1;
+	setAttr -s 4 ".vclr[500].vfcl";
+	setAttr ".vclr[500].vfcl[392].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[500].vfcl[392].vfal" 1;
+	setAttr ".vclr[500].vfcl[410].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[500].vfcl[410].vfal" 1;
+	setAttr ".vclr[500].vfcl[653].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[500].vfcl[653].vfal" 1;
+	setAttr ".vclr[500].vfcl[654].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[500].vfcl[654].vfal" 1;
+	setAttr ".vclr[501].vxal" 1;
+	setAttr -s 5 ".vclr[501].vfcl";
+	setAttr ".vclr[501].vfcl[396].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[501].vfcl[396].vfal" 1;
+	setAttr ".vclr[501].vfcl[411].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[501].vfcl[411].vfal" 1;
+	setAttr ".vclr[501].vfcl[412].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[501].vfcl[412].vfal" 1;
+	setAttr ".vclr[501].vfcl[449].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[501].vfcl[449].vfal" 1;
+	setAttr ".vclr[501].vfcl[452].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[501].vfcl[452].vfal" 1;
+	setAttr ".vclr[502].vxal" 1;
+	setAttr -s 5 ".vclr[502].vfcl";
+	setAttr ".vclr[502].vfcl[399].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[502].vfcl[399].vfal" 1;
+	setAttr ".vclr[502].vfcl[411].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[502].vfcl[411].vfal" 1;
+	setAttr ".vclr[502].vfcl[414].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[502].vfcl[414].vfal" 1;
+	setAttr ".vclr[502].vfcl[449].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[502].vfcl[449].vfal" 1;
+	setAttr ".vclr[502].vfcl[451].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[502].vfcl[451].vfal" 1;
+	setAttr ".vclr[503].vxal" 1;
+	setAttr -s 4 ".vclr[503].vfcl";
+	setAttr ".vclr[503].vfcl[399].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[503].vfcl[399].vfal" 1;
+	setAttr ".vclr[503].vfcl[413].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[503].vfcl[413].vfal" 1;
+	setAttr ".vclr[503].vfcl[414].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[503].vfcl[414].vfal" 1;
+	setAttr ".vclr[503].vfcl[678].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[503].vfcl[678].vfal" 1;
+	setAttr ".vclr[504].vxal" 1;
+	setAttr -s 4 ".vclr[504].vfcl";
+	setAttr ".vclr[504].vfcl[396].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[504].vfcl[396].vfal" 1;
+	setAttr ".vclr[504].vfcl[412].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[504].vfcl[412].vfal" 1;
+	setAttr ".vclr[504].vfcl[413].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[504].vfcl[413].vfal" 1;
+	setAttr ".vclr[504].vfcl[678].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[504].vfcl[678].vfal" 1;
+	setAttr ".vclr[505].vxal" 1;
+	setAttr -s 4 ".vclr[505].vfcl";
+	setAttr ".vclr[505].vfcl[411].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[505].vfcl[411].vfal" 1;
+	setAttr ".vclr[505].vfcl[412].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[505].vfcl[412].vfal" 1;
+	setAttr ".vclr[505].vfcl[415].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[505].vfcl[415].vfal" 1;
+	setAttr ".vclr[505].vfcl[416].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[505].vfcl[416].vfal" 1;
+	setAttr ".vclr[506].vxal" 1;
+	setAttr -s 4 ".vclr[506].vfcl";
+	setAttr ".vclr[506].vfcl[411].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[506].vfcl[411].vfal" 1;
+	setAttr ".vclr[506].vfcl[414].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[506].vfcl[414].vfal" 1;
+	setAttr ".vclr[506].vfcl[415].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[506].vfcl[415].vfal" 1;
+	setAttr ".vclr[506].vfcl[418].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[506].vfcl[418].vfal" 1;
+	setAttr ".vclr[507].vxal" 1;
+	setAttr -s 4 ".vclr[507].vfcl";
+	setAttr ".vclr[507].vfcl[412].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[507].vfcl[412].vfal" 1;
+	setAttr ".vclr[507].vfcl[413].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[507].vfcl[413].vfal" 1;
+	setAttr ".vclr[507].vfcl[416].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[507].vfcl[416].vfal" 1;
+	setAttr ".vclr[507].vfcl[417].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[507].vfcl[417].vfal" 1;
+	setAttr ".vclr[508].vxal" 1;
+	setAttr -s 4 ".vclr[508].vfcl";
+	setAttr ".vclr[508].vfcl[413].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[508].vfcl[413].vfal" 1;
+	setAttr ".vclr[508].vfcl[414].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[508].vfcl[414].vfal" 1;
+	setAttr ".vclr[508].vfcl[417].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[508].vfcl[417].vfal" 1;
+	setAttr ".vclr[508].vfcl[418].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[508].vfcl[418].vfal" 1;
+	setAttr ".vclr[509].vxal" 1;
+	setAttr -s 4 ".vclr[509].vfcl";
+	setAttr ".vclr[509].vfcl[415].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[509].vfcl[415].vfal" 1;
+	setAttr ".vclr[509].vfcl[416].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[509].vfcl[416].vfal" 1;
+	setAttr ".vclr[509].vfcl[419].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[509].vfcl[419].vfal" 1;
+	setAttr ".vclr[509].vfcl[420].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[509].vfcl[420].vfal" 1;
+	setAttr ".vclr[510].vxal" 1;
+	setAttr -s 4 ".vclr[510].vfcl";
+	setAttr ".vclr[510].vfcl[415].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[510].vfcl[415].vfal" 1;
+	setAttr ".vclr[510].vfcl[418].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[510].vfcl[418].vfal" 1;
+	setAttr ".vclr[510].vfcl[419].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[510].vfcl[419].vfal" 1;
+	setAttr ".vclr[510].vfcl[422].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[510].vfcl[422].vfal" 1;
+	setAttr ".vclr[511].vxal" 1;
+	setAttr -s 4 ".vclr[511].vfcl";
+	setAttr ".vclr[511].vfcl[416].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[511].vfcl[416].vfal" 1;
+	setAttr ".vclr[511].vfcl[417].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[511].vfcl[417].vfal" 1;
+	setAttr ".vclr[511].vfcl[420].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[511].vfcl[420].vfal" 1;
+	setAttr ".vclr[511].vfcl[421].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[511].vfcl[421].vfal" 1;
+	setAttr ".vclr[512].vxal" 1;
+	setAttr -s 4 ".vclr[512].vfcl";
+	setAttr ".vclr[512].vfcl[417].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[512].vfcl[417].vfal" 1;
+	setAttr ".vclr[512].vfcl[418].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[512].vfcl[418].vfal" 1;
+	setAttr ".vclr[512].vfcl[421].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[512].vfcl[421].vfal" 1;
+	setAttr ".vclr[512].vfcl[422].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[512].vfcl[422].vfal" 1;
+	setAttr ".vclr[513].vxal" 1;
+	setAttr -s 4 ".vclr[513].vfcl";
+	setAttr ".vclr[513].vfcl[419].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[513].vfcl[419].vfal" 1;
+	setAttr ".vclr[513].vfcl[420].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[513].vfcl[420].vfal" 1;
+	setAttr ".vclr[513].vfcl[423].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[513].vfcl[423].vfal" 1;
+	setAttr ".vclr[513].vfcl[424].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[513].vfcl[424].vfal" 1;
+	setAttr ".vclr[514].vxal" 1;
+	setAttr -s 4 ".vclr[514].vfcl";
+	setAttr ".vclr[514].vfcl[419].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[514].vfcl[419].vfal" 1;
+	setAttr ".vclr[514].vfcl[422].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[514].vfcl[422].vfal" 1;
+	setAttr ".vclr[514].vfcl[423].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[514].vfcl[423].vfal" 1;
+	setAttr ".vclr[514].vfcl[426].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[514].vfcl[426].vfal" 1;
+	setAttr ".vclr[515].vxal" 1;
+	setAttr -s 4 ".vclr[515].vfcl";
+	setAttr ".vclr[515].vfcl[420].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[515].vfcl[420].vfal" 1;
+	setAttr ".vclr[515].vfcl[421].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[515].vfcl[421].vfal" 1;
+	setAttr ".vclr[515].vfcl[424].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[515].vfcl[424].vfal" 1;
+	setAttr ".vclr[515].vfcl[425].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[515].vfcl[425].vfal" 1;
+	setAttr ".vclr[516].vxal" 1;
+	setAttr -s 4 ".vclr[516].vfcl";
+	setAttr ".vclr[516].vfcl[421].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[516].vfcl[421].vfal" 1;
+	setAttr ".vclr[516].vfcl[422].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[516].vfcl[422].vfal" 1;
+	setAttr ".vclr[516].vfcl[425].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[516].vfcl[425].vfal" 1;
+	setAttr ".vclr[516].vfcl[426].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[516].vfcl[426].vfal" 1;
+	setAttr ".vclr[517].vxal" 1;
+	setAttr -s 4 ".vclr[517].vfcl";
+	setAttr ".vclr[517].vfcl[423].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[517].vfcl[423].vfal" 1;
+	setAttr ".vclr[517].vfcl[424].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[517].vfcl[424].vfal" 1;
+	setAttr ".vclr[517].vfcl[427].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[517].vfcl[427].vfal" 1;
+	setAttr ".vclr[517].vfcl[428].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[517].vfcl[428].vfal" 1;
+	setAttr ".vclr[518].vxal" 1;
+	setAttr -s 4 ".vclr[518].vfcl";
+	setAttr ".vclr[518].vfcl[423].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[518].vfcl[423].vfal" 1;
+	setAttr ".vclr[518].vfcl[426].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[518].vfcl[426].vfal" 1;
+	setAttr ".vclr[518].vfcl[427].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[518].vfcl[427].vfal" 1;
+	setAttr ".vclr[518].vfcl[430].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[518].vfcl[430].vfal" 1;
+	setAttr ".vclr[519].vxal" 1;
+	setAttr -s 4 ".vclr[519].vfcl";
+	setAttr ".vclr[519].vfcl[424].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[519].vfcl[424].vfal" 1;
+	setAttr ".vclr[519].vfcl[425].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[519].vfcl[425].vfal" 1;
+	setAttr ".vclr[519].vfcl[428].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[519].vfcl[428].vfal" 1;
+	setAttr ".vclr[519].vfcl[429].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[519].vfcl[429].vfal" 1;
+	setAttr ".vclr[520].vxal" 1;
+	setAttr -s 4 ".vclr[520].vfcl";
+	setAttr ".vclr[520].vfcl[425].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[520].vfcl[425].vfal" 1;
+	setAttr ".vclr[520].vfcl[426].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[520].vfcl[426].vfal" 1;
+	setAttr ".vclr[520].vfcl[429].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[520].vfcl[429].vfal" 1;
+	setAttr ".vclr[520].vfcl[430].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[520].vfcl[430].vfal" 1;
+	setAttr ".vclr[521].vxal" 1;
+	setAttr -s 4 ".vclr[521].vfcl";
+	setAttr ".vclr[521].vfcl[427].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[521].vfcl[427].vfal" 1;
+	setAttr ".vclr[521].vfcl[428].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[521].vfcl[428].vfal" 1;
+	setAttr ".vclr[521].vfcl[431].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[521].vfcl[431].vfal" 1;
+	setAttr ".vclr[521].vfcl[432].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[521].vfcl[432].vfal" 1;
+	setAttr ".vclr[522].vxal" 1;
+	setAttr -s 4 ".vclr[522].vfcl";
+	setAttr ".vclr[522].vfcl[427].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[522].vfcl[427].vfal" 1;
+	setAttr ".vclr[522].vfcl[430].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[522].vfcl[430].vfal" 1;
+	setAttr ".vclr[522].vfcl[431].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[522].vfcl[431].vfal" 1;
+	setAttr ".vclr[522].vfcl[434].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[522].vfcl[434].vfal" 1;
+	setAttr ".vclr[523].vxal" 1;
+	setAttr -s 4 ".vclr[523].vfcl";
+	setAttr ".vclr[523].vfcl[428].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[523].vfcl[428].vfal" 1;
+	setAttr ".vclr[523].vfcl[429].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[523].vfcl[429].vfal" 1;
+	setAttr ".vclr[523].vfcl[432].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[523].vfcl[432].vfal" 1;
+	setAttr ".vclr[523].vfcl[433].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[523].vfcl[433].vfal" 1;
+	setAttr ".vclr[524].vxal" 1;
+	setAttr -s 4 ".vclr[524].vfcl";
+	setAttr ".vclr[524].vfcl[429].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[524].vfcl[429].vfal" 1;
+	setAttr ".vclr[524].vfcl[430].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[524].vfcl[430].vfal" 1;
+	setAttr ".vclr[524].vfcl[433].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[524].vfcl[433].vfal" 1;
+	setAttr ".vclr[524].vfcl[434].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[524].vfcl[434].vfal" 1;
+	setAttr ".vclr[525].vxal" 1;
+	setAttr -s 4 ".vclr[525].vfcl";
+	setAttr ".vclr[525].vfcl[431].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[525].vfcl[431].vfal" 1;
+	setAttr ".vclr[525].vfcl[432].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[525].vfcl[432].vfal" 1;
+	setAttr ".vclr[525].vfcl[435].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[525].vfcl[435].vfal" 1;
+	setAttr ".vclr[525].vfcl[436].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[525].vfcl[436].vfal" 1;
+	setAttr ".vclr[526].vxal" 1;
+	setAttr -s 4 ".vclr[526].vfcl";
+	setAttr ".vclr[526].vfcl[431].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[526].vfcl[431].vfal" 1;
+	setAttr ".vclr[526].vfcl[434].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[526].vfcl[434].vfal" 1;
+	setAttr ".vclr[526].vfcl[435].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[526].vfcl[435].vfal" 1;
+	setAttr ".vclr[526].vfcl[438].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[526].vfcl[438].vfal" 1;
+	setAttr ".vclr[527].vxal" 1;
+	setAttr -s 4 ".vclr[527].vfcl";
+	setAttr ".vclr[527].vfcl[432].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[527].vfcl[432].vfal" 1;
+	setAttr ".vclr[527].vfcl[433].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[527].vfcl[433].vfal" 1;
+	setAttr ".vclr[527].vfcl[436].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[527].vfcl[436].vfal" 1;
+	setAttr ".vclr[527].vfcl[437].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[527].vfcl[437].vfal" 1;
+	setAttr ".vclr[528].vxal" 1;
+	setAttr -s 4 ".vclr[528].vfcl";
+	setAttr ".vclr[528].vfcl[433].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[528].vfcl[433].vfal" 1;
+	setAttr ".vclr[528].vfcl[434].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[528].vfcl[434].vfal" 1;
+	setAttr ".vclr[528].vfcl[437].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[528].vfcl[437].vfal" 1;
+	setAttr ".vclr[528].vfcl[438].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[528].vfcl[438].vfal" 1;
+	setAttr ".vclr[529].vxal" 1;
+	setAttr -s 4 ".vclr[529].vfcl";
+	setAttr ".vclr[529].vfcl[435].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[529].vfcl[435].vfal" 1;
+	setAttr ".vclr[529].vfcl[436].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[529].vfcl[436].vfal" 1;
+	setAttr ".vclr[529].vfcl[439].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[529].vfcl[439].vfal" 1;
+	setAttr ".vclr[529].vfcl[440].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[529].vfcl[440].vfal" 1;
+	setAttr ".vclr[530].vxal" 1;
+	setAttr -s 4 ".vclr[530].vfcl";
+	setAttr ".vclr[530].vfcl[435].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[530].vfcl[435].vfal" 1;
+	setAttr ".vclr[530].vfcl[438].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[530].vfcl[438].vfal" 1;
+	setAttr ".vclr[530].vfcl[439].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[530].vfcl[439].vfal" 1;
+	setAttr ".vclr[530].vfcl[442].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[530].vfcl[442].vfal" 1;
+	setAttr ".vclr[531].vxal" 1;
+	setAttr -s 4 ".vclr[531].vfcl";
+	setAttr ".vclr[531].vfcl[436].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[531].vfcl[436].vfal" 1;
+	setAttr ".vclr[531].vfcl[437].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[531].vfcl[437].vfal" 1;
+	setAttr ".vclr[531].vfcl[440].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[531].vfcl[440].vfal" 1;
+	setAttr ".vclr[531].vfcl[441].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[531].vfcl[441].vfal" 1;
+	setAttr ".vclr[532].vxal" 1;
+	setAttr -s 4 ".vclr[532].vfcl";
+	setAttr ".vclr[532].vfcl[437].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[532].vfcl[437].vfal" 1;
+	setAttr ".vclr[532].vfcl[438].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[532].vfcl[438].vfal" 1;
+	setAttr ".vclr[532].vfcl[441].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[532].vfcl[441].vfal" 1;
+	setAttr ".vclr[532].vfcl[442].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[532].vfcl[442].vfal" 1;
+	setAttr ".vclr[533].vxal" 1;
+	setAttr -s 4 ".vclr[533].vfcl";
+	setAttr ".vclr[533].vfcl[439].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[533].vfcl[439].vfal" 1;
+	setAttr ".vclr[533].vfcl[440].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[533].vfcl[440].vfal" 1;
+	setAttr ".vclr[533].vfcl[441].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[533].vfcl[441].vfal" 1;
+	setAttr ".vclr[533].vfcl[442].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[533].vfcl[442].vfal" 1;
+	setAttr ".vclr[534].vxal" 1;
+	setAttr -s 4 ".vclr[534].vfcl";
+	setAttr ".vclr[534].vfcl[453].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[534].vfcl[453].vfal" 1;
+	setAttr ".vclr[534].vfcl[642].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[534].vfcl[642].vfal" 1;
+	setAttr ".vclr[534].vfcl[660].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[534].vfcl[660].vfal" 1;
+	setAttr ".vclr[534].vfcl[735].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[534].vfcl[735].vfal" 1;
+	setAttr ".vclr[535].vxal" 1;
+	setAttr -s 4 ".vclr[535].vfcl";
+	setAttr ".vclr[535].vfcl[453].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[535].vfcl[453].vfal" 1;
+	setAttr ".vclr[535].vfcl[454].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[535].vfcl[454].vfal" 1;
+	setAttr ".vclr[535].vfcl[639].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[535].vfcl[639].vfal" 1;
+	setAttr ".vclr[535].vfcl[642].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[535].vfcl[642].vfal" 1;
+	setAttr ".vclr[536].vxal" 1;
+	setAttr -s 2 ".vclr[536].vfcl";
+	setAttr ".vclr[536].vfcl[453].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[536].vfcl[453].vfal" 1;
+	setAttr ".vclr[536].vfcl[454].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[536].vfcl[454].vfal" 1;
+	setAttr ".vclr[537].vxal" 1;
+	setAttr -s 4 ".vclr[537].vfcl";
+	setAttr ".vclr[537].vfcl[454].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[537].vfcl[454].vfal" 1;
+	setAttr ".vclr[537].vfcl[455].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[537].vfcl[455].vfal" 1;
+	setAttr ".vclr[537].vfcl[639].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[537].vfcl[639].vfal" 1;
+	setAttr ".vclr[537].vfcl[641].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[537].vfcl[641].vfal" 1;
+	setAttr ".vclr[538].vxal" 1;
+	setAttr -s 2 ".vclr[538].vfcl";
+	setAttr ".vclr[538].vfcl[454].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[538].vfcl[454].vfal" 1;
+	setAttr ".vclr[538].vfcl[455].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[538].vfcl[455].vfal" 1;
+	setAttr ".vclr[539].vxal" 1;
+	setAttr -s 3 ".vclr[539].vfcl";
+	setAttr ".vclr[539].vfcl[455].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[539].vfcl[455].vfal" 1;
+	setAttr ".vclr[539].vfcl[456].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[539].vfcl[456].vfal" 1;
+	setAttr ".vclr[539].vfcl[641].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[539].vfcl[641].vfal" 1;
+	setAttr ".vclr[540].vxal" 1;
+	setAttr -s 2 ".vclr[540].vfcl";
+	setAttr ".vclr[540].vfcl[455].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[540].vfcl[455].vfal" 1;
+	setAttr ".vclr[540].vfcl[456].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[540].vfcl[456].vfal" 1;
+	setAttr ".vclr[541].vxal" 1;
+	setAttr -s 2 ".vclr[541].vfcl";
+	setAttr ".vclr[541].vfcl[456].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[541].vfcl[456].vfal" 1;
+	setAttr ".vclr[541].vfcl[658].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[541].vfcl[658].vfal" 1;
+	setAttr ".vclr[542].vxal" 1;
+	setAttr -s 4 ".vclr[542].vfcl";
+	setAttr ".vclr[542].vfcl[457].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[542].vfcl[457].vfal" 1;
+	setAttr ".vclr[542].vfcl[460].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[542].vfcl[460].vfal" 1;
+	setAttr ".vclr[542].vfcl[640].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[542].vfcl[640].vfal" 1;
+	setAttr ".vclr[542].vfcl[643].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[542].vfcl[643].vfal" 1;
+	setAttr ".vclr[543].vxal" 1;
+	setAttr -s 4 ".vclr[543].vfcl";
+	setAttr ".vclr[543].vfcl[457].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[543].vfcl[457].vfal" 1;
+	setAttr ".vclr[543].vfcl[643].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[543].vfcl[643].vfal" 1;
+	setAttr ".vclr[543].vfcl[661].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[543].vfcl[661].vfal" 1;
+	setAttr ".vclr[543].vfcl[736].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[543].vfcl[736].vfal" 1;
+	setAttr ".vclr[544].vxal" 1;
+	setAttr -s 3 ".vclr[544].vfcl";
+	setAttr ".vclr[544].vfcl[457].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[544].vfcl[457].vfal" 1;
+	setAttr ".vclr[544].vfcl[460].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[544].vfcl[460].vfal" 1;
+	setAttr ".vclr[544].vfcl[717].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[544].vfcl[717].vfal" 1;
+	setAttr ".vclr[545].vxal" 1;
+	setAttr -s 2 ".vclr[545].vfcl";
+	setAttr ".vclr[545].vfcl[458].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[545].vfcl[458].vfal" 1;
+	setAttr ".vclr[545].vfcl[659].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[545].vfcl[659].vfal" 1;
+	setAttr ".vclr[546].vxal" 1;
+	setAttr -s 3 ".vclr[546].vfcl";
+	setAttr ".vclr[546].vfcl[458].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[546].vfcl[458].vfal" 1;
+	setAttr ".vclr[546].vfcl[459].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[546].vfcl[459].vfal" 1;
+	setAttr ".vclr[546].vfcl[644].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[546].vfcl[644].vfal" 1;
+	setAttr ".vclr[547].vxal" 1;
+	setAttr -s 3 ".vclr[547].vfcl";
+	setAttr ".vclr[547].vfcl[458].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[547].vfcl[458].vfal" 1;
+	setAttr ".vclr[547].vfcl[459].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[547].vfcl[459].vfal" 1;
+	setAttr ".vclr[547].vfcl[718].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[547].vfcl[718].vfal" 1;
+	setAttr ".vclr[548].vxal" 1;
+	setAttr -s 4 ".vclr[548].vfcl";
+	setAttr ".vclr[548].vfcl[459].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[548].vfcl[459].vfal" 1;
+	setAttr ".vclr[548].vfcl[460].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[548].vfcl[460].vfal" 1;
+	setAttr ".vclr[548].vfcl[640].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[548].vfcl[640].vfal" 1;
+	setAttr ".vclr[548].vfcl[644].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[548].vfcl[644].vfal" 1;
+	setAttr ".vclr[549].vxal" 1;
+	setAttr -s 2 ".vclr[549].vfcl";
+	setAttr ".vclr[549].vfcl[459].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[549].vfcl[459].vfal" 1;
+	setAttr ".vclr[549].vfcl[460].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[549].vfcl[460].vfal" 1;
+	setAttr ".vclr[550].vxal" 1;
+	setAttr -s 7 ".vclr[550].vfcl";
+	setAttr ".vclr[550].vfcl[461].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[550].vfcl[461].vfal" 1;
+	setAttr ".vclr[550].vfcl[462].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[550].vfcl[462].vfal" 1;
+	setAttr ".vclr[550].vfcl[667].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[550].vfcl[667].vfal" 1;
+	setAttr ".vclr[550].vfcl[722].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[550].vfcl[722].vfal" 1;
+	setAttr ".vclr[550].vfcl[724].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[550].vfcl[724].vfal" 1;
+	setAttr ".vclr[550].vfcl[728].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[550].vfcl[728].vfal" 1;
+	setAttr ".vclr[550].vfcl[732].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[550].vfcl[732].vfal" 1;
+	setAttr ".vclr[551].vxal" 1;
+	setAttr -s 4 ".vclr[551].vfcl";
+	setAttr ".vclr[551].vfcl[461].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[551].vfcl[461].vfal" 1;
+	setAttr ".vclr[551].vfcl[462].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[551].vfcl[462].vfal" 1;
+	setAttr ".vclr[551].vfcl[625].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[551].vfcl[625].vfal" 1;
+	setAttr ".vclr[551].vfcl[646].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[551].vfcl[646].vfal" 1;
+	setAttr ".vclr[552].vxal" 1;
+	setAttr -s 3 ".vclr[552].vfcl";
+	setAttr ".vclr[552].vfcl[462].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[552].vfcl[462].vfal" 1;
+	setAttr ".vclr[552].vfcl[625].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[552].vfcl[625].vfal" 1;
+	setAttr ".vclr[552].vfcl[664].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[552].vfcl[664].vfal" 1;
+	setAttr ".vclr[553].vxal" 1;
+	setAttr -s 5 ".vclr[553].vfcl";
+	setAttr ".vclr[553].vfcl[462].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[553].vfcl[462].vfal" 1;
+	setAttr ".vclr[553].vfcl[664].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[553].vfcl[664].vfal" 1;
+	setAttr ".vclr[553].vfcl[730].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[553].vfcl[730].vfal" 1;
+	setAttr ".vclr[553].vfcl[732].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[553].vfcl[732].vfal" 1;
+	setAttr ".vclr[553].vfcl[734].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[553].vfcl[734].vfal" 1;
+	setAttr ".vclr[554].vxal" 1;
+	setAttr -s 4 ".vclr[554].vfcl";
+	setAttr ".vclr[554].vfcl[463].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[554].vfcl[463].vfal" 1;
+	setAttr ".vclr[554].vfcl[464].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[554].vfcl[464].vfal" 1;
+	setAttr ".vclr[554].vfcl[624].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[554].vfcl[624].vfal" 1;
+	setAttr ".vclr[554].vfcl[645].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[554].vfcl[645].vfal" 1;
+	setAttr ".vclr[555].vxal" 1;
+	setAttr -s 3 ".vclr[555].vfcl";
+	setAttr ".vclr[555].vfcl[463].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[555].vfcl[463].vfal" 1;
+	setAttr ".vclr[555].vfcl[624].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[555].vfcl[624].vfal" 1;
+	setAttr ".vclr[555].vfcl[663].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[555].vfcl[663].vfal" 1;
+	setAttr ".vclr[556].vxal" 1;
+	setAttr -s 5 ".vclr[556].vfcl";
+	setAttr ".vclr[556].vfcl[463].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[556].vfcl[463].vfal" 1;
+	setAttr ".vclr[556].vfcl[663].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[556].vfcl[663].vfal" 1;
+	setAttr ".vclr[556].vfcl[729].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[556].vfcl[729].vfal" 1;
+	setAttr ".vclr[556].vfcl[731].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[556].vfcl[731].vfal" 1;
+	setAttr ".vclr[556].vfcl[733].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[556].vfcl[733].vfal" 1;
+	setAttr ".vclr[557].vxal" 1;
+	setAttr -s 7 ".vclr[557].vfcl";
+	setAttr ".vclr[557].vfcl[463].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[557].vfcl[463].vfal" 1;
+	setAttr ".vclr[557].vfcl[464].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[557].vfcl[464].vfal" 1;
+	setAttr ".vclr[557].vfcl[666].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[557].vfcl[666].vfal" 1;
+	setAttr ".vclr[557].vfcl[721].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[557].vfcl[721].vfal" 1;
+	setAttr ".vclr[557].vfcl[723].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[557].vfcl[723].vfal" 1;
+	setAttr ".vclr[557].vfcl[727].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[557].vfcl[727].vfal" 1;
+	setAttr ".vclr[557].vfcl[731].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[557].vfcl[731].vfal" 1;
+	setAttr ".vclr[558].vxal" 1;
+	setAttr -s 2 ".vclr[558].vfcl";
+	setAttr ".vclr[558].vfcl[465].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[558].vfcl[465].vfal" 1;
+	setAttr ".vclr[558].vfcl[475].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[558].vfcl[475].vfal" 1;
+	setAttr ".vclr[559].vxal" 1;
+	setAttr -s 5 ".vclr[559].vfcl";
+	setAttr ".vclr[559].vfcl[465].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[559].vfcl[465].vfal" 1;
+	setAttr ".vclr[559].vfcl[475].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[559].vfcl[475].vfal" 1;
+	setAttr ".vclr[559].vfcl[628].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[559].vfcl[628].vfal" 1;
+	setAttr ".vclr[559].vfcl[629].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[559].vfcl[629].vfal" 1;
+	setAttr ".vclr[559].vfcl[630].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[559].vfcl[630].vfal" 1;
+	setAttr ".vclr[560].vxal" 1;
+	setAttr -s 4 ".vclr[560].vfcl";
+	setAttr ".vclr[560].vfcl[465].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[560].vfcl[465].vfal" 1;
+	setAttr ".vclr[560].vfcl[474].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[560].vfcl[474].vfal" 1;
+	setAttr ".vclr[560].vfcl[628].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[560].vfcl[628].vfal" 1;
+	setAttr ".vclr[560].vfcl[631].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[560].vfcl[631].vfal" 1;
+	setAttr ".vclr[561].vxal" 1;
+	setAttr -s 2 ".vclr[561].vfcl";
+	setAttr ".vclr[561].vfcl[465].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[561].vfcl[465].vfal" 1;
+	setAttr ".vclr[561].vfcl[474].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[561].vfcl[474].vfal" 1;
+	setAttr ".vclr[562].vxal" 1;
+	setAttr -s 2 ".vclr[562].vfcl";
+	setAttr ".vclr[562].vfcl[466].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[562].vfcl[466].vfal" 1;
+	setAttr ".vclr[562].vfcl[665].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[562].vfcl[665].vfal" 1;
+	setAttr ".vclr[563].vxal" 1;
+	setAttr -s 2 ".vclr[563].vfcl";
+	setAttr ".vclr[563].vfcl[466].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[563].vfcl[466].vfal" 1;
+	setAttr ".vclr[563].vfcl[467].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[563].vfcl[467].vfal" 1;
+	setAttr ".vclr[564].vxal" 1;
+	setAttr -s 4 ".vclr[564].vfcl";
+	setAttr ".vclr[564].vfcl[466].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[564].vfcl[466].vfal" 1;
+	setAttr ".vclr[564].vfcl[467].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[564].vfcl[467].vfal" 1;
+	setAttr ".vclr[564].vfcl[626].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[564].vfcl[626].vfal" 1;
+	setAttr ".vclr[564].vfcl[627].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[564].vfcl[627].vfal" 1;
+	setAttr ".vclr[565].vxal" 1;
+	setAttr -s 4 ".vclr[565].vfcl";
+	setAttr ".vclr[565].vfcl[466].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[565].vfcl[466].vfal" 1;
+	setAttr ".vclr[565].vfcl[626].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[565].vfcl[626].vfal" 1;
+	setAttr ".vclr[565].vfcl[665].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[565].vfcl[665].vfal" 1;
+	setAttr ".vclr[565].vfcl[735].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[565].vfcl[735].vfal" 1;
+	setAttr ".vclr[566].vxal" 1;
+	setAttr -s 2 ".vclr[566].vfcl";
+	setAttr ".vclr[566].vfcl[467].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[566].vfcl[467].vfal" 1;
+	setAttr ".vclr[566].vfcl[468].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[566].vfcl[468].vfal" 1;
+	setAttr ".vclr[567].vxal" 1;
+	setAttr -s 5 ".vclr[567].vfcl";
+	setAttr ".vclr[567].vfcl[467].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[567].vfcl[467].vfal" 1;
+	setAttr ".vclr[567].vfcl[468].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[567].vfcl[468].vfal" 1;
+	setAttr ".vclr[567].vfcl[627].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[567].vfcl[627].vfal" 1;
+	setAttr ".vclr[567].vfcl[632].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[567].vfcl[632].vfal" 1;
+	setAttr ".vclr[567].vfcl[633].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[567].vfcl[633].vfal" 1;
+	setAttr ".vclr[568].vxal" 1;
+	setAttr ".vclr[568].vfcl[468].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[568].vfcl[468].vfal" 1;
+	setAttr ".vclr[569].vxal" 1;
+	setAttr -s 2 ".vclr[569].vfcl";
+	setAttr ".vclr[569].vfcl[468].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[569].vfcl[468].vfal" 1;
+	setAttr ".vclr[569].vfcl[472].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[569].vfcl[472].vfal" 1;
+	setAttr ".vclr[570].vxal" 1;
+	setAttr -s 3 ".vclr[570].vfcl";
+	setAttr ".vclr[570].vfcl[468].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[570].vfcl[468].vfal" 1;
+	setAttr ".vclr[570].vfcl[472].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[570].vfcl[472].vfal" 1;
+	setAttr ".vclr[570].vfcl[633].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[570].vfcl[633].vfal" 1;
+	setAttr ".vclr[571].vxal" 1;
+	setAttr -s 2 ".vclr[571].vfcl";
+	setAttr ".vclr[571].vfcl[469].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[571].vfcl[469].vfal" 1;
+	setAttr ".vclr[571].vfcl[473].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[571].vfcl[473].vfal" 1;
+	setAttr ".vclr[572].vxal" 1;
+	setAttr ".vclr[572].vfcl[469].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[572].vfcl[469].vfal" 1;
+	setAttr ".vclr[573].vxal" 1;
+	setAttr -s 2 ".vclr[573].vfcl";
+	setAttr ".vclr[573].vfcl[469].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[573].vfcl[469].vfal" 1;
+	setAttr ".vclr[573].vfcl[470].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[573].vfcl[470].vfal" 1;
+	setAttr ".vclr[574].vxal" 1;
+	setAttr -s 5 ".vclr[574].vfcl";
+	setAttr ".vclr[574].vfcl[469].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[574].vfcl[469].vfal" 1;
+	setAttr ".vclr[574].vfcl[470].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[574].vfcl[470].vfal" 1;
+	setAttr ".vclr[574].vfcl[635].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[574].vfcl[635].vfal" 1;
+	setAttr ".vclr[574].vfcl[636].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[574].vfcl[636].vfal" 1;
+	setAttr ".vclr[574].vfcl[637].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[574].vfcl[637].vfal" 1;
+	setAttr ".vclr[575].vxal" 1;
+	setAttr -s 3 ".vclr[575].vfcl";
+	setAttr ".vclr[575].vfcl[469].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[575].vfcl[469].vfal" 1;
+	setAttr ".vclr[575].vfcl[473].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[575].vfcl[473].vfal" 1;
+	setAttr ".vclr[575].vfcl[637].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[575].vfcl[637].vfal" 1;
+	setAttr ".vclr[576].vxal" 1;
+	setAttr -s 2 ".vclr[576].vfcl";
+	setAttr ".vclr[576].vfcl[470].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[576].vfcl[470].vfal" 1;
+	setAttr ".vclr[576].vfcl[471].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[576].vfcl[471].vfal" 1;
+	setAttr ".vclr[577].vxal" 1;
+	setAttr -s 4 ".vclr[577].vfcl";
+	setAttr ".vclr[577].vfcl[470].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[577].vfcl[470].vfal" 1;
+	setAttr ".vclr[577].vfcl[471].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[577].vfcl[471].vfal" 1;
+	setAttr ".vclr[577].vfcl[635].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[577].vfcl[635].vfal" 1;
+	setAttr ".vclr[577].vfcl[638].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[577].vfcl[638].vfal" 1;
+	setAttr ".vclr[578].vxal" 1;
+	setAttr -s 2 ".vclr[578].vfcl";
+	setAttr ".vclr[578].vfcl[471].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[578].vfcl[471].vfal" 1;
+	setAttr ".vclr[578].vfcl[662].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[578].vfcl[662].vfal" 1;
+	setAttr ".vclr[579].vxal" 1;
+	setAttr -s 4 ".vclr[579].vfcl";
+	setAttr ".vclr[579].vfcl[471].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[579].vfcl[471].vfal" 1;
+	setAttr ".vclr[579].vfcl[638].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[579].vfcl[638].vfal" 1;
+	setAttr ".vclr[579].vfcl[662].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[579].vfcl[662].vfal" 1;
+	setAttr ".vclr[579].vfcl[736].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[579].vfcl[736].vfal" 1;
+	setAttr ".vclr[580].vxal" 1;
+	setAttr -s 2 ".vclr[580].vfcl";
+	setAttr ".vclr[580].vfcl[472].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[580].vfcl[472].vfal" 1;
+	setAttr ".vclr[580].vfcl[474].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[580].vfcl[474].vfal" 1;
+	setAttr ".vclr[581].vxal" 1;
+	setAttr -s 5 ".vclr[581].vfcl";
+	setAttr ".vclr[581].vfcl[472].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[581].vfcl[472].vfal" 1;
+	setAttr ".vclr[581].vfcl[474].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[581].vfcl[474].vfal" 1;
+	setAttr ".vclr[581].vfcl[631].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[581].vfcl[631].vfal" 1;
+	setAttr ".vclr[581].vfcl[632].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[581].vfcl[632].vfal" 1;
+	setAttr ".vclr[581].vfcl[633].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[581].vfcl[633].vfal" 1;
+	setAttr ".vclr[582].vxal" 1;
+	setAttr -s 5 ".vclr[582].vfcl";
+	setAttr ".vclr[582].vfcl[473].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[582].vfcl[473].vfal" 1;
+	setAttr ".vclr[582].vfcl[476].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[582].vfcl[476].vfal" 1;
+	setAttr ".vclr[582].vfcl[634].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[582].vfcl[634].vfal" 1;
+	setAttr ".vclr[582].vfcl[636].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[582].vfcl[636].vfal" 1;
+	setAttr ".vclr[582].vfcl[637].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[582].vfcl[637].vfal" 1;
+	setAttr ".vclr[583].vxal" 1;
+	setAttr -s 2 ".vclr[583].vfcl";
+	setAttr ".vclr[583].vfcl[473].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[583].vfcl[473].vfal" 1;
+	setAttr ".vclr[583].vfcl[476].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[583].vfcl[476].vfal" 1;
+	setAttr ".vclr[584].vxal" 1;
+	setAttr -s 2 ".vclr[584].vfcl";
+	setAttr ".vclr[584].vfcl[475].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[584].vfcl[475].vfal" 1;
+	setAttr ".vclr[584].vfcl[476].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[584].vfcl[476].vfal" 1;
+	setAttr ".vclr[585].vxal" 1;
+	setAttr -s 4 ".vclr[585].vfcl";
+	setAttr ".vclr[585].vfcl[475].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[585].vfcl[475].vfal" 1;
+	setAttr ".vclr[585].vfcl[476].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[585].vfcl[476].vfal" 1;
+	setAttr ".vclr[585].vfcl[629].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[585].vfcl[629].vfal" 1;
+	setAttr ".vclr[585].vfcl[634].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[585].vfcl[634].vfal" 1;
+	setAttr ".vclr[586].vxal" 1;
+	setAttr -s 5 ".vclr[586].vfcl";
+	setAttr ".vclr[586].vfcl[477].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[586].vfcl[477].vfal" 1;
+	setAttr ".vclr[586].vfcl[482].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[586].vfcl[482].vfal" 1;
+	setAttr ".vclr[586].vfcl[621].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[586].vfcl[621].vfal" 1;
+	setAttr ".vclr[586].vfcl[624].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[586].vfcl[624].vfal" 1;
+	setAttr ".vclr[586].vfcl[645].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[586].vfcl[645].vfal" 1;
+	setAttr ".vclr[587].vxal" 1;
+	setAttr -s 4 ".vclr[587].vfcl";
+	setAttr ".vclr[587].vfcl[477].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[587].vfcl[477].vfal" 1;
+	setAttr ".vclr[587].vfcl[478].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[587].vfcl[478].vfal" 1;
+	setAttr ".vclr[587].vfcl[645].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[587].vfcl[645].vfal" 1;
+	setAttr ".vclr[587].vfcl[647].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[587].vfcl[647].vfal" 1;
+	setAttr ".vclr[588].vxal" 1;
+	setAttr -s 6 ".vclr[588].vfcl";
+	setAttr ".vclr[588].vfcl[478].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[588].vfcl[478].vfal" 1;
+	setAttr ".vclr[588].vfcl[479].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[588].vfcl[479].vfal" 1;
+	setAttr ".vclr[588].vfcl[623].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[588].vfcl[623].vfal" 1;
+	setAttr ".vclr[588].vfcl[647].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[588].vfcl[647].vfal" 1;
+	setAttr ".vclr[588].vfcl[649].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[588].vfcl[649].vfal" 1;
+	setAttr ".vclr[588].vfcl[650].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[588].vfcl[650].vfal" 1;
+	setAttr ".vclr[589].vxal" 1;
+	setAttr -s 5 ".vclr[589].vfcl";
+	setAttr ".vclr[589].vfcl[483].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[589].vfcl[483].vfal" 1;
+	setAttr ".vclr[589].vfcl[488].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[589].vfcl[488].vfal" 1;
+	setAttr ".vclr[589].vfcl[556].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[589].vfcl[556].vfal" 1;
+	setAttr ".vclr[589].vfcl[604].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[589].vfcl[604].vfal" 1;
+	setAttr ".vclr[589].vfcl[619].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[589].vfcl[619].vfal" 1;
+	setAttr ".vclr[590].vxal" 1;
+	setAttr -s 5 ".vclr[590].vfcl";
+	setAttr ".vclr[590].vfcl[483].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[590].vfcl[483].vfal" 1;
+	setAttr ".vclr[590].vfcl[484].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[590].vfcl[484].vfal" 1;
+	setAttr ".vclr[590].vfcl[619].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[590].vfcl[619].vfal" 1;
+	setAttr ".vclr[590].vfcl[640].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[590].vfcl[640].vfal" 1;
+	setAttr ".vclr[590].vfcl[644].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[590].vfcl[644].vfal" 1;
+	setAttr ".vclr[591].vxal" 1;
+	setAttr -s 3 ".vclr[591].vfcl";
+	setAttr ".vclr[591].vfcl[484].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[591].vfcl[484].vfal" 1;
+	setAttr ".vclr[591].vfcl[485].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[591].vfcl[485].vfal" 1;
+	setAttr ".vclr[591].vfcl[644].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[591].vfcl[644].vfal" 1;
+	setAttr ".vclr[592].vxal" 1;
+	setAttr -s 4 ".vclr[592].vfcl";
+	setAttr ".vclr[592].vfcl[485].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[592].vfcl[485].vfal" 1;
+	setAttr ".vclr[592].vfcl[486].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[592].vfcl[486].vfal" 1;
+	setAttr ".vclr[592].vfcl[621].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[592].vfcl[621].vfal" 1;
+	setAttr ".vclr[592].vfcl[624].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[592].vfcl[624].vfal" 1;
+	setAttr ".vclr[593].vxal" 1;
+	setAttr -s 5 ".vclr[593].vfcl";
+	setAttr ".vclr[593].vfcl[486].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[593].vfcl[486].vfal" 1;
+	setAttr ".vclr[593].vfcl[487].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[593].vfcl[487].vfal" 1;
+	setAttr ".vclr[593].vfcl[553].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[593].vfcl[553].vfal" 1;
+	setAttr ".vclr[593].vfcl[602].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[593].vfcl[602].vfal" 1;
+	setAttr ".vclr[593].vfcl[621].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[593].vfcl[621].vfal" 1;
+	setAttr ".vclr[594].vxal" 1;
+	setAttr -s 4 ".vclr[594].vfcl";
+	setAttr ".vclr[594].vfcl[203].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[594].vfcl[203].vfal" 1;
+	setAttr ".vclr[594].vfcl[204].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[594].vfcl[204].vfal" 1;
+	setAttr ".vclr[594].vfcl[484].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[594].vfcl[484].vfal" 1;
+	setAttr ".vclr[594].vfcl[485].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[594].vfcl[485].vfal" 1;
+	setAttr ".vclr[595].vxal" 1;
+	setAttr -s 4 ".vclr[595].vfcl";
+	setAttr ".vclr[595].vfcl[204].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[595].vfcl[204].vfal" 1;
+	setAttr ".vclr[595].vfcl[205].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[595].vfcl[205].vfal" 1;
+	setAttr ".vclr[595].vfcl[485].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[595].vfcl[485].vfal" 1;
+	setAttr ".vclr[595].vfcl[486].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[595].vfcl[486].vfal" 1;
+	setAttr ".vclr[596].vxal" 1;
+	setAttr -s 4 ".vclr[596].vfcl";
+	setAttr ".vclr[596].vfcl[205].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[596].vfcl[205].vfal" 1;
+	setAttr ".vclr[596].vfcl[206].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[596].vfcl[206].vfal" 1;
+	setAttr ".vclr[596].vfcl[486].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[596].vfcl[486].vfal" 1;
+	setAttr ".vclr[596].vfcl[487].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[596].vfcl[487].vfal" 1;
+	setAttr ".vclr[597].vxal" 1;
+	setAttr -s 5 ".vclr[597].vfcl";
+	setAttr ".vclr[597].vfcl[490].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[597].vfcl[490].vfal" 1;
+	setAttr ".vclr[597].vfcl[491].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[597].vfcl[491].vfal" 1;
+	setAttr ".vclr[597].vfcl[617].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[597].vfcl[617].vfal" 1;
+	setAttr ".vclr[597].vfcl[635].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[597].vfcl[635].vfal" 1;
+	setAttr ".vclr[597].vfcl[638].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[597].vfcl[638].vfal" 1;
+	setAttr ".vclr[598].vxal" 1;
+	setAttr -s 5 ".vclr[598].vfcl";
+	setAttr ".vclr[598].vfcl[491].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[598].vfcl[491].vfal" 1;
+	setAttr ".vclr[598].vfcl[492].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[598].vfcl[492].vfal" 1;
+	setAttr ".vclr[598].vfcl[638].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[598].vfcl[638].vfal" 1;
+	setAttr ".vclr[598].vfcl[643].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[598].vfcl[643].vfal" 1;
+	setAttr ".vclr[598].vfcl[736].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[598].vfcl[736].vfal" 1;
+	setAttr ".vclr[599].vxal" 1;
+	setAttr -s 5 ".vclr[599].vfcl";
+	setAttr ".vclr[599].vfcl[492].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[599].vfcl[492].vfal" 1;
+	setAttr ".vclr[599].vfcl[493].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[599].vfcl[493].vfal" 1;
+	setAttr ".vclr[599].vfcl[619].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[599].vfcl[619].vfal" 1;
+	setAttr ".vclr[599].vfcl[640].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[599].vfcl[640].vfal" 1;
+	setAttr ".vclr[599].vfcl[643].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[599].vfcl[643].vfal" 1;
+	setAttr ".vclr[600].vxal" 1;
+	setAttr -s 5 ".vclr[600].vfcl";
+	setAttr ".vclr[600].vfcl[493].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[600].vfcl[493].vfal" 1;
+	setAttr ".vclr[600].vfcl[494].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[600].vfcl[494].vfal" 1;
+	setAttr ".vclr[600].vfcl[562].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[600].vfcl[562].vfal" 1;
+	setAttr ".vclr[600].vfcl[604].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[600].vfcl[604].vfal" 1;
+	setAttr ".vclr[600].vfcl[619].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[600].vfcl[619].vfal" 1;
+	setAttr ".vclr[601].vxal" 1;
+	setAttr -s 2 ".vclr[601].vfcl";
+	setAttr ".vclr[601].vfcl[489].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[601].vfcl[489].vfal" 1;
+	setAttr ".vclr[601].vfcl[490].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[601].vfcl[490].vfal" 1;
+	setAttr ".vclr[602].vxal" 1;
+	setAttr -s 2 ".vclr[602].vfcl";
+	setAttr ".vclr[602].vfcl[489].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[602].vfcl[489].vfal" 1;
+	setAttr ".vclr[602].vfcl[496].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[602].vfcl[496].vfal" 1;
+	setAttr ".vclr[603].vxal" 1;
+	setAttr -s 2 ".vclr[603].vfcl";
+	setAttr ".vclr[603].vfcl[490].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[603].vfcl[490].vfal" 1;
+	setAttr ".vclr[603].vfcl[491].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[603].vfcl[491].vfal" 1;
+	setAttr ".vclr[604].vxal" 1;
+	setAttr -s 2 ".vclr[604].vfcl";
+	setAttr ".vclr[604].vfcl[491].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[604].vfcl[491].vfal" 1;
+	setAttr ".vclr[604].vfcl[492].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[604].vfcl[492].vfal" 1;
+	setAttr ".vclr[605].vxal" 1;
+	setAttr -s 2 ".vclr[605].vfcl";
+	setAttr ".vclr[605].vfcl[492].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[605].vfcl[492].vfal" 1;
+	setAttr ".vclr[605].vfcl[493].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[605].vfcl[493].vfal" 1;
+	setAttr ".vclr[606].vxal" 1;
+	setAttr -s 2 ".vclr[606].vfcl";
+	setAttr ".vclr[606].vfcl[493].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[606].vfcl[493].vfal" 1;
+	setAttr ".vclr[606].vfcl[494].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[606].vfcl[494].vfal" 1;
+	setAttr ".vclr[607].vxal" 1;
+	setAttr -s 2 ".vclr[607].vfcl";
+	setAttr ".vclr[607].vfcl[494].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[607].vfcl[494].vfal" 1;
+	setAttr ".vclr[607].vfcl[495].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[607].vfcl[495].vfal" 1;
+	setAttr ".vclr[608].vxal" 1;
+	setAttr -s 2 ".vclr[608].vfcl";
+	setAttr ".vclr[608].vfcl[495].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[608].vfcl[495].vfal" 1;
+	setAttr ".vclr[608].vfcl[496].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[608].vfcl[496].vfal" 1;
+	setAttr ".vclr[609].vxal" 1;
+	setAttr -s 4 ".vclr[609].vfcl";
+	setAttr ".vclr[609].vfcl[499].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[609].vfcl[499].vfal" 1;
+	setAttr ".vclr[609].vfcl[500].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[609].vfcl[500].vfal" 1;
+	setAttr ".vclr[609].vfcl[629].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[609].vfcl[629].vfal" 1;
+	setAttr ".vclr[609].vfcl[634].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[609].vfcl[634].vfal" 1;
+	setAttr ".vclr[610].vxal" 1;
+	setAttr -s 4 ".vclr[610].vfcl";
+	setAttr ".vclr[610].vfcl[500].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[610].vfcl[500].vfal" 1;
+	setAttr ".vclr[610].vfcl[501].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[610].vfcl[501].vfal" 1;
+	setAttr ".vclr[610].vfcl[634].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[610].vfcl[634].vfal" 1;
+	setAttr ".vclr[610].vfcl[636].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[610].vfcl[636].vfal" 1;
+	setAttr ".vclr[611].vxal" 1;
+	setAttr -s 5 ".vclr[611].vfcl";
+	setAttr ".vclr[611].vfcl[501].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[611].vfcl[501].vfal" 1;
+	setAttr ".vclr[611].vfcl[502].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[611].vfcl[502].vfal" 1;
+	setAttr ".vclr[611].vfcl[617].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[611].vfcl[617].vfal" 1;
+	setAttr ".vclr[611].vfcl[635].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[611].vfcl[635].vfal" 1;
+	setAttr ".vclr[611].vfcl[636].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[611].vfcl[636].vfal" 1;
+	setAttr ".vclr[612].vxal" 1;
+	setAttr -s 2 ".vclr[612].vfcl";
+	setAttr ".vclr[612].vfcl[497].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[612].vfcl[497].vfal" 1;
+	setAttr ".vclr[612].vfcl[498].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[612].vfcl[498].vfal" 1;
+	setAttr ".vclr[613].vxal" 1;
+	setAttr -s 2 ".vclr[613].vfcl";
+	setAttr ".vclr[613].vfcl[497].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[613].vfcl[497].vfal" 1;
+	setAttr ".vclr[613].vfcl[504].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[613].vfcl[504].vfal" 1;
+	setAttr ".vclr[614].vxal" 1;
+	setAttr -s 2 ".vclr[614].vfcl";
+	setAttr ".vclr[614].vfcl[498].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[614].vfcl[498].vfal" 1;
+	setAttr ".vclr[614].vfcl[499].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[614].vfcl[499].vfal" 1;
+	setAttr ".vclr[615].vxal" 1;
+	setAttr -s 2 ".vclr[615].vfcl";
+	setAttr ".vclr[615].vfcl[499].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[615].vfcl[499].vfal" 1;
+	setAttr ".vclr[615].vfcl[500].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[615].vfcl[500].vfal" 1;
+	setAttr ".vclr[616].vxal" 1;
+	setAttr -s 2 ".vclr[616].vfcl";
+	setAttr ".vclr[616].vfcl[500].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[616].vfcl[500].vfal" 1;
+	setAttr ".vclr[616].vfcl[501].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[616].vfcl[501].vfal" 1;
+	setAttr ".vclr[617].vxal" 1;
+	setAttr -s 2 ".vclr[617].vfcl";
+	setAttr ".vclr[617].vfcl[501].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[617].vfcl[501].vfal" 1;
+	setAttr ".vclr[617].vfcl[502].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[617].vfcl[502].vfal" 1;
+	setAttr ".vclr[618].vxal" 1;
+	setAttr -s 2 ".vclr[618].vfcl";
+	setAttr ".vclr[618].vfcl[502].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[618].vfcl[502].vfal" 1;
+	setAttr ".vclr[618].vfcl[503].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[618].vfcl[503].vfal" 1;
+	setAttr ".vclr[619].vxal" 1;
+	setAttr -s 2 ".vclr[619].vfcl";
+	setAttr ".vclr[619].vfcl[503].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[619].vfcl[503].vfal" 1;
+	setAttr ".vclr[619].vfcl[504].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[619].vfcl[504].vfal" 1;
+	setAttr ".vclr[620].vxal" 1;
+	setAttr -s 5 ".vclr[620].vfcl";
+	setAttr ".vclr[620].vfcl[505].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[620].vfcl[505].vfal" 1;
+	setAttr ".vclr[620].vfcl[506].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[620].vfcl[506].vfal" 1;
+	setAttr ".vclr[620].vfcl[579].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[620].vfcl[579].vfal" 1;
+	setAttr ".vclr[620].vfcl[607].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[620].vfcl[607].vfal" 1;
+	setAttr ".vclr[620].vfcl[618].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[620].vfcl[618].vfal" 1;
+	setAttr ".vclr[621].vxal" 1;
+	setAttr -s 5 ".vclr[621].vfcl";
+	setAttr ".vclr[621].vfcl[506].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[621].vfcl[506].vfal" 1;
+	setAttr ".vclr[621].vfcl[507].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[621].vfcl[507].vfal" 1;
+	setAttr ".vclr[621].vfcl[618].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[621].vfcl[618].vfal" 1;
+	setAttr ".vclr[621].vfcl[627].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[621].vfcl[627].vfal" 1;
+	setAttr ".vclr[621].vfcl[632].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[621].vfcl[632].vfal" 1;
+	setAttr ".vclr[622].vxal" 1;
+	setAttr -s 4 ".vclr[622].vfcl";
+	setAttr ".vclr[622].vfcl[507].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[622].vfcl[507].vfal" 1;
+	setAttr ".vclr[622].vfcl[508].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[622].vfcl[508].vfal" 1;
+	setAttr ".vclr[622].vfcl[631].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[622].vfcl[631].vfal" 1;
+	setAttr ".vclr[622].vfcl[632].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[622].vfcl[632].vfal" 1;
+	setAttr ".vclr[623].vxal" 1;
+	setAttr -s 4 ".vclr[623].vfcl";
+	setAttr ".vclr[623].vfcl[508].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[623].vfcl[508].vfal" 1;
+	setAttr ".vclr[623].vfcl[509].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[623].vfcl[509].vfal" 1;
+	setAttr ".vclr[623].vfcl[628].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[623].vfcl[628].vfal" 1;
+	setAttr ".vclr[623].vfcl[631].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[623].vfcl[631].vfal" 1;
+	setAttr ".vclr[624].vxal" 1;
+	setAttr -s 6 ".vclr[624].vfcl";
+	setAttr ".vclr[624].vfcl[509].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[624].vfcl[509].vfal" 1;
+	setAttr ".vclr[624].vfcl[510].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[624].vfcl[510].vfal" 1;
+	setAttr ".vclr[624].vfcl[580].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[624].vfcl[580].vfal" 1;
+	setAttr ".vclr[624].vfcl[608].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[624].vfcl[608].vfal" 1;
+	setAttr ".vclr[624].vfcl[628].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[624].vfcl[628].vfal" 1;
+	setAttr ".vclr[624].vfcl[630].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[624].vfcl[630].vfal" 1;
+	setAttr ".vclr[625].vxal" 1;
+	setAttr -s 5 ".vclr[625].vfcl";
+	setAttr ".vclr[625].vfcl[513].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[625].vfcl[513].vfal" 1;
+	setAttr ".vclr[625].vfcl[514].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[625].vfcl[514].vfal" 1;
+	setAttr ".vclr[625].vfcl[620].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[625].vfcl[620].vfal" 1;
+	setAttr ".vclr[625].vfcl[639].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[625].vfcl[639].vfal" 1;
+	setAttr ".vclr[625].vfcl[642].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[625].vfcl[642].vfal" 1;
+	setAttr ".vclr[626].vxal" 1;
+	setAttr -s 5 ".vclr[626].vfcl";
+	setAttr ".vclr[626].vfcl[514].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[626].vfcl[514].vfal" 1;
+	setAttr ".vclr[626].vfcl[515].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[626].vfcl[515].vfal" 1;
+	setAttr ".vclr[626].vfcl[626].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[626].vfcl[626].vfal" 1;
+	setAttr ".vclr[626].vfcl[642].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[626].vfcl[642].vfal" 1;
+	setAttr ".vclr[626].vfcl[735].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[626].vfcl[735].vfal" 1;
+	setAttr ".vclr[627].vxal" 1;
+	setAttr -s 5 ".vclr[627].vfcl";
+	setAttr ".vclr[627].vfcl[515].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[627].vfcl[515].vfal" 1;
+	setAttr ".vclr[627].vfcl[516].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[627].vfcl[516].vfal" 1;
+	setAttr ".vclr[627].vfcl[618].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[627].vfcl[618].vfal" 1;
+	setAttr ".vclr[627].vfcl[626].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[627].vfcl[626].vfal" 1;
+	setAttr ".vclr[627].vfcl[627].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[627].vfcl[627].vfal" 1;
+	setAttr ".vclr[628].vxal" 1;
+	setAttr -s 5 ".vclr[628].vfcl";
+	setAttr ".vclr[628].vfcl[517].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[628].vfcl[517].vfal" 1;
+	setAttr ".vclr[628].vfcl[522].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[628].vfcl[522].vfal" 1;
+	setAttr ".vclr[628].vfcl[620].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[628].vfcl[620].vfal" 1;
+	setAttr ".vclr[628].vfcl[639].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[628].vfcl[639].vfal" 1;
+	setAttr ".vclr[628].vfcl[641].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[628].vfcl[641].vfal" 1;
+	setAttr ".vclr[629].vxal" 1;
+	setAttr -s 5 ".vclr[629].vfcl";
+	setAttr ".vclr[629].vfcl[519].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[629].vfcl[519].vfal" 1;
+	setAttr ".vclr[629].vfcl[520].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[629].vfcl[520].vfal" 1;
+	setAttr ".vclr[629].vfcl[596].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[629].vfcl[596].vfal" 1;
+	setAttr ".vclr[629].vfcl[603].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[629].vfcl[603].vfal" 1;
+	setAttr ".vclr[629].vfcl[622].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[629].vfcl[622].vfal" 1;
+	setAttr ".vclr[630].vxal" 1;
+	setAttr -s 4 ".vclr[630].vfcl";
+	setAttr ".vclr[630].vfcl[520].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[630].vfcl[520].vfal" 1;
+	setAttr ".vclr[630].vfcl[521].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[630].vfcl[521].vfal" 1;
+	setAttr ".vclr[630].vfcl[622].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[630].vfcl[622].vfal" 1;
+	setAttr ".vclr[630].vfcl[625].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[630].vfcl[625].vfal" 1;
+	setAttr ".vclr[631].vxal" 1;
+	setAttr -s 3 ".vclr[631].vfcl";
+	setAttr ".vclr[631].vfcl[521].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[631].vfcl[521].vfal" 1;
+	setAttr ".vclr[631].vfcl[522].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[631].vfcl[522].vfal" 1;
+	setAttr ".vclr[631].vfcl[641].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[631].vfcl[641].vfal" 1;
+	setAttr ".vclr[632].vxal" 1;
+	setAttr -s 2 ".vclr[632].vfcl";
+	setAttr ".vclr[632].vfcl[523].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[632].vfcl[523].vfal" 1;
+	setAttr ".vclr[632].vfcl[528].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[632].vfcl[528].vfal" 1;
+	setAttr ".vclr[633].vxal" 1;
+	setAttr -s 5 ".vclr[633].vfcl";
+	setAttr ".vclr[633].vfcl[524].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[633].vfcl[524].vfal" 1;
+	setAttr ".vclr[633].vfcl[525].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[633].vfcl[525].vfal" 1;
+	setAttr ".vclr[633].vfcl[537].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[633].vfcl[537].vfal" 1;
+	setAttr ".vclr[633].vfcl[603].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[633].vfcl[603].vfal" 1;
+	setAttr ".vclr[633].vfcl[622].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[633].vfcl[622].vfal" 1;
+	setAttr ".vclr[634].vxal" 1;
+	setAttr -s 5 ".vclr[634].vfcl";
+	setAttr ".vclr[634].vfcl[526].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[634].vfcl[526].vfal" 1;
+	setAttr ".vclr[634].vfcl[527].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[634].vfcl[527].vfal" 1;
+	setAttr ".vclr[634].vfcl[540].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[634].vfcl[540].vfal" 1;
+	setAttr ".vclr[634].vfcl[601].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[634].vfcl[601].vfal" 1;
+	setAttr ".vclr[634].vfcl[623].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[634].vfcl[623].vfal" 1;
+	setAttr ".vclr[635].vxal" 1;
+	setAttr -s 4 ".vclr[635].vfcl";
+	setAttr ".vclr[635].vfcl[527].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[635].vfcl[527].vfal" 1;
+	setAttr ".vclr[635].vfcl[528].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[635].vfcl[528].vfal" 1;
+	setAttr ".vclr[635].vfcl[623].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[635].vfcl[623].vfal" 1;
+	setAttr ".vclr[635].vfcl[649].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[635].vfcl[649].vfal" 1;
+	setAttr ".vclr[636].vxal" 1;
+	setAttr -s 8 ".vclr[636].vfcl";
+	setAttr ".vclr[636].vfcl[529].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[636].vfcl[529].vfal" 1;
+	setAttr ".vclr[636].vfcl[530].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[636].vfcl[530].vfal" 1;
+	setAttr ".vclr[636].vfcl[531].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[636].vfcl[531].vfal" 1;
+	setAttr ".vclr[636].vfcl[532].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[636].vfcl[532].vfal" 1;
+	setAttr ".vclr[636].vfcl[533].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[636].vfcl[533].vfal" 1;
+	setAttr ".vclr[636].vfcl[534].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[636].vfcl[534].vfal" 1;
+	setAttr ".vclr[636].vfcl[535].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[636].vfcl[535].vfal" 1;
+	setAttr ".vclr[636].vfcl[536].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[636].vfcl[536].vfal" 1;
+	setAttr ".vclr[637].vxal" 1;
+	setAttr -s 8 ".vclr[637].vfcl";
+	setAttr ".vclr[637].vfcl[529].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[637].vfcl[529].vfal" 1;
+	setAttr ".vclr[637].vfcl[530].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[637].vfcl[530].vfal" 1;
+	setAttr ".vclr[637].vfcl[581].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[637].vfcl[581].vfal" 1;
+	setAttr ".vclr[637].vfcl[582].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[637].vfcl[582].vfal" 1;
+	setAttr ".vclr[637].vfcl[583].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[637].vfcl[583].vfal" 1;
+	setAttr ".vclr[637].vfcl[584].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[637].vfcl[584].vfal" 1;
+	setAttr ".vclr[637].vfcl[614].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[637].vfcl[614].vfal" 1;
+	setAttr ".vclr[637].vfcl[615].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[637].vfcl[615].vfal" 1;
+	setAttr ".vclr[638].vxal" 1;
+	setAttr -s 8 ".vclr[638].vfcl";
+	setAttr ".vclr[638].vfcl[529].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[638].vfcl[529].vfal" 1;
+	setAttr ".vclr[638].vfcl[536].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[638].vfcl[536].vfal" 1;
+	setAttr ".vclr[638].vfcl[573].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[638].vfcl[573].vfal" 1;
+	setAttr ".vclr[638].vfcl[574].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[638].vfcl[574].vfal" 1;
+	setAttr ".vclr[638].vfcl[575].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[638].vfcl[575].vfal" 1;
+	setAttr ".vclr[638].vfcl[576].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[638].vfcl[576].vfal" 1;
+	setAttr ".vclr[638].vfcl[613].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[638].vfcl[613].vfal" 1;
+	setAttr ".vclr[638].vfcl[615].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[638].vfcl[615].vfal" 1;
+	setAttr ".vclr[639].vxal" 1;
+	setAttr -s 8 ".vclr[639].vfcl";
+	setAttr ".vclr[639].vfcl[530].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[639].vfcl[530].vfal" 1;
+	setAttr ".vclr[639].vfcl[531].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[639].vfcl[531].vfal" 1;
+	setAttr ".vclr[639].vfcl[589].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[639].vfcl[589].vfal" 1;
+	setAttr ".vclr[639].vfcl[590].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[639].vfcl[590].vfal" 1;
+	setAttr ".vclr[639].vfcl[591].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[639].vfcl[591].vfal" 1;
+	setAttr ".vclr[639].vfcl[592].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[639].vfcl[592].vfal" 1;
+	setAttr ".vclr[639].vfcl[612].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[639].vfcl[612].vfal" 1;
+	setAttr ".vclr[639].vfcl[614].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[639].vfcl[614].vfal" 1;
+	setAttr ".vclr[640].vxal" 1;
+	setAttr -s 8 ".vclr[640].vfcl";
+	setAttr ".vclr[640].vfcl[531].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[640].vfcl[531].vfal" 1;
+	setAttr ".vclr[640].vfcl[532].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[640].vfcl[532].vfal" 1;
+	setAttr ".vclr[640].vfcl[597].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[640].vfcl[597].vfal" 1;
+	setAttr ".vclr[640].vfcl[598].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[640].vfcl[598].vfal" 1;
+	setAttr ".vclr[640].vfcl[599].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[640].vfcl[599].vfal" 1;
+	setAttr ".vclr[640].vfcl[600].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[640].vfcl[600].vfal" 1;
+	setAttr ".vclr[640].vfcl[610].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[640].vfcl[610].vfal" 1;
+	setAttr ".vclr[640].vfcl[612].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[640].vfcl[612].vfal" 1;
+	setAttr ".vclr[641].vxal" 1;
+	setAttr -s 8 ".vclr[641].vfcl";
+	setAttr ".vclr[641].vfcl[532].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[641].vfcl[532].vfal" 1;
+	setAttr ".vclr[641].vfcl[533].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[641].vfcl[533].vfal" 1;
+	setAttr ".vclr[641].vfcl[541].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[641].vfcl[541].vfal" 1;
+	setAttr ".vclr[641].vfcl[542].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[641].vfcl[542].vfal" 1;
+	setAttr ".vclr[641].vfcl[543].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[641].vfcl[543].vfal" 1;
+	setAttr ".vclr[641].vfcl[544].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[641].vfcl[544].vfal" 1;
+	setAttr ".vclr[641].vfcl[610].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[641].vfcl[610].vfal" 1;
+	setAttr ".vclr[641].vfcl[616].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[641].vfcl[616].vfal" 1;
+	setAttr ".vclr[642].vxal" 1;
+	setAttr -s 8 ".vclr[642].vfcl";
+	setAttr ".vclr[642].vfcl[533].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[642].vfcl[533].vfal" 1;
+	setAttr ".vclr[642].vfcl[534].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[642].vfcl[534].vfal" 1;
+	setAttr ".vclr[642].vfcl[549].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[642].vfcl[549].vfal" 1;
+	setAttr ".vclr[642].vfcl[550].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[642].vfcl[550].vfal" 1;
+	setAttr ".vclr[642].vfcl[551].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[642].vfcl[551].vfal" 1;
+	setAttr ".vclr[642].vfcl[552].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[642].vfcl[552].vfal" 1;
+	setAttr ".vclr[642].vfcl[609].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[642].vfcl[609].vfal" 1;
+	setAttr ".vclr[642].vfcl[616].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[642].vfcl[616].vfal" 1;
+	setAttr ".vclr[643].vxal" 1;
+	setAttr -s 8 ".vclr[643].vfcl";
+	setAttr ".vclr[643].vfcl[534].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[643].vfcl[534].vfal" 1;
+	setAttr ".vclr[643].vfcl[535].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[643].vfcl[535].vfal" 1;
+	setAttr ".vclr[643].vfcl[557].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[643].vfcl[557].vfal" 1;
+	setAttr ".vclr[643].vfcl[558].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[643].vfcl[558].vfal" 1;
+	setAttr ".vclr[643].vfcl[559].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[643].vfcl[559].vfal" 1;
+	setAttr ".vclr[643].vfcl[560].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[643].vfcl[560].vfal" 1;
+	setAttr ".vclr[643].vfcl[609].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[643].vfcl[609].vfal" 1;
+	setAttr ".vclr[643].vfcl[611].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[643].vfcl[611].vfal" 1;
+	setAttr ".vclr[644].vxal" 1;
+	setAttr -s 8 ".vclr[644].vfcl";
+	setAttr ".vclr[644].vfcl[535].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[644].vfcl[535].vfal" 1;
+	setAttr ".vclr[644].vfcl[536].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[644].vfcl[536].vfal" 1;
+	setAttr ".vclr[644].vfcl[565].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[644].vfcl[565].vfal" 1;
+	setAttr ".vclr[644].vfcl[566].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[644].vfcl[566].vfal" 1;
+	setAttr ".vclr[644].vfcl[567].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[644].vfcl[567].vfal" 1;
+	setAttr ".vclr[644].vfcl[568].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[644].vfcl[568].vfal" 1;
+	setAttr ".vclr[644].vfcl[611].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[644].vfcl[611].vfal" 1;
+	setAttr ".vclr[644].vfcl[613].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[644].vfcl[613].vfal" 1;
+	setAttr ".vclr[645].vxal" 1;
+	setAttr -s 4 ".vclr[645].vfcl";
+	setAttr ".vclr[645].vfcl[537].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[645].vfcl[537].vfal" 1;
+	setAttr ".vclr[645].vfcl[538].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[645].vfcl[538].vfal" 1;
+	setAttr ".vclr[645].vfcl[541].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[645].vfcl[541].vfal" 1;
+	setAttr ".vclr[645].vfcl[542].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[645].vfcl[542].vfal" 1;
+	setAttr ".vclr[646].vxal" 1;
+	setAttr -s 4 ".vclr[646].vfcl";
+	setAttr ".vclr[646].vfcl[538].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[646].vfcl[538].vfal" 1;
+	setAttr ".vclr[646].vfcl[539].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[646].vfcl[539].vfal" 1;
+	setAttr ".vclr[646].vfcl[542].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[646].vfcl[542].vfal" 1;
+	setAttr ".vclr[646].vfcl[543].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[646].vfcl[543].vfal" 1;
+	setAttr ".vclr[647].vxal" 1;
+	setAttr -s 4 ".vclr[647].vfcl";
+	setAttr ".vclr[647].vfcl[539].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[647].vfcl[539].vfal" 1;
+	setAttr ".vclr[647].vfcl[540].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[647].vfcl[540].vfal" 1;
+	setAttr ".vclr[647].vfcl[543].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[647].vfcl[543].vfal" 1;
+	setAttr ".vclr[647].vfcl[544].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[647].vfcl[544].vfal" 1;
+	setAttr ".vclr[648].vxal" 1;
+	setAttr -s 4 ".vclr[648].vfcl";
+	setAttr ".vclr[648].vfcl[537].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[648].vfcl[537].vfal" 1;
+	setAttr ".vclr[648].vfcl[541].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[648].vfcl[541].vfal" 1;
+	setAttr ".vclr[648].vfcl[603].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[648].vfcl[603].vfal" 1;
+	setAttr ".vclr[648].vfcl[610].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[648].vfcl[610].vfal" 1;
+	setAttr ".vclr[649].vxal" 1;
+	setAttr -s 4 ".vclr[649].vfcl";
+	setAttr ".vclr[649].vfcl[540].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[649].vfcl[540].vfal" 1;
+	setAttr ".vclr[649].vfcl[544].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[649].vfcl[544].vfal" 1;
+	setAttr ".vclr[649].vfcl[601].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[649].vfcl[601].vfal" 1;
+	setAttr ".vclr[649].vfcl[616].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[649].vfcl[616].vfal" 1;
+	setAttr ".vclr[650].vxal" 1;
+	setAttr -s 4 ".vclr[650].vfcl";
+	setAttr ".vclr[650].vfcl[545].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[650].vfcl[545].vfal" 1;
+	setAttr ".vclr[650].vfcl[546].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[650].vfcl[546].vfal" 1;
+	setAttr ".vclr[650].vfcl[549].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[650].vfcl[549].vfal" 1;
+	setAttr ".vclr[650].vfcl[550].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[650].vfcl[550].vfal" 1;
+	setAttr ".vclr[651].vxal" 1;
+	setAttr -s 4 ".vclr[651].vfcl";
+	setAttr ".vclr[651].vfcl[546].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[651].vfcl[546].vfal" 1;
+	setAttr ".vclr[651].vfcl[547].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[651].vfcl[547].vfal" 1;
+	setAttr ".vclr[651].vfcl[550].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[651].vfcl[550].vfal" 1;
+	setAttr ".vclr[651].vfcl[551].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[651].vfcl[551].vfal" 1;
+	setAttr ".vclr[652].vxal" 1;
+	setAttr -s 4 ".vclr[652].vfcl";
+	setAttr ".vclr[652].vfcl[547].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[652].vfcl[547].vfal" 1;
+	setAttr ".vclr[652].vfcl[548].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[652].vfcl[548].vfal" 1;
+	setAttr ".vclr[652].vfcl[551].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[652].vfcl[551].vfal" 1;
+	setAttr ".vclr[652].vfcl[552].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[652].vfcl[552].vfal" 1;
+	setAttr ".vclr[653].vxal" 1;
+	setAttr -s 5 ".vclr[653].vfcl";
+	setAttr ".vclr[653].vfcl[479].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[653].vfcl[479].vfal" 1;
+	setAttr ".vclr[653].vfcl[480].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[653].vfcl[480].vfal" 1;
+	setAttr ".vclr[653].vfcl[545].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[653].vfcl[545].vfal" 1;
+	setAttr ".vclr[653].vfcl[601].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[653].vfcl[601].vfal" 1;
+	setAttr ".vclr[653].vfcl[623].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[653].vfcl[623].vfal" 1;
+	setAttr ".vclr[654].vxal" 1;
+	setAttr -s 4 ".vclr[654].vfcl";
+	setAttr ".vclr[654].vfcl[545].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[654].vfcl[545].vfal" 1;
+	setAttr ".vclr[654].vfcl[549].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[654].vfcl[549].vfal" 1;
+	setAttr ".vclr[654].vfcl[601].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[654].vfcl[601].vfal" 1;
+	setAttr ".vclr[654].vfcl[616].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[654].vfcl[616].vfal" 1;
+	setAttr ".vclr[655].vxal" 1;
+	setAttr -s 4 ".vclr[655].vfcl";
+	setAttr ".vclr[655].vfcl[548].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[655].vfcl[548].vfal" 1;
+	setAttr ".vclr[655].vfcl[552].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[655].vfcl[552].vfal" 1;
+	setAttr ".vclr[655].vfcl[602].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[655].vfcl[602].vfal" 1;
+	setAttr ".vclr[655].vfcl[609].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[655].vfcl[609].vfal" 1;
+	setAttr ".vclr[656].vxal" 1;
+	setAttr -s 5 ".vclr[656].vfcl";
+	setAttr ".vclr[656].vfcl[481].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[656].vfcl[481].vfal" 1;
+	setAttr ".vclr[656].vfcl[482].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[656].vfcl[482].vfal" 1;
+	setAttr ".vclr[656].vfcl[548].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[656].vfcl[548].vfal" 1;
+	setAttr ".vclr[656].vfcl[602].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[656].vfcl[602].vfal" 1;
+	setAttr ".vclr[656].vfcl[621].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[656].vfcl[621].vfal" 1;
+	setAttr ".vclr[657].vxal" 1;
+	setAttr -s 4 ".vclr[657].vfcl";
+	setAttr ".vclr[657].vfcl[553].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[657].vfcl[553].vfal" 1;
+	setAttr ".vclr[657].vfcl[554].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[657].vfcl[554].vfal" 1;
+	setAttr ".vclr[657].vfcl[557].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[657].vfcl[557].vfal" 1;
+	setAttr ".vclr[657].vfcl[558].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[657].vfcl[558].vfal" 1;
+	setAttr ".vclr[658].vxal" 1;
+	setAttr -s 4 ".vclr[658].vfcl";
+	setAttr ".vclr[658].vfcl[554].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[658].vfcl[554].vfal" 1;
+	setAttr ".vclr[658].vfcl[555].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[658].vfcl[555].vfal" 1;
+	setAttr ".vclr[658].vfcl[558].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[658].vfcl[558].vfal" 1;
+	setAttr ".vclr[658].vfcl[559].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[658].vfcl[559].vfal" 1;
+	setAttr ".vclr[659].vxal" 1;
+	setAttr -s 4 ".vclr[659].vfcl";
+	setAttr ".vclr[659].vfcl[555].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[659].vfcl[555].vfal" 1;
+	setAttr ".vclr[659].vfcl[556].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[659].vfcl[556].vfal" 1;
+	setAttr ".vclr[659].vfcl[559].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[659].vfcl[559].vfal" 1;
+	setAttr ".vclr[659].vfcl[560].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[659].vfcl[560].vfal" 1;
+	setAttr ".vclr[660].vxal" 1;
+	setAttr -s 4 ".vclr[660].vfcl";
+	setAttr ".vclr[660].vfcl[553].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[660].vfcl[553].vfal" 1;
+	setAttr ".vclr[660].vfcl[557].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[660].vfcl[557].vfal" 1;
+	setAttr ".vclr[660].vfcl[602].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[660].vfcl[602].vfal" 1;
+	setAttr ".vclr[660].vfcl[609].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[660].vfcl[609].vfal" 1;
+	setAttr ".vclr[661].vxal" 1;
+	setAttr -s 4 ".vclr[661].vfcl";
+	setAttr ".vclr[661].vfcl[556].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[661].vfcl[556].vfal" 1;
+	setAttr ".vclr[661].vfcl[560].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[661].vfcl[560].vfal" 1;
+	setAttr ".vclr[661].vfcl[604].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[661].vfcl[604].vfal" 1;
+	setAttr ".vclr[661].vfcl[611].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[661].vfcl[611].vfal" 1;
+	setAttr ".vclr[662].vxal" 1;
+	setAttr -s 4 ".vclr[662].vfcl";
+	setAttr ".vclr[662].vfcl[561].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[662].vfcl[561].vfal" 1;
+	setAttr ".vclr[662].vfcl[564].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[662].vfcl[564].vfal" 1;
+	setAttr ".vclr[662].vfcl[565].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[662].vfcl[565].vfal" 1;
+	setAttr ".vclr[662].vfcl[568].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[662].vfcl[568].vfal" 1;
+	setAttr ".vclr[663].vxal" 1;
+	setAttr -s 4 ".vclr[663].vfcl";
+	setAttr ".vclr[663].vfcl[562].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[663].vfcl[562].vfal" 1;
+	setAttr ".vclr[663].vfcl[563].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[663].vfcl[563].vfal" 1;
+	setAttr ".vclr[663].vfcl[566].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[663].vfcl[566].vfal" 1;
+	setAttr ".vclr[663].vfcl[567].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[663].vfcl[567].vfal" 1;
+	setAttr ".vclr[664].vxal" 1;
+	setAttr -s 4 ".vclr[664].vfcl";
+	setAttr ".vclr[664].vfcl[563].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[664].vfcl[563].vfal" 1;
+	setAttr ".vclr[664].vfcl[564].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[664].vfcl[564].vfal" 1;
+	setAttr ".vclr[664].vfcl[567].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[664].vfcl[567].vfal" 1;
+	setAttr ".vclr[664].vfcl[568].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[664].vfcl[568].vfal" 1;
+	setAttr ".vclr[665].vxal" 1;
+	setAttr -s 4 ".vclr[665].vfcl";
+	setAttr ".vclr[665].vfcl[561].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[665].vfcl[561].vfal" 1;
+	setAttr ".vclr[665].vfcl[565].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[665].vfcl[565].vfal" 1;
+	setAttr ".vclr[665].vfcl[606].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[665].vfcl[606].vfal" 1;
+	setAttr ".vclr[665].vfcl[613].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[665].vfcl[613].vfal" 1;
+	setAttr ".vclr[666].vxal" 1;
+	setAttr -s 5 ".vclr[666].vfcl";
+	setAttr ".vclr[666].vfcl[489].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[666].vfcl[489].vfal" 1;
+	setAttr ".vclr[666].vfcl[490].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[666].vfcl[490].vfal" 1;
+	setAttr ".vclr[666].vfcl[561].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[666].vfcl[561].vfal" 1;
+	setAttr ".vclr[666].vfcl[606].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[666].vfcl[606].vfal" 1;
+	setAttr ".vclr[666].vfcl[617].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[666].vfcl[617].vfal" 1;
+	setAttr ".vclr[667].vxal" 1;
+	setAttr -s 4 ".vclr[667].vfcl";
+	setAttr ".vclr[667].vfcl[562].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[667].vfcl[562].vfal" 1;
+	setAttr ".vclr[667].vfcl[566].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[667].vfcl[566].vfal" 1;
+	setAttr ".vclr[667].vfcl[604].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[667].vfcl[604].vfal" 1;
+	setAttr ".vclr[667].vfcl[611].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[667].vfcl[611].vfal" 1;
+	setAttr ".vclr[668].vxal" 1;
+	setAttr -s 4 ".vclr[668].vfcl";
+	setAttr ".vclr[668].vfcl[569].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[668].vfcl[569].vfal" 1;
+	setAttr ".vclr[668].vfcl[572].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[668].vfcl[572].vfal" 1;
+	setAttr ".vclr[668].vfcl[573].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[668].vfcl[573].vfal" 1;
+	setAttr ".vclr[668].vfcl[576].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[668].vfcl[576].vfal" 1;
+	setAttr ".vclr[669].vxal" 1;
+	setAttr -s 4 ".vclr[669].vfcl";
+	setAttr ".vclr[669].vfcl[569].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[669].vfcl[569].vfal" 1;
+	setAttr ".vclr[669].vfcl[570].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[669].vfcl[570].vfal" 1;
+	setAttr ".vclr[669].vfcl[573].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[669].vfcl[573].vfal" 1;
+	setAttr ".vclr[669].vfcl[574].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[669].vfcl[574].vfal" 1;
+	setAttr ".vclr[670].vxal" 1;
+	setAttr -s 4 ".vclr[670].vfcl";
+	setAttr ".vclr[670].vfcl[571].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[670].vfcl[571].vfal" 1;
+	setAttr ".vclr[670].vfcl[572].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[670].vfcl[572].vfal" 1;
+	setAttr ".vclr[670].vfcl[575].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[670].vfcl[575].vfal" 1;
+	setAttr ".vclr[670].vfcl[576].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[670].vfcl[576].vfal" 1;
+	setAttr ".vclr[671].vxal" 1;
+	setAttr -s 4 ".vclr[671].vfcl";
+	setAttr ".vclr[671].vfcl[570].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[671].vfcl[570].vfal" 1;
+	setAttr ".vclr[671].vfcl[574].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[671].vfcl[574].vfal" 1;
+	setAttr ".vclr[671].vfcl[608].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[671].vfcl[608].vfal" 1;
+	setAttr ".vclr[671].vfcl[615].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[671].vfcl[615].vfal" 1;
+	setAttr ".vclr[672].vxal" 1;
+	setAttr -s 6 ".vclr[672].vfcl";
+	setAttr ".vclr[672].vfcl[498].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[672].vfcl[498].vfal" 1;
+	setAttr ".vclr[672].vfcl[499].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[672].vfcl[499].vfal" 1;
+	setAttr ".vclr[672].vfcl[570].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[672].vfcl[570].vfal" 1;
+	setAttr ".vclr[672].vfcl[608].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[672].vfcl[608].vfal" 1;
+	setAttr ".vclr[672].vfcl[629].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[672].vfcl[629].vfal" 1;
+	setAttr ".vclr[672].vfcl[630].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[672].vfcl[630].vfal" 1;
+	setAttr ".vclr[673].vxal" 1;
+	setAttr -s 5 ".vclr[673].vfcl";
+	setAttr ".vclr[673].vfcl[502].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[673].vfcl[502].vfal" 1;
+	setAttr ".vclr[673].vfcl[503].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[673].vfcl[503].vfal" 1;
+	setAttr ".vclr[673].vfcl[571].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[673].vfcl[571].vfal" 1;
+	setAttr ".vclr[673].vfcl[606].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[673].vfcl[606].vfal" 1;
+	setAttr ".vclr[673].vfcl[617].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[673].vfcl[617].vfal" 1;
+	setAttr ".vclr[674].vxal" 1;
+	setAttr -s 4 ".vclr[674].vfcl";
+	setAttr ".vclr[674].vfcl[571].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[674].vfcl[571].vfal" 1;
+	setAttr ".vclr[674].vfcl[575].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[674].vfcl[575].vfal" 1;
+	setAttr ".vclr[674].vfcl[606].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[674].vfcl[606].vfal" 1;
+	setAttr ".vclr[674].vfcl[613].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[674].vfcl[613].vfal" 1;
+	setAttr ".vclr[675].vxal" 1;
+	setAttr -s 4 ".vclr[675].vfcl";
+	setAttr ".vclr[675].vfcl[577].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[675].vfcl[577].vfal" 1;
+	setAttr ".vclr[675].vfcl[580].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[675].vfcl[580].vfal" 1;
+	setAttr ".vclr[675].vfcl[581].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[675].vfcl[581].vfal" 1;
+	setAttr ".vclr[675].vfcl[584].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[675].vfcl[584].vfal" 1;
+	setAttr ".vclr[676].vxal" 1;
+	setAttr -s 4 ".vclr[676].vfcl";
+	setAttr ".vclr[676].vfcl[577].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[676].vfcl[577].vfal" 1;
+	setAttr ".vclr[676].vfcl[578].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[676].vfcl[578].vfal" 1;
+	setAttr ".vclr[676].vfcl[581].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[676].vfcl[581].vfal" 1;
+	setAttr ".vclr[676].vfcl[582].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[676].vfcl[582].vfal" 1;
+	setAttr ".vclr[677].vxal" 1;
+	setAttr -s 4 ".vclr[677].vfcl";
+	setAttr ".vclr[677].vfcl[578].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[677].vfcl[578].vfal" 1;
+	setAttr ".vclr[677].vfcl[579].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[677].vfcl[579].vfal" 1;
+	setAttr ".vclr[677].vfcl[582].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[677].vfcl[582].vfal" 1;
+	setAttr ".vclr[677].vfcl[583].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[677].vfcl[583].vfal" 1;
+	setAttr ".vclr[678].vxal" 1;
+	setAttr -s 4 ".vclr[678].vfcl";
+	setAttr ".vclr[678].vfcl[579].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[678].vfcl[579].vfal" 1;
+	setAttr ".vclr[678].vfcl[583].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[678].vfcl[583].vfal" 1;
+	setAttr ".vclr[678].vfcl[607].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[678].vfcl[607].vfal" 1;
+	setAttr ".vclr[678].vfcl[614].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[678].vfcl[614].vfal" 1;
+	setAttr ".vclr[679].vxal" 1;
+	setAttr -s 4 ".vclr[679].vfcl";
+	setAttr ".vclr[679].vfcl[580].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[679].vfcl[580].vfal" 1;
+	setAttr ".vclr[679].vfcl[584].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[679].vfcl[584].vfal" 1;
+	setAttr ".vclr[679].vfcl[608].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[679].vfcl[608].vfal" 1;
+	setAttr ".vclr[679].vfcl[615].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[679].vfcl[615].vfal" 1;
+	setAttr ".vclr[680].vxal" 1;
+	setAttr -s 4 ".vclr[680].vfcl";
+	setAttr ".vclr[680].vfcl[585].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[680].vfcl[585].vfal" 1;
+	setAttr ".vclr[680].vfcl[586].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[680].vfcl[586].vfal" 1;
+	setAttr ".vclr[680].vfcl[589].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[680].vfcl[589].vfal" 1;
+	setAttr ".vclr[680].vfcl[590].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[680].vfcl[590].vfal" 1;
+	setAttr ".vclr[681].vxal" 1;
+	setAttr -s 4 ".vclr[681].vfcl";
+	setAttr ".vclr[681].vfcl[586].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[681].vfcl[586].vfal" 1;
+	setAttr ".vclr[681].vfcl[587].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[681].vfcl[587].vfal" 1;
+	setAttr ".vclr[681].vfcl[590].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[681].vfcl[590].vfal" 1;
+	setAttr ".vclr[681].vfcl[591].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[681].vfcl[591].vfal" 1;
+	setAttr ".vclr[682].vxal" 1;
+	setAttr -s 4 ".vclr[682].vfcl";
+	setAttr ".vclr[682].vfcl[587].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[682].vfcl[587].vfal" 1;
+	setAttr ".vclr[682].vfcl[588].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[682].vfcl[588].vfal" 1;
+	setAttr ".vclr[682].vfcl[591].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[682].vfcl[591].vfal" 1;
+	setAttr ".vclr[682].vfcl[592].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[682].vfcl[592].vfal" 1;
+	setAttr ".vclr[683].vxal" 1;
+	setAttr -s 5 ".vclr[683].vfcl";
+	setAttr ".vclr[683].vfcl[511].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[683].vfcl[511].vfal" 1;
+	setAttr ".vclr[683].vfcl[516].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[683].vfcl[516].vfal" 1;
+	setAttr ".vclr[683].vfcl[585].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[683].vfcl[585].vfal" 1;
+	setAttr ".vclr[683].vfcl[607].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[683].vfcl[607].vfal" 1;
+	setAttr ".vclr[683].vfcl[618].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[683].vfcl[618].vfal" 1;
+	setAttr ".vclr[684].vxal" 1;
+	setAttr -s 4 ".vclr[684].vfcl";
+	setAttr ".vclr[684].vfcl[585].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[684].vfcl[585].vfal" 1;
+	setAttr ".vclr[684].vfcl[589].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[684].vfcl[589].vfal" 1;
+	setAttr ".vclr[684].vfcl[607].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[684].vfcl[607].vfal" 1;
+	setAttr ".vclr[684].vfcl[614].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[684].vfcl[614].vfal" 1;
+	setAttr ".vclr[685].vxal" 1;
+	setAttr -s 4 ".vclr[685].vfcl";
+	setAttr ".vclr[685].vfcl[588].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[685].vfcl[588].vfal" 1;
+	setAttr ".vclr[685].vfcl[592].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[685].vfcl[592].vfal" 1;
+	setAttr ".vclr[685].vfcl[605].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[685].vfcl[605].vfal" 1;
+	setAttr ".vclr[685].vfcl[612].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[685].vfcl[612].vfal" 1;
+	setAttr ".vclr[686].vxal" 1;
+	setAttr -s 5 ".vclr[686].vfcl";
+	setAttr ".vclr[686].vfcl[512].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[686].vfcl[512].vfal" 1;
+	setAttr ".vclr[686].vfcl[513].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[686].vfcl[513].vfal" 1;
+	setAttr ".vclr[686].vfcl[588].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[686].vfcl[588].vfal" 1;
+	setAttr ".vclr[686].vfcl[605].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[686].vfcl[605].vfal" 1;
+	setAttr ".vclr[686].vfcl[620].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[686].vfcl[620].vfal" 1;
+	setAttr ".vclr[687].vxal" 1;
+	setAttr -s 4 ".vclr[687].vfcl";
+	setAttr ".vclr[687].vfcl[593].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[687].vfcl[593].vfal" 1;
+	setAttr ".vclr[687].vfcl[594].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[687].vfcl[594].vfal" 1;
+	setAttr ".vclr[687].vfcl[597].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[687].vfcl[597].vfal" 1;
+	setAttr ".vclr[687].vfcl[598].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[687].vfcl[598].vfal" 1;
+	setAttr ".vclr[688].vxal" 1;
+	setAttr -s 4 ".vclr[688].vfcl";
+	setAttr ".vclr[688].vfcl[594].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[688].vfcl[594].vfal" 1;
+	setAttr ".vclr[688].vfcl[595].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[688].vfcl[595].vfal" 1;
+	setAttr ".vclr[688].vfcl[598].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[688].vfcl[598].vfal" 1;
+	setAttr ".vclr[688].vfcl[599].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[688].vfcl[599].vfal" 1;
+	setAttr ".vclr[689].vxal" 1;
+	setAttr -s 4 ".vclr[689].vfcl";
+	setAttr ".vclr[689].vfcl[595].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[689].vfcl[595].vfal" 1;
+	setAttr ".vclr[689].vfcl[596].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[689].vfcl[596].vfal" 1;
+	setAttr ".vclr[689].vfcl[599].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[689].vfcl[599].vfal" 1;
+	setAttr ".vclr[689].vfcl[600].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[689].vfcl[600].vfal" 1;
+	setAttr ".vclr[690].vxal" 1;
+	setAttr -s 5 ".vclr[690].vfcl";
+	setAttr ".vclr[690].vfcl[517].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[690].vfcl[517].vfal" 1;
+	setAttr ".vclr[690].vfcl[518].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[690].vfcl[518].vfal" 1;
+	setAttr ".vclr[690].vfcl[593].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[690].vfcl[593].vfal" 1;
+	setAttr ".vclr[690].vfcl[605].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[690].vfcl[605].vfal" 1;
+	setAttr ".vclr[690].vfcl[620].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[690].vfcl[620].vfal" 1;
+	setAttr ".vclr[691].vxal" 1;
+	setAttr -s 4 ".vclr[691].vfcl";
+	setAttr ".vclr[691].vfcl[593].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[691].vfcl[593].vfal" 1;
+	setAttr ".vclr[691].vfcl[597].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[691].vfcl[597].vfal" 1;
+	setAttr ".vclr[691].vfcl[605].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[691].vfcl[605].vfal" 1;
+	setAttr ".vclr[691].vfcl[612].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[691].vfcl[612].vfal" 1;
+	setAttr ".vclr[692].vxal" 1;
+	setAttr -s 4 ".vclr[692].vfcl";
+	setAttr ".vclr[692].vfcl[596].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[692].vfcl[596].vfal" 1;
+	setAttr ".vclr[692].vfcl[600].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[692].vfcl[600].vfal" 1;
+	setAttr ".vclr[692].vfcl[603].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[692].vfcl[603].vfal" 1;
+	setAttr ".vclr[692].vfcl[610].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[692].vfcl[610].vfal" 1;
+	setAttr ".vclr[693].vxal" 1;
+	setAttr -s 5 ".vclr[693].vfcl";
+	setAttr ".vclr[693].vfcl[523].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[693].vfcl[523].vfal" 1;
+	setAttr ".vclr[693].vfcl[524].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[693].vfcl[524].vfal" 1;
+	setAttr ".vclr[693].vfcl[622].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[693].vfcl[622].vfal" 1;
+	setAttr ".vclr[693].vfcl[625].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[693].vfcl[625].vfal" 1;
+	setAttr ".vclr[693].vfcl[646].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[693].vfcl[646].vfal" 1;
+	setAttr ".vclr[694].vxal" 1;
+	setAttr -s 2 ".vclr[694].vfcl";
+	setAttr ".vclr[694].vfcl[646].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[694].vfcl[646].vfal" 1;
+	setAttr ".vclr[694].vfcl[648].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[694].vfcl[648].vfal" 1;
+	setAttr ".vclr[695].vxal" 1;
+	setAttr -s 2 ".vclr[695].vfcl";
+	setAttr ".vclr[695].vfcl[648].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[695].vfcl[648].vfal" 1;
+	setAttr ".vclr[695].vfcl[651].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[695].vfcl[651].vfal" 1;
+	setAttr ".vclr[696].vxal" 1;
+	setAttr -s 3 ".vclr[696].vfcl";
+	setAttr ".vclr[696].vfcl[649].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[696].vfcl[649].vfal" 1;
+	setAttr ".vclr[696].vfcl[651].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[696].vfcl[651].vfal" 1;
+	setAttr ".vclr[696].vfcl[652].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[696].vfcl[652].vfal" 1;
+	setAttr ".vclr[697].vxal" 1;
+	setAttr -s 2 ".vclr[697].vfcl";
+	setAttr ".vclr[697].vfcl[654].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[697].vfcl[654].vfal" 1;
+	setAttr ".vclr[697].vfcl[655].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[697].vfcl[655].vfal" 1;
+	setAttr ".vclr[698].vxal" 1;
+	setAttr -s 2 ".vclr[698].vfcl";
+	setAttr ".vclr[698].vfcl[655].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[698].vfcl[655].vfal" 1;
+	setAttr ".vclr[698].vfcl[656].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[698].vfcl[656].vfal" 1;
+	setAttr ".vclr[699].vxal" 1;
+	setAttr -s 2 ".vclr[699].vfcl";
+	setAttr ".vclr[699].vfcl[656].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[699].vfcl[656].vfal" 1;
+	setAttr ".vclr[699].vfcl[657].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[699].vfcl[657].vfal" 1;
+	setAttr ".vclr[700].vxal" 1;
+	setAttr -s 2 ".vclr[700].vfcl";
+	setAttr ".vclr[700].vfcl[658].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[700].vfcl[658].vfal" 1;
+	setAttr ".vclr[700].vfcl[664].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[700].vfcl[664].vfal" 1;
+	setAttr ".vclr[701].vxal" 1;
+	setAttr -s 4 ".vclr[701].vfcl";
+	setAttr ".vclr[701].vfcl[2].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[701].vfcl[2].vfal" 1;
+	setAttr ".vclr[701].vfcl[658].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[701].vfcl[658].vfal" 1;
+	setAttr ".vclr[701].vfcl[664].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[701].vfcl[664].vfal" 1;
+	setAttr ".vclr[701].vfcl[734].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[701].vfcl[734].vfal" 1;
+	setAttr ".vclr[702].vxal" 1;
+	setAttr -s 2 ".vclr[702].vfcl";
+	setAttr ".vclr[702].vfcl[659].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[702].vfcl[659].vfal" 1;
+	setAttr ".vclr[702].vfcl[663].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[702].vfcl[663].vfal" 1;
+	setAttr ".vclr[703].vxal" 1;
+	setAttr -s 3 ".vclr[703].vfcl";
+	setAttr ".vclr[703].vfcl[660].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[703].vfcl[660].vfal" 1;
+	setAttr ".vclr[703].vfcl[665].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[703].vfcl[665].vfal" 1;
+	setAttr ".vclr[703].vfcl[735].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[703].vfcl[735].vfal" 1;
+	setAttr ".vclr[704].vxal" 1;
+	setAttr -s 3 ".vclr[704].vfcl";
+	setAttr ".vclr[704].vfcl[1].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[704].vfcl[1].vfal" 1;
+	setAttr ".vclr[704].vfcl[660].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[704].vfcl[660].vfal" 1;
+	setAttr ".vclr[704].vfcl[665].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[704].vfcl[665].vfal" 1;
+	setAttr ".vclr[705].vxal" 1;
+	setAttr -s 3 ".vclr[705].vfcl";
+	setAttr ".vclr[705].vfcl[661].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[705].vfcl[661].vfal" 1;
+	setAttr ".vclr[705].vfcl[662].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[705].vfcl[662].vfal" 1;
+	setAttr ".vclr[705].vfcl[736].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[705].vfcl[736].vfal" 1;
+	setAttr ".vclr[706].vxal" 1;
+	setAttr -s 4 ".vclr[706].vfcl";
+	setAttr ".vclr[706].vfcl[666].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[706].vfcl[666].vfal" 1;
+	setAttr ".vclr[706].vfcl[668].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[706].vfcl[668].vfal" 1;
+	setAttr ".vclr[706].vfcl[719].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[706].vfcl[719].vfal" 1;
+	setAttr ".vclr[706].vfcl[721].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[706].vfcl[721].vfal" 1;
+	setAttr ".vclr[707].vxal" 1;
+	setAttr ".vclr[707].vfcl[667].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[707].vfcl[667].vfal" 1;
+	setAttr ".vclr[708].vxal" 1;
+	setAttr -s 2 ".vclr[708].vfcl";
+	setAttr ".vclr[708].vfcl[667].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[708].vfcl[667].vfal" 1;
+	setAttr ".vclr[708].vfcl[669].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[708].vfcl[669].vfal" 1;
+	setAttr ".vclr[709].vxal" 1;
+	setAttr -s 4 ".vclr[709].vfcl";
+	setAttr ".vclr[709].vfcl[667].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[709].vfcl[667].vfal" 1;
+	setAttr ".vclr[709].vfcl[669].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[709].vfcl[669].vfal" 1;
+	setAttr ".vclr[709].vfcl[720].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[709].vfcl[720].vfal" 1;
+	setAttr ".vclr[709].vfcl[722].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[709].vfcl[722].vfal" 1;
+	setAttr ".vclr[710].vxal" 1;
+	setAttr -s 4 ".vclr[710].vfcl";
+	setAttr ".vclr[710].vfcl[668].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[710].vfcl[668].vfal" 1;
+	setAttr ".vclr[710].vfcl[674].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[710].vfcl[674].vfal" 1;
+	setAttr ".vclr[710].vfcl[679].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[710].vfcl[679].vfal" 1;
+	setAttr ".vclr[710].vfcl[719].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[710].vfcl[719].vfal" 1;
+	setAttr ".vclr[711].vxal" 1;
+	setAttr -s 4 ".vclr[711].vfcl";
+	setAttr ".vclr[711].vfcl[669].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[711].vfcl[669].vfal" 1;
+	setAttr ".vclr[711].vfcl[675].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[711].vfcl[675].vfal" 1;
+	setAttr ".vclr[711].vfcl[680].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[711].vfcl[680].vfal" 1;
+	setAttr ".vclr[711].vfcl[720].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[711].vfcl[720].vfal" 1;
+	setAttr ".vclr[712].vxal" 1;
+	setAttr -s 6 ".vclr[712].vfcl";
+	setAttr ".vclr[712].vfcl[396].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[712].vfcl[396].vfal" 1;
+	setAttr ".vclr[712].vfcl[673].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[712].vfcl[673].vfal" 1;
+	setAttr ".vclr[712].vfcl[676].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[712].vfcl[676].vfal" 1;
+	setAttr ".vclr[712].vfcl[678].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[712].vfcl[678].vfal" 1;
+	setAttr ".vclr[712].vfcl[681].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[712].vfcl[681].vfal" 1;
+	setAttr ".vclr[712].vfcl[683].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[712].vfcl[683].vfal" 1;
+	setAttr ".vclr[713].vxal" 1;
+	setAttr -s 2 ".vclr[713].vfcl";
+	setAttr ".vclr[713].vfcl[399].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[713].vfcl[399].vfal" 1;
+	setAttr ".vclr[713].vfcl[670].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[713].vfcl[670].vfal" 1;
+	setAttr ".vclr[714].vxal" 1;
+	setAttr -s 4 ".vclr[714].vfcl";
+	setAttr ".vclr[714].vfcl[399].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[714].vfcl[399].vfal" 1;
+	setAttr ".vclr[714].vfcl[451].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[714].vfcl[451].vfal" 1;
+	setAttr ".vclr[714].vfcl[670].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[714].vfcl[670].vfal" 1;
+	setAttr ".vclr[714].vfcl[671].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[714].vfcl[671].vfal" 1;
+	setAttr ".vclr[715].vxal" 1;
+	setAttr -s 4 ".vclr[715].vfcl";
+	setAttr ".vclr[715].vfcl[396].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[715].vfcl[396].vfal" 1;
+	setAttr ".vclr[715].vfcl[452].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[715].vfcl[452].vfal" 1;
+	setAttr ".vclr[715].vfcl[672].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[715].vfcl[672].vfal" 1;
+	setAttr ".vclr[715].vfcl[673].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[715].vfcl[673].vfal" 1;
+	setAttr ".vclr[716].vxal" 1;
+	setAttr -s 4 ".vclr[716].vfcl";
+	setAttr ".vclr[716].vfcl[674].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[716].vfcl[674].vfal" 1;
+	setAttr ".vclr[716].vfcl[676].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[716].vfcl[676].vfal" 1;
+	setAttr ".vclr[716].vfcl[679].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[716].vfcl[679].vfal" 1;
+	setAttr ".vclr[716].vfcl[681].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[716].vfcl[681].vfal" 1;
+	setAttr ".vclr[717].vxal" 1;
+	setAttr -s 4 ".vclr[717].vfcl";
+	setAttr ".vclr[717].vfcl[675].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[717].vfcl[675].vfal" 1;
+	setAttr ".vclr[717].vfcl[677].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[717].vfcl[677].vfal" 1;
+	setAttr ".vclr[717].vfcl[680].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[717].vfcl[680].vfal" 1;
+	setAttr ".vclr[717].vfcl[682].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[717].vfcl[682].vfal" 1;
+	setAttr ".vclr[718].vxal" 1;
+	setAttr -s 4 ".vclr[718].vfcl";
+	setAttr ".vclr[718].vfcl[677].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[718].vfcl[677].vfal" 1;
+	setAttr ".vclr[718].vfcl[678].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[718].vfcl[678].vfal" 1;
+	setAttr ".vclr[718].vfcl[682].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[718].vfcl[682].vfal" 1;
+	setAttr ".vclr[718].vfcl[683].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[718].vfcl[683].vfal" 1;
+	setAttr ".vclr[719].vxal" 1;
+	setAttr -s 2 ".vclr[719].vfcl";
+	setAttr ".vclr[719].vfcl[683].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[719].vfcl[683].vfal" 1;
+	setAttr ".vclr[719].vfcl[684].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[719].vfcl[684].vfal" 1;
+	setAttr ".vclr[720].vxal" 1;
+	setAttr -s 2 ".vclr[720].vfcl";
+	setAttr ".vclr[720].vfcl[684].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[720].vfcl[684].vfal" 1;
+	setAttr ".vclr[720].vfcl[685].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[720].vfcl[685].vfal" 1;
+	setAttr ".vclr[721].vxal" 1;
+	setAttr -s 2 ".vclr[721].vfcl";
+	setAttr ".vclr[721].vfcl[685].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[721].vfcl[685].vfal" 1;
+	setAttr ".vclr[721].vfcl[686].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[721].vfcl[686].vfal" 1;
+	setAttr ".vclr[722].vxal" 1;
+	setAttr -s 2 ".vclr[722].vfcl";
+	setAttr ".vclr[722].vfcl[686].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[722].vfcl[686].vfal" 1;
+	setAttr ".vclr[722].vfcl[687].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[722].vfcl[687].vfal" 1;
+	setAttr ".vclr[723].vxal" 1;
+	setAttr -s 2 ".vclr[723].vfcl";
+	setAttr ".vclr[723].vfcl[687].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[723].vfcl[687].vfal" 1;
+	setAttr ".vclr[723].vfcl[688].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[723].vfcl[688].vfal" 1;
+	setAttr ".vclr[724].vxal" 1;
+	setAttr -s 5 ".vclr[724].vfcl";
+	setAttr ".vclr[724].vfcl[689].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[724].vfcl[689].vfal" 1;
+	setAttr ".vclr[724].vfcl[695].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[724].vfcl[695].vfal" 1;
+	setAttr ".vclr[724].vfcl[721].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[724].vfcl[721].vfal" 1;
+	setAttr ".vclr[724].vfcl[723].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[724].vfcl[723].vfal" 1;
+	setAttr ".vclr[724].vfcl[725].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[724].vfcl[725].vfal" 1;
+	setAttr ".vclr[725].vxal" 1;
+	setAttr -s 4 ".vclr[725].vfcl";
+	setAttr ".vclr[725].vfcl[689].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[725].vfcl[689].vfal" 1;
+	setAttr ".vclr[725].vfcl[691].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[725].vfcl[691].vfal" 1;
+	setAttr ".vclr[725].vfcl[694].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[725].vfcl[694].vfal" 1;
+	setAttr ".vclr[725].vfcl[695].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[725].vfcl[695].vfal" 1;
+	setAttr ".vclr[726].vxal" 1;
+	setAttr -s 4 ".vclr[726].vfcl";
+	setAttr ".vclr[726].vfcl[690].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[726].vfcl[690].vfal" 1;
+	setAttr ".vclr[726].vfcl[692].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[726].vfcl[692].vfal" 1;
+	setAttr ".vclr[726].vfcl[693].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[726].vfcl[693].vfal" 1;
+	setAttr ".vclr[726].vfcl[696].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[726].vfcl[696].vfal" 1;
+	setAttr ".vclr[727].vxal" 1;
+	setAttr -s 5 ".vclr[727].vfcl";
+	setAttr ".vclr[727].vfcl[690].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[727].vfcl[690].vfal" 1;
+	setAttr ".vclr[727].vfcl[696].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[727].vfcl[696].vfal" 1;
+	setAttr ".vclr[727].vfcl[722].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[727].vfcl[722].vfal" 1;
+	setAttr ".vclr[727].vfcl[724].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[727].vfcl[724].vfal" 1;
+	setAttr ".vclr[727].vfcl[726].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[727].vfcl[726].vfal" 1;
+	setAttr ".vclr[728].vxal" 1;
+	setAttr -s 3 ".vclr[728].vfcl";
+	setAttr ".vclr[728].vfcl[695].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[728].vfcl[695].vfal" 1;
+	setAttr ".vclr[728].vfcl[698].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[728].vfcl[698].vfal" 1;
+	setAttr ".vclr[728].vfcl[725].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[728].vfcl[725].vfal" 1;
+	setAttr ".vclr[729].vxal" 1;
+	setAttr -s 2 ".vclr[729].vfcl";
+	setAttr ".vclr[729].vfcl[695].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[729].vfcl[695].vfal" 1;
+	setAttr ".vclr[729].vfcl[698].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[729].vfcl[698].vfal" 1;
+	setAttr ".vclr[730].vxal" 1;
+	setAttr -s 2 ".vclr[730].vfcl";
+	setAttr ".vclr[730].vfcl[696].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[730].vfcl[696].vfal" 1;
+	setAttr ".vclr[730].vfcl[708].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[730].vfcl[708].vfal" 1;
+	setAttr ".vclr[731].vxal" 1;
+	setAttr -s 3 ".vclr[731].vfcl";
+	setAttr ".vclr[731].vfcl[696].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[731].vfcl[696].vfal" 1;
+	setAttr ".vclr[731].vfcl[708].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[731].vfcl[708].vfal" 1;
+	setAttr ".vclr[731].vfcl[726].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[731].vfcl[726].vfal" 1;
+	setAttr ".vclr[732].vxal" 1;
+	setAttr ".vclr[732].vfcl[697].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[732].vfcl[697].vfal" 1;
+	setAttr ".vclr[733].vxal" 1;
+	setAttr ".vclr[733].vfcl[697].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[733].vfcl[697].vfal" 1;
+	setAttr ".vclr[734].vxal" 1;
+	setAttr -s 2 ".vclr[734].vfcl";
+	setAttr ".vclr[734].vfcl[697].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[734].vfcl[697].vfal" 1;
+	setAttr ".vclr[734].vfcl[702].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[734].vfcl[702].vfal" 1;
+	setAttr ".vclr[735].vxal" 1;
+	setAttr -s 4 ".vclr[735].vfcl";
+	setAttr ".vclr[735].vfcl[698].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[735].vfcl[698].vfal" 1;
+	setAttr ".vclr[735].vfcl[699].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[735].vfcl[699].vfal" 1;
+	setAttr ".vclr[735].vfcl[723].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[735].vfcl[723].vfal" 1;
+	setAttr ".vclr[735].vfcl[725].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[735].vfcl[725].vfal" 1;
+	setAttr ".vclr[736].vxal" 1;
+	setAttr -s 2 ".vclr[736].vfcl";
+	setAttr ".vclr[736].vfcl[698].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[736].vfcl[698].vfal" 1;
+	setAttr ".vclr[736].vfcl[699].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[736].vfcl[699].vfal" 1;
+	setAttr ".vclr[737].vxal" 1;
+	setAttr -s 4 ".vclr[737].vfcl";
+	setAttr ".vclr[737].vfcl[699].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[737].vfcl[699].vfal" 1;
+	setAttr ".vclr[737].vfcl[700].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[737].vfcl[700].vfal" 1;
+	setAttr ".vclr[737].vfcl[723].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[737].vfcl[723].vfal" 1;
+	setAttr ".vclr[737].vfcl[727].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[737].vfcl[727].vfal" 1;
+	setAttr ".vclr[738].vxal" 1;
+	setAttr -s 2 ".vclr[738].vfcl";
+	setAttr ".vclr[738].vfcl[699].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[738].vfcl[699].vfal" 1;
+	setAttr ".vclr[738].vfcl[700].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[738].vfcl[700].vfal" 1;
+	setAttr ".vclr[739].vxal" 1;
+	setAttr -s 5 ".vclr[739].vfcl";
+	setAttr ".vclr[739].vfcl[700].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[739].vfcl[700].vfal" 1;
+	setAttr ".vclr[739].vfcl[701].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[739].vfcl[701].vfal" 1;
+	setAttr ".vclr[739].vfcl[727].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[739].vfcl[727].vfal" 1;
+	setAttr ".vclr[739].vfcl[729].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[739].vfcl[729].vfal" 1;
+	setAttr ".vclr[739].vfcl[731].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[739].vfcl[731].vfal" 1;
+	setAttr ".vclr[740].vxal" 1;
+	setAttr -s 2 ".vclr[740].vfcl";
+	setAttr ".vclr[740].vfcl[700].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[740].vfcl[700].vfal" 1;
+	setAttr ".vclr[740].vfcl[701].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[740].vfcl[701].vfal" 1;
+	setAttr ".vclr[741].vxal" 1;
+	setAttr -s 5 ".vclr[741].vfcl";
+	setAttr ".vclr[741].vfcl[701].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[741].vfcl[701].vfal" 1;
+	setAttr ".vclr[741].vfcl[702].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[741].vfcl[702].vfal" 1;
+	setAttr ".vclr[741].vfcl[729].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[741].vfcl[729].vfal" 1;
+	setAttr ".vclr[741].vfcl[733].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[741].vfcl[733].vfal" 1;
+	setAttr ".vclr[741].vfcl[737].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[741].vfcl[737].vfal" 1;
+	setAttr ".vclr[742].vxal" 1;
+	setAttr -s 2 ".vclr[742].vfcl";
+	setAttr ".vclr[742].vfcl[701].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[742].vfcl[701].vfal" 1;
+	setAttr ".vclr[742].vfcl[702].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[742].vfcl[702].vfal" 1;
+	setAttr ".vclr[743].vxal" 1;
+	setAttr ".vclr[743].vfcl[703].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[743].vfcl[703].vfal" 1;
+	setAttr ".vclr[744].vxal" 1;
+	setAttr -s 2 ".vclr[744].vfcl";
+	setAttr ".vclr[744].vfcl[703].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[744].vfcl[703].vfal" 1;
+	setAttr ".vclr[744].vfcl[704].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[744].vfcl[704].vfal" 1;
+	setAttr ".vclr[745].vxal" 1;
+	setAttr ".vclr[745].vfcl[703].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[745].vfcl[703].vfal" 1;
+	setAttr ".vclr[746].vxal" 1;
+	setAttr -s 5 ".vclr[746].vfcl";
+	setAttr ".vclr[746].vfcl[704].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[746].vfcl[704].vfal" 1;
+	setAttr ".vclr[746].vfcl[705].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[746].vfcl[705].vfal" 1;
+	setAttr ".vclr[746].vfcl[730].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[746].vfcl[730].vfal" 1;
+	setAttr ".vclr[746].vfcl[734].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[746].vfcl[734].vfal" 1;
+	setAttr ".vclr[746].vfcl[738].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[746].vfcl[738].vfal" 1;
+	setAttr ".vclr[747].vxal" 1;
+	setAttr -s 2 ".vclr[747].vfcl";
+	setAttr ".vclr[747].vfcl[704].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[747].vfcl[704].vfal" 1;
+	setAttr ".vclr[747].vfcl[705].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[747].vfcl[705].vfal" 1;
+	setAttr ".vclr[748].vxal" 1;
+	setAttr -s 5 ".vclr[748].vfcl";
+	setAttr ".vclr[748].vfcl[705].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[748].vfcl[705].vfal" 1;
+	setAttr ".vclr[748].vfcl[706].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[748].vfcl[706].vfal" 1;
+	setAttr ".vclr[748].vfcl[728].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[748].vfcl[728].vfal" 1;
+	setAttr ".vclr[748].vfcl[730].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[748].vfcl[730].vfal" 1;
+	setAttr ".vclr[748].vfcl[732].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[748].vfcl[732].vfal" 1;
+	setAttr ".vclr[749].vxal" 1;
+	setAttr -s 2 ".vclr[749].vfcl";
+	setAttr ".vclr[749].vfcl[705].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[749].vfcl[705].vfal" 1;
+	setAttr ".vclr[749].vfcl[706].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[749].vfcl[706].vfal" 1;
+	setAttr ".vclr[750].vxal" 1;
+	setAttr -s 4 ".vclr[750].vfcl";
+	setAttr ".vclr[750].vfcl[706].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[750].vfcl[706].vfal" 1;
+	setAttr ".vclr[750].vfcl[707].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[750].vfcl[707].vfal" 1;
+	setAttr ".vclr[750].vfcl[724].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[750].vfcl[724].vfal" 1;
+	setAttr ".vclr[750].vfcl[728].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[750].vfcl[728].vfal" 1;
+	setAttr ".vclr[751].vxal" 1;
+	setAttr -s 2 ".vclr[751].vfcl";
+	setAttr ".vclr[751].vfcl[706].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[751].vfcl[706].vfal" 1;
+	setAttr ".vclr[751].vfcl[707].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[751].vfcl[707].vfal" 1;
+	setAttr ".vclr[752].vxal" 1;
+	setAttr -s 4 ".vclr[752].vfcl";
+	setAttr ".vclr[752].vfcl[707].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[752].vfcl[707].vfal" 1;
+	setAttr ".vclr[752].vfcl[708].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[752].vfcl[708].vfal" 1;
+	setAttr ".vclr[752].vfcl[724].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[752].vfcl[724].vfal" 1;
+	setAttr ".vclr[752].vfcl[726].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[752].vfcl[726].vfal" 1;
+	setAttr ".vclr[753].vxal" 1;
+	setAttr -s 2 ".vclr[753].vfcl";
+	setAttr ".vclr[753].vfcl[707].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[753].vfcl[707].vfal" 1;
+	setAttr ".vclr[753].vfcl[708].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[753].vfcl[708].vfal" 1;
+	setAttr ".vclr[754].vxal" 1;
+	setAttr ".vclr[754].vfcl[713].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[754].vfcl[713].vfal" 1;
+	setAttr ".vclr[755].vxal" 1;
+	setAttr -s 2 ".vclr[755].vfcl";
+	setAttr ".vclr[755].vfcl[713].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[755].vfcl[713].vfal" 1;
+	setAttr ".vclr[755].vfcl[714].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[755].vfcl[714].vfal" 1;
+	setAttr ".vclr[756].vxal" 1;
+	setAttr -s 2 ".vclr[756].vfcl";
+	setAttr ".vclr[756].vfcl[715].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[756].vfcl[715].vfal" 1;
+	setAttr ".vclr[756].vfcl[716].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[756].vfcl[716].vfal" 1;
+	setAttr ".vclr[757].vxal" 1;
+	setAttr ".vclr[757].vfcl[716].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[757].vfcl[716].vfal" 1;
+	setAttr ".vclr[758].vxal" 1;
+	setAttr ".vclr[758].vfcl[714].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[758].vfcl[714].vfal" 1;
+	setAttr ".vclr[759].vxal" 1;
+	setAttr ".vclr[759].vfcl[715].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[759].vfcl[715].vfal" 1;
+	setAttr ".vclr[760].vxal" 1;
+	setAttr -s 4 ".vclr[760].vfcl";
+	setAttr ".vclr[760].vfcl[709].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[760].vfcl[709].vfal" 1;
+	setAttr ".vclr[760].vfcl[710].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[760].vfcl[710].vfal" 1;
+	setAttr ".vclr[760].vfcl[713].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[760].vfcl[713].vfal" 1;
+	setAttr ".vclr[760].vfcl[714].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[760].vfcl[714].vfal" 1;
+	setAttr ".vclr[761].vxal" 1;
+	setAttr -s 2 ".vclr[761].vfcl";
+	setAttr ".vclr[761].vfcl[709].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[761].vfcl[709].vfal" 1;
+	setAttr ".vclr[761].vfcl[713].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[761].vfcl[713].vfal" 1;
+	setAttr ".vclr[762].vxal" 1;
+	setAttr -s 2 ".vclr[762].vfcl";
+	setAttr ".vclr[762].vfcl[709].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[762].vfcl[709].vfal" 1;
+	setAttr ".vclr[762].vfcl[712].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[762].vfcl[712].vfal" 1;
+	setAttr ".vclr[763].vxal" 1;
+	setAttr -s 4 ".vclr[763].vfcl";
+	setAttr ".vclr[763].vfcl[709].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[763].vfcl[709].vfal" 1;
+	setAttr ".vclr[763].vfcl[710].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[763].vfcl[710].vfal" 1;
+	setAttr ".vclr[763].vfcl[711].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[763].vfcl[711].vfal" 1;
+	setAttr ".vclr[763].vfcl[712].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[763].vfcl[712].vfal" 1;
+	setAttr ".vclr[764].vxal" 1;
+	setAttr -s 3 ".vclr[764].vfcl";
+	setAttr ".vclr[764].vfcl[710].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[764].vfcl[710].vfal" 1;
+	setAttr ".vclr[764].vfcl[711].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[764].vfcl[711].vfal" 1;
+	setAttr ".vclr[764].vfcl[739].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[764].vfcl[739].vfal" 1;
+	setAttr ".vclr[765].vxal" 1;
+	setAttr -s 3 ".vclr[765].vfcl";
+	setAttr ".vclr[765].vfcl[710].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[765].vfcl[710].vfal" 1;
+	setAttr ".vclr[765].vfcl[714].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[765].vfcl[714].vfal" 1;
+	setAttr ".vclr[765].vfcl[739].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[765].vfcl[739].vfal" 1;
+	setAttr ".vclr[766].vxal" 1;
+	setAttr -s 4 ".vclr[766].vfcl";
+	setAttr ".vclr[766].vfcl[711].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[766].vfcl[711].vfal" 1;
+	setAttr ".vclr[766].vfcl[712].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[766].vfcl[712].vfal" 1;
+	setAttr ".vclr[766].vfcl[715].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[766].vfcl[715].vfal" 1;
+	setAttr ".vclr[766].vfcl[716].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[766].vfcl[716].vfal" 1;
+	setAttr ".vclr[767].vxal" 1;
+	setAttr -s 3 ".vclr[767].vfcl";
+	setAttr ".vclr[767].vfcl[711].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[767].vfcl[711].vfal" 1;
+	setAttr ".vclr[767].vfcl[715].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[767].vfcl[715].vfal" 1;
+	setAttr ".vclr[767].vfcl[739].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[767].vfcl[739].vfal" 1;
+	setAttr ".vclr[768].vxal" 1;
+	setAttr -s 2 ".vclr[768].vfcl";
+	setAttr ".vclr[768].vfcl[712].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[768].vfcl[712].vfal" 1;
+	setAttr ".vclr[768].vfcl[716].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[768].vfcl[716].vfal" 1;
+	setAttr ".vclr[769].vxal" 1;
+	setAttr ".vclr[769].vfcl[717].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[769].vfcl[717].vfal" 1;
+	setAttr ".vclr[770].vxal" 1;
+	setAttr ".vclr[770].vfcl[718].frgb" -type "float3" 0.2218 0.047800001 0.047800001 ;
+	setAttr ".vclr[770].vfcl[718].vfal" 1;
+	setAttr ".cn" -type "string" "colorSet1";
+	setAttr ".clam" no;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -15860,7 +24944,6 @@ connectAttr ":initialShadingGroup.mwc" "Castle_unUnified_Turret_1Shape.iog.og[0]
 		;
 connectAttr "groupId158.id" "polySurfaceShape46.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "polySurfaceShape46.iog.og[0].gco";
-connectAttr "groupId159.id" "polySurfaceShape47.iog.og[0].gid";
 connectAttr "groupId160.id" "polySurfaceShape47.iog.og[1].gid";
 connectAttr ":initialShadingGroup.mwc" "polySurfaceShape47.iog.og[1].gco";
 connectAttr "groupId184.id" "polySurfaceShape59.iog.og[0].gid";
@@ -15897,10 +24980,10 @@ connectAttr "groupId204.id" "polySurfaceShape70.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "polySurfaceShape70.iog.og[0].gco";
 connectAttr "groupId199.id" "polySurfaceShape72.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "polySurfaceShape72.iog.og[0].gco";
-connectAttr "deleteComponent43.og" "polySurface73Shape.i";
+connectAttr "polyColorPerVertex1.out" "polySurface73Shape.i";
 connectAttr "groupId217.id" "polySurface73Shape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "polySurface73Shape.iog.og[0].gco";
-connectAttr "polyTweakUV46.uvtk[0]" "polySurface73Shape.uvst[0].uvtw";
+connectAttr "polyTweakUV60.uvtk[0]" "polySurface73Shape.uvst[0].uvtw";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
@@ -16092,6 +25175,7 @@ connectAttr "|Third_Layer|Archway2|Archway2Shape.iog" "lambert2SG.dsm" -na;
 connectAttr "|Second_Layer|Archway|ArchwayShape.iog" "lambert2SG.dsm" -na;
 connectAttr "|Third_Layer|Archway1|Archway1Shape.iog" "lambert2SG.dsm" -na;
 connectAttr "CastleShape.iog.og[0]" "lambert2SG.dsm" -na;
+connectAttr "polySurfaceShape90.iog" "lambert2SG.dsm" -na;
 connectAttr "groupId67.msg" "lambert2SG.gn" -na;
 connectAttr "lambert2SG.msg" "materialInfo1.sg";
 connectAttr "Workspace_Arch.msg" "materialInfo1.m";
@@ -16291,7 +25375,6 @@ connectAttr "groupId216.id" "groupParts45.gi";
 connectAttr "groupParts46.og" "polyMergeVert47.ip";
 connectAttr "polySurface73Shape.wm" "polyMergeVert47.mp";
 connectAttr "polySurfaceShape89.o" "groupParts46.ig";
-connectAttr "groupId217.id" "groupParts46.gi";
 connectAttr "polyMergeVert47.out" "polyTweakUV33.ip";
 connectAttr "polyTweak120.out" "polyMergeVert48.ip";
 connectAttr "polySurface73Shape.wm" "polyMergeVert48.mp";
@@ -16358,6 +25441,130 @@ connectAttr "polyDelEdge17.out" "polyDelEdge18.ip";
 connectAttr "polyDelEdge18.out" "polyDelEdge19.ip";
 connectAttr "polyDelEdge19.out" "deleteComponent42.ig";
 connectAttr "deleteComponent42.og" "deleteComponent43.ig";
+connectAttr "polyTweak134.out" "polyAppendVertex1.ip";
+connectAttr "deleteComponent43.og" "polyTweak134.ip";
+connectAttr "polyAppendVertex1.out" "groupParts47.ig";
+connectAttr "groupParts47.og" "polyAppendVertex2.ip";
+connectAttr "polyAppendVertex2.out" "groupParts48.ig";
+connectAttr "groupParts48.og" "polyAppendVertex3.ip";
+connectAttr "polyAppendVertex3.out" "groupParts49.ig";
+connectAttr "groupParts49.og" "polyAppendVertex4.ip";
+connectAttr "polyAppendVertex4.out" "groupParts50.ig";
+connectAttr "polyTweak135.out" "polyAppendVertex5.ip";
+connectAttr "groupParts50.og" "polyTweak135.ip";
+connectAttr "polyAppendVertex5.out" "groupParts51.ig";
+connectAttr "groupParts51.og" "polyAppendVertex6.ip";
+connectAttr "polyAppendVertex6.out" "groupParts52.ig";
+connectAttr "groupParts52.og" "polyAppendVertex7.ip";
+connectAttr "polyAppendVertex7.out" "groupParts53.ig";
+connectAttr "groupParts53.og" "polyAppendVertex8.ip";
+connectAttr "polyAppendVertex8.out" "groupParts54.ig";
+connectAttr "groupParts54.og" "polyAppendVertex9.ip";
+connectAttr "polyAppendVertex9.out" "groupParts55.ig";
+connectAttr "groupParts55.og" "polyAppendVertex10.ip";
+connectAttr "polyAppendVertex10.out" "groupParts56.ig";
+connectAttr "groupParts56.og" "deleteComponent44.ig";
+connectAttr "deleteComponent44.og" "polyAppendVertex11.ip";
+connectAttr "polyAppendVertex11.out" "groupParts57.ig";
+connectAttr "groupParts57.og" "polyAppendVertex12.ip";
+connectAttr "polyAppendVertex12.out" "groupParts58.ig";
+connectAttr "polyTweak136.out" "polyMergeVert62.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert62.mp";
+connectAttr "groupParts58.og" "polyTweak136.ip";
+connectAttr "polyMergeVert62.out" "deleteComponent45.ig";
+connectAttr "deleteComponent45.og" "polyAppendVertex13.ip";
+connectAttr "polyAppendVertex13.out" "groupParts59.ig";
+connectAttr "groupParts59.og" "polyAppendVertex14.ip";
+connectAttr "polyAppendVertex14.out" "groupParts60.ig";
+connectAttr "polyTweak137.out" "polyMergeVert63.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert63.mp";
+connectAttr "groupParts60.og" "polyTweak137.ip";
+connectAttr "polyMergeVert63.out" "deleteComponent46.ig";
+connectAttr "polyTweak138.out" "polyMergeVert64.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert64.mp";
+connectAttr "deleteComponent46.og" "polyTweak138.ip";
+connectAttr "polyTweak139.out" "polyMergeVert65.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert65.mp";
+connectAttr "polyMergeVert64.out" "polyTweak139.ip";
+connectAttr "polyMergeVert65.out" "polyAppendVertex15.ip";
+connectAttr "polyAppendVertex15.out" "groupParts61.ig";
+connectAttr "groupParts61.og" "polyAppendVertex16.ip";
+connectAttr "polyAppendVertex16.out" "groupParts62.ig";
+connectAttr "polyTweak140.out" "polyMergeVert66.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert66.mp";
+connectAttr "groupParts62.og" "polyTweak140.ip";
+connectAttr "polyTweak141.out" "polyMergeVert67.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert67.mp";
+connectAttr "polyMergeVert66.out" "polyTweak141.ip";
+connectAttr "polyMergeVert67.out" "polyTweakUV47.ip";
+connectAttr "polyTweak142.out" "polyMergeVert68.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert68.mp";
+connectAttr "polyTweakUV47.out" "polyTweak142.ip";
+connectAttr "polyMergeVert68.out" "polyTweakUV48.ip";
+connectAttr "polyTweak143.out" "polyMergeVert69.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert69.mp";
+connectAttr "polyTweakUV48.out" "polyTweak143.ip";
+connectAttr "polyMergeVert69.out" "polyTweakUV49.ip";
+connectAttr "polyTweak144.out" "polyMergeVert70.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert70.mp";
+connectAttr "polyTweakUV49.out" "polyTweak144.ip";
+connectAttr "polyMergeVert70.out" "polyTweakUV50.ip";
+connectAttr "polyTweak145.out" "polyMergeVert71.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert71.mp";
+connectAttr "polyTweakUV50.out" "polyTweak145.ip";
+connectAttr "polyMergeVert71.out" "polyTweakUV51.ip";
+connectAttr "polyTweak146.out" "polyMergeVert72.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert72.mp";
+connectAttr "polyTweakUV51.out" "polyTweak146.ip";
+connectAttr "polyMergeVert72.out" "polyTweakUV52.ip";
+connectAttr "polyTweak147.out" "polyMergeVert73.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert73.mp";
+connectAttr "polyTweakUV52.out" "polyTweak147.ip";
+connectAttr "polyMergeVert73.out" "polyTweakUV53.ip";
+connectAttr "polyTweak148.out" "polyMergeVert74.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert74.mp";
+connectAttr "polyTweakUV53.out" "polyTweak148.ip";
+connectAttr "polyMergeVert74.out" "polyTweakUV54.ip";
+connectAttr "polyTweak149.out" "polyMergeVert75.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert75.mp";
+connectAttr "polyTweakUV54.out" "polyTweak149.ip";
+connectAttr "polyMergeVert75.out" "polyTweakUV55.ip";
+connectAttr "polyTweak150.out" "polyMergeVert76.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert76.mp";
+connectAttr "polyTweakUV55.out" "polyTweak150.ip";
+connectAttr "polyMergeVert76.out" "polyTweakUV56.ip";
+connectAttr "polyTweak151.out" "polyMergeVert77.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert77.mp";
+connectAttr "polyTweakUV56.out" "polyTweak151.ip";
+connectAttr "polyMergeVert77.out" "polyTweakUV57.ip";
+connectAttr "polyTweak152.out" "polyMergeVert78.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert78.mp";
+connectAttr "polyTweakUV57.out" "polyTweak152.ip";
+connectAttr "polyTweak153.out" "polyCloseBorder7.ip";
+connectAttr "polyMergeVert78.out" "polyTweak153.ip";
+connectAttr "polyCloseBorder7.out" "groupParts63.ig";
+connectAttr "groupParts63.og" "polyTweakUV58.ip";
+connectAttr "polyTweak154.out" "polyMergeVert79.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert79.mp";
+connectAttr "polyTweakUV58.out" "polyTweak154.ip";
+connectAttr "polyMergeVert79.out" "polyAppendVertex17.ip";
+connectAttr "polyAppendVertex17.out" "groupParts64.ig";
+connectAttr "groupParts64.og" "polyAppendVertex18.ip";
+connectAttr "polyAppendVertex18.out" "groupParts65.ig";
+connectAttr "groupId217.id" "groupParts65.gi";
+connectAttr "groupParts65.og" "deleteComponent47.ig";
+connectAttr "deleteComponent47.og" "deleteComponent48.ig";
+connectAttr "deleteComponent48.og" "polyExtrudeEdge37.ip";
+connectAttr "polySurface73Shape.wm" "polyExtrudeEdge37.mp";
+connectAttr "polyExtrudeEdge37.out" "polyTweakUV59.ip";
+connectAttr "polyTweak155.out" "polyMergeVert80.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert80.mp";
+connectAttr "polyTweakUV59.out" "polyTweak155.ip";
+connectAttr "polyMergeVert80.out" "polyTweakUV60.ip";
+connectAttr "polyTweak156.out" "polyMergeVert81.ip";
+connectAttr "polySurface73Shape.wm" "polyMergeVert81.mp";
+connectAttr "polyTweakUV60.out" "polyTweak156.ip";
+connectAttr "polyMergeVert81.out" "polyColorPerVertex1.ip";
 connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
 connectAttr "Workspace_Arch.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
@@ -16483,9 +25690,7 @@ connectAttr "groupId14.msg" ":defaultLastHiddenSet.gn" -na;
 connectAttr "groupId29.msg" ":defaultLastHiddenSet.gn" -na;
 connectAttr "groupId127.msg" ":defaultLastHiddenSet.gn" -na;
 connectAttr "groupId133.msg" ":defaultLastHiddenSet.gn" -na;
-connectAttr "groupId159.msg" ":defaultLastHiddenSet.gn" -na;
 connectAttr "|First_Layer|Tower_2|Tower_Shape8.iog.og[2]" ":defaultLastHiddenSet.dsm"
 		 -na;
 connectAttr "Tower_Shape9.iog.og[2]" ":defaultLastHiddenSet.dsm" -na;
-connectAttr "polySurfaceShape47.iog.og[0]" ":defaultLastHiddenSet.dsm" -na;
 // End of Castle.ma
