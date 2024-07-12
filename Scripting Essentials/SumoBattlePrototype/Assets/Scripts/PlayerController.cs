@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Move player based on vertical input
         float verticalInput = Input.GetAxis("Vertical");
 
         rb.AddForce(focalPoint.transform.forward * verticalInput * speed);
