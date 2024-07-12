@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Controls")]
-    [SerializeField] private float speed = 8.0f;
+    [SerializeField] private float speed = 5.0f;
     [SerializeField] private GameObject focalPoint;
     private Rigidbody rb;
 
     [Header("Powerup Settings")]
     public bool hasPowerup = false;
     [SerializeField] private string powerupTag = "Powerup";
-    [SerializeField] private float powerupStrength = 20.0f;
+    [SerializeField] private float powerupStrength = 30.0f;
     [SerializeField] private float powerupDuration = 7.0f;
     [SerializeField] private GameObject powerupIndicator;
     [SerializeField] private float powerupIndicatorXOffset = -0.5f;
@@ -49,6 +49,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private IEnumerator PowerupCountdownRoutine()
+    {
+        yield return new WaitForSeconds(powerupDuration);
+        hasPowerup = false;
+        powerupIndicator.SetActive(false);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         //If the player touches an enemy while powered up
@@ -56,17 +63,10 @@ public class PlayerController : MonoBehaviour
         {
             //Find the direction opposite the player position from enemy position
             Rigidbody enemyRb = collision.gameObject.GetComponent<Rigidbody>();
-            Vector3 forceDirection = (collision.gameObject.transform.position - transform.position);
+            Vector3 forceDirection = (collision.gameObject.transform.position - transform.position).normalized;
 
             //Send enemy flying on impact
             enemyRb.AddForce(forceDirection * powerupStrength, ForceMode.Impulse);
         }
-    }
-
-    IEnumerator PowerupCountdownRoutine()
-    {
-        yield return new WaitForSeconds(powerupDuration);
-        hasPowerup = false;
-        powerupIndicator.SetActive(false);
     }
 }

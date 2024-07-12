@@ -146,5 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9fd0f67e9f262d438c5ca98ed58d79b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
   playerObjectName: Player
+  speed: 5
+  despawnY: -5

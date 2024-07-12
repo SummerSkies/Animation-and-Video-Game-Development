@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float speed = 5.0f;
+    [Header("Player Reference")]
     [SerializeField] private string playerObjectName = "Player";
-
     private GameObject player;
+
+    [Header("Enemy Settings")]
+    [SerializeField] private float speed = 5.0f;
     private Rigidbody enemyRb;
+
+    [Header("Despawn Settings")]
+    [SerializeField] private float despawnY = -5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,5 +30,11 @@ public class Enemy : MonoBehaviour
 
         //Move enemy in player direction
         enemyRb.AddForce(lookDirection * speed);
+
+        //If an enemy falls off screen, destroy enemy
+        if (transform.position.y < despawnY)
+        {
+            Destroy(gameObject);
+        }
     }
 }
