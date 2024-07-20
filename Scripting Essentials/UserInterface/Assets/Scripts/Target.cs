@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+    [SerializeField] private int pointValue; //How many points each object type is worth when destroyed
+    [SerializeField] private ParticleSystem explosionParticle;
+
     //Random Range Bounds
     private float forceUpperBound = 15.0f;
     private float forceLowerBound = 13.0f;
@@ -14,10 +17,12 @@ public class Target : MonoBehaviour
     private float yPosition = -2.0f;
 
     private Rigidbody targetRb;
+    private GameManager gameManager;
 
     void Start()
     {
         targetRb = GetComponent<Rigidbody>();
+        gameManager = GameManager.Instance;
 
         ThrowObject();
     }
@@ -26,6 +31,8 @@ public class Target : MonoBehaviour
     private void OnMouseDown()
     {
         Destroy(gameObject);
+        Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+        gameManager.UpdateScore(pointValue);
     }
 
     //Destroy object if it falls below the screen

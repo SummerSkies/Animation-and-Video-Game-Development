@@ -146,8 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 369a70fa9ef6dd243b0accb48bf9f45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceUpperBound: 18
-  forceLowerBound: 16
-  torqueRange: 10
-  xPosRange: 4
-  yPosition: -2
+  pointValue: 1
+  explosionParticle: {fileID: 7303472089845130122, guid: 6cbc21f5e9162483993a2b84b14d5ac8,
+    type: 3}
