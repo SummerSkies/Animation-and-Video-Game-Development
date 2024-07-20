@@ -2,39 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [Header("Object Spawning")]
     [SerializeField] private List<GameObject> targets;
-    [SerializeField] private float spawnInterval = 1.5f;
+    [SerializeField] private float spawnInterval;
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private GameObject titleScreen;
+    [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private int score = 0;
 
-    public static GameManager Instance { get; private set; }
-
-    private void Awake()
-    {
-        //Only ever have one version of this game object at a time
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-        void Start()
-    {
-        StartCoroutine(SpawnTarget());
-
-        UpdateScore(0);
-    }
+    public bool gameIsActive = true;
 
     //Updates score value and UI text to match
     public void UpdateScore(int scoreToAdd)
@@ -43,10 +26,30 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
+    public void GameOver()
+    {
+        gameOverScreen.gameObject.SetActive(true);
+        gameIsActive = false;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void StartGame(int difficulty)
+    {
+        spawnInterval /= difficulty;
+
+        titleScreen.SetActive(false);
+        StartCoroutine(SpawnTarget());
+        UpdateScore(0);
+    }
+
     //Instantiate random object from the targets list, then wait for spawnInterval
     IEnumerator SpawnTarget()
     {
-        while (true)
+        while (gameIsActive)
         {
             int index = Random.Range(0, targets.Count);
             Instantiate(targets[index]);

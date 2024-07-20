@@ -17,12 +17,13 @@ public class Target : MonoBehaviour
     private float yPosition = -2.0f;
 
     private Rigidbody targetRb;
+    private string gameManagername = "Game Manager";
     private GameManager gameManager;
 
     void Start()
     {
         targetRb = GetComponent<Rigidbody>();
-        gameManager = GameManager.Instance;
+        gameManager = GameObject.Find(gameManagername).GetComponent<GameManager>();
 
         ThrowObject();
     }
@@ -30,15 +31,22 @@ public class Target : MonoBehaviour
     //Destroy object if the player clicks on it
     private void OnMouseDown()
     {
-        Destroy(gameObject);
-        Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
-        gameManager.UpdateScore(pointValue);
+        if (gameManager.gameIsActive)
+        {
+            Destroy(gameObject);
+            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+            gameManager.UpdateScore(pointValue);
+        }
     }
 
     //Destroy object if it falls below the screen
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
+        if (gameObject.CompareTag("Good"))
+        {
+            gameManager.GameOver();
+        }
     }
 
     //When object spawns, throw upward with random force, torque, and position.
