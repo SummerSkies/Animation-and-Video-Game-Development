@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7347925452287426627}
   - component: {fileID: 6486013905084145966}
   - component: {fileID: 7567940459672492667}
-  - component: {fileID: 7898328392096954911}
+  - component: {fileID: 7703320418897202077}
   m_Layer: 0
   m_Name: Bad 1
   m_TagString: Untagged
@@ -156,7 +156,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.42606845, y: 0.60958624, z: 0.44799495}
   m_Center: {x: -0.000000014901161, y: 0.08079566, z: 0.000000052154064}
---- !u!114 &7898328392096954911
+--- !u!114 &7703320418897202077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,10 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 369a70fa9ef6dd243b0accb48bf9f45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upForceUpperBound: 16
-  upForceLowerBound: 12
-  torqueUpperBound: 10
-  torqueLowerBound: -10
-  xPosUpperBound: 4
-  xPosLowerBound: -4
-  yPosition: -6
+  forceUpperBound: 18
+  forceLowerBound: 16
+  torqueRange: 10
+  xPosRange: 4
+  yPosition: -2
