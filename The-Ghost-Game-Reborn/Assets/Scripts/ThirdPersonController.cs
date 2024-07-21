@@ -11,9 +11,22 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField] private float jumpForce = 5.0f; //was 5.0f
     [SerializeField] private float gravity = 12.81f; //was 9.81f
 
+    
+    [Header("Crouch Parameters")]
+    [SerializeField] private float controllerCrouchedHeight; //Character controller height while crouched
+    [SerializeField] private float controllerCrouchedCenter; //Character controller center while crouched
+
+    //Adjusted character controller values
+    private float controllerSkinWidth;
+    private float asjustedHeight;
+    private float adjustedCenter;
+    private float adjustedCrouchedHeight;
+
+    //Object references
     private CharacterController characterController;
-    private Camera mainCamera;
     private PlayerInputManager playerInputManager;
+    private Camera mainCamera;
+
     private Vector3 currentMovement;
     private float rotationLock = 0;
 
@@ -21,12 +34,13 @@ public class ThirdPersonController : MonoBehaviour
     {
         //Access the character controller, camera, and input manager instance
         characterController = GetComponent<CharacterController>();
+        playerInputManager = PlayerInputManager.Instance;
         mainCamera = Camera.main;
     }
 
     private void Start()
     {
-        playerInputManager = PlayerInputManager.Instance;
+        ResizeCharacterController();
     }
 
     private void Update()
@@ -34,6 +48,25 @@ public class ThirdPersonController : MonoBehaviour
         HandleMovement();
         HandleRotation();
         HandleCrouching();
+    }
+
+
+    //Adjusts character controller values to make the character visually appear to be touching the ground without changing skin width values.
+    void ResizeCharacterController()
+    {
+        /// <summary>
+        /// To set up your Character Controller:
+        /// 1. Set the height and radius, and center to be half of height. Make sure your character's y position is 0.
+        /// 2. Subtract skinwidth from the height and then move the center to be half of the skin width up.
+        /// Your character will appear exactly on the ground in playmode without having to reduce skin width.
+        /// For crouching, set the height to height - (skinwidth * 2) and leave the center as is.
+        /// </summary>\
+        
+        controllerSkinWidth = characterController.skinWidth; //should equal 0.08
+
+        asjustedHeight = characterController.height - controllerSkinWidth; //should equal 1.72
+        adjustedCenter = characterController.center.y + (controllerSkinWidth / 2); //should equal 0.25
+        adjustedCrouchedHeight = controllerCrouchedHeight - (controllerSkinWidth * 2);
     }
 
     void HandleMovement()
@@ -97,14 +130,13 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (playerInputManager.CrouchTriggered)
         {
-            gameObject.transform.localScale = new Vector3(1, 0.5f, 1);
-            gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, 0.633f, gameObject.transform.localPosition.z);
-            characterController.height = 1;
+            characterController.height = adjustedCrouchedHeight;
+            characterController.center = new Vector3(characterController.center.x, controllerCrouchedCenter, characterController.center.z);
         }
         else
         {
-            gameObject.transform.localScale = new Vector3(1, 1, 1);
-            characterController.height = 2;
+            characterController.height = asjustedHeight;
+            characterController.center = new Vector3(characterController.center.x, adjustedCenter, characterController.center.z);
         }
     }
 }
