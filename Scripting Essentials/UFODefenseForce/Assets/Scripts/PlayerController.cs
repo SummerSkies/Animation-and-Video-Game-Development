@@ -13,6 +13,11 @@ public class PlayerController : MonoBehaviour
     private float verticalInput;
     private Vector3 currentMovement;
     private CharacterController characterController;
+
+    [Header("Weapons")]
+    [SerializeField] private Transform blaster;
+    [SerializeField] private GameObject projectile;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +28,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleMovement();
+        HandleWeapons();
     }
 
     //Allows user to move player on a 2D axis
@@ -35,5 +41,14 @@ public class PlayerController : MonoBehaviour
         currentMovement.z = verticalInput * speed * Time.deltaTime;
 
         characterController.Move(currentMovement);
+    }
+
+    //Fire a laser when the player presses Space
+    void HandleWeapons()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(projectile, blaster.transform.position, projectile.transform.rotation);
+        }
     }
 }
