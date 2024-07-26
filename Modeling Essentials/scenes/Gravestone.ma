@@ -1,6 +1,6 @@
 //Maya ASCII 2025 scene
 //Name: Gravestone.ma
-//Last modified: Fri, Jul 26, 2024 05:17:09 PM
+//Last modified: Fri, Jul 26, 2024 05:23:16 PM
 //Codeset: 1252
 requires maya "2025";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiStandardSurface"
@@ -13,12 +13,12 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202402161156-0caf8d1269";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19045)";
-fileInfo "UUID" "4548DC85-4DCC-70FB-73D3-179410A24E61";
+fileInfo "UUID" "E405732C-4EAB-3944-8B1E-DB96B3EB456D";
 createNode transform -s -n "persp";
 	rename -uid "5FD80AFB-DE45-74FB-13E4-1AA0F0ABADAB";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -3.4994651094636824 2.4194450213753145 6.2296457115194404 ;
-	setAttr ".r" -type "double3" 167.48418075943374 208.91548787124782 -180.00000000000676 ;
+	setAttr ".t" -type "double3" -3.8915010898840134 1.5549571119249777 6.4665315180093081 ;
+	setAttr ".r" -type "double3" 175.88418075942172 -149.08451212875642 -180.00000000000131 ;
 	setAttr ".rp" -type "double3" -1.7483827159451283e-16 1.1655884772967523e-16 -3.7298831273496072e-15 ;
 	setAttr ".rpt" -type "double3" -1.4055837062106728e-14 -2.3020802073148835e-14 -2.3527117567931897e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
@@ -28,7 +28,7 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".ncp" 0.0032808398950131233;
 	setAttr ".fcp" 328.08398950131232;
 	setAttr ".fd" 0.16404199475065617;
-	setAttr ".coi" 7.7160271788693899;
+	setAttr ".coi" 7.5414145823157606;
 	setAttr ".ow" 0.32808398950131235;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
@@ -587,12 +587,6 @@ createNode script -n "sceneConfigurationScriptNode";
 createNode aiOptions -s -n "defaultArnoldRenderOptions";
 	rename -uid "6AF48AB2-6B41-1466-20EF-5C95509C54F4";
 	addAttr -ci true -sn "ARV_options" -ln "ARV_options" -dt "string";
-	setAttr ".AA_samples" 1;
-	setAttr ".GI_diffuse_samples" 1;
-	setAttr ".GI_specular_samples" 1;
-	setAttr ".GI_transmission_samples" 1;
-	setAttr ".GI_sss_samples" 1;
-	setAttr ".GI_volume_samples" 1;
 	setAttr ".version" -type "string" "5.4.1.2";
 	setAttr ".ARV_options" -type "string" "Test Resolution=100%;Camera=perspShape;Color Management.Gamma=1;Color Management.Exposure=0;Background.BG=BG Color;Background.Color=0 0 0;Background.Image=;Background.Scale=1 1;Background.Offset=0 0;Background.Apply Color Management=1;Foreground.Enable FG=0;Foreground.Image=;Foreground.Scale=1 1;Foreground.Offset=0 0;Foreground.Apply Color Management=1;";
 createNode aiAOVFilter -s -n "defaultArnoldFilter";
