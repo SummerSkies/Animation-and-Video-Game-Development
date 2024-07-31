@@ -7,12 +7,14 @@ public class EnemySpawnManager : MonoBehaviour
     [SerializeField] private List<GameObject> enemyUFOs;
     [SerializeField] private float zSpawnPosition = 23.0f;
     [SerializeField] private float xSpawnRange = 35.0f;
+    [SerializeField] private float spawnDelay = 2.0f;
+    [SerializeField] private float spawnInterval = 1.5f;
 
     private int ufoIndex;
 
-    void Update()
+    void Start()
     {
-        spawnRandomUFO();
+        InvokeRepeating("spawnRandomUFO", spawnDelay, spawnInterval);
     }
 
     void spawnRandomUFO()

@@ -432,7 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a17a72d0b8c6bc49b3335b28e38ecf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 50
   horizontalAxisName: Horizontal
   verticalAxisName: Vertical
   blaster: {fileID: 1717852672}
@@ -913,8 +913,9 @@ GameObject:
   - component: {fileID: 1350056793}
   - component: {fileID: 1350056792}
   - component: {fileID: 1350056791}
-  - component: {fileID: 1350056794}
   - component: {fileID: 1350056795}
+  - component: {fileID: 1350056797}
+  - component: {fileID: 1350056796}
   m_Layer: 0
   m_Name: Lower Bound
   m_TagString: Untagged
@@ -1008,18 +1009,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350056789}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1350056794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350056789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5890248418a55140a50835ded919a0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1350056795
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1047,6 +1036,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1350056796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350056789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5890248418a55140a50835ded919a0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1350056797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350056789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6afa058e9e24c464481e7eaa88fb9949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1366205800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,6 +1375,8 @@ MonoBehaviour:
   - {fileID: 4286646818108678648, guid: 135f84d6e6f1b0547b76a2ae06caceaa, type: 3}
   zSpawnPosition: 23
   xSpawnRange: 35
+  spawnDelay: 2
+  spawnInterval: 1.5
 --- !u!4 &2037317650
 Transform:
   m_ObjectHideFlags: 0

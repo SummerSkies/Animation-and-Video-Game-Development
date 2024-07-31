@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyOnTrigger : MonoBehaviour
+public class DetectTriggers : MonoBehaviour
 {
+    private void Awake()
+    {
+        Time.timeScale = 1.0f;
+    }
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(other.gameObject);
+        Time.timeScale = 0;
     }
 }
