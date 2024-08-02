@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class CollectItem : MonoBehaviour
 {
-    private string playerTag = "Player";
+    [SerializeField] private string pickupTag = "Pickup";
+
+    public int pickupsCollected = 0;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(playerTag))
+        if (other.gameObject.CompareTag(pickupTag))
         {
-            Destroy(gameObject);
+            pickupsCollected++;
+            Destroy(other.gameObject);
         }
     }
 }
