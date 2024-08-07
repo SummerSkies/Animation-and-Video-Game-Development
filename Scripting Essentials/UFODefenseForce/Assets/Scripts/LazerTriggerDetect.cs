@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class LazerTriggerDetect : MonoBehaviour
 {
+    [SerializeField] private ParticleSystem explosionParticle;
+
     private string enemyTag = "Enemy";
     private ScoreManager scoreManager;
 
@@ -14,9 +16,10 @@ public class LazerTriggerDetect : MonoBehaviour
     {
         if (other.gameObject.CompareTag(enemyTag))
         {
+            scoreManager.score++;
+            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
             Destroy(gameObject);
             Destroy(other.gameObject);
-            scoreManager.score++;
         }
     }
 }
