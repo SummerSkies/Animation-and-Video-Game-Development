@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -18,10 +16,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform blaster;
     [SerializeField] private GameObject projectile;
 
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -49,6 +50,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(projectile, blaster.transform.position, projectile.transform.rotation);
+            audioSource.Play();
         }
     }
 }
