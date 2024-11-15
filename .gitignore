@@ -108,6 +108,8 @@ node_modules/
 npm-debug.log*
 yarn.lock
 
+desktop.ini
+
 # Custom ignores
 The-Ghost-Game-Reborn/Assets/SyntyStudios/
 The-Ghost-Game-Reborn/Assets/Plugins/Sirenix/
