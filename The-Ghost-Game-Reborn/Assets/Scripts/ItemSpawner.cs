@@ -21,6 +21,7 @@ public class ItemSpawner : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     void Start()
     {
         collectSpawnLocations();
