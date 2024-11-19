@@ -193,7 +193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 75140939}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.40762758, y: 0.000000042140496, z: 7.5828943e-10, w: 0.91314834}
+  m_LocalRotation: {x: -0.40762758, y: 0.0000000421401, z: 7.582832e-10, w: 0.91314834}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -903,11 +903,11 @@ Transform:
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: -2.4076, y: 1.9307733, z: -6.1016994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1745515980}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &705879251
 GameObject:
@@ -1768,6 +1768,111 @@ MonoBehaviour:
   - {fileID: 4110764536910387614, guid: 46259adcda50c6a49ae120f3c2b55710, type: 3}
   - {fileID: 7228151716224800956, guid: 5fa7d08f305e4db44b997ea0606e3a38, type: 3}
   spawnLocations: []
+--- !u!1 &1236201225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1236201229}
+  - component: {fileID: 1236201228}
+  - component: {fileID: 1236201227}
+  - component: {fileID: 1236201226}
+  m_Layer: 0
+  m_Name: Furnace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1236201226
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236201225}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1236201227
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236201225}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1236201228
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236201225}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1236201229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236201225}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.27, y: 1, z: 3.21}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1257330822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2062,6 +2167,7 @@ GameObject:
   - component: {fileID: 1519616209}
   - component: {fileID: 1519616208}
   - component: {fileID: 1519616207}
+  - component: {fileID: 1519616210}
   m_Layer: 5
   m_Name: Straw Doll Icon
   m_TagString: Untagged
@@ -2140,6 +2246,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519616205}
   m_CullTransparentMesh: 1
+--- !u!114 &1519616210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519616205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ab14533d3b6fe4ca54cfdf6655ece0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: e7de0a20e19b4994f8c91b5b62fdf083, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1519616207}
+        m_TargetAssemblyTypeName: IconBehaviour, Assembly-CSharp
+        m_MethodName: fillIcon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1553916562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2226,6 +2360,7 @@ GameObject:
   - component: {fileID: 1645303429}
   - component: {fileID: 1645303428}
   - component: {fileID: 1645303427}
+  - component: {fileID: 1645303430}
   m_Layer: 5
   m_Name: Dried Rose Icon
   m_TagString: Untagged
@@ -2304,6 +2439,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645303425}
   m_CullTransparentMesh: 1
+--- !u!114 &1645303430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645303425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ab14533d3b6fe4ca54cfdf6655ece0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: a29cf6d3d703967448df7b9214f549e1, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1645303427}
+        m_TargetAssemblyTypeName: IconBehaviour, Assembly-CSharp
+        m_MethodName: fillIcon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1647716584
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,6 +2479,7 @@ GameObject:
   - component: {fileID: 1647716588}
   - component: {fileID: 1647716587}
   - component: {fileID: 1647716586}
+  - component: {fileID: 1647716589}
   m_Layer: 5
   m_Name: Wooden Carving Icon
   m_TagString: Untagged
@@ -2394,6 +2558,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647716584}
   m_CullTransparentMesh: 1
+--- !u!114 &1647716589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647716584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ab14533d3b6fe4ca54cfdf6655ece0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 89cbb8477f42f564c86a3e2d30773f94, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1647716586}
+        m_TargetAssemblyTypeName: IconBehaviour, Assembly-CSharp
+        m_MethodName: fillIcon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1745515979
 GameObject:
   m_ObjectHideFlags: 0
@@ -2435,6 +2627,7 @@ Transform:
   - {fileID: 7195155025922444576}
   - {fileID: 3737298811042832497}
   - {fileID: 554336382}
+  - {fileID: 705507995}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1781700124
@@ -2561,6 +2754,7 @@ GameObject:
   - component: {fileID: 1802486650}
   - component: {fileID: 1802486649}
   - component: {fileID: 1802486648}
+  - component: {fileID: 1802486651}
   m_Layer: 5
   m_Name: Aged Photo Icon
   m_TagString: Untagged
@@ -2639,6 +2833,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802486646}
   m_CullTransparentMesh: 1
+--- !u!114 &1802486651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802486646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ab14533d3b6fe4ca54cfdf6655ece0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: dcb6961404526a5468709422a80152ff, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1802486648}
+        m_TargetAssemblyTypeName: IconBehaviour, Assembly-CSharp
+        m_MethodName: fillIcon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1851575683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2733,6 +2955,7 @@ GameObject:
   - component: {fileID: 1877978286}
   - component: {fileID: 1877978285}
   - component: {fileID: 1877978284}
+  - component: {fileID: 1877978287}
   m_Layer: 5
   m_Name: Jewelry Box Icon
   m_TagString: Untagged
@@ -2811,6 +3034,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877978282}
   m_CullTransparentMesh: 1
+--- !u!114 &1877978287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877978282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ab14533d3b6fe4ca54cfdf6655ece0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 1c680a3c6f9313245b16e28c6a62b737, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1877978284}
+        m_TargetAssemblyTypeName: IconBehaviour, Assembly-CSharp
+        m_MethodName: fillIcon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1891649480
 GameObject:
   m_ObjectHideFlags: 0
@@ -3364,6 +3615,7 @@ GameObject:
   - component: {fileID: 3631891374988748267}
   - component: {fileID: 8233345370187322872}
   - component: {fileID: 465611614078692504}
+  - component: {fileID: 8627252614096898302}
   - component: {fileID: 8627252614096898301}
   m_Layer: 0
   m_Name: Player
@@ -3709,11 +3961,23 @@ MonoBehaviour:
   - {fileID: 6220770956419660229, guid: 76e0e6c963b6edf42ae1bcae5f774056, type: 3}
   - {fileID: 5990700760827384741, guid: eaa2d218fa0803646a7dcc595be463ca, type: 3}
   characterIndex: 4
+--- !u!114 &8627252614096898302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325556103713457953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f1d9255d54d844a962b8971e0899e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnaceTag: Furnace
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 705507995}
   - {fileID: 5198164585653774902}
   - {fileID: 2898682432276653724}
   - {fileID: 2115591404}
@@ -3723,3 +3987,4 @@ SceneRoots:
   - {fileID: 1973868722}
   - {fileID: 1112976270}
   - {fileID: 292877863}
+  - {fileID: 1236201229}

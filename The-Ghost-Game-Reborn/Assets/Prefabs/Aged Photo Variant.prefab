@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: iconName
       value: Aged Photo Icon
       objectReference: {fileID: 0}
+    - target: {fileID: 8972529021204182545, guid: b56a06a97718ad54ba68b72e92bd37ae, type: 3}
+      propertyPath: onCollectEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: dcb6961404526a5468709422a80152ff, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
