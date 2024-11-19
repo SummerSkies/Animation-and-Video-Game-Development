@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 01431508cf4a9974ab19a9687429283f, type: 2}
+    - target: {fileID: 8972529021204182545, guid: b56a06a97718ad54ba68b72e92bd37ae, type: 3}
+      propertyPath: iconName
+      value: Straw Doll Icon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
