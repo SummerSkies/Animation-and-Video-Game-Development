@@ -10,6 +10,7 @@ public class FurnaceBehaviour : MonoBehaviour
     [SerializeField] private string posessedTag = "Posessed";
 
     [Header("Furnace")]
+    [SerializeField] GameEvent allItemsCollectedEvent;
     [SerializeField] private int totalNumberOfItems;
     [SerializeField] private int itemsCollected = 0;
     [SerializeField] private bool isActive = false;
@@ -20,6 +21,7 @@ public class FurnaceBehaviour : MonoBehaviour
         if (itemsCollected == totalNumberOfItems)
         {
             //Furnace becomes interactable
+            allItemsCollectedEvent.Raise();
             isActive = true;
         }
     }

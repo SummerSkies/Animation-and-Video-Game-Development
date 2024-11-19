@@ -193,7 +193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 75140939}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.40762758, y: 0.0000000421401, z: 7.582832e-10, w: 0.91314834}
+  m_LocalRotation: {x: -0.40762758, y: 0.000000042140346, z: 7.582859e-10, w: 0.91314834}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -617,6 +617,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1108869023}
   - {fileID: 1877978283}
   - {fileID: 1802486647}
   - {fileID: 1647716585}
@@ -1707,6 +1708,129 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 66c4eae16ef0ca747959069d54e0ccc6, type: 3}
   m_PrefabInstance: {fileID: 1054024428}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1108869022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1108869023}
+  - component: {fileID: 1108869027}
+  - component: {fileID: 1108869026}
+  - component: {fileID: 1108869025}
+  - component: {fileID: 1108869024}
+  m_Layer: 5
+  m_Name: Announcement Text (Legacy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1108869023
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108869022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 292877863}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -200}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1108869024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108869022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ab14533d3b6fe4ca54cfdf6655ece0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: c84b41326dff8f049a3ae0d2a833940e, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1108869025}
+        m_TargetAssemblyTypeName: AnnouncementTextBehaviour, Assembly-CSharp
+        m_MethodName: announce
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: All items have been collected!
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1108869025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108869022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3402ab4340642d4180b8fd35bb6dbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 0.5
+  standTime: 3
+--- !u!114 &1108869026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108869022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 100
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: Announcement Text
+--- !u!222 &1108869027
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108869022}
+  m_CullTransparentMesh: 1
 --- !u!1 &1112976269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,6 +1904,8 @@ GameObject:
   - component: {fileID: 1236201228}
   - component: {fileID: 1236201227}
   - component: {fileID: 1236201226}
+  - component: {fileID: 1236201231}
+  - component: {fileID: 1236201230}
   m_Layer: 0
   m_Name: Furnace
   m_TagString: Untagged
@@ -1873,6 +1999,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1236201230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236201225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ab14533d3b6fe4ca54cfdf6655ece0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: e9c649285b7e1a54596080da4e62a642, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1236201231}
+        m_TargetAssemblyTypeName: FurnaceBehaviour, Assembly-CSharp
+        m_MethodName: checkCollectedItems
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1236201231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236201225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b692fbd24218ab4d95a5b7522397129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exorcistTag: Exorcist
+  posessedTag: Posessed
+  allItemsCollectedEvent: {fileID: 11400000, guid: c84b41326dff8f049a3ae0d2a833940e, type: 2}
+  totalNumberOfItems: 5
+  itemsCollected: 0
+  isActive: 0
 --- !u!1001 &1257330822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3486,6 +3658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c8d261bb347b5848a826bcd4d81f88d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemCollectedEvent: {fileID: 11400000, guid: e9c649285b7e1a54596080da4e62a642, type: 2}
   itemTag: Item
 --- !u!23 &623655947830974452
 MeshRenderer:
@@ -3615,11 +3788,10 @@ GameObject:
   - component: {fileID: 3631891374988748267}
   - component: {fileID: 8233345370187322872}
   - component: {fileID: 465611614078692504}
-  - component: {fileID: 8627252614096898302}
   - component: {fileID: 8627252614096898301}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Exorcist
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3961,19 +4133,6 @@ MonoBehaviour:
   - {fileID: 6220770956419660229, guid: 76e0e6c963b6edf42ae1bcae5f774056, type: 3}
   - {fileID: 5990700760827384741, guid: eaa2d218fa0803646a7dcc595be463ca, type: 3}
   characterIndex: 4
---- !u!114 &8627252614096898302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325556103713457953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9f1d9255d54d844a962b8971e0899e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  furnaceTag: Furnace
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
