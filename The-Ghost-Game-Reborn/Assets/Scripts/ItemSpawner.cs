@@ -21,8 +21,10 @@ public class ItemSpawner : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     void Start()
     {
+        collectSpawnLocations();
         spawnObjectiveItems();
     }
 
@@ -41,6 +43,16 @@ public class ItemSpawner : MonoBehaviour
 
             //Remove this location from the list copy so it can't be used for more than one object
             avaliableLocations.RemoveAt(locationIndex);
+        }
+    }
+
+    void collectSpawnLocations()
+    {
+        //For each child of this object, save its location as a spawn point, then destroy it
+        foreach (Transform spawnPointMarker in transform)
+        {
+            spawnLocations.Add(spawnPointMarker.position);
+            Destroy(spawnPointMarker.gameObject);
         }
     }
 }
