@@ -150,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 60046338}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -39.5, y: 0.66, z: 15}
+  m_LocalPosition: {x: -30, y: 0.66, z: 15}
   m_LocalScale: {x: 40, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1061,7 +1061,7 @@ Transform:
   m_GameObject: {fileID: 670406769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 39.5, y: 0.66, z: 15}
+  m_LocalPosition: {x: 30, y: 0.66, z: 15}
   m_LocalScale: {x: 40, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3218,7 +3218,7 @@ MonoBehaviour:
   - {fileID: 4093085855139201609, guid: dea6e7d61617aa548b85354d1b5f05d8, type: 3}
   - {fileID: 4286646818108678648, guid: 135f84d6e6f1b0547b76a2ae06caceaa, type: 3}
   zSpawnPosition: 23
-  xSpawnRange: 35
+  xSpawnRange: 25
   spawnDelay: 2
   spawnInterval: 1.5
 --- !u!4 &2037317650
@@ -3250,7 +3250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickup: {fileID: 8867895125842265275, guid: ed29243e08507b3468b8f8091afd0f5b, type: 3}
   zSpawnPosition: 23
-  xSpawnRange: 35
+  xSpawnRange: 25
   spawnDelay: 5
   spawnInterval: 3
 --- !u!1660057539 &9223372036854775807
